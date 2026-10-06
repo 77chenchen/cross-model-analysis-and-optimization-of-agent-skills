@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Verifier admission record",
+  "type": "object",
+  "required": ["task_id", "positive", "negative", "shortcut"],
+  "properties": {
+    "task_id": {"type": "string"},
+    "positive": {"type": "object", "required": ["passed", "description"]},
+    "negative": {"type": "object", "required": ["passed", "description"]},
+    "shortcut": {"type": "object", "required": ["passed", "description"]}
+  }
+}

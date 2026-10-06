@@ -1,0 +1,6 @@
+{
+  "task_id": "pilot_a01_label_parser",
+  "positive": {"passed": true, "description": "A correct first-split, trim-and-filter implementation passes all checks."},
+  "negative": {"passed": false, "description": "The immutable buggy implementation raises on embedded equals and fails."},
+  "shortcut": {"passed": false, "description": "An implementation that only handles visible basic pairs fails the hidden combined case."}
+}

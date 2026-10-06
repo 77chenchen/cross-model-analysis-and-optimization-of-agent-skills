@@ -1,0 +1,50 @@
+# Candidate calibration tasks. Pilot results never enter formal analysis.
+tasks:
+  - id: pilot_a01_label_parser
+    skill: A
+    difficulty: easy
+    source: legacy cr_01 adaptation
+  - id: pilot_a02_config_parser
+    skill: A
+    difficulty: medium
+    source: legacy cr_02 adaptation
+  - id: pilot_a03_record_deduplication
+    skill: A
+    difficulty: medium
+    source: legacy cr_03 adaptation
+  - id: pilot_a04_dependency_order
+    skill: A
+    difficulty: hard
+    source: legacy cr_04 adaptation
+  - id: pilot_a05_version_parser
+    skill: A
+    difficulty: medium
+    source: new
+  - id: pilot_a06_path_safety
+    skill: A
+    difficulty: hard
+    source: new
+  - id: pilot_b01_csv_cleaning
+    skill: B
+    difficulty: easy
+    source: new
+  - id: pilot_b02_json_normalization
+    skill: B
+    difficulty: medium
+    source: new
+  - id: pilot_b03_duplicate_audit
+    skill: B
+    difficulty: medium
+    source: new
+  - id: pilot_b04_multifile_reconciliation
+    skill: B
+    difficulty: hard
+    source: new
+  - id: pilot_b05_date_validation
+    skill: B
+    difficulty: medium
+    source: new
+  - id: pilot_b06_schema_conversion
+    skill: B
+    difficulty: hard
+    source: new

@@ -1,0 +1,11 @@
+Reading additional input from stdin...
+2026-10-06T11:01:24.643407Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-06T11:01:24.643474Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-10-06T11:01:24.717565Z  WARN codex_models_manager::model_info: Unknown model gpt-5.6-luna is used. This will use fallback model metadata.
+2026-10-06T11:01:25.163989Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-06T11:01:25.164045Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-10-06T11:01:27.385071Z ERROR codex_core::tools::router: error=resources/read failed: unknown MCP server 'local'
+2026-10-06T11:01:28.267850Z ERROR codex_core::tools::router: error=`justification` requires an explicit `sandbox_permissions`; use `sandbox_permissions: "require_escalated"` for unsandboxed execution, or omit `justification`.
+2026-10-06T11:01:28.850734Z ERROR codex_core::tools::router: error=approval policy is Never; reject command — you cannot ask for escalated permissions if the approval policy is Never
+2026-10-06T11:01:33.413082Z ERROR codex_core::tools::router: error=write_stdin failed: Unknown process id 1
+2026-10-06T11:01:34.606506Z ERROR codex_core::tools::router: error=apply_patch verification failed: invalid patch: The first line of the patch must be '*** Begin Patch'
