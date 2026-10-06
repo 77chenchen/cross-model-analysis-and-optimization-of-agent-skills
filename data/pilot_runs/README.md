@@ -20,3 +20,8 @@ pilot runner. The external verifier failed; the run is retained with raw
 trajectory, normalized actions, hashes, and verifier output. Its purpose is
 to confirm that failed outcomes are recorded rather than dropped, so it is
 not a cross-model result or a formal comparison.
+
+The retry of A02 on the same model also failed the external verifier. Both
+timestamped run directories are retained; neither is overwritten. In contrast,
+the first B01 run on `qwen3.8:27b` passed all external checks. These are
+single-run calibration observations only.
