@@ -27,3 +27,11 @@ The existing `cr_01`--`cr_04` tasks and all previous GPT-6.1-Sol, GPT-6-Luna, an
 - Verifier sanity protocol created.
 - SoC LaaS CLI connectivity verified for the four non-GPT models.
 - Candidate tasks admitted to `tasks/pilot/` only after verifier sanity checks.
+
+## Current D1 gap
+
+The generic pilot runner, run metadata, and normalized event schema are now
+implemented. A01, A02, and B01 have executable templates and verifier sanity
+fixtures. The remaining pilot candidates, a frozen runtime image/hash, and
+activation/adherence labels still need to be completed before D1 can be
+declared frozen.

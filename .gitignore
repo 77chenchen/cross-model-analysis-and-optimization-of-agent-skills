@@ -2,3 +2,4 @@ __pycache__/
 *.pyc
 .DS_Store
 data/raw/*/workspace/__pycache__/
+data/pilot_runs/*/workspace/__pycache__/

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Normalized trajectory event",
+  "type": "object",
+  "required": ["run_id", "sequence", "event_type", "phase", "raw_event_type"],
+  "properties": {
+    "run_id": {"type": "string"},
+    "sequence": {"type": "integer", "minimum": 0},
+    "event_type": {"enum": ["message", "command", "file_change", "tool", "error", "lifecycle", "other"]},
+    "phase": {"enum": ["inspect", "plan", "implement", "validate", "report", "unknown"]},
+    "raw_event_type": {"type": "string"},
+    "tool_name": {"type": ["string", "null"]},
+    "status": {"type": ["string", "null"]},
+    "command": {"type": ["string", "null"]},
+    "text": {"type": ["string", "null"]}
+  },
+  "additionalProperties": false
+}

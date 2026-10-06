@@ -12,3 +12,11 @@
 | `qwen3-coder-next` | pass | 29 | 8 |
 
 The verifier admission checks were executed separately: a correct fixture passed, while the immutable buggy seed and a shortcut fixture both failed. This single calibration task suggests a useful capability gradient, but task-level evidence requires the remaining pilot pool before setting formal difficulty.
+
+## Runner smoke run
+
+`pilot_a02_config_parser` was run once on `qwen3.5:9b` through the generic
+pilot runner. The external verifier failed; the run is retained with raw
+trajectory, normalized actions, hashes, and verifier output. Its purpose is
+to confirm that failed outcomes are recorded rather than dropped, so it is
+not a cross-model result or a formal comparison.
