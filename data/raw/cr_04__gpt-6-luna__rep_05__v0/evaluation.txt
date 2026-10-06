@@ -1,0 +1,8 @@
+test_includes_dependency_only_nodes_in_lexical_order (test_dependencies.TopologicalOrderTests.test_includes_dependency_only_nodes_in_lexical_order) ... ok
+test_orders_dependencies_before_dependents (test_dependencies.TopologicalOrderTests.test_orders_dependencies_before_dependents) ... ok
+test_rejects_cycles (test_dependencies.TopologicalOrderTests.test_rejects_cycles) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.000s
+
+OK
