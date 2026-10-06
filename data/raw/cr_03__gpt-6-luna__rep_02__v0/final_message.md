@@ -1,0 +1,3 @@
+Updated [records.py](/Users/wangqichen/Documents/Codex/2026-10-06/zon/work/skill-trajectory-benchmark/data/raw/cr_03__gpt-6-luna__rep_02__v0/workspace/records.py) to ignore missing, empty, and non-string IDs; keep the record with the greatest numeric `updated_at`; and preserve the earlier record on ties. The function does not mutate input records.
+
+Verification: `python3 -m unittest -v` passed all 3 tests.

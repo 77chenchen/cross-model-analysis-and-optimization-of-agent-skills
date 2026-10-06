@@ -1,0 +1,6 @@
+Reading additional input from stdin...
+2026-10-06T05:32:05.719158Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-06T05:32:05.719201Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-10-06T05:32:06.190570Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-06T05:32:06.190622Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-10-06T05:32:07.872897Z  WARN codex_core::session::startup_prewarm: startup websocket prewarm setup failed: You’ve hit your usage limit. Upgrade to Pro (https://chatgpt.com/explore/pro), visit https://chatgpt.com/codex/settings/usage to purchase more credits or try again at 2:15 PM.

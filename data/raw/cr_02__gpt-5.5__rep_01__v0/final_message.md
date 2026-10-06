@@ -1,0 +1,3 @@
+Fixed `parse_config` in [config_parser.py](/Users/wangqichen/Documents/Codex/2026-10-06/zon/work/skill-trajectory-benchmark/data/raw/cr_02__gpt-5.5__rep_01__v0/workspace/config_parser.py:1). It now trims keys/values, ignores blank/comment/malformed lines, removes inline comments only when `#` is preceded by whitespace, and preserves `#` inside values like colors.
+
+Verification: `python3 -m unittest -v` passes all 3 tests. `python` was not available on PATH, so I used `python3`.

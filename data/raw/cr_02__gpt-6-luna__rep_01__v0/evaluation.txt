@@ -1,0 +1,8 @@
+test_ignores_empty_or_malformed_entries (test_config_parser.ParseConfigTests.test_ignores_empty_or_malformed_entries) ... ok
+test_inline_comment_requires_preceding_whitespace (test_config_parser.ParseConfigTests.test_inline_comment_requires_preceding_whitespace) ... ok
+test_trims_and_skips_full_line_comments (test_config_parser.ParseConfigTests.test_trims_and_skips_full_line_comments) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.000s
+
+OK

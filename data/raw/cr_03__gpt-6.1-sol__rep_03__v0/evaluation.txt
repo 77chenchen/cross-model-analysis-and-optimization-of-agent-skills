@@ -1,0 +1,8 @@
+test_does_not_mutate_input (test_records.DedupeRecordsTests.test_does_not_mutate_input) ... ok
+test_keeps_most_recent_record_and_input_order (test_records.DedupeRecordsTests.test_keeps_most_recent_record_and_input_order) ... ok
+test_ties_keep_first_and_invalid_ids_are_ignored (test_records.DedupeRecordsTests.test_ties_keep_first_and_invalid_ids_are_ignored) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.000s
+
+OK

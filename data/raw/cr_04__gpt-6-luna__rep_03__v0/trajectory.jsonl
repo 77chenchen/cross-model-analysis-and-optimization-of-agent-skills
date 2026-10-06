@@ -1,0 +1,10 @@
+{"type":"thread.started","thread_id":"01a10fb2-ba43-7272-b22d-3a1a0515cce1"}
+{"type":"item.completed","item":{"id":"item_0","type":"error","message":"Under-development features enabled: respect_system_proxy. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/wangqichen/.codex/config.toml."}}
+{"type":"turn.started"}
+{"type":"error","message":"Reconnecting... 2/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: a46248e1fbe17973-SIN)"}
+{"type":"error","message":"Reconnecting... 3/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: a46248e70b3cce4e-SIN)"}
+{"type":"error","message":"Reconnecting... 4/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: a46248edcb1bb6bd-SIN)"}
+{"type":"error","message":"Reconnecting... 5/5 (unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: a46248fa0d0ca078-SIN)"}
+{"type":"item.completed","item":{"id":"item_1","type":"error","message":"Falling back from WebSockets to HTTPS transport. unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: a4624912586dfe23-SIN"}}
+{"type":"error","message":"You’ve hit your usage limit. Upgrade to Pro (https://chatgpt.com/explore/pro), visit https://chatgpt.com/codex/settings/usage to purchase more credits or try again at 2:15 PM."}
+{"type":"turn.failed","error":{"message":"You’ve hit your usage limit. Upgrade to Pro (https://chatgpt.com/explore/pro), visit https://chatgpt.com/codex/settings/usage to purchase more credits or try again at 2:15 PM."}}
