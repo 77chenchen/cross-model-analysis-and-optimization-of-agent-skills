@@ -13,8 +13,8 @@ RAW = ROOT / "data" / "raw"
 OUTPUT = ROOT / "data" / "results" / "run_summary.csv"
 
 
-def classify(run_dir: Path, event_count: int, evaluation: str, runner_log: str) -> str:
-    if event_count == 0:
+def classify(command_count: int, evaluation: str, runner_log: str) -> str:
+    if command_count == 0:
         if "usage limit" in runner_log.lower():
             return "blocked_usage_limit"
         return "incomplete"
@@ -49,7 +49,7 @@ def main() -> None:
             "model": model,
             "replicate": int(replicate),
             "skill_version": f"v{skill_version}",
-            "status": classify(run_dir, event_count, evaluation, runner_log),
+            "status": classify(commands, evaluation, runner_log),
             "tests_run": int(tests.group(1)) if tests else "",
             "trajectory_events": event_count,
             "command_executions": commands,
