@@ -1,3 +1,0 @@
-Implemented deterministic dependency-first ordering in [dependencies.py](/Users/wangqichen/Documents/Codex/2026-10-06/zon/work/skill-trajectory-benchmark/data/raw/cr_04__gpt-6-luna__rep_04__v0/workspace/dependencies.py). It includes dependency-only nodes, selects available nodes lexically, raises `ValueError` for cycles, and does not mutate the input.
-
-Verification: `python3 -m unittest -v` passed all 3 tests.

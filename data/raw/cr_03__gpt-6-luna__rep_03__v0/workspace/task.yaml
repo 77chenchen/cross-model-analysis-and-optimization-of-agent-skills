@@ -1,4 +1,0 @@
-suite: code_repair
-task_id: cr_03
-difficulty: medium
-oracle: python3 -m unittest -v

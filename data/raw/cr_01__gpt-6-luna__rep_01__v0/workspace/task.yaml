@@ -1,9 +1,0 @@
-suite: code_repair
-task_id: cr_01
-difficulty: easy
-oracle: python -m unittest -v
-primary_metrics:
-  - tests_passed
-  - wall_time_seconds
-  - agent_steps
-  - tool_calls
