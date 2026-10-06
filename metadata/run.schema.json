@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Formal benchmark run metadata",
+  "type": "object",
+  "required": ["run_id", "timestamp", "model_provider", "requested_model_id", "task_id", "task_hash", "split", "skill_id", "skill_version", "skill_hash", "context_limit", "max_steps", "timeout_minutes", "tool_schema_version", "verifier_hash", "harness_git_commit"],
+  "properties": {
+    "run_id": {"type": "string"},
+    "timestamp": {"type": "string"},
+    "model_provider": {"type": "string"},
+    "requested_model_id": {"type": "string"},
+    "returned_model_id": {"type": ["string", "null"]},
+    "model_snapshot": {"type": ["string", "null"]},
+    "temperature": {"type": "number"},
+    "seed": {"type": ["integer", "null"]},
+    "context_limit": {"type": "integer"},
+    "max_steps": {"type": "integer"},
+    "timeout_minutes": {"type": "integer"},
+    "reasoning_setting": {"type": ["string", "null"]},
+    "max_output_tokens": {"type": ["integer", "null"]},
+    "task_id": {"type": "string"},
+    "task_hash": {"type": "string"},
+    "split": {"enum": ["pilot", "dev", "test_in", "test_out"]},
+    "skill_id": {"enum": ["A", "B", "C"]},
+    "skill_version": {"type": "string"},
+    "skill_hash": {"type": "string"},
+    "tool_schema_version": {"type": "integer"},
+    "verifier_hash": {"type": "string"},
+    "harness_git_commit": {"type": "string"},
+    "container_image": {"type": ["string", "null"]}
+  }
+}
