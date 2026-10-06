@@ -1,0 +1,3 @@
+Implemented the repair in [dependencies.py](/Users/wangqichen/Documents/Codex/2026-10-06/zon/work/skill-trajectory-benchmark/data/raw/cr_04__gpt-5.5__rep_01__v0/workspace/dependencies.py:1). `topological_order` now includes dependency-only nodes, returns dependency-first order with lexical tie-breaking, detects cycles with `ValueError`, and avoids mutating the input.
+
+Verification: `python3 -m unittest -v` passes all 3 tests. `python` was unavailable in this environment, so I used `python3`.

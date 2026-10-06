@@ -1,18 +1,5 @@
 Reading additional input from stdin...
-2026-10-06T05:32:13.829489Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
-2026-10-06T05:32:13.829521Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
-2026-10-06T05:32:14.297375Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
-2026-10-06T05:32:14.297431Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
-2026-10-06T05:32:15.919986Z  WARN codex_core::session::startup_prewarm: startup websocket prewarm setup failed: You’ve hit your usage limit. Upgrade to Pro (https://chatgpt.com/explore/pro), visit https://chatgpt.com/codex/settings/usage to purchase more credits or try again at 2:15 PM.
-2026-10-06T05:32:16.928329Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
-2026-10-06T05:32:16.928860Z  WARN codex_core::responses_retry: stream disconnected - retrying sampling request (1/5 in 213ms)... turn_id=01a10fb2-bb8f-7d71-b10b-ee03f16f1aa1 retries=1 max_retries=5 sampling_error=unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: a46248dd4f9b9fe5-SIN
-2026-10-06T05:32:17.494633Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
-2026-10-06T05:32:17.494823Z  WARN codex_core::responses_retry: stream disconnected - retrying sampling request (2/5 in 401ms)... turn_id=01a10fb2-bb8f-7d71-b10b-ee03f16f1aa1 retries=2 max_retries=5 sampling_error=unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: a46248e1aff3d98b-SIN
-2026-10-06T05:32:18.199626Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
-2026-10-06T05:32:18.199734Z  WARN codex_core::responses_retry: stream disconnected - retrying sampling request (3/5 in 818ms)... turn_id=01a10fb2-bb8f-7d71-b10b-ee03f16f1aa1 retries=3 max_retries=5 sampling_error=unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: a46248e62a43ce5e-SIN
-2026-10-06T05:32:19.385438Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
-2026-10-06T05:32:19.385636Z  WARN codex_core::responses_retry: stream disconnected - retrying sampling request (4/5 in 1.469s)... turn_id=01a10fb2-bb8f-7d71-b10b-ee03f16f1aa1 retries=4 max_retries=5 sampling_error=unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: a46248ed39f3fde3-SIN
-2026-10-06T05:32:21.191880Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
-2026-10-06T05:32:21.192336Z  WARN codex_core::responses_retry: stream disconnected - retrying sampling request (5/5 in 3.506s)... turn_id=01a10fb2-bb8f-7d71-b10b-ee03f16f1aa1 retries=5 max_retries=5 sampling_error=unexpected status 403 Forbidden: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: a46248f8b872585b-SIN
-2026-10-06T05:32:25.090215Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 403 Forbidden, url: wss://chatgpt.com/backend-api/codex/responses
-2026-10-06T05:32:25.090357Z  WARN codex_core::client: falling back to HTTP
+2026-10-06T08:06:44.893433Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-06T08:06:44.893494Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-10-06T08:06:45.430797Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-06T08:06:45.430850Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
