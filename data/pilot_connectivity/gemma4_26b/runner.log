@@ -1,0 +1,75 @@
+Reading additional input from stdin...
+2026-10-06T10:54:12.867363Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-06T10:54:12.867394Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-10-06T10:54:12.882248Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.feature.state] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:12.882331Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.thread.started] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:12.964732Z  WARN codex_models_manager::model_info: Unknown model gpt-5.6-luna is used. This will use fallback model metadata.
+2026-10-06T10:54:12.970243Z  WARN codex_otel::events::session_telemetry: metrics duration [codex.startup.phase.duration_ms] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:13.014479Z  WARN codex_otel::events::session_telemetry: metrics duration [codex.startup.phase.duration_ms] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:13.467751Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.shell_snapshot] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:13.541356Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-06T10:54:13.541373Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-10-06T10:54:14.001428Z  WARN codex_otel::events::session_telemetry: metrics histogram [codex.thread.skills.enabled_total] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:14.001504Z  WARN codex_otel::events::session_telemetry: metrics histogram [codex.thread.skills.kept_total] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:14.001530Z  WARN codex_otel::events::session_telemetry: metrics histogram [codex.thread.skills.truncated] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:14.001549Z  WARN codex_otel::events::session_telemetry: metrics histogram [codex.thread.skills.description_truncated_chars] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:14.001589Z  WARN codex_otel::events::session_telemetry: metrics histogram [codex.thread.skills.enabled_total] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:14.001620Z  WARN codex_otel::events::session_telemetry: metrics histogram [codex.thread.skills.kept_total] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:14.001637Z  WARN codex_otel::events::session_telemetry: metrics histogram [codex.thread.skills.truncated] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:14.001651Z  WARN codex_otel::events::session_telemetry: metrics histogram [codex.thread.skills.description_truncated_chars] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:17.654928Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.api_request] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:17.655074Z  WARN codex_otel::events::session_telemetry: metrics duration [codex.api_request.duration_ms] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:17.655615Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.sse_event] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:17.655733Z  WARN codex_otel::events::session_telemetry: metrics duration [codex.sse_event.duration_ms] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:17.655946Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.sse_event] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:17.656025Z  WARN codex_otel::events::session_telemetry: metrics duration [codex.sse_event.duration_ms] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:17.656172Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.sse_event] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:17.656232Z  WARN codex_otel::events::session_telemetry: metrics duration [codex.sse_event.duration_ms] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:17.656346Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.sse_event] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:17.656410Z  WARN codex_otel::events::session_telemetry: metrics duration [codex.sse_event.duration_ms] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:17.656506Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.sse_event] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:17.656589Z  WARN codex_otel::events::session_telemetry: metrics duration [codex.sse_event.duration_ms] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:17.656379Z  WARN codex_otel::events::session_telemetry: metrics duration [codex.turn.ttft.duration_ms] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:17.656723Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.sse_event] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:17.656793Z  WARN codex_otel::events::session_telemetry: metrics duration [codex.sse_event.duration_ms] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:17.656904Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.sse_event] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:17.656973Z  WARN codex_otel::events::session_telemetry: metrics duration [codex.sse_event.duration_ms] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:17.676607Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.tool.unified_exec] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:17.724104Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.tool.call] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:17.724117Z  WARN codex_otel::events::session_telemetry: metrics duration [codex.tool.call.duration_ms] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:21.895361Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.api_request] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:21.895509Z  WARN codex_otel::events::session_telemetry: metrics duration [codex.api_request.duration_ms] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:21.895835Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.sse_event] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:21.895938Z  WARN codex_otel::events::session_telemetry: metrics duration [codex.sse_event.duration_ms] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:21.896219Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.sse_event] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:21.896306Z  WARN codex_otel::events::session_telemetry: metrics duration [codex.sse_event.duration_ms] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:21.896436Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.sse_event] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:21.896496Z  WARN codex_otel::events::session_telemetry: metrics duration [codex.sse_event.duration_ms] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:21.896641Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.sse_event] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:21.896695Z  WARN codex_otel::events::session_telemetry: metrics duration [codex.sse_event.duration_ms] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:21.896799Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.sse_event] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:21.896912Z  WARN codex_otel::events::session_telemetry: metrics duration [codex.sse_event.duration_ms] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:21.897050Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.sse_event] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:21.897109Z  WARN codex_otel::events::session_telemetry: metrics duration [codex.sse_event.duration_ms] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:21.897200Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.sse_event] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:21.897255Z  WARN codex_otel::events::session_telemetry: metrics duration [codex.sse_event.duration_ms] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:21.897389Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.sse_event] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:21.897441Z  WARN codex_otel::events::session_telemetry: metrics duration [codex.sse_event.duration_ms] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:21.897541Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.sse_event] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:21.897611Z  WARN codex_otel::events::session_telemetry: metrics duration [codex.sse_event.duration_ms] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:21.897545Z  WARN codex_otel::events::session_telemetry: metrics duration [codex.turn.ttfm.duration_ms] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:21.909601Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.hooks.run] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:21.909699Z  WARN codex_otel::events::session_telemetry: metrics duration [codex.hooks.run.duration_ms] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:21.909728Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.hooks.run] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:21.909744Z  WARN codex_otel::events::session_telemetry: metrics duration [codex.hooks.run.duration_ms] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:21.912515Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.turn.network_proxy] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:21.912596Z  WARN codex_otel::events::session_telemetry: metrics histogram [codex.turn.tool.call] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:21.912645Z  WARN codex_otel::events::session_telemetry: metrics histogram [codex.turn.token_usage] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:21.912677Z  WARN codex_otel::events::session_telemetry: metrics histogram [codex.turn.token_usage] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:21.912692Z  WARN codex_otel::events::session_telemetry: metrics histogram [codex.turn.token_usage] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:21.912706Z  WARN codex_otel::events::session_telemetry: metrics histogram [codex.turn.token_usage] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:21.912719Z  WARN codex_otel::events::session_telemetry: metrics histogram [codex.turn.token_usage] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:21.912729Z  WARN codex_otel::events::session_telemetry: metrics histogram [codex.turn.token_usage] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:21.912741Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.turn.memory] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:21.912785Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.turn.unified_exec.running_processes] failed: tag value contains invalid characters: gemma4:26b
+2026-10-06T10:54:21.920068Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.conversation.turn.count] failed: tag value contains invalid characters: gemma4:26b

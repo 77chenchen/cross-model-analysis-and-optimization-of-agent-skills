@@ -1,0 +1,75 @@
+Reading additional input from stdin...
+2026-10-06T10:54:12.895114Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-06T10:54:12.895142Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-10-06T10:54:12.897810Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.feature.state] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:12.897917Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.thread.started] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:12.965741Z  WARN codex_models_manager::model_info: Unknown model gpt-5.6-luna is used. This will use fallback model metadata.
+2026-10-06T10:54:12.972359Z  WARN codex_otel::events::session_telemetry: metrics duration [codex.startup.phase.duration_ms] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:12.999831Z  WARN codex_otel::events::session_telemetry: metrics duration [codex.startup.phase.duration_ms] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:13.372841Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-06T10:54:13.372889Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-10-06T10:54:13.491891Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.shell_snapshot] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:13.696865Z  WARN codex_otel::events::session_telemetry: metrics histogram [codex.thread.skills.enabled_total] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:13.696890Z  WARN codex_otel::events::session_telemetry: metrics histogram [codex.thread.skills.kept_total] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:13.696895Z  WARN codex_otel::events::session_telemetry: metrics histogram [codex.thread.skills.truncated] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:13.696900Z  WARN codex_otel::events::session_telemetry: metrics histogram [codex.thread.skills.description_truncated_chars] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:13.696911Z  WARN codex_otel::events::session_telemetry: metrics histogram [codex.thread.skills.enabled_total] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:13.696914Z  WARN codex_otel::events::session_telemetry: metrics histogram [codex.thread.skills.kept_total] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:13.696918Z  WARN codex_otel::events::session_telemetry: metrics histogram [codex.thread.skills.truncated] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:13.696921Z  WARN codex_otel::events::session_telemetry: metrics histogram [codex.thread.skills.description_truncated_chars] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:19.215420Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.api_request] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:19.215574Z  WARN codex_otel::events::session_telemetry: metrics duration [codex.api_request.duration_ms] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:19.215953Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.sse_event] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:19.216068Z  WARN codex_otel::events::session_telemetry: metrics duration [codex.sse_event.duration_ms] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:19.216347Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.sse_event] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:19.216441Z  WARN codex_otel::events::session_telemetry: metrics duration [codex.sse_event.duration_ms] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:19.216636Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.sse_event] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:19.216872Z  WARN codex_otel::events::session_telemetry: metrics duration [codex.sse_event.duration_ms] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:19.217132Z  WARN codex_otel::events::session_telemetry: metrics duration [codex.turn.ttft.duration_ms] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:19.217145Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.sse_event] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:19.217307Z  WARN codex_otel::events::session_telemetry: metrics duration [codex.sse_event.duration_ms] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:19.217378Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.sse_event] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:19.217434Z  WARN codex_otel::events::session_telemetry: metrics duration [codex.sse_event.duration_ms] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:19.217547Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.sse_event] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:19.217600Z  WARN codex_otel::events::session_telemetry: metrics duration [codex.sse_event.duration_ms] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:19.217805Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.sse_event] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:19.217876Z  WARN codex_otel::events::session_telemetry: metrics duration [codex.sse_event.duration_ms] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:19.238653Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.tool.unified_exec] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:19.300228Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.tool.call] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:19.300245Z  WARN codex_otel::events::session_telemetry: metrics duration [codex.tool.call.duration_ms] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:23.405011Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.api_request] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:23.405151Z  WARN codex_otel::events::session_telemetry: metrics duration [codex.api_request.duration_ms] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:23.405420Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.sse_event] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:23.405517Z  WARN codex_otel::events::session_telemetry: metrics duration [codex.sse_event.duration_ms] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:23.405707Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.sse_event] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:23.405778Z  WARN codex_otel::events::session_telemetry: metrics duration [codex.sse_event.duration_ms] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:23.405888Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.sse_event] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:23.405937Z  WARN codex_otel::events::session_telemetry: metrics duration [codex.sse_event.duration_ms] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:23.406085Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.sse_event] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:23.406142Z  WARN codex_otel::events::session_telemetry: metrics duration [codex.sse_event.duration_ms] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:23.406254Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.sse_event] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:23.406313Z  WARN codex_otel::events::session_telemetry: metrics duration [codex.sse_event.duration_ms] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:23.406374Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.sse_event] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:23.406431Z  WARN codex_otel::events::session_telemetry: metrics duration [codex.sse_event.duration_ms] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:23.406567Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.sse_event] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:23.406657Z  WARN codex_otel::events::session_telemetry: metrics duration [codex.sse_event.duration_ms] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:23.406794Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.sse_event] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:23.406845Z  WARN codex_otel::events::session_telemetry: metrics duration [codex.sse_event.duration_ms] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:23.406949Z  WARN codex_otel::events::session_telemetry: metrics duration [codex.turn.ttfm.duration_ms] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:23.406950Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.sse_event] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:23.407101Z  WARN codex_otel::events::session_telemetry: metrics duration [codex.sse_event.duration_ms] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:23.421973Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.hooks.run] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:23.422065Z  WARN codex_otel::events::session_telemetry: metrics duration [codex.hooks.run.duration_ms] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:23.422089Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.hooks.run] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:23.422106Z  WARN codex_otel::events::session_telemetry: metrics duration [codex.hooks.run.duration_ms] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:23.424447Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.turn.network_proxy] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:23.424477Z  WARN codex_otel::events::session_telemetry: metrics histogram [codex.turn.tool.call] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:23.424489Z  WARN codex_otel::events::session_telemetry: metrics histogram [codex.turn.token_usage] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:23.424494Z  WARN codex_otel::events::session_telemetry: metrics histogram [codex.turn.token_usage] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:23.424498Z  WARN codex_otel::events::session_telemetry: metrics histogram [codex.turn.token_usage] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:23.424501Z  WARN codex_otel::events::session_telemetry: metrics histogram [codex.turn.token_usage] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:23.424504Z  WARN codex_otel::events::session_telemetry: metrics histogram [codex.turn.token_usage] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:23.424507Z  WARN codex_otel::events::session_telemetry: metrics histogram [codex.turn.token_usage] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:23.424520Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.turn.memory] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:23.424524Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.turn.unified_exec.running_processes] failed: tag value contains invalid characters: llama3.1:8b
+2026-10-06T10:54:23.431100Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.conversation.turn.count] failed: tag value contains invalid characters: llama3.1:8b
