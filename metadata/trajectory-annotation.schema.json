@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Blinded skill activation and adherence annotation",
+  "type": "object",
+  "required": ["run_id", "annotator_id", "blinded", "skill_activation", "checkpoints"],
+  "properties": {
+    "run_id": {"type": "string"},
+    "annotator_id": {"type": "string"},
+    "blinded": {"type": "boolean"},
+    "skill_activation": {
+      "type": "object",
+      "required": ["label", "evidence_sequence"],
+      "properties": {
+        "label": {"enum": ["explicit", "observable_inferred", "not_observed", "unscorable"]},
+        "evidence_sequence": {"type": ["integer", "null"], "minimum": 0},
+        "note": {"type": ["string", "null"]}
+      },
+      "additionalProperties": false
+    },
+    "checkpoints": {
+      "type": "object",
+      "required": ["inspect", "implement", "validate"],
+      "properties": {
+        "inspect": {"enum": ["observed", "not_observed", "unscorable"]},
+        "implement": {"enum": ["observed", "not_observed", "unscorable"]},
+        "validate": {"enum": ["observed", "not_observed", "unscorable"]}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
