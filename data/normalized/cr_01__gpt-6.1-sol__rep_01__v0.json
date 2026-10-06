@@ -7,7 +7,7 @@
   "tests_passed": 4,
   "tests_total": 4,
   "trajectory_events": 16,
-  "command_executions": 8,
+  "command_executions": 4,
   "final_verification": "python3 -m unittest discover -v",
   "failure_label": null
 }

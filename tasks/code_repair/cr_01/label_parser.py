@@ -4,10 +4,6 @@ def parse_labels(text: str) -> dict[str, str]:
     for item in text.split(";"):
         if "=" not in item:
             continue
-        key, value = item.split("=", 1)
-        key = key.strip()
-        value = value.strip()
-        if not key or not value:
-            continue
+        key, value = item.split("=")
         labels[key] = value
     return labels

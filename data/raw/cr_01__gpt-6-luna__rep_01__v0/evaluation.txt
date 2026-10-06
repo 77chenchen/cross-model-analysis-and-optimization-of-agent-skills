@@ -1,0 +1,9 @@
+test_basic_pairs (test_label_parser.ParseLabelsTests.test_basic_pairs) ... ok
+test_ignores_malformed_pairs (test_label_parser.ParseLabelsTests.test_ignores_malformed_pairs) ... ok
+test_keeps_equals_in_value (test_label_parser.ParseLabelsTests.test_keeps_equals_in_value) ... ok
+test_trims_whitespace (test_label_parser.ParseLabelsTests.test_trims_whitespace) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.000s
+
+OK

@@ -1,0 +1,3 @@
+Updated [label_parser.py](/Users/wangqichen/Documents/Codex/2026-10-06/zon/work/skill-trajectory-benchmark/data/raw/cr_01__gpt-6-luna__rep_01__v0/workspace/label_parser.py) to trim keys and values, preserve extra `=` characters in values, and ignore malformed or empty pairs. The public function signature is unchanged.
+
+Verification: `python3 -m unittest discover -v` passed all 4 tests. `python` was unavailable, so I used `python3`.

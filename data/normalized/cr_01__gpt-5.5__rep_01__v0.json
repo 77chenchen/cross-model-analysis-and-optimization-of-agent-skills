@@ -1,0 +1,17 @@
+{
+  "run_id": "cr_01__gpt-5.5__rep_01__v0",
+  "model": "gpt-5.5",
+  "skill_version": "code_repair_v0",
+  "task_id": "cr_01",
+  "status": "completed",
+  "tests_passed": 4,
+  "tests_total": 4,
+  "trajectory_events": 28,
+  "command_executions": 8,
+  "final_verification": "python3 -m unittest -v",
+  "failure_label": null,
+  "trajectory_notes": [
+    "Repeated workspace discovery and file reads.",
+    "Attempted unavailable `python` twice before recovering with `python3`."
+  ]
+}
