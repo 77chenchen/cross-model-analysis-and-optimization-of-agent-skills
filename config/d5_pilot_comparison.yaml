@@ -1,0 +1,19 @@
+experiment_id: d5-qwen35-skill-v0-v1-pilot
+purpose: calibration-only paired comparison of D4 interventions
+model_provider: soclaas
+requested_model_id: qwen3.5:9b
+runner_commit: recorded per run in metadata.harness_git_commit
+repetitions_per_condition: 1
+conditions: [v0, v1]
+tasks:
+  - pilot_a03_record_deduplication
+  - pilot_a05_version_parser
+  - pilot_b03_duplicate_audit
+  - pilot_b05_date_validation
+fixed_controls:
+  context_limit: 65536
+  max_steps: 40
+  timeout_minutes: 20
+  temperature: 0
+  fresh_workspace: true
+analysis_boundary: Pilot calibration only; no formal or causal claim.
