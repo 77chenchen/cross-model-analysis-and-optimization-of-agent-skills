@@ -1,0 +1,15 @@
+{
+  "run_id": "pilot_a03_record_deduplication__qwen3.5_9b__20261007T022548Z",
+  "annotator_id": "d3-codex-agent",
+  "blinded": false,
+  "skill_activation": {
+    "label": "observable_inferred",
+    "evidence_sequence": 5,
+    "note": "No message states or enumerates the Skill A procedure (final agent_message at seq27 is empty), so not explicit. The procedure is evidenced in actions: read task (seq5), inspect code (seq7), modify the file (seq9-22), and attempt candidate-side validation (seq23-26). First evidence is the initial read of task.md at seq5. Non-blinded agent annotation; calibration only."
+  },
+  "checkpoints": {
+    "inspect": "observed",
+    "implement": "observed",
+    "validate": "observed"
+  }
+}

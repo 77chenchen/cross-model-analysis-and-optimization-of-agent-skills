@@ -1,0 +1,15 @@
+{
+  "run_id": "pilot_b05_date_validation__qwen3.5_9b__20261007T023106Z",
+  "annotator_id": "d3-codex-agent",
+  "blinded": false,
+  "skill_activation": {
+    "label": "not_observed",
+    "evidence_sequence": null,
+    "note": "The agent only listed files (seq5), read task.md (seq7), and read dates.py (seq9), then emitted an empty agent_message (seq11) and ended (seq12). No transformation, artifact, or validation was evidenced. A single generic file-inspection step is not usable evidence of following the multi-step Skill B procedure (inspect -> transform -> generate -> validate). Non-blinded agent annotation; calibration only."
+  },
+  "checkpoints": {
+    "inspect": "observed",
+    "implement": "not_observed",
+    "validate": "not_observed"
+  }
+}

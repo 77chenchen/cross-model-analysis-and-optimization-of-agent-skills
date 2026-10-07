@@ -1,0 +1,15 @@
+{
+  "run_id": "pilot_a05_version_parser__qwen3.5_9b__20261007T022857Z",
+  "annotator_id": "d3-codex-agent",
+  "blinded": false,
+  "skill_activation": {
+    "label": "observable_inferred",
+    "evidence_sequence": 7,
+    "note": "No message states the Skill A procedure (final agent_message at seq17 is empty), so not explicit. The procedure is partially evidenced in actions: read task (seq7), inspect code (seq9), attempt modification (seq11-14). No validation command was attempted, so the procedure's validate step is absent. First evidence is the read of task.md at seq7. Non-blinded agent annotation; calibration only."
+  },
+  "checkpoints": {
+    "inspect": "observed",
+    "implement": "observed",
+    "validate": "not_observed"
+  }
+}

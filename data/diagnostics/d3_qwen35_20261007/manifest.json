@@ -1,0 +1,71 @@
+{
+  "diagnostic_id": "d3_qwen35_20261007",
+  "created_on": "2026-10-07",
+  "scope": "calibration_only",
+  "source_commit": "db37c39",
+  "model_requested_id": "qwen3.5:9b",
+  "provider": "soclaas",
+  "annotator_id": "d3-codex-agent",
+  "blinded": false,
+  "note": "Non-blinded agent diagnosis of four D2 pilot runs. Calibration data only; no cross-model ranking, causal, or formal dev/test claim.",
+  "runs": [
+    {
+      "run_id": "pilot_a03_record_deduplication__qwen3.5_9b__20261007T022548Z",
+      "task_id": "pilot_a03_record_deduplication",
+      "skill_id": "A",
+      "raw_path": "data/pilot_runs/pilot_a03_record_deduplication__qwen3.5_9b__20261007T022548Z",
+      "verifier_outcome": "fail",
+      "verifier_checks": {
+        "normalization": true,
+        "no_mutation": false
+      },
+      "direct_failure_cause": "TypeError on None record: candidate did not guard non-mapping input and appended original dict by reference (no_mutation failed)",
+      "annotation_file": "annotation_pilot_a03_record_deduplication.json"
+    },
+    {
+      "run_id": "pilot_a05_version_parser__qwen3.5_9b__20261007T022857Z",
+      "task_id": "pilot_a05_version_parser",
+      "skill_id": "A",
+      "raw_path": "data/pilot_runs/pilot_a05_version_parser__qwen3.5_9b__20261007T022857Z",
+      "verifier_outcome": "fail",
+      "verifier_checks": {},
+      "direct_failure_cause": "IndentationError importing candidate: second heredoc write left a 3-line uncompilable stub; no validation run",
+      "annotation_file": "annotation_pilot_a05_version_parser.json"
+    },
+    {
+      "run_id": "pilot_b03_duplicate_audit__qwen3.5_9b__20261007T023034Z",
+      "task_id": "pilot_b03_duplicate_audit",
+      "skill_id": "B",
+      "raw_path": "data/pilot_runs/pilot_b03_duplicate_audit__qwen3.5_9b__20261007T023034Z",
+      "verifier_outcome": "fail",
+      "verifier_checks": {
+        "duplicates": false,
+        "invalid": true
+      },
+      "direct_failure_cause": "Workspace audit.py byte-identical to frozen buggy seed (returns []); run ended after inspection with empty final message",
+      "annotation_file": "annotation_pilot_b03_duplicate_audit.json"
+    },
+    {
+      "run_id": "pilot_b05_date_validation__qwen3.5_9b__20261007T023106Z",
+      "task_id": "pilot_b05_date_validation",
+      "skill_id": "B",
+      "raw_path": "data/pilot_runs/pilot_b05_date_validation__qwen3.5_9b__20261007T023106Z",
+      "verifier_outcome": "fail",
+      "verifier_checks": {
+        "dates": false
+      },
+      "direct_failure_cause": "Workspace dates.py byte-identical to frozen buggy seed (returns list(values) unfiltered); run ended after inspection with empty final message",
+      "annotation_file": "annotation_pilot_b05_date_validation.json"
+    }
+  ],
+  "artifacts": {
+    "annotations": [
+      "annotation_pilot_a03_record_deduplication.json",
+      "annotation_pilot_a05_version_parser.json",
+      "annotation_pilot_b03_duplicate_audit.json",
+      "annotation_pilot_b05_date_validation.json"
+    ],
+    "diagnosis": "diagnosis.md",
+    "manifest": "manifest.json"
+  }
+}
