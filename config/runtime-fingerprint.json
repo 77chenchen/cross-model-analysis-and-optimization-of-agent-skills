@@ -1,0 +1,14 @@
+{
+  "captured_at": "2026-10-07",
+  "codex_cli": "0.160.1",
+  "python": "3.14.0",
+  "control_hashes_sha256": {
+    "config/formal-benchmark.yaml": "11440a136c8e77990c78a5abdb3787e8176ad7dbcd8fa74b181e4b4444fa0d8f",
+    "harness/run_pilot.sh": "0369ea93c8073ce795d6007e2d0432812f05340843b3553888028d8686ed703c",
+    "harness/record_run.py": "276fb98c3dd1b9b7431db1ae61f786b33678737f65a1bf6398c53b1994ad6e73",
+    "metadata/run.schema.json": "4ab9321bd8f388209305296097c3bb39ab2a8ec9243423a0fa8b791676752804",
+    "metadata/trajectory-event.schema.json": "74e22f13079f7fde30b0f8b0aad7c1b5d39359201643f9ffe52ecaf84a4d355a",
+    "metadata/trajectory-annotation.schema.json": "6685d2c52ed700ef0f71e4692bde5358d65cfa9e6628305e3d50666f96fda0f2"
+  },
+  "credential_policy": "SoC credentials are inherited only from the local login shell and are never recorded in repository files."
+}

@@ -1,0 +1,19 @@
+{
+  "protocol": "Each task must have a positive fixture that passes, an immutable buggy template that fails, and a shortcut fixture that fails its external verifier.",
+  "admitted_on": "2026-10-07",
+  "tasks": [
+    {"id": "pilot_a01_label_parser", "fixture_prefix": "pilot_a01"},
+    {"id": "pilot_a02_config_parser", "fixture_prefix": "pilot_a02"},
+    {"id": "pilot_a03_record_deduplication", "fixture_prefix": "pilot_a03"},
+    {"id": "pilot_a04_dependency_order", "fixture_prefix": "pilot_a04"},
+    {"id": "pilot_a05_version_parser", "fixture_prefix": "pilot_a05"},
+    {"id": "pilot_a06_path_safety", "fixture_prefix": "pilot_a06"},
+    {"id": "pilot_b01_csv_cleaning", "fixture_prefix": "pilot_b01"},
+    {"id": "pilot_b02_json_normalization", "fixture_prefix": "pilot_b02"},
+    {"id": "pilot_b03_duplicate_audit", "fixture_prefix": "pilot_b03"},
+    {"id": "pilot_b04_multifile_reconciliation", "fixture_prefix": "pilot_b04"},
+    {"id": "pilot_b05_date_validation", "fixture_prefix": "pilot_b05"},
+    {"id": "pilot_b06_schema_conversion", "fixture_prefix": "pilot_b06"}
+  ],
+  "result": "all_admitted"
+}
