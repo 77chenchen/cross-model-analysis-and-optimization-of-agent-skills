@@ -19,12 +19,21 @@ case "$provider" in gpt|soclaas) ;; *) echo "provider must be gpt or soclaas" >&
 
 skill_id="${task_id:6:1}"
 skill_id="$(printf '%s' "$skill_id" | tr '[:lower:]' '[:upper:]')"
+skill_file="$root/skills/$skill_id/v0.md"
+[ -f "$skill_file" ] || { echo "missing skill protocol: $skill_file" >&2; exit 66; }
 safe_model="${model//[^A-Za-z0-9._-]/_}"
 run_dir="$root/data/pilot_runs/${task_id}__${safe_model}__$(date -u +%Y%m%dT%H%M%SZ)"
 workspace="$run_dir/workspace"
 mkdir -p "$workspace"
 cp -R "$task_dir/." "$workspace/"
-prompt="Read task.md, fix the implementation, and validate your result. Do not create or modify benchmark-owned verifier files."
+skill_text="$(cat "$skill_file")"
+prompt="You have been supplied the following benchmark skill protocol. Follow it as operational guidance, then complete the task in task.md.
+
+--- skill protocol begin ---
+$skill_text
+--- skill protocol end ---
+
+Read task.md, fix the implementation, and validate your result. Do not create or modify benchmark-owned verifier files."
 
 if [ "$provider" = "soclaas" ]; then
   zsh -lic "cd '$root' && codex exec --profile soclaas --model '$model' --sandbox workspace-write --skip-git-repo-check --json --output-last-message '$run_dir/final.md' --cd '$workspace' '$prompt' > '$run_dir/trajectory.jsonl'"
