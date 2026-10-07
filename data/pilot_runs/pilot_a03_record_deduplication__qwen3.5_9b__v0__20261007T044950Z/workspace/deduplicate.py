@@ -1,0 +1,1 @@
+def deduplicate_records(records):    """Keep one record for each identifier."""    seen=set()for r in records:        if"id"notinr orrisNone:\ continuetry:o=str(r["id"])except ExceptionasE:returnresult#skipnon-mapping/blankt=o.strip()ifnott:continuekey=t.lower()        if key not in seen:result.append(dict(r))else:key=seen.add(key)return result

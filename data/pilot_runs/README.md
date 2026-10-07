@@ -26,6 +26,15 @@ timestamped run directories are retained; neither is overwritten. In contrast,
 the first B01 run on `qwen3.8:27b` passed all external checks. These are
 single-run calibration observations only.
 
+## D5 paired pilot comparison (2026-10-07)
+
+Eight fresh qwen3.5:9b calibration runs compared frozen Skill A/B `v0` and
+the D4 `v1` intervention across A03, A05, B03, and B05. Every external
+verifier failed (v0: 0/4; v1: 0/4), and every trajectory ended normally.
+The matrix TSV and constrained descriptive summary are retained in
+`data/diagnostics/d5_qwen35_20261007/`; this is not a formal result or an
+efficacy conclusion.
+
 ## D2 weak-model pilot batch (2026-10-07)
 
 Four single runs on exact SoC model ID `qwen3.5:9b` (provider `soclaas`),

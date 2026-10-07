@@ -1,0 +1,20 @@
+{
+  "experiment_id": "d5-qwen35-skill-v0-v1-pilot",
+  "model": "qwen3.5:9b",
+  "provider": "soclaas",
+  "conditions": ["v0", "v1"],
+  "repetitions_per_condition": 1,
+  "matrix_tsv": "data/pilot_runs/d5_qwen35_matrix_20261007T044950Z.tsv",
+  "all_runs_ended": "turn.completed",
+  "all_runner_exits": 1,
+  "runs": [
+    {"task_id": "pilot_a03_record_deduplication", "skill_version": "v0", "passed": false, "actions": 33},
+    {"task_id": "pilot_a03_record_deduplication", "skill_version": "v1", "passed": false, "actions": 8},
+    {"task_id": "pilot_a05_version_parser", "skill_version": "v0", "passed": false, "actions": 13},
+    {"task_id": "pilot_a05_version_parser", "skill_version": "v1", "passed": false, "actions": 20},
+    {"task_id": "pilot_b03_duplicate_audit", "skill_version": "v0", "passed": false, "actions": 37},
+    {"task_id": "pilot_b03_duplicate_audit", "skill_version": "v1", "passed": false, "actions": 15},
+    {"task_id": "pilot_b05_date_validation", "skill_version": "v0", "passed": false, "actions": 21},
+    {"task_id": "pilot_b05_date_validation", "skill_version": "v1", "passed": false, "actions": 9}
+  ]
+}
