@@ -1,0 +1,1 @@
+{"cases": [{"name": "normal", "input": {"op": "migrate", "rows": [{"name": "Ada Lovelace", "status": "active"}]}, "expected": [{"id": "ada-lovelace", "name": "Ada Lovelace", "enabled": true}]}, {"name": "hidden_boundary", "input": {"op": "migrate", "rows": [{"name": " ", "status": "active"}]}, "expected": []}]}

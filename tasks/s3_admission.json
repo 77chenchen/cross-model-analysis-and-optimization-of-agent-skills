@@ -1,0 +1,618 @@
+{
+  "stage": "S3",
+  "task_count": 18,
+  "all_accepted": true,
+  "tasks": [
+    {
+      "id": "test_in_a07_slug",
+      "split": "test_in",
+      "accepted": true,
+      "checks": {
+        "positive": {
+          "exit_code": 0,
+          "passed": true,
+          "checks": {
+            "normal": true,
+            "hidden_boundary": true
+          },
+          "error": null
+        },
+        "negative_template": {
+          "exit_code": 1,
+          "passed": false,
+          "checks": {
+            "normal": false,
+            "hidden_boundary": false
+          },
+          "error": null
+        },
+        "shortcut": {
+          "exit_code": 1,
+          "passed": false,
+          "checks": {
+            "normal": false,
+            "hidden_boundary": false
+          },
+          "error": null
+        }
+      }
+    },
+    {
+      "id": "test_in_a08_clamp",
+      "split": "test_in",
+      "accepted": true,
+      "checks": {
+        "positive": {
+          "exit_code": 0,
+          "passed": true,
+          "checks": {
+            "normal": true,
+            "hidden_boundary": true
+          },
+          "error": null
+        },
+        "negative_template": {
+          "exit_code": 1,
+          "passed": false,
+          "checks": {
+            "normal": false,
+            "hidden_boundary": false
+          },
+          "error": null
+        },
+        "shortcut": {
+          "exit_code": 1,
+          "passed": false,
+          "checks": {
+            "normal": false,
+            "hidden_boundary": false
+          },
+          "error": null
+        }
+      }
+    },
+    {
+      "id": "test_in_a09_header",
+      "split": "test_in",
+      "accepted": true,
+      "checks": {
+        "positive": {
+          "exit_code": 0,
+          "passed": true,
+          "checks": {
+            "normal": true,
+            "hidden_boundary": true
+          },
+          "error": null
+        },
+        "negative_template": {
+          "exit_code": 1,
+          "passed": false,
+          "checks": {
+            "normal": false,
+            "hidden_boundary": false
+          },
+          "error": null
+        },
+        "shortcut": {
+          "exit_code": 1,
+          "passed": false,
+          "checks": {
+            "normal": false,
+            "hidden_boundary": true
+          },
+          "error": null
+        }
+      }
+    },
+    {
+      "id": "test_in_a10_extension",
+      "split": "test_in",
+      "accepted": true,
+      "checks": {
+        "positive": {
+          "exit_code": 0,
+          "passed": true,
+          "checks": {
+            "normal": true,
+            "hidden_boundary": true
+          },
+          "error": null
+        },
+        "negative_template": {
+          "exit_code": 1,
+          "passed": false,
+          "checks": {
+            "normal": false,
+            "hidden_boundary": false
+          },
+          "error": null
+        },
+        "shortcut": {
+          "exit_code": 1,
+          "passed": false,
+          "checks": {
+            "normal": false,
+            "hidden_boundary": false
+          },
+          "error": null
+        }
+      }
+    },
+    {
+      "id": "test_in_a11_duration",
+      "split": "test_in",
+      "accepted": true,
+      "checks": {
+        "positive": {
+          "exit_code": 0,
+          "passed": true,
+          "checks": {
+            "normal": true,
+            "hidden_boundary": true
+          },
+          "error": null
+        },
+        "negative_template": {
+          "exit_code": 1,
+          "passed": false,
+          "checks": {
+            "normal": false,
+            "hidden_boundary": false
+          },
+          "error": null
+        },
+        "shortcut": {
+          "exit_code": 1,
+          "passed": false,
+          "checks": {
+            "normal": false,
+            "hidden_boundary": true
+          },
+          "error": null
+        }
+      }
+    },
+    {
+      "id": "test_in_a12_enum",
+      "split": "test_in",
+      "accepted": true,
+      "checks": {
+        "positive": {
+          "exit_code": 0,
+          "passed": true,
+          "checks": {
+            "normal": true,
+            "hidden_boundary": true
+          },
+          "error": null
+        },
+        "negative_template": {
+          "exit_code": 1,
+          "passed": false,
+          "checks": {
+            "normal": false,
+            "hidden_boundary": true
+          },
+          "error": null
+        },
+        "shortcut": {
+          "exit_code": 1,
+          "passed": false,
+          "checks": {
+            "normal": false,
+            "hidden_boundary": true
+          },
+          "error": null
+        }
+      }
+    },
+    {
+      "id": "test_in_b07_tags",
+      "split": "test_in",
+      "accepted": true,
+      "checks": {
+        "positive": {
+          "exit_code": 0,
+          "passed": true,
+          "checks": {
+            "normal": true,
+            "hidden_boundary": true
+          },
+          "error": null
+        },
+        "negative_template": {
+          "exit_code": 1,
+          "passed": false,
+          "checks": {
+            "normal": false,
+            "hidden_boundary": false
+          },
+          "error": null
+        },
+        "shortcut": {
+          "exit_code": 1,
+          "passed": false,
+          "checks": {
+            "normal": false,
+            "hidden_boundary": false
+          },
+          "error": null
+        }
+      }
+    },
+    {
+      "id": "test_in_b08_total",
+      "split": "test_in",
+      "accepted": true,
+      "checks": {
+        "positive": {
+          "exit_code": 0,
+          "passed": true,
+          "checks": {
+            "normal": true,
+            "hidden_boundary": true
+          },
+          "error": null
+        },
+        "negative_template": {
+          "exit_code": 1,
+          "passed": false,
+          "checks": {
+            "normal": true
+          },
+          "error": "TypeError(\"unsupported operand type(s) for +: 'int' and 'str'\")"
+        },
+        "shortcut": {
+          "exit_code": 1,
+          "passed": false,
+          "checks": {
+            "normal": false,
+            "hidden_boundary": false
+          },
+          "error": null
+        }
+      }
+    },
+    {
+      "id": "test_in_b09_phone",
+      "split": "test_in",
+      "accepted": true,
+      "checks": {
+        "positive": {
+          "exit_code": 0,
+          "passed": true,
+          "checks": {
+            "normal": true,
+            "hidden_boundary": true
+          },
+          "error": null
+        },
+        "negative_template": {
+          "exit_code": 1,
+          "passed": false,
+          "checks": {
+            "normal": false,
+            "hidden_boundary": false
+          },
+          "error": null
+        },
+        "shortcut": {
+          "exit_code": 1,
+          "passed": false,
+          "checks": {
+            "normal": false,
+            "hidden_boundary": true
+          },
+          "error": null
+        }
+      }
+    },
+    {
+      "id": "test_in_b10_cents",
+      "split": "test_in",
+      "accepted": true,
+      "checks": {
+        "positive": {
+          "exit_code": 0,
+          "passed": true,
+          "checks": {
+            "normal": true,
+            "hidden_boundary": true
+          },
+          "error": null
+        },
+        "negative_template": {
+          "exit_code": 1,
+          "passed": false,
+          "checks": {
+            "normal": true,
+            "hidden_boundary": false
+          },
+          "error": null
+        },
+        "shortcut": {
+          "exit_code": 1,
+          "passed": false,
+          "checks": {
+            "normal": false,
+            "hidden_boundary": true
+          },
+          "error": null
+        }
+      }
+    },
+    {
+      "id": "test_in_b11_bucket",
+      "split": "test_in",
+      "accepted": true,
+      "checks": {
+        "positive": {
+          "exit_code": 0,
+          "passed": true,
+          "checks": {
+            "normal": true,
+            "hidden_boundary": true
+          },
+          "error": null
+        },
+        "negative_template": {
+          "exit_code": 1,
+          "passed": false,
+          "checks": {
+            "normal": false,
+            "hidden_boundary": false
+          },
+          "error": null
+        },
+        "shortcut": {
+          "exit_code": 1,
+          "passed": false,
+          "checks": {
+            "normal": false,
+            "hidden_boundary": true
+          },
+          "error": null
+        }
+      }
+    },
+    {
+      "id": "test_in_b12_difference",
+      "split": "test_in",
+      "accepted": true,
+      "checks": {
+        "positive": {
+          "exit_code": 0,
+          "passed": true,
+          "checks": {
+            "normal": true,
+            "hidden_boundary": true
+          },
+          "error": null
+        },
+        "negative_template": {
+          "exit_code": 1,
+          "passed": false,
+          "checks": {
+            "normal": false,
+            "hidden_boundary": false
+          },
+          "error": null
+        },
+        "shortcut": {
+          "exit_code": 1,
+          "passed": false,
+          "checks": {
+            "normal": false,
+            "hidden_boundary": false
+          },
+          "error": null
+        }
+      }
+    },
+    {
+      "id": "test_out_c01_inventory",
+      "split": "test_out",
+      "accepted": true,
+      "checks": {
+        "positive": {
+          "exit_code": 0,
+          "passed": true,
+          "checks": {
+            "normal": true,
+            "hidden_boundary": true
+          },
+          "error": null
+        },
+        "negative_template": {
+          "exit_code": 1,
+          "passed": false,
+          "checks": {
+            "normal": false,
+            "hidden_boundary": true
+          },
+          "error": null
+        },
+        "shortcut": {
+          "exit_code": 1,
+          "passed": false,
+          "checks": {
+            "normal": false,
+            "hidden_boundary": false
+          },
+          "error": null
+        }
+      }
+    },
+    {
+      "id": "test_out_c02_sessions",
+      "split": "test_out",
+      "accepted": true,
+      "checks": {
+        "positive": {
+          "exit_code": 0,
+          "passed": true,
+          "checks": {
+            "normal": true,
+            "hidden_boundary": true
+          },
+          "error": null
+        },
+        "negative_template": {
+          "exit_code": 1,
+          "passed": false,
+          "checks": {
+            "normal": false,
+            "hidden_boundary": true
+          },
+          "error": null
+        },
+        "shortcut": {
+          "exit_code": 1,
+          "passed": false,
+          "checks": {
+            "normal": false,
+            "hidden_boundary": false
+          },
+          "error": null
+        }
+      }
+    },
+    {
+      "id": "test_out_c03_consolidate",
+      "split": "test_out",
+      "accepted": true,
+      "checks": {
+        "positive": {
+          "exit_code": 0,
+          "passed": true,
+          "checks": {
+            "normal": true,
+            "hidden_boundary": true
+          },
+          "error": null
+        },
+        "negative_template": {
+          "exit_code": 1,
+          "passed": false,
+          "checks": {
+            "normal": false,
+            "hidden_boundary": true
+          },
+          "error": null
+        },
+        "shortcut": {
+          "exit_code": 1,
+          "passed": false,
+          "checks": {
+            "normal": false,
+            "hidden_boundary": false
+          },
+          "error": null
+        }
+      }
+    },
+    {
+      "id": "test_out_c04_policy",
+      "split": "test_out",
+      "accepted": true,
+      "checks": {
+        "positive": {
+          "exit_code": 0,
+          "passed": true,
+          "checks": {
+            "normal": true,
+            "hidden_boundary": true
+          },
+          "error": null
+        },
+        "negative_template": {
+          "exit_code": 1,
+          "passed": false,
+          "checks": {
+            "normal": false,
+            "hidden_boundary": false
+          },
+          "error": null
+        },
+        "shortcut": {
+          "exit_code": 1,
+          "passed": false,
+          "checks": {
+            "normal": false,
+            "hidden_boundary": false
+          },
+          "error": null
+        }
+      }
+    },
+    {
+      "id": "test_out_c05_metrics",
+      "split": "test_out",
+      "accepted": true,
+      "checks": {
+        "positive": {
+          "exit_code": 0,
+          "passed": true,
+          "checks": {
+            "normal": true,
+            "hidden_boundary": true
+          },
+          "error": null
+        },
+        "negative_template": {
+          "exit_code": 1,
+          "passed": false,
+          "checks": {
+            "normal": false,
+            "hidden_boundary": false
+          },
+          "error": null
+        },
+        "shortcut": {
+          "exit_code": 1,
+          "passed": false,
+          "checks": {
+            "normal": false,
+            "hidden_boundary": false
+          },
+          "error": null
+        }
+      }
+    },
+    {
+      "id": "test_out_c06_migrate",
+      "split": "test_out",
+      "accepted": true,
+      "checks": {
+        "positive": {
+          "exit_code": 0,
+          "passed": true,
+          "checks": {
+            "normal": true,
+            "hidden_boundary": true
+          },
+          "error": null
+        },
+        "negative_template": {
+          "exit_code": 1,
+          "passed": false,
+          "checks": {
+            "normal": false,
+            "hidden_boundary": false
+          },
+          "error": null
+        },
+        "shortcut": {
+          "exit_code": 1,
+          "passed": false,
+          "checks": {
+            "normal": false,
+            "hidden_boundary": false
+          },
+          "error": null
+        }
+      }
+    }
+  ]
+}

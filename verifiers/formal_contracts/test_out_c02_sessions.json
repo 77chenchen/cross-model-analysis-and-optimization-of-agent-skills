@@ -1,0 +1,1 @@
+{"cases": [{"name": "normal", "input": {"op": "sessions", "events": [{"user": "u", "action": "login"}, {"user": "u", "action": "purchase"}]}, "expected": ["u"]}, {"name": "hidden_boundary", "input": {"op": "sessions", "events": [{"user": "u", "action": "login"}]}, "expected": []}]}

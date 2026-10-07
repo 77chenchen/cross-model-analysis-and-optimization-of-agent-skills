@@ -1,0 +1,1 @@
+{"cases": [{"name": "normal", "input": {"op": "enum", "value": " Open ", "mapping": {"open": 1, "closed": 2}}, "expected": 1}, {"name": "hidden_boundary", "input": {"op": "enum", "value": "other", "mapping": {"open": 1}}, "expected": null}]}

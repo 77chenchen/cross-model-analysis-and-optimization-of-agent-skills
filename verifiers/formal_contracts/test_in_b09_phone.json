@@ -1,0 +1,1 @@
+{"cases": [{"name": "normal", "input": {"op": "phone", "text": "(415) 555-0100"}, "expected": "+14155550100"}, {"name": "hidden_boundary", "input": {"op": "phone", "text": "123"}, "expected": null}]}

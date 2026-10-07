@@ -1,0 +1,1 @@
+{"cases": [{"name": "normal", "input": {"op": "consolidate", "rows": [{"id": "a", "n": 1, "label": ""}, {"id": "a", "n": 2, "label": "A"}]}, "expected": [{"id": "a", "n": 3, "label": "A"}]}, {"name": "hidden_boundary", "input": {"op": "consolidate", "rows": []}, "expected": []}]}

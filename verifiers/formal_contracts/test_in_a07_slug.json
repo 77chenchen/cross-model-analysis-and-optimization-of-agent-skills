@@ -1,0 +1,1 @@
+{"cases": [{"name": "normal", "input": {"op": "slug", "text": "Hello, World!"}, "expected": "hello-world"}, {"name": "hidden_boundary", "input": {"op": "slug", "text": "  A__B   C  "}, "expected": "a-b-c"}]}

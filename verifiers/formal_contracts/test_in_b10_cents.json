@@ -1,0 +1,1 @@
+{"cases": [{"name": "normal", "input": {"op": "cents", "text": "12.3"}, "expected": 1230}, {"name": "hidden_boundary", "input": {"op": "cents", "text": "1.234"}, "expected": null}]}

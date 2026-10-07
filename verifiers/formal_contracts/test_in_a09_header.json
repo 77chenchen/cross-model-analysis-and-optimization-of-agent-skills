@@ -1,0 +1,1 @@
+{"cases": [{"name": "normal", "input": {"op": "header", "text": " X-Id : abc "}, "expected": ["X-Id", "abc"]}, {"name": "hidden_boundary", "input": {"op": "header", "text": "bad"}, "expected": null}]}

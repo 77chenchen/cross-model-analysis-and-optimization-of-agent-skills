@@ -1,0 +1,1 @@
+{"cases": [{"name": "normal", "input": {"op": "metrics", "values": [1, 2, 3]}, "expected": {"count": 3, "total": 6, "average": 2.0}}, {"name": "hidden_boundary", "input": {"op": "metrics", "values": []}, "expected": {"count": 0, "total": 0, "average": null}}]}

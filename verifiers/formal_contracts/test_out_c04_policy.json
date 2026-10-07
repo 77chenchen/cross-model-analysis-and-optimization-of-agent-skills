@@ -1,0 +1,1 @@
+{"cases": [{"name": "normal", "input": {"op": "policy", "rows": [{"user": "a", "active": true, "role": "admin"}, {"user": "b", "active": false, "role": "admin"}], "allowed": ["admin"]}, "expected": ["a"]}, {"name": "hidden_boundary", "input": {"op": "policy", "rows": [{"user": "x", "active": true, "role": "user"}], "allowed": ["admin"]}, "expected": []}]}

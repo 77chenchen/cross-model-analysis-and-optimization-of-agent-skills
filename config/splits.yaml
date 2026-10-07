@@ -1,0 +1,6 @@
+locked_on: 2026-10-07
+policy: Only dev-diagnose trajectories may inform skill changes; dev-validate selects versions; test splits are evaluation-only after S7 lock.
+pilot_as_dev:
+  dev_diagnose: [pilot_a01_label_parser, pilot_a03_record_deduplication, pilot_a05_version_parser, pilot_b01_csv_cleaning, pilot_b03_duplicate_audit, pilot_b05_date_validation]
+  dev_validate: [pilot_a02_config_parser, pilot_a04_dependency_order, pilot_a06_path_safety, pilot_b02_json_normalization, pilot_b04_multifile_reconciliation, pilot_b06_schema_conversion]
+formal_counts: {test_in_A: 6, test_in_B: 6, test_out_C: 6}

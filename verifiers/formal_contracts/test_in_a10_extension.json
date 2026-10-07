@@ -1,0 +1,1 @@
+{"cases": [{"name": "normal", "input": {"op": "extension", "text": "A.TXT"}, "expected": "txt"}, {"name": "hidden_boundary", "input": {"op": "extension", "text": ".env"}, "expected": ""}]}

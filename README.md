@@ -17,9 +17,20 @@ have been removed from the current tree and are not part of the formal study.
 - `data/pilot_connectivity/`: provider/function-calling preflight.
 - `data/pilot_runs/`: non-formal pilot trajectories.
 
-Formal `dev`, `test_in`, and `test_out` tasks will be added only after the
-pilot pool establishes stable task difficulty and a valid model capability
-gradient.
+## Split lock (S3, 2026-10-07)
+
+All 12 viewed pilot tasks are now designated development-only: six balanced
+A/B tasks in `dev_diagnose` and six in `dev_validate` (the exact membership is
+locked in `config/splits.yaml`).  The formal pool contains 6 new Skill-A and 6
+new Skill-B `test_in` tasks plus 6 new Skill-C `test_out` tasks.  Every formal
+task has a task description, a distinct deliberately faulty seed, an external
+contract verifier, and positive/template/shortcut admission fixtures; the
+admission report records 18/18 accepted.
+
+After this lock, only `dev_diagnose` trajectories may inform skill changes;
+`dev_validate` selects among pre-specified versions.  `test_in` and `test_out`
+are evaluation-only and will not be run or inspected beyond this construction
+and admission step until the S7 analysis lock.
 
 ## Sampling policy lock (S0, 2026-10-07)
 

@@ -1,0 +1,1 @@
+{"cases": [{"name": "normal", "input": {"op": "difference", "left": [" A", "b"], "right": ["a"]}, "expected": ["b"]}, {"name": "hidden_boundary", "input": {"op": "difference", "left": ["x", "x"], "right": []}, "expected": ["x"]}]}
