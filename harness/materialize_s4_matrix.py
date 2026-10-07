@@ -16,7 +16,7 @@ models = [
 ]
 output = ROOT / "config/s4_calibration_matrix.tsv"
 with output.open("w", newline="") as handle:
-    writer = csv.writer(handle, delimiter="\t")
+    writer = csv.writer(handle, delimiter="\t", lineterminator="\n")
     writer.writerow(["task_id", "model_id", "provider", "repetition"])
     for task in tasks:
         for model, provider in models:

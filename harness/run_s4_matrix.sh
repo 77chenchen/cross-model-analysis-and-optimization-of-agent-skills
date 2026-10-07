@@ -11,11 +11,11 @@ mkdir -p "$logs"
 run_one() {
   local task="$1" model="$2" provider="$3" repetition="$4"
   local safe="${task}__${model//[^A-Za-z0-9._-]/_}__r${repetition}"
-  "$root/harness/run_calibration.sh" "$task" "$model" "$provider" "$repetition" "S4_calibration" >"$logs/${safe}.log" 2>&1
+  bash "$root/harness/run_calibration.sh" "$task" "$model" "$provider" "$repetition" "S4_calibration" >"$logs/${safe}.log" 2>&1
 }
 export root logs
 export -f run_one
 
 expected=216
 [ "$(($(wc -l < "$matrix") - 1))" -eq "$expected" ] || { echo "expected $expected locked rows in $matrix" >&2; exit 65; }
-tail -n +2 "$matrix" | xargs -P "$workers" -n 4 bash -c 'run_one "$@"' _
+tail -n +2 "$matrix" | tr -d '\r' | xargs -P "$workers" -n 4 bash -c 'run_one "$@"' _
