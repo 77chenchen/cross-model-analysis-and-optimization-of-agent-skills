@@ -107,6 +107,8 @@ def main() -> None:
     parser.add_argument("--process-outcome", type=Path, required=True)
     parser.add_argument("--final-message", type=Path, required=True)
     parser.add_argument("--workspace", type=Path, required=True)
+    parser.add_argument("--run-cohort", default="pilot")
+    parser.add_argument("--repetition", type=int, default=None)
     args = parser.parse_args()
     task = args.root / "tasks" / "pilot" / args.task_id / "template"
     verifier = args.root / "verifiers" / f"{args.task_id}.py"
@@ -140,6 +142,8 @@ def main() -> None:
         "verifier_check_count": summary["check_count"], "verifier_checks_passed": summary["checks_passed"],
         "finish_reason": runtime["finish_reason"], "finish_reason_available": runtime["finish_reason_available"],
         "process_timed_out": process.get("timed_out", False),
+        "run_cohort": args.run_cohort,
+        "repetition": args.repetition,
     }
     (args.run_dir / "metadata.json").write_text(json.dumps(metadata, indent=2) + "\n")
 

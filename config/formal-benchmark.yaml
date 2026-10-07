@@ -34,10 +34,10 @@ models:
 splits:
   pilot: excluded_from_formal_analysis
   dev:
-    A: 5
-    B: 5
+    dev_diagnose: {A: 3, B: 3}
+    dev_validate: {A: 3, B: 3}
   test_in:
-    A: 7
-    B: 7
+    A: 6
+    B: 6
   test_out:
-    C: 12
+    C: 6

@@ -39,5 +39,7 @@
     ,"finish_reason": {"type": ["string", "null"]}
     ,"finish_reason_available": {"type": "boolean"}
     ,"process_timed_out": {"type": "boolean"}
+    ,"run_cohort": {"type": "string"}
+    ,"repetition": {"type": ["integer", "null"], "minimum": 1}
   }
 }
