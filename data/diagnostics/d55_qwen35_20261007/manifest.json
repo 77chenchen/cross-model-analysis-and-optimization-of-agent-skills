@@ -1,0 +1,17 @@
+{
+  "scope": "D5 qwen3.5:9b v0/v1 pilot trajectories",
+  "blinded": false,
+  "annotator": "codex-primary",
+  "source_matrix": "data/pilot_runs/d5_qwen35_matrix_20261007T044950Z.tsv",
+  "runs": [
+    "pilot_a03_record_deduplication__qwen3.5_9b__v0__20261007T044950Z",
+    "pilot_a03_record_deduplication__qwen3.5_9b__v1__20261007T045220Z",
+    "pilot_a05_version_parser__qwen3.5_9b__v0__20261007T045236Z",
+    "pilot_a05_version_parser__qwen3.5_9b__v1__20261007T045448Z",
+    "pilot_b03_duplicate_audit__qwen3.5_9b__v0__20261007T045605Z",
+    "pilot_b03_duplicate_audit__qwen3.5_9b__v1__20261007T050028Z",
+    "pilot_b05_date_validation__qwen3.5_9b__v0__20261007T050110Z",
+    "pilot_b05_date_validation__qwen3.5_9b__v1__20261007T050257Z"
+  ],
+  "finish_reason_availability": "not exposed by current Codex JSONL; recorded as unknown rather than inferred"
+}
