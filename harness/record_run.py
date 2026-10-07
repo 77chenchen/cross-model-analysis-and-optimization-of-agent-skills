@@ -90,8 +90,11 @@ def main() -> None:
     metadata = {
         "run_id": run_id, "timestamp": datetime.now(UTC).isoformat(),
         "model_provider": args.provider, "requested_model_id": args.model,
-        "returned_model_id": None, "model_snapshot": None, "temperature": 0,
-        "seed": None, "context_limit": 65536, "max_steps": 40, "timeout_minutes": 20,
+        "returned_model_id": None, "model_snapshot": None, "temperature": None,
+        "temperature_requested": 0.5, "temperature_effective": None,
+        "sampling_control": "unsupported_by_cli", "seed": None,
+        "seed_requested": None, "seed_effective": None,
+        "context_limit": 65536, "max_steps": 40, "timeout_minutes": 20,
         "reasoning_setting": None, "max_output_tokens": None, "task_id": args.task_id,
         "task_hash": digest(task), "split": "pilot", "skill_id": args.skill_id,
         "skill_version": args.skill_version, "skill_hash": digest(skill), "tool_schema_version": 1,

@@ -3,7 +3,11 @@ context_limit: 65536
 max_steps: 40
 timeout_minutes: 20
 repetitions: 3
-temperature: 0
+temperature_requested: 0.5
+temperature_effective: unavailable_via_current_codex_cli
+seed_requested: null
+seed_effective: unavailable_via_current_codex_cli
+sampling_control: task_is_the_statistical_unit; repetitions_estimate_within_task_variation
 tool_schema_version: 1
 
 models:
