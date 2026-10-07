@@ -38,14 +38,19 @@ $skill_text
 Read task.md, fix the implementation, and validate your result. Do not create or modify benchmark-owned verifier files."
 
 if [ "$provider" = "soclaas" ]; then
-  zsh -lic "cd '$root' && codex exec --profile soclaas --model '$model' --sandbox workspace-write --skip-git-repo-check --json --output-last-message '$run_dir/final.md' --cd '$workspace' '$prompt' > '$run_dir/trajectory.jsonl'"
+  command=(zsh -lic "cd '$root' && exec codex exec --profile soclaas --model '$model' --sandbox workspace-write --skip-git-repo-check --json --output-last-message '$run_dir/final.md' --cd '$workspace' '$prompt'")
 else
-  codex exec --model "$model" --sandbox workspace-write --skip-git-repo-check --json --output-last-message "$run_dir/final.md" --cd "$workspace" "$prompt" > "$run_dir/trajectory.jsonl"
+  command=(codex exec --model "$model" --sandbox workspace-write --skip-git-repo-check --json --output-last-message "$run_dir/final.md" --cd "$workspace" "$prompt")
 fi
+set +e
+python3 "$root/harness/run_with_timeout.py" --timeout-seconds 1200 --stdout "$run_dir/trajectory.jsonl" --outcome "$run_dir/process.json" -- "${command[@]}"
+process_status=$?
+set -e
 set +e
 python3 "$verifier" "$workspace" > "$run_dir/verifier.json"
 verifier_status=$?
 set -e
-python3 "$root/harness/record_run.py" --root "$root" --task-id "$task_id" --skill-id "$skill_id" --skill-version "$skill_version" --model "$model" --provider "$provider" --run-dir "$run_dir" --trajectory "$run_dir/trajectory.jsonl"
+python3 "$root/harness/record_run.py" --root "$root" --task-id "$task_id" --skill-id "$skill_id" --skill-version "$skill_version" --model "$model" --provider "$provider" --run-dir "$run_dir" --trajectory "$run_dir/trajectory.jsonl" --process-outcome "$run_dir/process.json" --final-message "$run_dir/final.md" --workspace "$workspace"
 echo "$run_dir"
+if [ "$process_status" -ne 0 ]; then exit "$process_status"; fi
 exit "$verifier_status"

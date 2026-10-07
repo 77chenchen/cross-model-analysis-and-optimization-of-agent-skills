@@ -32,5 +32,12 @@
     "verifier_hash": {"type": "string"},
     "harness_git_commit": {"type": "string"},
     "container_image": {"type": ["string", "null"]}
+    ,"outcome_category": {"enum": ["empty_termination", "compile_error", "verifier_fail", "timeout", "context_overflow", "provider_error", "pass"]}
+    ,"partial_score": {"type": ["number", "null"]}
+    ,"verifier_check_count": {"type": "integer"}
+    ,"verifier_checks_passed": {"type": "integer"}
+    ,"finish_reason": {"type": ["string", "null"]}
+    ,"finish_reason_available": {"type": "boolean"}
+    ,"process_timed_out": {"type": "boolean"}
   }
 }

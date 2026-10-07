@@ -21,6 +21,12 @@ and its SHA-256 hash are recorded in `metadata.json`.
 matrix and writes a TSV that records every runner exit, including expected
 external-verifier failures.
 
+The S2 runner creates `process.json` and `runtime.json` for each new run.
+`process.json` records process-group timeout handling; `runtime.json` records
+available token/finish information, malformed tool-call signals, compile
+errors, and one mutually exclusive outcome category. Missing provider fields
+remain null/unknown rather than being inferred.
+
 For SoC LaaS, the runner starts a login `zsh` so the user's local
 `SOCLAAS_API_KEY` can be inherited without being read, logged, or written to
 the repository.

@@ -1,0 +1,10 @@
+{
+  "purpose": "S2 instrumented runner fingerprint",
+  "control_hashes_sha256": {
+    "harness/run_pilot.sh": "279ac13cf6808c2f6f7e0db35e0a0b1ba5c6afce09713fa22b2253120399c0ca",
+    "harness/run_with_timeout.py": "85073553d34a5f58998458fc1a3b3f0bcec185bce8ea1e0820b677dc713ea429",
+    "harness/record_run.py": "da8c12072cdae5336c0374c0790821fffb4c1bc6f8dfc3f323fffcd253ff258d",
+    "harness/outcomes.py": "454b2a616a67ee9c35fc10093533a899e405304122a5da79646d0b78d359aa3e"
+  },
+  "outcomes": ["empty_termination", "compile_error", "verifier_fail", "timeout", "context_overflow", "provider_error", "pass"]
+}
