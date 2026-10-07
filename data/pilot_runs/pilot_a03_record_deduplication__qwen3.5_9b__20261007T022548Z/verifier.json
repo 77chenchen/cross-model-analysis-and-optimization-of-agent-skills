@@ -1,0 +1,1 @@
+{"passed": false, "checks": {"normalization": true, "no_mutation": false}, "error": "TypeError(\"argument of type 'NoneType' is not a container or iterable\")"}

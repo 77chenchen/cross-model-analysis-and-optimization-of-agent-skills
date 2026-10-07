@@ -1,0 +1,1 @@
+{"passed": false, "checks": {}, "error": "IndentationError('expected an indented block after function definition on line 1', ('/Users/wangqichen/Documents/Codex/2026-10-06/zon/work/skill-trajectory-benchmark/data/pilot_runs/pilot_a05_version_parser__qwen3.5_9b__20261007T022857Z/workspace/version_parser.py', 3, 5, '    ', 3, -1))"}

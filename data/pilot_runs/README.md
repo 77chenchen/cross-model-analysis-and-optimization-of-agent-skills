@@ -25,3 +25,20 @@ The retry of A02 on the same model also failed the external verifier. Both
 timestamped run directories are retained; neither is overwritten. In contrast,
 the first B01 run on `qwen3.8:27b` passed all external checks. These are
 single-run calibration observations only.
+
+## D2 weak-model pilot batch (2026-10-07)
+
+Four single runs on exact SoC model ID `qwen3.5:9b` (provider `soclaas`),
+each with frozen Skill protocol v0 injected by the runner. Calibration
+only; no cross-model ranking or formal benchmark claim.
+
+| Task | External verifier | Run directory |
+|---|---|---|
+| `pilot_a03_record_deduplication` | fail | `pilot_a03_record_deduplication__qwen3.5_9b__20261007T022548Z` |
+| `pilot_a05_version_parser` | fail | `pilot_a05_version_parser__qwen3.5_9b__20261007T022857Z` |
+| `pilot_b03_duplicate_audit` | fail | `pilot_b03_duplicate_audit__qwen3.5_9b__20261007T023034Z` |
+| `pilot_b05_date_validation` | fail | `pilot_b05_date_validation__qwen3.5_9b__20261007T023106Z` |
+
+No infrastructure interruptions: all four trajectories end in
+`turn.completed`, and no rerun was required. All failed outcomes are
+retained unmodified.
