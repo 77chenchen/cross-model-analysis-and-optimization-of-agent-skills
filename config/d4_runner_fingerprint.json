@@ -1,0 +1,11 @@
+{
+  "purpose": "D4 intervention / D5 paired-comparison runner fingerprint",
+  "based_on_d1_runtime_fingerprint": "config/runtime-fingerprint.json",
+  "control_hashes_sha256": {
+    "harness/run_pilot.sh": "c6f358a1b1433a90a4ed91ba3f35a89da0bcec3aba8de748a82c8b1748ccb2b2",
+    "harness/record_run.py": "bc44589e4269e36d1eb85c8201125e68ae76697fbe88cf44553f2cd7b1d58902",
+    "skills/A/v1.md": "32f7eacfcc8719414a41f3dbaf5c25c5ae02e0932b630d060e94f7898fb2c409",
+    "skills/B/v1.md": "bc8eb2214bb764ec2ea94e38c43a4af47be67bc2376c1ac9f826b9347857ed94",
+    "docs/d4_intervention.md": "2222bf57919bd830c283b6c7b3625452c4614b915e407a8b9ac5a621cc9d5652"
+  }
+}

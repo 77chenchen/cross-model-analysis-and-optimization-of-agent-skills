@@ -77,6 +77,7 @@ def main() -> None:
     parser.add_argument("--root", type=Path, required=True)
     parser.add_argument("--task-id", required=True)
     parser.add_argument("--skill-id", choices=("A", "B", "C"), required=True)
+    parser.add_argument("--skill-version", choices=("v0", "v1"), required=True)
     parser.add_argument("--model", required=True)
     parser.add_argument("--provider", required=True)
     parser.add_argument("--run-dir", type=Path, required=True)
@@ -84,7 +85,7 @@ def main() -> None:
     args = parser.parse_args()
     task = args.root / "tasks" / "pilot" / args.task_id / "template"
     verifier = args.root / "verifiers" / f"{args.task_id}.py"
-    skill = args.root / "skills" / args.skill_id / "v0.md"
+    skill = args.root / "skills" / args.skill_id / f"{args.skill_version}.md"
     run_id = args.run_dir.name
     metadata = {
         "run_id": run_id, "timestamp": datetime.now(UTC).isoformat(),
@@ -93,7 +94,7 @@ def main() -> None:
         "seed": None, "context_limit": 65536, "max_steps": 40, "timeout_minutes": 20,
         "reasoning_setting": None, "max_output_tokens": None, "task_id": args.task_id,
         "task_hash": digest(task), "split": "pilot", "skill_id": args.skill_id,
-        "skill_version": "v0", "skill_hash": digest(skill), "tool_schema_version": 1,
+        "skill_version": args.skill_version, "skill_hash": digest(skill), "tool_schema_version": 1,
         "verifier_hash": digest(verifier), "harness_git_commit": git_commit(args.root),
         "container_image": None,
     }
