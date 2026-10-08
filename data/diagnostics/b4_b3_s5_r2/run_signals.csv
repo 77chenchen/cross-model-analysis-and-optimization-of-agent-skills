@@ -1,0 +1,37 @@
+run_id,task_id,repetition,legacy_outcome,partial_score,terminal_path,final_empty,no_edit,compile_error,verifier_fail,provider_error,response_count,tool_call_count,valid_tool_calls,tool_parse_errors,post_edit_validation,provider_error_text
+pilot_a01_label_parser__qwen3.5_9b__v0__20261008T135540Z__23a1fa9a0b,pilot_a01_label_parser,3,pass,1.0,final_response,False,False,False,False,False,8,7,7,0,False,
+pilot_a01_label_parser__qwen3.5_9b__v0__20261008T135540Z__9d908c0a03,pilot_a01_label_parser,2,pass,1.0,final_response,False,False,False,False,False,8,7,7,0,False,
+pilot_a01_label_parser__qwen3.5_9b__v0__20261008T135540Z__d2f8379782,pilot_a01_label_parser,1,pass,1.0,final_response,False,False,False,False,False,7,6,6,0,False,
+pilot_a02_config_parser__qwen3.5_9b__v0__20261008T135612Z__2fe7e7af09,pilot_a02_config_parser,1,empty_termination,1.0,final_response,True,False,False,False,False,18,17,17,0,True,
+pilot_a02_config_parser__qwen3.5_9b__v0__20261008T135614Z__3a8dcff702,pilot_a02_config_parser,2,provider_error,0.8,provider_error,True,False,False,True,True,5,5,5,0,True,InternalServerError: Error code: 502 - {'error': 'provider request failed'}
+pilot_a02_config_parser__qwen3.5_9b__v0__20261008T135614Z__9cf1f17d3c,pilot_a02_config_parser,3,provider_error,1.0,provider_error,True,False,False,False,True,19,19,19,0,True,InternalServerError: Error code: 502 - {'error': 'provider request failed'}
+pilot_a03_record_deduplication__qwen3.5_9b__v0__20261008T135847Z__12960a8717,pilot_a03_record_deduplication,1,provider_error,0.5,provider_error,True,False,False,True,True,5,5,5,0,True,InternalServerError: Error code: 502 - {'error': 'provider request failed'}
+pilot_a03_record_deduplication__qwen3.5_9b__v0__20261008T135944Z__eeabc5adce,pilot_a03_record_deduplication,2,provider_error,0.5,provider_error,True,False,False,True,True,6,6,6,0,True,InternalServerError: Error code: 502 - {'error': 'provider request failed'}
+pilot_a03_record_deduplication__qwen3.5_9b__v0__20261008T140215Z__0194f7f1f7,pilot_a03_record_deduplication,3,verifier_fail,0.5,final_response,False,False,False,True,False,9,8,8,0,True,
+pilot_a04_dependency_order__qwen3.5_9b__v0__20261008T140312Z__da763a8e1b,pilot_a04_dependency_order,1,empty_termination,0.6666666666666666,max_steps,True,False,False,True,False,40,40,40,0,True,
+pilot_a04_dependency_order__qwen3.5_9b__v0__20261008T140323Z__f63cf2b843,pilot_a04_dependency_order,2,empty_termination,0.0,final_response,True,False,False,True,False,12,11,11,0,False,
+pilot_a04_dependency_order__qwen3.5_9b__v0__20261008T140329Z__c14da9f694,pilot_a04_dependency_order,3,provider_error,,provider_error,True,False,True,True,True,14,14,14,0,False,InternalServerError: Error code: 502 - {'error': 'provider request failed'}
+pilot_a05_version_parser__qwen3.5_9b__v0__20261008T140507Z__9286acdde1,pilot_a05_version_parser,1,empty_termination,0.6666666666666666,max_steps,True,False,False,True,False,40,40,40,0,True,
+pilot_a05_version_parser__qwen3.5_9b__v0__20261008T140831Z__4f9d8c99c5,pilot_a05_version_parser,2,empty_termination,1.0,max_steps,True,False,False,True,False,40,40,40,0,True,
+pilot_a05_version_parser__qwen3.5_9b__v0__20261008T140839Z__a6cd328ab7,pilot_a05_version_parser,3,verifier_fail,0.6666666666666666,final_response,False,False,False,True,False,34,33,33,0,True,
+pilot_a06_path_safety__qwen3.5_9b__v0__20261008T141136Z__52e0790f88,pilot_a06_path_safety,1,empty_termination,1.0,max_steps,True,False,False,False,False,40,40,40,0,True,
+pilot_a06_path_safety__qwen3.5_9b__v0__20261008T141344Z__8fe9b2b6fa,pilot_a06_path_safety,2,empty_termination,0.75,max_steps,True,False,False,True,False,40,40,40,0,True,
+pilot_a06_path_safety__qwen3.5_9b__v0__20261008T141641Z__4a1c9c84f5,pilot_a06_path_safety,3,empty_termination,1.0,max_steps,True,False,False,False,False,40,40,40,0,True,
+pilot_b01_csv_cleaning__qwen3.5_9b__v0__20261008T141949Z__dfb706fb38,pilot_b01_csv_cleaning,1,pass,1.0,final_response,False,False,False,False,False,8,7,7,0,True,
+pilot_b01_csv_cleaning__qwen3.5_9b__v0__20261008T142001Z__3d44d998f3,pilot_b01_csv_cleaning,2,empty_termination,1.0,final_response,True,False,False,False,False,7,6,6,0,True,
+pilot_b01_csv_cleaning__qwen3.5_9b__v0__20261008T142040Z__4a71672fee,pilot_b01_csv_cleaning,3,empty_termination,1.0,final_response,True,False,False,False,False,8,7,7,0,True,
+pilot_b02_json_normalization__qwen3.5_9b__v0__20261008T142047Z__b07f5e2830,pilot_b02_json_normalization,1,empty_termination,1.0,final_response,True,False,False,False,False,13,12,12,0,True,
+pilot_b02_json_normalization__qwen3.5_9b__v0__20261008T142128Z__82de3f350f,pilot_b02_json_normalization,2,pass,1.0,final_response,False,False,False,False,False,19,18,18,0,True,
+pilot_b02_json_normalization__qwen3.5_9b__v0__20261008T142246Z__5c89f5f761,pilot_b02_json_normalization,3,pass,1.0,final_response,False,False,False,False,False,23,22,22,0,True,
+pilot_b03_duplicate_audit__qwen3.5_9b__v0__20261008T142344Z__13d857bf71,pilot_b03_duplicate_audit,1,verifier_fail,0.5,final_response,False,False,False,True,False,8,7,7,0,False,
+pilot_b03_duplicate_audit__qwen3.5_9b__v0__20261008T142414Z__c8e248e517,pilot_b03_duplicate_audit,2,verifier_fail,0.5,final_response,False,False,False,True,False,9,8,8,0,False,
+pilot_b03_duplicate_audit__qwen3.5_9b__v0__20261008T142439Z__416650b24e,pilot_b03_duplicate_audit,3,verifier_fail,0.5,final_response,False,False,False,True,False,8,7,7,0,False,
+pilot_b04_multifile_reconciliation__qwen3.5_9b__v0__20261008T142450Z__1d11c840f3,pilot_b04_multifile_reconciliation,1,provider_error,,provider_error,True,False,True,True,True,8,8,8,0,False,InternalServerError: Error code: 502 - {'error': 'provider request failed'}
+pilot_b04_multifile_reconciliation__qwen3.5_9b__v0__20261008T142509Z__911156bbfb,pilot_b04_multifile_reconciliation,2,provider_error,,provider_error,True,False,True,True,True,8,8,8,0,False,InternalServerError: Error code: 502 - {'error': 'provider request failed'}
+pilot_b04_multifile_reconciliation__qwen3.5_9b__v0__20261008T142707Z__20699ca396,pilot_b04_multifile_reconciliation,3,provider_error,,provider_error,True,False,True,True,True,8,8,8,0,False,InternalServerError: Error code: 502 - {'error': 'provider request failed'}
+pilot_b05_date_validation__qwen3.5_9b__v0__20261008T142840Z__573e67c54b,pilot_b05_date_validation,1,empty_termination,1.0,final_response,True,False,False,False,False,8,7,7,0,False,
+pilot_b05_date_validation__qwen3.5_9b__v0__20261008T142859Z__03d20b7af4,pilot_b05_date_validation,2,pass,1.0,final_response,False,False,False,False,False,10,9,9,0,False,
+pilot_b05_date_validation__qwen3.5_9b__v0__20261008T142915Z__a0b4f1f0ae,pilot_b05_date_validation,3,empty_termination,1.0,final_response,True,False,False,False,False,6,5,5,0,False,
+pilot_b06_schema_conversion__qwen3.5_9b__v0__20261008T142937Z__abd03a8468,pilot_b06_schema_conversion,1,pass,1.0,final_response,False,False,False,False,False,12,11,11,0,False,
+pilot_b06_schema_conversion__qwen3.5_9b__v0__20261008T142940Z__e6c62e0680,pilot_b06_schema_conversion,2,empty_termination,1.0,final_response,True,False,False,False,False,15,14,14,0,False,
+pilot_b06_schema_conversion__qwen3.5_9b__v0__20261008T143024Z__0d59091bac,pilot_b06_schema_conversion,3,empty_termination,1.0,final_response,True,False,False,False,False,9,8,8,0,True,

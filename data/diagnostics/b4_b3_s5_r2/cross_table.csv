@@ -1,0 +1,13 @@
+final_empty,edited,terminal_path,partial_score,runs
+False,True,final_response,0.5,4
+False,True,final_response,0.6666666666666666,1
+False,True,final_response,1.0,8
+True,True,final_response,0.0,1
+True,True,final_response,1.0,8
+True,True,max_steps,0.6666666666666666,2
+True,True,max_steps,0.75,1
+True,True,max_steps,1.0,3
+True,True,provider_error,0.5,2
+True,True,provider_error,0.8,1
+True,True,provider_error,1.0,1
+True,True,provider_error,None,4

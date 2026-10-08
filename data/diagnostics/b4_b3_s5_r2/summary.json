@@ -1,0 +1,18 @@
+{
+  "runs": 36,
+  "terminal_paths": {
+    "final_response": 22,
+    "provider_error": 8,
+    "max_steps": 6
+  },
+  "legacy_outcomes": {
+    "pass": 8,
+    "empty_termination": 15,
+    "provider_error": 8,
+    "verifier_fail": 5
+  },
+  "all_tool_calls_parseable": true,
+  "max_step_empty_runs": 6,
+  "provider_502_runs": 8,
+  "post_edit_validation_runs": 20
+}
