@@ -1,0 +1,31 @@
+stage: B3
+runner: r2-direct-chat-completions
+skill_version: v0
+temperature: 0.5
+seed: 20261008
+repetitions: 3
+max_steps: 40
+context_limit: 65536
+timeout_minutes: 20
+splits: [pilot, dev]
+test_split_allowed: false
+s4_open_model_panel:
+  - qwen3.8:27b
+  - qwen3.5:9b
+  - gemma4:26b
+  - llama3.1:8b
+  - qwen3-coder-next
+gpt_reference_anchor:
+  runner: codex-cli
+  sampling: uncontrolled
+  treatment: legacy_reference_only_not_pooled_with_r2
+selection_rule_for_s5:
+  eligible: overall_pass_rate >= 0.20 and overall_pass_rate <= 0.80
+  primary: maximum_count_of_task_conditions_with_pass_rate_between_0.20_and_0.80_inclusive
+  tie_break_1: lower_overall_pass_rate
+  tie_break_2: lexical_model_id
+s5_r2:
+  model: selected_by_s4_rule
+  tasks: all_12_locked_pilot_dev_tasks
+  repetitions: 3
+  analysis: separate_r2_cohort

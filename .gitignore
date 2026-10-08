@@ -21,3 +21,5 @@ data/b0_qwen35_direct_probe/manifest.json
 data/r2_runs/pilot_*/
 data/b2_runner_equivalence/codex_cli/pilot_*/
 data/b2_runner_equivalence/r2/pilot_*/
+data/b3_s4_r2_runs/pilot_*/
+data/b3_s5_r2_runs/pilot_*/
