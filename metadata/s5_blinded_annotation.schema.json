@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "S5 blinded trajectory annotation",
+  "type": "object",
+  "required": ["run_id", "annotator_id", "blinded", "stage_events", "failure_modes"],
+  "properties": {
+    "run_id": {"type": "string"},
+    "annotator_id": {"type": "string"},
+    "blinded": {"const": true},
+    "stage_events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["sequence", "label"],
+        "properties": {
+          "sequence": {"type": "integer", "minimum": 0},
+          "label": {"enum": ["understanding", "exploration", "localization", "implementation", "validation", "debugging", "closing"]}
+        },
+        "additionalProperties": false
+      }
+    },
+    "failure_modes": {
+      "type": "array",
+      "items": {"enum": ["premature_implementation", "repeated_exploration", "ineffective_debugging_loop", "insufficient_validation", "missed_constraint", "premature_completion", "tool_misuse", "empty_termination", "file_corruption", "none_observed", "unscorable"]}
+    }
+  },
+  "additionalProperties": false
+}
