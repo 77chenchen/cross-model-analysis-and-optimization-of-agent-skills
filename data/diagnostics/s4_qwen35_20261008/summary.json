@@ -1,0 +1,11 @@
+{
+  "run_count": 36,
+  "empty_count": 35,
+  "legacy_outcomes": {
+    "empty_termination": 35,
+    "verifier_fail": 1
+  },
+  "empty_with_partial_score": 26,
+  "empty_with_verifier_partial_positive": 13,
+  "sample_size": 8
+}

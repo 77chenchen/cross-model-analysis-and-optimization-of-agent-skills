@@ -77,3 +77,28 @@ tables, a static trajectory-pattern figure, and four descriptive cases are in
 `data/s5_results/`, `docs/s5_baseline_results.md`, and `docs/s5_cases.md`.
 Twenty-four blinded packets await independent human labels before Cohen's
 kappa can be calculated; no agreement figure is reported before that review.
+
+## Control-variable reality (revised 2026-10-08)
+
+| variable | requested protocol | current Codex CLI path | status in recorded runs |
+|---|---|---|---|
+| temperature | 0.5 | `--strict-config` rejects `temperature` before dispatch | requested; not controlled |
+| seed | fixed when supported | `--strict-config` rejects `seed` before dispatch | not controlled |
+| max steps | 40 | no native `codex exec` option; supplied only in the agent prompt | requested; not enforced by runner |
+| context limit | 65,536 | no verified CLI override or returned effective value | requested; not controlled |
+| timeout | 20 minutes | `run_with_timeout.py` creates a process group and terminates it at 1,200 seconds | controlled and recorded |
+
+The first four rows are limitations of the current CLI execution path, not
+claims about raw provider APIs. New metadata distinguishes requested from
+effective settings; analysis treats task as the statistical unit and does not
+pool the legacy temperature-0 pilot with the newer cohort.
+
+## Protocol revision (2026-10-08; before any test run)
+
+S7, if it is ever authorized after an effective dev-validate result, has a
+core purpose of collecting C0 (no skill) and C1 (original skill) cross-model
+baselines. Skill v1, L3, and any future mechanism-specific condition are
+exploratory: report their activation rate and descriptive outcomes separately.
+An “intervention effective” claim requires both observed mechanism activation
+and an observable dev-validate improvement; a pass-rate difference alone is
+insufficient. No test split has been run under this revision.

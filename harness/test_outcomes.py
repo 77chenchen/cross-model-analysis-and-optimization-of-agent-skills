@@ -1,5 +1,5 @@
 import unittest
-from harness.outcomes import classify, verifier_summary
+from harness.outcomes import classify, outcome_flags, verifier_summary
 
 
 class OutcomeTests(unittest.TestCase):
@@ -14,6 +14,13 @@ class OutcomeTests(unittest.TestCase):
     def test_partial_score(self):
         self.assertEqual(verifier_summary({"checks": {"a": True, "b": False}}), {"check_count": 2, "checks_passed": 1, "partial_score": 0.5})
         self.assertIsNone(verifier_summary({"checks": {}})["partial_score"])
+
+    def test_nonexclusive_flags(self):
+        flags = outcome_flags({"returncode": 0}, '{"type":"turn.completed"}', "", {"passed": False}, [], True)
+        self.assertTrue(flags["final_empty"])
+        self.assertTrue(flags["no_edit"])
+        self.assertTrue(flags["verifier_fail"])
+        self.assertFalse(flags["timeout"])
 
 
 if __name__ == "__main__":

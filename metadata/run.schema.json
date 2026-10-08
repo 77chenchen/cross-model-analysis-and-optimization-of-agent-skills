@@ -33,6 +33,8 @@
     "harness_git_commit": {"type": "string"},
     "container_image": {"type": ["string", "null"]}
     ,"outcome_category": {"enum": ["empty_termination", "compile_error", "verifier_fail", "timeout", "context_overflow", "provider_error", "pass"]}
+    ,"legacy_outcome_category": {"enum": ["empty_termination", "compile_error", "verifier_fail", "timeout", "context_overflow", "provider_error", "pass"]}
+    ,"outcome_flags": {"type": "object", "properties": {"final_empty": {"type": "boolean"}, "no_edit": {"type": "boolean"}, "compile_error": {"type": "boolean"}, "verifier_fail": {"type": "boolean"}, "timeout": {"type": "boolean"}, "context_overflow": {"type": "boolean"}, "provider_error": {"type": "boolean"}}, "required": ["final_empty", "no_edit", "compile_error", "verifier_fail", "timeout", "context_overflow", "provider_error"], "additionalProperties": false}
     ,"partial_score": {"type": ["number", "null"]}
     ,"verifier_check_count": {"type": "integer"}
     ,"verifier_checks_passed": {"type": "integer"}

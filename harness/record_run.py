@@ -10,9 +10,9 @@ import subprocess
 from datetime import UTC, datetime
 from pathlib import Path
 try:
-    from .outcomes import classify, load_json, python_compile_errors, verifier_summary
+    from .outcomes import classify, load_json, outcome_flags, python_compile_errors, verifier_summary
 except ImportError:  # Direct script execution from harness/run_pilot.sh.
-    from outcomes import classify, load_json, python_compile_errors, verifier_summary
+    from outcomes import classify, load_json, outcome_flags, python_compile_errors, verifier_summary
 
 
 def digest(path: Path) -> str:
@@ -28,6 +28,12 @@ def digest(path: Path) -> str:
 
 def git_commit(root: Path) -> str:
     return subprocess.check_output(["git", "-C", str(root), "rev-parse", "HEAD"], text=True).strip()
+
+
+def source_unchanged(template: Path, workspace: Path) -> bool:
+    """True only when every template Python source remains byte-identical."""
+    sources = list(template.glob("*.py"))
+    return bool(sources) and all((workspace / item.name).exists() and (workspace / item.name).read_bytes() == item.read_bytes() for item in sources)
 
 
 def phase_of(event_type: str, item_type: str, text: str) -> str:
@@ -123,7 +129,8 @@ def main() -> None:
     final_text = args.final_message.read_text() if args.final_message.exists() else ""
     compile_errors = python_compile_errors(args.workspace)
     outcome = classify(process, args.trajectory.read_text(), final_text, verifier_result, compile_errors)
-    runtime.update({"outcome_category": outcome, "compile_errors": compile_errors, "final_message_chars": len(final_text)})
+    flags = outcome_flags(process, args.trajectory.read_text(), final_text, verifier_result, compile_errors, source_unchanged(task, args.workspace))
+    runtime.update({"outcome_category": outcome, "legacy_outcome_category": outcome, "outcome_flags": flags, "compile_errors": compile_errors, "final_message_chars": len(final_text)})
     (args.run_dir / "runtime.json").write_text(json.dumps(runtime, indent=2) + "\n")
     metadata = {
         "run_id": run_id, "timestamp": datetime.now(UTC).isoformat(),
@@ -139,6 +146,7 @@ def main() -> None:
         "verifier_hash": digest(verifier), "harness_git_commit": git_commit(args.root),
         "container_image": None,
         "outcome_category": outcome, "partial_score": summary["partial_score"],
+        "legacy_outcome_category": outcome, "outcome_flags": flags,
         "verifier_check_count": summary["check_count"], "verifier_checks_passed": summary["checks_passed"],
         "finish_reason": runtime["finish_reason"], "finish_reason_available": runtime["finish_reason_available"],
         "process_timed_out": process.get("timed_out", False),
