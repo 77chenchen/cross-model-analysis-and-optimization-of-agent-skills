@@ -7,3 +7,5 @@ data/pilot_runs/d2_qwen35_agent_final.md
 data/pilot_runs/d2_qwen35_agent_trajectory.jsonl
 data/calibration_runs/driver_logs/
 data/calibration_runs/pilot_*/
+data/s5_runs/driver_logs/
+data/s5_runs/pilot_*/

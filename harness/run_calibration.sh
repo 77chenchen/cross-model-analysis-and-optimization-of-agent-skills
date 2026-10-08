@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-# Execute exactly one fresh S4 calibration observation.  The caller is
-# responsible for scheduling the locked task/model/repetition matrix.
+# Execute one fresh pilot-task observation for a named, versioned cohort.
 set -euo pipefail
 
 if [ "$#" -ne 5 ]; then
@@ -9,6 +8,7 @@ if [ "$#" -ne 5 ]; then
 fi
 task_id="$1"; model="$2"; provider="$3"; repetition="$4"; cohort="$5"
 root="$(cd "$(dirname "$0")/.." && pwd)"
+run_root="${BENCHMARK_RUN_ROOT:-$root/data/calibration_runs}"
 task_dir="$root/tasks/pilot/$task_id/template"
 verifier="$root/verifiers/$task_id.py"
 case "$task_id" in pilot_a*|pilot_b*) ;; *) echo "pilot task id required" >&2; exit 64;; esac
@@ -20,14 +20,14 @@ skill_id="${task_id:6:1}"; skill_id="$(printf '%s' "$skill_id" | tr '[:lower:]' 
 skill_file="$root/skills/$skill_id/v0.md"
 safe_model="${model//[^A-Za-z0-9._-]/_}"
 nonce="$(python3 -c 'import uuid; print(uuid.uuid4().hex[:10])')"
-run_dir="$root/data/calibration_runs/${task_id}__${safe_model}__v0__r${repetition}__$(date -u +%Y%m%dT%H%M%SZ)__${nonce}"
+run_dir="$run_root/${task_id}__${safe_model}__v0__r${repetition}__$(date -u +%Y%m%dT%H%M%SZ)__${nonce}"
 workspace="$run_dir/workspace"; mkdir -p "$workspace"; cp -R "$task_dir/." "$workspace/"
 skill_text="$(cat "$skill_file")"
 prompt="You have been supplied the following benchmark skill protocol. Follow it as operational guidance, then complete the task in task.md. You have at most 40 tool steps.\n\n--- skill protocol begin ---\n$skill_text\n--- skill protocol end ---\n\nRead task.md, fix the implementation, and validate your result. Do not create or modify benchmark-owned verifier files."
 
 if [ "$provider" = "soclaas" ]; then
-  export S4_CALIBRATION_PROMPT="$prompt"
-  command=(zsh -lic "cd '$root' && exec codex exec --profile soclaas --model '$model' --sandbox workspace-write --skip-git-repo-check --json --output-last-message '$run_dir/final.md' --cd '$workspace' \"\$S4_CALIBRATION_PROMPT\"")
+  export BENCHMARK_AGENT_PROMPT="$prompt"
+  command=(zsh -lic "cd '$root' && exec codex exec --profile soclaas --model '$model' --sandbox workspace-write --skip-git-repo-check --json --output-last-message '$run_dir/final.md' --cd '$workspace' \"\$BENCHMARK_AGENT_PROMPT\"")
 else
   command=(codex exec --model "$model" --sandbox workspace-write --skip-git-repo-check --json --output-last-message "$run_dir/final.md" --cd "$workspace" "$prompt")
 fi
