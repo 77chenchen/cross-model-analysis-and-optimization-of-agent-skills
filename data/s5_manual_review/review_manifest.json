@@ -1,0 +1,30 @@
+{
+  "blinded": true,
+  "packet_ids": [
+    "packet_057",
+    "packet_020",
+    "packet_061",
+    "packet_063",
+    "packet_045",
+    "packet_051",
+    "packet_009",
+    "packet_032",
+    "packet_002",
+    "packet_049",
+    "packet_033",
+    "packet_014",
+    "packet_042",
+    "packet_052",
+    "packet_059",
+    "packet_029",
+    "packet_034",
+    "packet_058",
+    "packet_017",
+    "packet_036",
+    "packet_071",
+    "packet_030",
+    "packet_054",
+    "packet_072"
+  ],
+  "human_annotation_path": "data/s5_manual_review/human_annotations.jsonl"
+}

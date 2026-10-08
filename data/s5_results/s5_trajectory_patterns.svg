@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560">
+<style>text{font-family:Arial,sans-serif;fill:#1f2937}.title{font-size:20px;font-weight:bold}.label{font-size:12px}.small{font-size:11px}</style>
+<rect width="1200" height="560" fill="white"/>
+<text x="80" y="42" class="title">Blinded judge stage proportions</text><line x1="80" y1="430" x2="560" y2="430" stroke="#374151"/><line x1="80" y1="80" x2="80" y2="430" stroke="#374151"/>
+<rect x="100" y="363.8" width="40" height="66.2" fill="#4C78A8"/><text x="120" y="452" class="small" text-anchor="end" transform="rotate(-45 120 452)">closing</text><text x="120" y="355.8" class="small" text-anchor="middle">0.07</text>
+<rect x="164" y="329.6" width="40" height="100.4" fill="#4C78A8"/><text x="184" y="452" class="small" text-anchor="end" transform="rotate(-45 184 452)">debugging</text><text x="184" y="321.6" class="small" text-anchor="middle">0.10</text>
+<rect x="228" y="267.7" width="40" height="162.3" fill="#4C78A8"/><text x="248" y="452" class="small" text-anchor="end" transform="rotate(-45 248 452)">exploration</text><text x="248" y="259.7" class="small" text-anchor="middle">0.16</text>
+<rect x="292" y="317.2" width="40" height="112.8" fill="#4C78A8"/><text x="312" y="452" class="small" text-anchor="end" transform="rotate(-45 312 452)">implementation</text><text x="312" y="309.2" class="small" text-anchor="middle">0.11</text>
+<rect x="356" y="297.5" width="40" height="132.5" fill="#4C78A8"/><text x="376" y="452" class="small" text-anchor="end" transform="rotate(-45 376 452)">localization</text><text x="376" y="289.5" class="small" text-anchor="middle">0.13</text>
+<rect x="420" y="304.8" width="40" height="125.2" fill="#4C78A8"/><text x="440" y="452" class="small" text-anchor="end" transform="rotate(-45 440 452)">understanding</text><text x="440" y="296.8" class="small" text-anchor="middle">0.13</text>
+<rect x="484" y="129.4" width="40" height="300.6" fill="#4C78A8"/><text x="504" y="452" class="small" text-anchor="end" transform="rotate(-45 504 452)">validation</text><text x="504" y="121.4" class="small" text-anchor="middle">0.30</text>
+<text x="650" y="42" class="title">Blinded judge failure-mode occurrence</text><line x1="650" y1="80" x2="650" y2="430" stroke="#374151"/>
+<text x="640" y="117" class="small" text-anchor="end">empty termination</text><rect x="660" y="100" width="50.0" height="25" fill="#E45756"/><text x="720.0" y="118" class="small">0.03</text>
+<text x="640" y="162" class="small" text-anchor="end">file corruption</text><rect x="660" y="145" width="50.0" height="25" fill="#E45756"/><text x="720.0" y="163" class="small">0.03</text>
+<text x="640" y="207" class="small" text-anchor="end">ineffective debugging loop</text><rect x="660" y="190" width="150.0" height="25" fill="#E45756"/><text x="820.0" y="208" class="small">0.08</text>
+<text x="640" y="252" class="small" text-anchor="end">insufficient validation</text><rect x="660" y="235" width="100.0" height="25" fill="#E45756"/><text x="770.0" y="253" class="small">0.06</text>
+<text x="640" y="297" class="small" text-anchor="end">premature completion</text><rect x="660" y="280" width="75.0" height="25" fill="#E45756"/><text x="745.0" y="298" class="small">0.04</text>
+<text x="640" y="342" class="small" text-anchor="end">repeated exploration</text><rect x="660" y="325" width="125.0" height="25" fill="#E45756"/><text x="795.0" y="343" class="small">0.07</text>
+<text x="640" y="387" class="small" text-anchor="end">tool misuse</text><rect x="660" y="370" width="425.0" height="25" fill="#E45756"/><text x="1095.0" y="388" class="small">0.24</text>
+</svg>

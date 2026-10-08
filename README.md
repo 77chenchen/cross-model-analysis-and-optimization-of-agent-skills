@@ -67,3 +67,13 @@ conditions had observed pass rates in the 20%--80% calibration interval.
 `empty_termination` outcomes), retained as evidence rather than optimized
 against. See `docs/s4_calibration_results.md` and the run/task tables in
 `data/calibration_runs/` for descriptive results and limitations.
+
+## S5 dev-only baseline
+
+S5 collected 72 new v0 observations on the locked dev pool: GPT-5.6 and the
+selected gemma4:26b target, each on 12 tasks with three repetitions. The
+blind judge packet boundary was validated for all 72 trajectories. Summary
+tables, a static trajectory-pattern figure, and four descriptive cases are in
+`data/s5_results/`, `docs/s5_baseline_results.md`, and `docs/s5_cases.md`.
+Twenty-four blinded packets await independent human labels before Cohen's
+kappa can be calculated; no agreement figure is reported before that review.

@@ -1,0 +1,9 @@
+failure_mode,run_count,rate,pass_rate_when_present
+empty_termination,2,0.027777777777777776,0
+file_corruption,2,0.027777777777777776,0.5
+ineffective_debugging_loop,6,0.08333333333333333,0.5
+insufficient_validation,4,0.05555555555555555,0.5
+none_observed,50,0.6944444444444444,0.84
+premature_completion,3,0.041666666666666664,0.3333333333333333
+repeated_exploration,5,0.06944444444444445,0.8
+tool_misuse,17,0.2361111111111111,0.7647058823529411
