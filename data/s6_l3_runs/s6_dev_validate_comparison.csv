@@ -1,0 +1,13 @@
+task,condition,runs,passes,mean_partial_score,outcomes
+pilot_a02_config_parser,S5_v0,3,2,0.6666666666666666,"{""empty_termination"": 1, ""pass"": 2}"
+pilot_a02_config_parser,S6_L3,3,3,1.0,"{""pass"": 3}"
+pilot_a04_dependency_order,S5_v0,3,0,0.6666666666666666,"{""verifier_fail"": 3}"
+pilot_a04_dependency_order,S6_L3,3,0,0.6666666666666666,"{""verifier_fail"": 3}"
+pilot_a06_path_safety,S5_v0,3,2,1.0,"{""pass"": 2, ""empty_termination"": 1}"
+pilot_a06_path_safety,S6_L3,3,3,1.0,"{""pass"": 3}"
+pilot_b02_json_normalization,S5_v0,3,3,1.0,"{""pass"": 3}"
+pilot_b02_json_normalization,S6_L3,3,3,1.0,"{""pass"": 3}"
+pilot_b04_multifile_reconciliation,S5_v0,3,3,1.0,"{""pass"": 3}"
+pilot_b04_multifile_reconciliation,S6_L3,3,3,1.0,"{""pass"": 3}"
+pilot_b06_schema_conversion,S5_v0,3,3,1.0,"{""pass"": 3}"
+pilot_b06_schema_conversion,S6_L3,3,3,1.0,"{""pass"": 3}"

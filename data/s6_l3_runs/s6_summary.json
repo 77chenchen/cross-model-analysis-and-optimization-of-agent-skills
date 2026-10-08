@@ -1,0 +1,13 @@
+{
+  "baseline": {
+    "runs": 18,
+    "passes": 13,
+    "mean_partial_score": 0.8888888888888888
+  },
+  "l3": {
+    "runs": 18,
+    "passes": 15,
+    "mean_partial_score": 0.9444444444444444,
+    "guardrail_triggers": 0
+  }
+}
