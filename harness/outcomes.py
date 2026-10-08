@@ -6,7 +6,7 @@ import py_compile
 from pathlib import Path
 
 
-OUTCOMES = {"empty_termination", "compile_error", "verifier_fail", "timeout", "context_overflow", "provider_error", "pass"}
+OUTCOMES = {"empty_termination", "max_steps_reached", "compile_error", "verifier_fail", "timeout", "context_overflow", "provider_error", "pass"}
 
 
 def verifier_summary(verifier: dict) -> dict:

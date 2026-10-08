@@ -25,3 +25,9 @@ data/b3_s4_r2_runs/pilot_*/
 data/b3_s5_r2_runs/pilot_*/
 data/b3_s4_r2_runs/driver_logs/
 data/b3_s5_r2_runs/driver_logs/
+data/b5_provider_replacements/pilot_*/
+data/b5_r2_blinded_annotations/driver_logs/
+data/b5_r2_blinded_annotations/packet_*.json
+data/b5_r2_human_review/packet_*.json
+data/b5_r2_blinded_packets/b5_r2_private_manifest.json
+data/l3b_runs/pilot_*/

@@ -39,6 +39,8 @@ def r2_outcome(runtime: dict, process: dict, verifier: dict, compile_errors: lis
         return "context_overflow"
     if runtime.get("provider_error"):
         return "provider_error"
+    if runtime.get("max_steps_reached"):
+        return "max_steps_reached"
     if not (runtime.get("final_text") or "").strip():
         return "empty_termination"
     if compile_errors:
@@ -55,6 +57,9 @@ def main() -> None:
     parser.add_argument("--split", choices=("pilot", "dev"), default="pilot")
     parser.add_argument("--repetition", type=int)
     parser.add_argument("--seed", type=int)
+    parser.add_argument("--l3b-trigger-at", type=int)
+    parser.add_argument("--replacement-of")
+    parser.add_argument("--worker-concurrency", type=int, default=1)
     parser.add_argument("--output-root", type=Path, default=ROOT / "data/r2_runs")
     args = parser.parse_args()
 
@@ -77,6 +82,8 @@ def main() -> None:
     command = [sys.executable, str(ROOT / "harness/r2_agent.py"), "--workspace", str(workspace), "--output", str(run_dir), "--model", args.model, "--prompt-file", str(prompt_path), "--temperature", "0.5", "--max-steps", "40", "--context-limit", "65536", "--timeout-seconds", "1200"]
     if args.seed is not None:
         command.extend(["--seed", str(args.seed)])
+    if args.l3b_trigger_at is not None:
+        command.extend(["--l3b-trigger-at", str(args.l3b_trigger_at)])
     # A login shell inherits SOCLAAS_API_KEY without serializing it into code,
     # logs, command metadata, or artifacts.
     login_command = "exec " + " ".join(shlex.quote(part) for part in command)
@@ -99,7 +106,9 @@ def main() -> None:
     flags["timeout"] = bool(flags["timeout"] or runtime.get("deadline_exceeded"))
     flags["context_overflow"] = bool(flags["context_overflow"] or runtime.get("context_budget_exceeded"))
     flags["provider_error"] = bool(flags["provider_error"] or runtime.get("provider_error"))
+    flags["max_steps_reached"] = bool(runtime.get("max_steps_reached"))
     outcome = r2_outcome(runtime, process_data, verifier_result, compile_errors)
+    legacy_outcome = "empty_termination" if runtime.get("max_steps_reached") else outcome
     sampling = runtime.get("sampling") or {}
     metadata = {
         "run_id": run_dir.name, "timestamp": datetime.now(UTC).isoformat(), "runner": "r2-direct-chat-completions", "runner_version": "r2",
@@ -110,11 +119,14 @@ def main() -> None:
         "context_limit": 65536, "max_steps": 40, "timeout_minutes": 20, "reasoning_setting": None, "max_output_tokens": None,
         "task_id": args.task_id, "task_hash": digest(template), "split": args.split, "skill_id": skill_id, "skill_version": args.skill_version, "skill_hash": digest(skill), "tool_schema_version": 2,
         "verifier_hash": digest(verifier), "harness_git_commit": git_commit(ROOT), "container_image": None,
-        "outcome_category": outcome, "legacy_outcome_category": outcome, "outcome_flags": flags, "partial_score": summary["partial_score"],
+        "outcome_category": outcome, "legacy_outcome_category": legacy_outcome, "outcome_flags": flags, "partial_score": summary["partial_score"],
         "verifier_check_count": summary["check_count"], "verifier_checks_passed": summary["checks_passed"], "finish_reason": runtime.get("finish_reason"),
         "finish_reason_available": runtime.get("finish_reason") is not None, "process_timed_out": process_data.get("timed_out", False), "run_cohort": args.run_cohort,
         "repetition": args.repetition, "r2_response_count": runtime.get("response_count", 0), "r2_tool_call_count": runtime.get("tool_call_count", 0),
         "r2_tool_parse": runtime.get("tool_parse", {}), "r2_usage": runtime.get("usage", {}), "r2_process_returncode": process.returncode,
+        "request_retry_events": runtime.get("retry_events", []), "request_retry_count": len(runtime.get("retry_events", [])),
+        "l3b_trigger_at": args.l3b_trigger_at, "l3b_triggered": runtime.get("l3b_triggered", False), "replacement_of": args.replacement_of,
+        "worker_concurrency": args.worker_concurrency,
     }
     (run_dir / "metadata.json").write_text(json.dumps(metadata, indent=2) + "\n", encoding="utf-8")
     print(run_dir)

@@ -133,6 +133,10 @@ class RunState:
     context_budget_exceeded: bool = False
     provider_error: str | None = None
     deadline_exceeded: bool = False
+    max_steps_reached: bool = False
+    retry_events: list[dict[str, Any]] = field(default_factory=list)
+    l3b_triggered: bool = False
+    l3b_trigger_tool_call: int | None = None
     sampling: dict[str, Any] = field(default_factory=dict)
 
 
@@ -158,7 +162,15 @@ def _usage(payload: dict[str, Any], state: RunState) -> None:
         state.usage["reasoning_tokens"] += reasoning
 
 
-def run_agent(*, workspace: Path, output: Path, model: str, prompt: str, temperature: float, seed: int | None, max_steps: int, context_limit: int, timeout_seconds: int, client: Any | None = None) -> RunState:
+def retryable_transport_failure(error: Exception) -> bool:
+    """Only failures before a provider response may receive a request retry."""
+    status = getattr(error, "status_code", None)
+    if isinstance(status, int) and 500 <= status <= 599:
+        return True
+    return type(error).__name__ in {"APITimeoutError", "APIConnectionError", "TimeoutError", "ConnectionError"}
+
+
+def run_agent(*, workspace: Path, output: Path, model: str, prompt: str, temperature: float, seed: int | None, max_steps: int, context_limit: int, timeout_seconds: int, l3b_trigger_at: int | None = None, client: Any | None = None) -> RunState:
     """Run until a final assistant message, hard limit, or first provider error.
 
     `client` exists only for deterministic unit tests.  Production creates an
@@ -187,16 +199,30 @@ def run_agent(*, workspace: Path, output: Path, model: str, prompt: str, tempera
             append_event(events, {"timestamp": utcnow(), "event": "context_budget_exceeded", "estimated_tokens": estimate, "limit": context_limit})
             break
         if state.tool_call_count >= max_steps:
+            state.max_steps_reached = True
             append_event(events, {"timestamp": utcnow(), "event": "max_steps_reached", "max_steps": max_steps})
             break
         request: dict[str, Any] = {"model": model, "temperature": temperature, "messages": messages, "tools": TOOLS}
         if seed is not None:
             request["seed"] = seed
-        try:
-            response = client.chat.completions.create(**request)
-        except Exception as error:  # No retry: the first provider failure terminates the run.
-            state.provider_error = f"{type(error).__name__}: {error}"
-            append_event(events, {"timestamp": utcnow(), "event": "provider_error", "error": state.provider_error})
+        response = None
+        for attempt in range(1, 4):
+            try:
+                response = client.chat.completions.create(**request)
+                break
+            except Exception as error:
+                retryable = retryable_transport_failure(error)
+                record = {"timestamp": utcnow(), "response_index": state.response_count + 1, "attempt": attempt, "error_type": type(error).__name__, "error": str(error), "retryable_transport_failure": retryable}
+                state.retry_events.append(record)
+                append_event(events, {"event": "request_failure", **record})
+                if not retryable or attempt == 3:
+                    state.provider_error = f"{type(error).__name__}: {error}"
+                    append_event(events, {"timestamp": utcnow(), "event": "provider_error", "error": state.provider_error, "attempts": attempt})
+                    break
+                backoff_seconds = 2 ** (attempt - 1)
+                record["backoff_seconds"] = backoff_seconds
+                time.sleep(backoff_seconds)
+        if response is None:
             break
         payload = response.model_dump(mode="json") if hasattr(response, "model_dump") else response
         state.response_count += 1
@@ -246,6 +272,12 @@ def run_agent(*, workspace: Path, output: Path, model: str, prompt: str, tempera
                         result = {"ok": False, "error": f"{type(error).__name__}: {error}"}
             append_event(events, {"timestamp": utcnow(), "event": "tool_result", "response_index": state.response_count, "tool_call_id": call_id, "tool_name": name, "arguments": raw_arguments, "result": result})
             messages.append({"role": "tool", "tool_call_id": call_id, "content": json.dumps(result, ensure_ascii=False)})
+        if l3b_trigger_at is not None and not state.l3b_triggered and state.tool_call_count >= l3b_trigger_at:
+            state.l3b_triggered = True
+            state.l3b_trigger_tool_call = state.tool_call_count
+            reminder = "You have 8 tool calls remaining. Prioritize validating the current implementation, then provide a final summary when done."
+            messages.append({"role": "user", "content": reminder})
+            append_event(events, {"timestamp": utcnow(), "event": "l3b_budget_reminder_injected", "trigger_tool_call": state.tool_call_count, "text": reminder})
     save_json(output / "runtime_r2.json", {"runner": "r2", "completed_at": utcnow(), **state.__dict__, "max_steps": max_steps, "context_limit": context_limit, "timeout_seconds": timeout_seconds, "token_estimation": f"characters/{CHARS_PER_TOKEN_ESTIMATE}"})
     (output / "final.md").write_text(state.final_text, encoding="utf-8")
     return state
@@ -262,8 +294,9 @@ def main() -> None:
     parser.add_argument("--max-steps", type=int, default=40)
     parser.add_argument("--context-limit", type=int, default=65536)
     parser.add_argument("--timeout-seconds", type=int, default=1200)
+    parser.add_argument("--l3b-trigger-at", type=int)
     args = parser.parse_args()
-    run_agent(workspace=args.workspace.resolve(), output=args.output.resolve(), model=args.model, prompt=args.prompt_file.read_text(encoding="utf-8"), temperature=args.temperature, seed=args.seed, max_steps=args.max_steps, context_limit=args.context_limit, timeout_seconds=args.timeout_seconds)
+    run_agent(workspace=args.workspace.resolve(), output=args.output.resolve(), model=args.model, prompt=args.prompt_file.read_text(encoding="utf-8"), temperature=args.temperature, seed=args.seed, max_steps=args.max_steps, context_limit=args.context_limit, timeout_seconds=args.timeout_seconds, l3b_trigger_at=args.l3b_trigger_at)
 
 
 if __name__ == "__main__":

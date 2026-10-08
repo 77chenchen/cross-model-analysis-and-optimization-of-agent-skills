@@ -1,0 +1,29 @@
+locked_on: 2026-10-08
+runner: r2-direct-chat-completions
+model: qwen3.5:9b
+skill_version: v0
+split: dev_validate
+temperature: 0.5
+seed: null
+max_steps: 40
+context_limit: 65536
+process_group_timeout_seconds: 1200
+tools: unchanged_from_r2
+additional_model_turns: prohibited
+trigger:
+  after_tool_calls: 32
+  remaining_tool_calls: 8
+  fixed_message: "You have 8 tool calls remaining. Prioritize validating the current implementation, then provide a final summary when done."
+conditions:
+  baseline: {l3b_trigger_at: null}
+  l3b: {l3b_trigger_at: 32}
+design:
+  tasks: 6
+  repetitions_per_task_condition: 6
+  total_runs: 72
+  order: fixed_interleaved_random_order_seed_20261008
+analysis:
+  primary: [max_steps_reached_rate, post_trigger_validation_rate, post_trigger_partial_increase_rate, post_trigger_pass_rate]
+  descriptive: [pass_rate_wilson, partial_score_wilson, partial_delta_from_seed]
+  report_by_split: true
+  test_split_allowed: false

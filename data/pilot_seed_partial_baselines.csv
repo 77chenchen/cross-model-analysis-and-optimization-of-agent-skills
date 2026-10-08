@@ -1,0 +1,13 @@
+task_id,seed_partial_score,checks_passed,check_count
+pilot_a01_label_parser,0.5,1,2
+pilot_a02_config_parser,0.0,0,2
+pilot_a03_record_deduplication,0.0,0,2
+pilot_a04_dependency_order,0.0,0,3
+pilot_a05_version_parser,0.0,0,1
+pilot_a06_path_safety,0.0,0,4
+pilot_b01_csv_cleaning,0.25,1,4
+pilot_b02_json_normalization,0.25,1,4
+pilot_b03_duplicate_audit,0.5,1,2
+pilot_b04_multifile_reconciliation,0.0,0,2
+pilot_b05_date_validation,0.0,0,1
+pilot_b06_schema_conversion,0.3333333333333333,1,3

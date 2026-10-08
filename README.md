@@ -138,3 +138,51 @@ exploratory: report their activation rate and descriptive outcomes separately.
 An “intervention effective” claim requires both observed mechanism activation
 and an observable dev-validate improvement; a pass-rate difference alone is
 insufficient. No test split has been run under this revision.
+
+## B5 protocol revision: transport reliability and L3b (2026-10-08)
+
+Before any subsequent batch, r2 retries only a request that receives no model
+response because of a transport failure: HTTP 5xx, connection failure, or
+connection timeout. It makes at most three total attempts with 1- then
+2-second exponential backoff. It does **not** retry a received model reply,
+tool call, verifier failure, or the 20-minute process-group timeout. Each
+failed attempt has a timestamp and error record in `request_retry_events` in
+the run metadata. Exhaustion is `provider_error`: excluded from a pass-rate
+denominator but retained and counted by task. The legacy single outcome remains
+for compatibility; `max_steps_reached` is now a separate outcome flag/category
+and old records are not rewritten.
+
+The eight original B3/S5 HTTP-502 records remain immutable. They were
+distributed across A02/A03 around 13:59--14:03 UTC and A04/B04 around
+14:08--14:31 UTC, so the failures are temporally clustered rather than unique
+to one task. Their replacements use fresh run IDs and one worker; reports will
+show both the original-only result and the replacement-inclusive result.
+
+The same r2 Qwen3.5:9b/v0 configuration was measured twice: S4 had 11/36
+passes and S5 had 8/36 passes. This 3-run difference is recorded as a
+between-batch remeasurement/noise estimate, not evidence of a skill effect.
+For dev-diagnose alone, 2/18 S5 trajectories reached the 40-call limit; their
+partial scores were 2/3 and 1.0. This independently motivates studying a fixed
+budget guard without using dev-validate trajectories to invent a text skill.
+The B4 terminal-path diagnosis nevertheless examined all 36 S5 runs, including
+dev-validate, and that scope is a stated limitation.
+
+`config/l3b_protocol.yaml` preregisters L3b as the final intervention: a fixed
+message is inserted immediately after tool call 32 (eight calls remaining),
+with no extra model turn, no new tool, and the unchanged 40-call cap. Its
+72-run dev-validate-only schedule is an interleaved fixed random order of six
+baseline and six L3b repetitions for each of six tasks. Primary metrics are
+the max-step rate and post-trigger conversion to validation, seed-relative
+partial improvement, and pass; pass/partial summaries are descriptive Wilson
+intervals reported by split. No L3b run may begin without explicit subsequent
+authorization. L3b is the final intervention round: after it, S7 centers C0
+and C1 cross-model baselines, while v1/L3b remain exploratory mechanism and
+descriptive results.
+
+## Test-split status (2026-10-08)
+
+`test_in` contains 12 tasks (six A and six B), and `test_out` contains six C
+tasks. `tasks/s3_admission.json` records all 18/18 passing positive,
+negative-template, and shortcut admission checks; zero tasks are missing.
+They have not been executed by any model. The only remaining prerequisite is
+the locked S7 authorization/analysis stage, not task construction.

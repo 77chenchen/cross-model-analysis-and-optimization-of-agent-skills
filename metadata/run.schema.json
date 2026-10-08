@@ -35,9 +35,9 @@
     "verifier_hash": {"type": "string"},
     "harness_git_commit": {"type": "string"},
     "container_image": {"type": ["string", "null"]}
-    ,"outcome_category": {"enum": ["empty_termination", "compile_error", "verifier_fail", "timeout", "context_overflow", "provider_error", "pass"]}
-    ,"legacy_outcome_category": {"enum": ["empty_termination", "compile_error", "verifier_fail", "timeout", "context_overflow", "provider_error", "pass"]}
-    ,"outcome_flags": {"type": "object", "properties": {"final_empty": {"type": "boolean"}, "no_edit": {"type": "boolean"}, "compile_error": {"type": "boolean"}, "verifier_fail": {"type": "boolean"}, "timeout": {"type": "boolean"}, "context_overflow": {"type": "boolean"}, "provider_error": {"type": "boolean"}}, "required": ["final_empty", "no_edit", "compile_error", "verifier_fail", "timeout", "context_overflow", "provider_error"], "additionalProperties": false}
+    ,"outcome_category": {"enum": ["empty_termination", "max_steps_reached", "compile_error", "verifier_fail", "timeout", "context_overflow", "provider_error", "pass"]}
+    ,"legacy_outcome_category": {"enum": ["empty_termination", "max_steps_reached", "compile_error", "verifier_fail", "timeout", "context_overflow", "provider_error", "pass"]}
+    ,"outcome_flags": {"type": "object", "properties": {"final_empty": {"type": "boolean"}, "no_edit": {"type": "boolean"}, "compile_error": {"type": "boolean"}, "verifier_fail": {"type": "boolean"}, "timeout": {"type": "boolean"}, "context_overflow": {"type": "boolean"}, "provider_error": {"type": "boolean"}, "max_steps_reached": {"type": "boolean"}}, "required": ["final_empty", "no_edit", "compile_error", "verifier_fail", "timeout", "context_overflow", "provider_error"], "additionalProperties": false}
     ,"partial_score": {"type": ["number", "null"]}
     ,"verifier_check_count": {"type": "integer"}
     ,"verifier_checks_passed": {"type": "integer"}
@@ -51,5 +51,11 @@
     ,"r2_tool_parse": {"type": "object"}
     ,"r2_usage": {"type": "object"}
     ,"r2_process_returncode": {"type": "integer"}
+    ,"request_retry_events": {"type": "array"}
+    ,"request_retry_count": {"type": "integer", "minimum": 0}
+    ,"l3b_trigger_at": {"type": ["integer", "null"]}
+    ,"l3b_triggered": {"type": "boolean"}
+    ,"worker_concurrency": {"type": "integer", "minimum": 1}
+    ,"replacement_of": {"type": ["string", "null"]}
   }
 }

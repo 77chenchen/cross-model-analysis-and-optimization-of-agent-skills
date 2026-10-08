@@ -71,6 +71,40 @@ class R2AgentTests(unittest.TestCase):
             self.assertIn("provider down", state.provider_error)
             self.assertEqual(client.chat.completions.calls, 1)
 
+    def test_502_transport_failure_retries_then_succeeds(self):
+        class HttpError(Exception):
+            status_code = 502
+        class FlakyCompletions:
+            def __init__(self): self.calls = 0
+            def create(self, **kwargs):
+                self.calls += 1
+                if self.calls == 1:
+                    raise HttpError("bad gateway")
+                return FakeResponse(response({"content": "done"}, "stop"))
+        client = type("Client", (), {"chat": type("Chat", (), {"completions": FlakyCompletions()})()})()
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            state = run_agent(workspace=root, output=root / "out", model="fake", prompt="go", temperature=0.5, seed=None, max_steps=40, context_limit=1000, timeout_seconds=20, client=client)
+            self.assertEqual(client.chat.completions.calls, 2)
+            self.assertEqual(state.final_text, "done")
+            self.assertEqual(len(state.retry_events), 1)
+            self.assertTrue(state.retry_events[0]["retryable_transport_failure"])
+
+    def test_l3b_reminder_is_injected_after_32nd_tool_call(self):
+        payloads = []
+        for index in range(32):
+            payloads.append(response({"content": "", "tool_calls": [{"id": str(index), "function": {"name": "list_dir", "arguments": "{}"}}]}, "tool_calls"))
+        payloads.append(response({"content": "done"}, "stop"))
+        client = FakeClient(payloads)
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            state = run_agent(workspace=root, output=root / "out", model="fake", prompt="go", temperature=0.5, seed=None, max_steps=40, context_limit=100000, timeout_seconds=20, l3b_trigger_at=32, client=client)
+            self.assertTrue(state.l3b_triggered)
+            self.assertEqual(state.l3b_trigger_tool_call, 32)
+            reminder = client.chat.completions.requests[-1]["messages"][-1]
+            self.assertEqual(reminder["role"], "user")
+            self.assertIn("8 tool calls remaining", reminder["content"])
+
 
 if __name__ == "__main__":
     unittest.main()
