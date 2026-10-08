@@ -1,0 +1,16 @@
+condition: L3_runtime_guardrail_v1
+base_skill: v0
+scope: dev_validate_only
+model: gemma4:26b
+repetitions: 3
+failure_evidence:
+  - qwen3.5:9b D5 trajectories frequently ended without editing or validation
+  - S5 dev baseline retained empty termination and verifier-fail outcomes
+guardrails:
+  - after a first turn with no target change, require one repair turn
+  - after a first turn with Python compile failure, require one repair turn with the compiler output
+  - when repeated error markers occur, request a simpler direct edit and one focused check
+expected_observables:
+  - lower no-edit termination frequency
+  - higher post-edit validation rate
+non_claim: The harness changes the execution condition; it is not equivalent to a skill-text-only intervention.
