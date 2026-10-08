@@ -9,3 +9,4 @@ data/calibration_runs/driver_logs/
 data/calibration_runs/pilot_*/
 data/s5_runs/driver_logs/
 data/s5_runs/pilot_*/
+data/s5_blinded_annotations/driver_logs/
