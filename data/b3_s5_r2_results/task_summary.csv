@@ -1,0 +1,13 @@
+task_id,runs,passes,pass_rate,mean_partial_score,outcome_counts,outcome_flags
+pilot_a01_label_parser,3,3,1.0,1.0,"{""pass"": 3}",{}
+pilot_a02_config_parser,3,0,0.0,0.9333333333333332,"{""empty_termination"": 1, ""provider_error"": 2}","{""final_empty"": 3, ""provider_error"": 2, ""verifier_fail"": 1}"
+pilot_a03_record_deduplication,3,0,0.0,0.5,"{""provider_error"": 2, ""verifier_fail"": 1}","{""final_empty"": 2, ""provider_error"": 2, ""verifier_fail"": 3}"
+pilot_a04_dependency_order,3,0,0.0,0.2222222222222222,"{""empty_termination"": 2, ""provider_error"": 1}","{""compile_error"": 1, ""final_empty"": 3, ""provider_error"": 1, ""verifier_fail"": 3}"
+pilot_a05_version_parser,3,0,0.0,0.7777777777777777,"{""empty_termination"": 2, ""verifier_fail"": 1}","{""final_empty"": 2, ""verifier_fail"": 3}"
+pilot_a06_path_safety,3,0,0.0,0.9166666666666666,"{""empty_termination"": 3}","{""final_empty"": 3, ""verifier_fail"": 1}"
+pilot_b01_csv_cleaning,3,1,0.3333333333333333,1.0,"{""empty_termination"": 2, ""pass"": 1}","{""final_empty"": 2}"
+pilot_b02_json_normalization,3,2,0.6666666666666666,1.0,"{""empty_termination"": 1, ""pass"": 2}","{""final_empty"": 1}"
+pilot_b03_duplicate_audit,3,0,0.0,0.5,"{""verifier_fail"": 3}","{""verifier_fail"": 3}"
+pilot_b04_multifile_reconciliation,3,0,0.0,0.0,"{""provider_error"": 3}","{""compile_error"": 3, ""final_empty"": 3, ""provider_error"": 3, ""verifier_fail"": 3}"
+pilot_b05_date_validation,3,1,0.3333333333333333,1.0,"{""empty_termination"": 2, ""pass"": 1}","{""final_empty"": 2}"
+pilot_b06_schema_conversion,3,1,0.3333333333333333,1.0,"{""empty_termination"": 2, ""pass"": 1}","{""final_empty"": 2}"

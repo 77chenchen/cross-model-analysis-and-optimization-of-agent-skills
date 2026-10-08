@@ -1,0 +1,38 @@
+{
+  "including_a04": {
+    "runs": 36,
+    "passes": 8,
+    "pass_rate": 0.2222222222222222,
+    "mean_partial_score": 0.7375,
+    "outcomes": {
+      "empty_termination": 15,
+      "pass": 8,
+      "provider_error": 8,
+      "verifier_fail": 5
+    },
+    "flags": {
+      "compile_error": 4,
+      "final_empty": 23,
+      "provider_error": 8,
+      "verifier_fail": 17
+    }
+  },
+  "excluding_a04": {
+    "runs": 33,
+    "passes": 8,
+    "pass_rate": 0.24242424242424243,
+    "mean_partial_score": 0.7843434343434343,
+    "outcomes": {
+      "empty_termination": 13,
+      "pass": 8,
+      "provider_error": 7,
+      "verifier_fail": 5
+    },
+    "flags": {
+      "compile_error": 3,
+      "final_empty": 20,
+      "provider_error": 7,
+      "verifier_fail": 14
+    }
+  }
+}
