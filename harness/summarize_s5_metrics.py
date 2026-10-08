@@ -24,7 +24,9 @@ for meta_path in sorted(SOURCE.glob("*/metadata.json")):
     runtime = json.loads((run_dir / "runtime.json").read_text())
     process = json.loads((run_dir / "process.json").read_text())
     actions = [json.loads(line) for line in (run_dir / "actions.jsonl").read_text().splitlines()]
-    commands = [a for a in actions if a.get("event_type") == "command"]
+    # The normalizer records both command start and completion events.  Count
+    # completed calls only so each agent action contributes at most once.
+    commands = [a for a in actions if a.get("event_type") == "command" and a.get("status") == "completed"]
     command_texts = [str(a.get("command") or "") for a in commands]
     failed_calls = sum(a.get("status") == "failed" for a in commands)
     repeats = sum(count - 1 for count in Counter(command_texts).values() if count > 1)
