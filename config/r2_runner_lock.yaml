@@ -1,0 +1,21 @@
+locked_on: 2026-10-08
+runner: r2-direct-chat-completions
+transport: soclaas_openai_compatible_chat_completions
+tool_schema_version: 2
+temperature: 0.5
+seed: optional_request_parameter
+max_steps: 40
+context_limit: 65536
+context_estimation: utf8_json_characters_divided_by_4
+process_group_timeout_seconds: 1200
+per_command_timeout_seconds: 120
+tool_output_limit_characters: 12000
+automatic_retry: false
+extra_user_continuation: false
+pilot_only_entrypoint: harness/run_r2_pilot.py
+test_split_allowed: false
+raw_response_retention: local_run_directory
+notes:
+  - Temperature is transmitted on every request and is inferred accepted only after a response returns.
+  - Seed is transmitted only when supplied. A successful response establishes transport acceptance, not a provider-side reproducibility guarantee unless the response echoes it.
+  - Context enforcement is a documented local estimate, not a claim that the provider exposes a server-side context override.

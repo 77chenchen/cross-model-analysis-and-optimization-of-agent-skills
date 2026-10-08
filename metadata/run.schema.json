@@ -5,6 +5,8 @@
   "required": ["run_id", "timestamp", "model_provider", "requested_model_id", "task_id", "task_hash", "split", "skill_id", "skill_version", "skill_hash", "context_limit", "max_steps", "timeout_minutes", "tool_schema_version", "verifier_hash", "harness_git_commit"],
   "properties": {
     "run_id": {"type": "string"},
+    "runner": {"type": "string"},
+    "runner_version": {"type": "string"},
     "timestamp": {"type": "string"},
     "model_provider": {"type": "string"},
     "requested_model_id": {"type": "string"},
@@ -14,6 +16,7 @@
     "temperature_requested": {"type": ["number", "null"]},
     "temperature_effective": {"type": ["number", "null"]},
     "sampling_control": {"enum": ["supported", "unsupported_by_cli", "unknown"]},
+    "sampling_parameter_echo": {"type": ["object", "null"]},
     "seed_requested": {"type": ["integer", "null"]},
     "seed_effective": {"type": ["integer", "null"]},
     "seed": {"type": ["integer", "null"]},
@@ -43,5 +46,10 @@
     ,"process_timed_out": {"type": "boolean"}
     ,"run_cohort": {"type": "string"}
     ,"repetition": {"type": ["integer", "null"], "minimum": 1}
+    ,"r2_response_count": {"type": "integer", "minimum": 0}
+    ,"r2_tool_call_count": {"type": "integer", "minimum": 0}
+    ,"r2_tool_parse": {"type": "object"}
+    ,"r2_usage": {"type": "object"}
+    ,"r2_process_returncode": {"type": "integer"}
   }
 }

@@ -18,3 +18,4 @@ data/s6_l3_runs/driver_logs/
 data/s6_l3_runs/pilot_*/
 data/b0_qwen35_direct_probe/**/pilot_*.json
 data/b0_qwen35_direct_probe/manifest.json
+data/r2_runs/pilot_*/

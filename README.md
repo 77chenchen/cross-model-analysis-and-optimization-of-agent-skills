@@ -93,6 +93,32 @@ claims about raw provider APIs. New metadata distinguishes requested from
 effective settings; analysis treats task as the statistical unit and does not
 pool the legacy temperature-0 pilot with the newer cohort.
 
+## Runner r2 lock (B1, 2026-10-08)
+
+`harness/r2_agent.py` is the separate, direct SoC LaaS Chat Completions runner
+for open-weight models. It transmits temperature `0.5`, accepts an optional
+seed, enforces a local 40-tool-call cap and a 65,536-token conservative
+context estimate, bounds each shell command to 120 seconds, and is itself
+wrapped in the existing 20-minute process-group timeout. Every response is
+archived before interpretation, including full reasoning payloads where the
+provider supplies them, finish reason, usage fields, and tool-call parsing
+status. It never retries a provider call and sends no extra user continuation;
+the only follow-up turn is the required tool-result message.
+
+The r2 pilot entry point can address only `tasks/pilot`, so it cannot run a
+test split. Temperature is considered transport-accepted only after the
+endpoint returns a response. A requested seed is likewise recorded as
+transport-accepted when the request succeeds; it is not claimed to be an
+effective deterministic control unless the provider explicitly echoes it.
+The direct provider currently supplies no such temperature/seed echo, which
+remains a reported limitation. Configuration is frozen in
+`config/r2_runner_lock.yaml` before any r2 test run.
+
+All historical CLI artifacts remain `runner=codex-cli` legacy evidence and
+are never pooled with r2 observations. GPT-5.6 remains a Codex-only reference
+anchor with uncontrolled sampling unless direct API credentials become
+available.
+
 ## Protocol revision (2026-10-08; before any test run)
 
 S7, if it is ever authorized after an effective dev-validate result, has a
