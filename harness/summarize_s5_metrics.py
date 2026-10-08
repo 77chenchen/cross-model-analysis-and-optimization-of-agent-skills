@@ -30,7 +30,9 @@ for meta_path in sorted(SOURCE.glob("*/metadata.json")):
     command_texts = [str(a.get("command") or "") for a in commands]
     failed_calls = sum(a.get("status") == "failed" for a in commands)
     repeats = sum(count - 1 for count in Counter(command_texts).values() if count > 1)
-    edits = [a["sequence"] for a in commands if command_is_edit(str(a.get("command") or ""))]
+    edits = [a["sequence"] for a in actions if a.get("tool_name") == "file_change" and a.get("status") == "completed"]
+    edits += [a["sequence"] for a in commands if command_is_edit(str(a.get("command") or ""))]
+    edits.sort()
     validations = [a["sequence"] for a in commands if command_is_validation(str(a.get("command") or ""))]
     full_text = "\n".join((str(a.get("text") or "") + " " + str(a.get("command") or "")) for a in actions).lower()
     if "skill protocol" in full_text or "skill a" in full_text or "skill b" in full_text:
