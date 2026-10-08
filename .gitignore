@@ -5,3 +5,5 @@ data/raw/*/workspace/__pycache__/
 data/pilot_runs/*/workspace/__pycache__/
 data/pilot_runs/d2_qwen35_agent_final.md
 data/pilot_runs/d2_qwen35_agent_trajectory.jsonl
+data/calibration_runs/driver_logs/
+data/calibration_runs/pilot_*/

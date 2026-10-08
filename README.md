@@ -56,3 +56,14 @@ Tag `d5-v0v1-pilot` identifies the D5 qwen3.5:9b pilot comparison. On A03,
 A05, B03, and B05, Skill v0 passed 0/4 and Skill v1 passed 0/4. This negative
 result is immutable historical evidence: v1 will not be overwritten or
 reinterpreted as a formal efficacy result.
+
+## S4 calibration result
+
+S4 completed the locked 216-run descriptive calibration matrix (six models,
+12 pilot tasks, three fresh repetitions, frozen v0 skills). `gemma4:26b` is
+the selected primary weak target for dev-only work because 5 of its 12 task
+conditions had observed pass rates in the 20%--80% calibration interval.
+`qwen3.5:9b` is a documented floor condition (0/36 passes; 35
+`empty_termination` outcomes), retained as evidence rather than optimized
+against. See `docs/s4_calibration_results.md` and the run/task tables in
+`data/calibration_runs/` for descriptive results and limitations.
