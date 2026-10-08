@@ -119,6 +119,16 @@ are never pooled with r2 observations. GPT-5.6 remains a Codex-only reference
 anchor with uncontrolled sampling unless direct API credentials become
 available.
 
+## B2 runner comparison (2026-10-08)
+
+One fresh Gemma4:26b v0 observation was collected per runner on each locked
+pilot/dev task. The direct r2 runner passed 11/12 while the uncontrolled
+Codex CLI runner passed 8/12; the runners diverged on A05, B02, and B03. This
+is descriptive evidence that the runner implementations are not exchangeable,
+not an efficacy result or a model ranking. Details and the A04-excluded view
+are in `docs/b2_runner_equivalence.md`. B3 therefore starts a distinct r2
+cohort and does not pool any r2 result with legacy CLI results.
+
 ## Protocol revision (2026-10-08; before any test run)
 
 S7, if it is ever authorized after an effective dev-validate result, has a

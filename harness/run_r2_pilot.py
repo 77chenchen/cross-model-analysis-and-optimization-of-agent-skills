@@ -62,7 +62,7 @@ def main() -> None:
     verifier = ROOT / "verifiers" / f"{args.task_id}.py"
     if not template.is_dir() or not verifier.is_file():
         raise SystemExit("pilot task and verifier are required; formal test tasks are not supported")
-    skill_id = args.task_id.split("_", 2)[1].upper()
+    skill_id = args.task_id[6:7].upper()
     skill = ROOT / "skills" / skill_id / f"{args.skill_version}.md"
     if not skill.is_file():
         raise SystemExit("skill protocol missing")

@@ -30,3 +30,13 @@ remain null/unknown rather than being inferred.
 For SoC LaaS, the runner starts a login `zsh` so the user's local
 `SOCLAAS_API_KEY` can be inherited without being read, logged, or written to
 the repository.
+
+## r2 direct runner
+
+`python3 harness/run_r2_pilot.py <pilot_task_id> <model>` is the r2 entry
+point for direct SoC LaaS Chat Completions runs. It is pilot-only by design and
+rejects any non-pilot task. It copies a fresh template workspace, preserves
+raw provider responses and event records locally, runs the external verifier,
+and records r2-specific response/tool-parser metadata. It transmits
+temperature 0.5 and can transmit a caller-supplied seed, but transport
+acceptance is not evidence that the provider applied a deterministic seed.

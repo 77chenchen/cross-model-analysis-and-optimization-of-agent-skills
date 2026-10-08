@@ -115,6 +115,7 @@ def main() -> None:
     parser.add_argument("--workspace", type=Path, required=True)
     parser.add_argument("--run-cohort", default="pilot")
     parser.add_argument("--repetition", type=int, default=None)
+    parser.add_argument("--runner", default="codex-cli")
     args = parser.parse_args()
     task = args.root / "tasks" / "pilot" / args.task_id / "template"
     verifier = args.root / "verifiers" / f"{args.task_id}.py"
@@ -133,7 +134,7 @@ def main() -> None:
     runtime.update({"outcome_category": outcome, "legacy_outcome_category": outcome, "outcome_flags": flags, "compile_errors": compile_errors, "final_message_chars": len(final_text)})
     (args.run_dir / "runtime.json").write_text(json.dumps(runtime, indent=2) + "\n")
     metadata = {
-        "run_id": run_id, "timestamp": datetime.now(UTC).isoformat(),
+        "run_id": run_id, "timestamp": datetime.now(UTC).isoformat(), "runner": args.runner,
         "model_provider": args.provider, "requested_model_id": args.model,
         "returned_model_id": None, "model_snapshot": None, "temperature": None,
         "temperature_requested": 0.5, "temperature_effective": None,

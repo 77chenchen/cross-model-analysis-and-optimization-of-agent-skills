@@ -1,0 +1,26 @@
+stage: B2
+purpose: descriptive runner comparison only; not an equivalence claim or pooled analysis
+model: gemma4:26b
+skill_version: v0
+tasks:
+  - pilot_a01_label_parser
+  - pilot_a02_config_parser
+  - pilot_a03_record_deduplication
+  - pilot_a04_dependency_order
+  - pilot_a05_version_parser
+  - pilot_a06_path_safety
+  - pilot_b01_csv_cleaning
+  - pilot_b02_json_normalization
+  - pilot_b03_duplicate_audit
+  - pilot_b04_multifile_reconciliation
+  - pilot_b05_date_validation
+  - pilot_b06_schema_conversion
+repetitions_per_runner_task: 1
+runners: [codex-cli, r2-direct-chat-completions]
+r2:
+  temperature: 0.5
+  seed: 20261008
+codex_cli:
+  temperature: uncontrolled
+  seed: uncontrolled
+no_test_split: true
