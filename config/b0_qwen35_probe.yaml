@@ -1,0 +1,14 @@
+stage: B0
+purpose: distinguish direct-provider visible output/tool calls from Codex CLI empty-final artifacts
+model: qwen3.5:9b
+transport: chat_completions
+prompt_source: harness/run_calibration.sh (S4 wording)
+temperature: 0.5
+repetitions: 2
+tasks:
+  - pilot_a01_label_parser
+  - pilot_a02_config_parser
+  - pilot_a03_record_deduplication
+tools: [list_directory, read_file, write_file, run_command]
+no_tool_execution: true
+no_test_split: true
