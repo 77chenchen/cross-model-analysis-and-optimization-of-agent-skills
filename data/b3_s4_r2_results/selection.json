@@ -1,0 +1,13 @@
+{
+  "rule": "locked config/b3_r2_protocol.yaml",
+  "selected_model": "qwen3.5:9b",
+  "selected_row": {
+    "model": "qwen3.5:9b",
+    "runs": 36,
+    "passes": 11,
+    "overall_pass_rate": 0.3055555555555556,
+    "mean_partial_score": 0.7291666666666666,
+    "middle_task_count": 3,
+    "eligible_for_s5": true
+  }
+}
