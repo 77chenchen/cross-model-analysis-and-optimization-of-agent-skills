@@ -20,9 +20,10 @@ The task pool is already frozen and admission-complete:
 | `test_out` | 6 (six C) | 6/6 admitted; not run |
 | total | 18 | 18/18 admitted; not run |
 
-Each scheduled cell uses three fresh repetitions. The task, rather than an
-individual repetition, is the inferential sampling unit; repetitions estimate
-within-task random variation.
+The task, rather than an individual repetition, is the inferential sampling
+unit; repetitions estimate within-task random variation. `qwen3.5:9b` uses
+five fresh repetitions in every assigned condition. Every other model uses
+three repetitions in each core condition.
 
 ## Model panel and execution paths
 
@@ -44,25 +45,31 @@ artifacts are legacy evidence and are never pooled with r2 observations.
 
 ## Conditions and matrix
 
-All runs use the frozen 18-task test pool and three repetitions.
+All assigned runs use the frozen 18-task test pool; the condition-specific
+repetition counts are shown below.
 
-| condition | exact content | status | runs per model | all six models |
+| condition | exact content | status | qwen3.5:9b runs | each other model |
 |---|---|---|---:|---:|
-| C0 | no skill protocol | core | 54 | 324 |
-| C1 | matching frozen v0 skill (A/B/C) | core | 54 | 324 |
-| v1 | matching frozen v1 skill | exploratory | 54 | 324 if fully crossed |
-| L3b | frozen v0 skill plus the locked call-32 reminder | exploratory | 54 | 324 if fully crossed |
+| C0 | no skill protocol | core | 18 × 5 = 90 | 18 × 3 = 54 |
+| C1 | matching frozen v0 skill (A/B/C) | core | 18 × 5 = 90 | 18 × 3 = 54 |
+| v1 | matching frozen v1 A/B skill | weak-model exploratory | 12 × 5 = 60 | not scheduled |
+| L3b | frozen v0 skill plus the locked call-32 reminder | weak-model exploratory | 18 × 5 = 90 | not scheduled |
 
-Thus the fixed core is **648 scheduled runs**. Two mutually exclusive,
-unselected exploratory scopes are documented for the user's later choice:
+The v1 restriction is deliberate: frozen v1 exists only for Skills A/B, so it
+does not apply to the six Skill-C `test_out` tasks. L3b uses v0 and does apply
+to all 18 tasks.
 
-| proposed scope | added exploratory runs | total scheduled runs |
+The approved, fixed total is:
+
+| component | `test_in` | `test_out` | total |
 |---|---:|---:|
-| no exploratory test condition | 0 | 648 |
-| v1 and L3b for `qwen3.5:9b` only | 108 | 756 |
-| v1 and L3b fully crossed across all six models | 648 | 1,296 |
+| qwen3.5:9b: C0, C1, v1, L3b | 240 | 90 | 330 |
+| five other models: C0 and C1 | 360 | 180 | 540 |
+| **all conditions** | **600** | **270** | **870** |
 
-No token or currency estimate is part of this protocol.
+Of the 870 runs, the C0/C1 core is **720** (180 qwen3.5:9b plus 540 for the
+other models); the weak-model exploratory portion is **150** (60 v1 plus 90
+L3b). No token or currency estimate is part of this protocol.
 
 ## C0/C1 prompt construction
 
@@ -96,9 +103,40 @@ events, and timeouts are never retried. Exhaustion is recorded as
 Every run records runner version, condition, prompt and skill hashes,
 requested/accepted sampling settings, seed evidence, worker concurrency,
 retry timestamps, raw responses, finish reason, tool-call parsing, usage, and
-non-exclusive outcome flags. `provider_error` is excluded from the primary
-pass-rate denominator and retained in the task-level report; a sensitivity
-view includes it in the denominator as a non-pass.
+non-exclusive outcome flags. It additionally records a separate
+`verifier_timeout` flag: a verifier is stopped after **1,200 seconds**, and a
+verifier timeout is a `timeout` outcome as well as `verifier_timeout: true`.
+`provider_error` is excluded from the primary pass-rate denominator and
+retained in the task-level report; a sensitivity view includes it in the
+denominator as a non-pass.
+
+## Interleaved deterministic schedule
+
+Before execution, one schedule file is generated for each model from the
+following fixed integer seeds:
+
+| model | schedule seed |
+|---|---:|
+| `qwen3.5:9b` | 351009 |
+| `gemma4:26b` | 426009 |
+| `qwen3.8:27b` | 382709 |
+| `qwen3-coder-next` | 303509 |
+| `llama3.1:8b` | 318109 |
+| `gpt-5.6-sol` | 560009 |
+
+The schedule generator constructs every assigned task × condition × repetition
+cell, assigns a deterministic unique `run_id`, and performs a seeded
+stratified permutation. Its balancing checks require every condition, task,
+and repetition to be distributed through the schedule rather than appearing
+as a condition block. A completed `run_id` is skipped on resumption only when
+its locked metadata and artifact-completeness check pass; every other entry is
+continued in the original order. The generator, six TSV schedule files, their
+SHA-256 digests, and the balancing-check report become execution-lock
+artifacts. The schedules are not generated in this documentation stage.
+
+For r2 direct runs, the concurrency is one unless a separately locked,
+pre-execution transport analysis supports another value. GPT's Codex-anchor
+runs are labelled `sampling_uncontrolled` in every table and report.
 
 ## Analysis plan
 
@@ -118,20 +156,46 @@ view includes it in the denominator as a non-pass.
    each task's frozen no-op baseline. Outcome flags (`final_empty`, `no_edit`,
    `compile_error`, `verifier_fail`, `timeout`, `context_overflow`,
    `provider_error`, and `max_steps_reached`) remain non-exclusive.
-6. v1 and L3b, if selected, remain exploratory. Their report is limited to
+6. For each model separately, calculate the task-level paired C1-minus-C0
+   difference and its bootstrap interval. Compare the weak model's difference
+   with the other models only descriptively; do not make a significance claim.
+7. Produce a task-level pass-distribution table. Mark every task that all
+   models pass or all models fail, and discuss such ceiling/floor tasks as
+   information-limited rather than evidence for a condition.
+8. Automatically derive, for every run: steps, each available token field,
+   first edit position, validation after editing, repeated-action rate,
+   no-progress loop count, and `final_empty`. LLM-judge stage and pattern
+   labels are collected only from a blinded, model-by-outcome stratified
+   subsample; an independently blinded human-review subsample audits those
+   labels. They are not collected for all trajectories.
+9. v1 and L3b remain exploratory. Their report is limited to
    activation and descriptive trajectories/outcomes; it does not make an
    efficacy claim. Such a claim would in any case require both mechanism
    activation and observable improvement.
 
+## Task-defect and erratum protocol
+
+If S7 reveals a defect in an admitted task (including a task/verifier conflict,
+a verifier error, or a verifier that does not terminate), do not modify the
+task, verifier, fixture, schedule, or completed run. Register an immutable
+erratum containing the evidence and affected run IDs. Every affected analysis
+is then reported both with all scheduled tasks and with that task excluded.
+There is no replacement run and no post-hoc task revision.
+
 ## Single-run freeze and gate
 
-S7 is run once. Immediately before the first run, tag the exact r2 runner,
-all v0/v1 skill files, L3b protocol, task/verifier/fixture manifests, prompt
-templates, matrix, and analysis code in a single execution-lock commit and
-Git tag. After that point no condition, task, split, sampling setting,
-concurrency, or analysis definition may be modified.
+S7 is run once. Immediately before the first run, create an execution-lock
+commit and Git tag. The accompanying manifest must include: the r2 formal-runner
+patch identifier and hashes; `verifier_timeout_s=1200` and its outcome-flag
+definition; all v0/v1 skills and the L3b protocol; task/verifier/fixture
+manifests; the C0/C1 serialized prompt templates and SHA-256 hashes; the
+skill-activation parser version and hash; schedule-generator and analysis-code
+hashes; six schedules, seeds, and schedule hashes; and all controls above.
+The existing pilot-only runner is not sufficient: the formal runner must be
+implemented and reviewed before this lock, rather than silently reusing a
+pilot entry point.
 
-The remaining gate is user confirmation of: (1) whether exploration is absent,
-weak-model-only, or fully crossed; and (2) whether a direct API credential for
-`gpt-5.6-sol` exists. Until then, this repository remains in planning-only
-status and no test split may be run.
+After the tag, no condition, task, split, sampling setting, concurrency, or
+analysis definition may be modified. The only remaining gate is the user's
+confirmation to build this execution lock and tag. Until then, this repository
+remains in planning-only status and no test split may be run.

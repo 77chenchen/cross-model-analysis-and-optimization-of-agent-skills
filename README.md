@@ -227,10 +227,12 @@ the locked S7 authorization/analysis stage, not task construction.
 
 ## S7 documentation-only preflight (2026-10-09)
 
-`docs/s7_execution_plan.md` records the proposed S7 core matrix: C0 (no
-skill) and C1 (frozen v0) across six models, 18 admitted test tasks, and three
-repetitions, for 648 scheduled runs. v1 and L3b remain explicitly exploratory
-and have no selected S7 scope. The plan locks the intended C0/C1 difference,
-task-level paired analysis, provider-error sensitivity views, and the
-single-execution freeze procedure. It is not an execution authorization: no
-test task has been run, and no token or currency estimate is used.
+`docs/s7_execution_plan.md` and its lock-manifest template record the approved
+S7 matrix: 720 C0/C1 core runs and 150 weak-model exploratory runs, for 870
+scheduled runs. `qwen3.5:9b` has five repetitions in C0/C1/v1/L3b; the other
+five models have three in C0/C1. v1 is A/B `test_in` only, while L3b covers
+both splits. The documents lock the intended C0/C1 difference, deterministic
+interleaving requirement, task-level paired analysis, provider-error and task
+erratum views, and the single-execution freeze procedure. They are not an
+execution authorization: no test task has been run, and no token or currency
+estimate is used.
