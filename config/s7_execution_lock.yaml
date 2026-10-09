@@ -1,5 +1,6 @@
 locked_on: 2026-10-09
 lock_state: pre-run
+supersedes_tag: s7-execution-lock-20261009
 run_cohort: s7
 runner_patch_id: r2-s7-formal-patch-1
 no_test_run_before_lock: true
@@ -34,7 +35,9 @@ hashes:
     harness/r2_agent.py: 270f2b15c502d5d184e2058609246f9f1a14ad2135eed33c72f5770f43559bae
     harness/run_r2_formal.py: 633f7779f58bbc46a5c9a187974791c6981a44519e72cd80411fe99ed442ec15
     harness/run_codex_formal.py: 4c9e8f6ac397fce0b0f60ab647e6d5b17011b6640f6c76cd61ebd73598794aa7
-    harness/run_s7_schedule.py: 3a019eeb0138957efc53e19d67db0919808e00a8240d127b3cab07b42eb1b744
+    harness/run_s7_schedule.py: 26115bc45a8dd483779ddfbf676ce48bd0197ad2b87355293347d5a143552e30
+    harness/run_s7_codex_schedule.py: 82abb8c4ae7878d6b9fd61fc2be5e40f3c18fa44b9c7a994ab4bdc4e733d9fbf
+    harness/update_status.py: 37fef6d82a30f41677f651cafd7f122e9ebfba59a222fdb0ff9fd891f107415d
     harness/run_with_timeout.py: 85073553d34a5f58998458fc1a3b3f0bcec185bce8ea1e0820b677dc713ea429
     harness/outcomes.py: b1125456e7c84919d878fee2bd9b342b023329895b59f30894510d046e3a8b28
     metadata/run.schema.json: f92bf470057ca5c97f0948b991ba9d36a37859a79c95c54980ac45a5d42bd71b

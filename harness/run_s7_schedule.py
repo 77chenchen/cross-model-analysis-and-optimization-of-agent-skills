@@ -41,6 +41,7 @@ def main() -> None:
         subprocess.run(command, check=False)
         if not complete(run_dir):
             raise SystemExit(f"schedule entry did not leave complete artifacts: {row['run_id']}")
+        subprocess.run([sys.executable, str(ROOT / "harness" / "update_status.py")], check=True)
 
 
 if __name__ == "__main__":
