@@ -56,6 +56,7 @@
     ,"l3b_trigger_at": {"type": ["integer", "null"]}
     ,"l3b_triggered": {"type": "boolean"}
     ,"worker_concurrency": {"type": "integer", "minimum": 1}
+    ,"verifier_timeout_seconds": {"type": "integer", "minimum": 1}
     ,"replacement_of": {"type": ["string", "null"]}
   }
 }

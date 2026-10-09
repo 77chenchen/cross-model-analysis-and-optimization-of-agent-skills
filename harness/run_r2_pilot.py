@@ -35,6 +35,8 @@ Read task.md, fix the implementation, and validate your result. Do not create or
 def r2_outcome(runtime: dict, process: dict, verifier: dict, compile_errors: list[str]) -> str:
     if process.get("timed_out") or runtime.get("deadline_exceeded"):
         return "timeout"
+    if verifier.get("verifier_timeout"):
+        return "timeout"
     if runtime.get("context_budget_exceeded"):
         return "context_overflow"
     if runtime.get("provider_error"):
@@ -88,11 +90,14 @@ def main() -> None:
     # logs, command metadata, or artifacts.
     login_command = "exec " + " ".join(shlex.quote(part) for part in command)
     process = subprocess.run([sys.executable, str(ROOT / "harness/run_with_timeout.py"), "--timeout-seconds", "1200", "--stdout", str(run_dir / "agent_stdout.log"), "--outcome", str(run_dir / "process.json"), "--", "zsh", "-lic", login_command], check=False)
-    verifier_process = subprocess.run([sys.executable, str(verifier), str(workspace)], capture_output=True, text=True, check=False)
     try:
-        verifier_result = json.loads(verifier_process.stdout)
-    except json.JSONDecodeError:
-        verifier_result = {"passed": False, "checks": {}, "verifier_stdout": verifier_process.stdout, "verifier_stderr": verifier_process.stderr}
+        verifier_process = subprocess.run([sys.executable, str(verifier), str(workspace)], capture_output=True, text=True, check=False, timeout=1200)
+        try:
+            verifier_result = json.loads(verifier_process.stdout)
+        except json.JSONDecodeError:
+            verifier_result = {"passed": False, "checks": {}, "verifier_stdout": verifier_process.stdout, "verifier_stderr": verifier_process.stderr}
+    except subprocess.TimeoutExpired as error:
+        verifier_result = {"passed": False, "checks": {}, "verifier_stdout": error.stdout or "", "verifier_stderr": error.stderr or "", "verifier_timeout": True}
     summary = verifier_summary(verifier_result)
     verifier_result["summary"] = summary
     (run_dir / "verifier.json").write_text(json.dumps(verifier_result, indent=2) + "\n", encoding="utf-8")
@@ -103,7 +108,7 @@ def main() -> None:
     final_text = (run_dir / "final.md").read_text(encoding="utf-8") if (run_dir / "final.md").exists() else ""
     process_data = json.loads((run_dir / "process.json").read_text(encoding="utf-8"))
     flags = outcome_flags(process_data, events_text, final_text, verifier_result, compile_errors, source_unchanged(template, workspace))
-    flags["timeout"] = bool(flags["timeout"] or runtime.get("deadline_exceeded"))
+    flags["timeout"] = bool(flags["timeout"] or runtime.get("deadline_exceeded") or verifier_result.get("verifier_timeout"))
     flags["context_overflow"] = bool(flags["context_overflow"] or runtime.get("context_budget_exceeded"))
     flags["provider_error"] = bool(flags["provider_error"] or runtime.get("provider_error"))
     flags["max_steps_reached"] = bool(runtime.get("max_steps_reached"))
@@ -126,7 +131,7 @@ def main() -> None:
         "r2_tool_parse": runtime.get("tool_parse", {}), "r2_usage": runtime.get("usage", {}), "r2_process_returncode": process.returncode,
         "request_retry_events": runtime.get("retry_events", []), "request_retry_count": len(runtime.get("retry_events", [])),
         "l3b_trigger_at": args.l3b_trigger_at, "l3b_triggered": runtime.get("l3b_triggered", False), "replacement_of": args.replacement_of,
-        "worker_concurrency": args.worker_concurrency,
+        "worker_concurrency": args.worker_concurrency, "verifier_timeout_seconds": 1200,
     }
     (run_dir / "metadata.json").write_text(json.dumps(metadata, indent=2) + "\n", encoding="utf-8")
     print(run_dir)

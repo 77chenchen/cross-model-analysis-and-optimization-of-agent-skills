@@ -16,6 +16,18 @@ science_completed = 246
 replacements = count_metadata(ROOT / "data/b5_provider_replacements")
 judge = len(list((ROOT / "data/b5_r2_blinded_annotations").glob("packet_*.json")))
 l3b = count_metadata(ROOT / "data/l3b_runs")
+if l3b == 0:
+    l3b_state = "preregistered; awaiting user confirmation"
+    current = "Current task: B5 is complete; awaiting explicit user authorization before the preregistered L3b batch."
+    estimate = "Estimated remaining: 72 L3b runs only if explicitly authorized; otherwise the next stage is S7 planning, not execution."
+elif l3b < 72:
+    l3b_state = "running sequentially at worker_concurrency=1"
+    current = "Current task: L3b dev-validate batch is running; no test split is runnable by these scripts."
+    estimate = f"Estimated remaining: {72-l3b} L3b runs; S7 remains planning-only."
+else:
+    l3b_state = "complete; analysis pending"
+    current = "Current task: L3b batch complete; prepare its descriptive analysis without running test splits."
+    estimate = "Estimated remaining: no authorized model runs; S7 remains planning-only."
 lines = [
     "# Batch status", "",
     "This ledger is refreshed by `harness/update_status.py` after each completed run or judge annotation.", "",
@@ -24,8 +36,7 @@ lines = [
     f"| Historical/direct r2 science runs | 246 | {science_completed} | {max(0,246-science_completed)} | complete (legacy and B0--B4 evidence) |",
     f"| B5 provider-error replacements | 8 | {replacements} | {max(0,8-replacements)} | protocol committed; sequential concurrency=1 |",
     f"| B5 r2 blind LLM judge | 24 | {judge} | {max(0,24-judge)} | newly anonymized packets only |",
-    f"| L3b dev-validate (not authorized to run) | 72 | {l3b} | {max(0,72-l3b)} | preregistered; awaiting user confirmation |",
-    "", "Current task: B5 is complete; awaiting explicit user authorization before the preregistered L3b batch. No test split is runnable by these scripts.",
-    "Estimated remaining: 72 L3b runs only if explicitly authorized; otherwise the next stage is S7 planning, not execution.", "",
+    f"| L3b dev-validate | 72 | {l3b} | {max(0,72-l3b)} | {l3b_state} |",
+    "", current, estimate, "",
 ]
 (ROOT / "STATUS.md").write_text("\n".join(lines), encoding="utf-8")

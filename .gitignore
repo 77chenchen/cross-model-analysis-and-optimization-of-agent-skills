@@ -31,3 +31,4 @@ data/b5_r2_blinded_annotations/packet_*.json
 data/b5_r2_human_review/packet_*.json
 data/b5_r2_blinded_packets/b5_r2_private_manifest.json
 data/l3b_runs/pilot_*/
+data/l3b_runs/driver_logs/
