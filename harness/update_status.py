@@ -25,7 +25,7 @@ lines = [
     f"| B5 provider-error replacements | 8 | {replacements} | {max(0,8-replacements)} | protocol committed; sequential concurrency=1 |",
     f"| B5 r2 blind LLM judge | 24 | {judge} | {max(0,24-judge)} | newly anonymized packets only |",
     f"| L3b dev-validate (not authorized to run) | 72 | {l3b} | {max(0,72-l3b)} | preregistered; awaiting user confirmation |",
-    "", "Current task: B5 protocol artifacts, provider replacements, and blind judge; no test split is runnable by these scripts.",
-    "Estimated remaining after this commit: 8 sequential replacement runs and 24 judge calls; L3b remains excluded until explicit authorization.", "",
+    "", "Current task: B5 is complete; awaiting explicit user authorization before the preregistered L3b batch. No test split is runnable by these scripts.",
+    "Estimated remaining: 72 L3b runs only if explicitly authorized; otherwise the next stage is S7 planning, not execution.", "",
 ]
 (ROOT / "STATUS.md").write_text("\n".join(lines), encoding="utf-8")

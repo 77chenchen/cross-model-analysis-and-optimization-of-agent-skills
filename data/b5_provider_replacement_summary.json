@@ -1,0 +1,29 @@
+{
+  "raw_original_36": {
+    "runs": 36,
+    "outcomes": {
+      "empty_termination": 15,
+      "pass": 8,
+      "provider_error": 8,
+      "verifier_fail": 5
+    },
+    "pass_denominator_excluding_provider_error": 28,
+    "passes": 8,
+    "pass_rate": 0.2857142857142857
+  },
+  "replacement_inclusive": {
+    "runs": 36,
+    "outcomes": {
+      "empty_termination": 16,
+      "max_steps_reached": 3,
+      "pass": 12,
+      "verifier_fail": 5
+    },
+    "pass_denominator_excluding_provider_error": 36,
+    "passes": 12,
+    "pass_rate": 0.3333333333333333
+  },
+  "replacement_runs_completed": 8,
+  "replacement_ids_expected": 8,
+  "note": "Provider errors are excluded from every pass denominator; old records remain unchanged."
+}

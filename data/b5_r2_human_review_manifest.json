@@ -1,0 +1,6 @@
+{
+  "protocol": "b5-r2-blind-v1",
+  "packet_count": 24,
+  "selection_seed": 20261008,
+  "old_packets_use": "method validation only; excluded from report kappa"
+}
