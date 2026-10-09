@@ -1,0 +1,43 @@
+{
+  "id": "chatcmpl-327",
+  "choices": [
+    {
+      "finish_reason": "tool_calls",
+      "index": 0,
+      "logprobs": null,
+      "message": {
+        "content": "",
+        "refusal": null,
+        "role": "assistant",
+        "annotations": null,
+        "audio": null,
+        "function_call": null,
+        "tool_calls": [
+          {
+            "id": "call_ht2ygim8",
+            "function": {
+              "arguments": "{\"path\":\"solution.py\"}",
+              "name": "read_file"
+            },
+            "type": "function",
+            "index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "created": 1791532667,
+  "model": "qwen3.5:9b",
+  "object": "chat.completion",
+  "metadata": null,
+  "moderation": null,
+  "service_tier": null,
+  "system_fingerprint": "fp_ollama",
+  "usage": {
+    "completion_tokens": 26,
+    "prompt_tokens": 703,
+    "total_tokens": 729,
+    "completion_tokens_details": null,
+    "prompt_tokens_details": null
+  }
+}

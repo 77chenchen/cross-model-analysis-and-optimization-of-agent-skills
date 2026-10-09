@@ -1,0 +1,44 @@
+{
+  "id": "chatcmpl-494",
+  "choices": [
+    {
+      "finish_reason": "tool_calls",
+      "index": 0,
+      "logprobs": null,
+      "message": {
+        "content": "",
+        "refusal": null,
+        "role": "assistant",
+        "annotations": null,
+        "audio": null,
+        "function_call": null,
+        "tool_calls": [
+          {
+            "id": "call_x22vfst9",
+            "function": {
+              "arguments": "{\"path\":\"task.md\"}",
+              "name": "read_file"
+            },
+            "type": "function",
+            "index": 0
+          }
+        ],
+        "reasoning": "The user wants me to read task.md and complete a task based on it. Let me start by reading the file to understand what needs to be done."
+      }
+    }
+  ],
+  "created": 1791532665,
+  "model": "qwen3.5:9b",
+  "object": "chat.completion",
+  "metadata": null,
+  "moderation": null,
+  "service_tier": null,
+  "system_fingerprint": "fp_ollama",
+  "usage": {
+    "completion_tokens": 60,
+    "prompt_tokens": 591,
+    "total_tokens": 651,
+    "completion_tokens_details": null,
+    "prompt_tokens_details": null
+  }
+}

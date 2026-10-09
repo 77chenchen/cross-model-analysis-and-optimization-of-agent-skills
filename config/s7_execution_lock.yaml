@@ -1,6 +1,6 @@
 locked_on: 2026-10-09
 lock_state: pre-run
-supersedes_tag: s7-execution-lock-20261009
+supersedes_tag: s7-execution-lock-20261009-r1
 run_cohort: s7
 runner_patch_id: r2-s7-formal-patch-1
 no_test_run_before_lock: true
@@ -38,7 +38,7 @@ hashes:
     harness/run_s7_schedule.py: 26115bc45a8dd483779ddfbf676ce48bd0197ad2b87355293347d5a143552e30
     harness/run_s7_codex_schedule.py: 82abb8c4ae7878d6b9fd61fc2be5e40f3c18fa44b9c7a994ab4bdc4e733d9fbf
     harness/update_status.py: 37fef6d82a30f41677f651cafd7f122e9ebfba59a222fdb0ff9fd891f107415d
-    harness/run_with_timeout.py: 85073553d34a5f58998458fc1a3b3f0bcec185bce8ea1e0820b677dc713ea429
+    harness/run_with_timeout.py: fc77aef2b9d53c78ffcc7232bbbb274bef1085231a8c148198fc9322d1816b61
     harness/outcomes.py: b1125456e7c84919d878fee2bd9b342b023329895b59f30894510d046e3a8b28
     metadata/run.schema.json: f92bf470057ca5c97f0948b991ba9d36a37859a79c95c54980ac45a5d42bd71b
   prompts:
@@ -70,6 +70,8 @@ hashes:
     harness/make_s7_blinded_packets.py: 1bc084ac576425a0e7dbc9a056d7da6e767a9643c7137edf25fc39f09933f1b1
     activation_parser: skill-activation-heuristic-v1
     activation_parser_source: harness/summarize_s5_metrics.py
+  incident_record:
+    docs/s7_timeout_incident_20261009.md: 6b26278d75487079083f08ac66c384e9ddbef01fbc34e16380a53f600c79ee64
 
 execution_invariants:
   - No task, verifier, fixture, skill, prompt, schedule, control, or analysis definition may change after the S7 tag.
