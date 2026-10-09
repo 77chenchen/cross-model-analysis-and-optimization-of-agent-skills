@@ -1,0 +1,76 @@
+locked_on: 2026-10-09
+lock_state: pre-run
+run_cohort: s7
+runner_patch_id: r2-s7-formal-patch-1
+no_test_run_before_lock: true
+
+matrix:
+  scheduled_runs: 870
+  core_c0_c1_runs: 720
+  weak_exploratory_runs: 150
+  by_split: {test_in: 600, test_out: 270}
+  qwen3_5_9b: {C0: 90, C1: 90, v1: 60, l3b: 90, repetitions: 5}
+  other_models: {C0: 54, C1: 54, repetitions: 3, models: ["gemma4:26b", "qwen3.8:27b", qwen3-coder-next, "llama3.1:8b", gpt-5.6-sol]}
+  v1_scope: "qwen3.5:9b_test_in_skill_A_B_only"
+  l3b_scope: "qwen3.5:9b_all_18_tasks_v0_plus_call_32_reminder"
+  gpt_reference_anchor: true
+  gpt_sampling_control: uncontrolled_reference_anchor
+
+controls:
+  temperature_requested: 0.5
+  direct_seed: deterministic_per_run_request_seed
+  max_steps: 40
+  context_limit: 65536
+  process_group_timeout_seconds: 1200
+  per_command_timeout_seconds: 120
+  verifier_timeout_seconds: 1200
+  verifier_timeout_semantics: independent_verifier_timeout_flag_and_timeout_outcome_flag
+  direct_worker_concurrency: 1
+  retry_policy: up_to_3_total_attempts_for_no_response_transport_failure_only
+  scheduling: fixed_seeded_interleaved_tsv_resume_in_original_order
+
+hashes:
+  runner:
+    harness/r2_agent.py: 270f2b15c502d5d184e2058609246f9f1a14ad2135eed33c72f5770f43559bae
+    harness/run_r2_formal.py: 633f7779f58bbc46a5c9a187974791c6981a44519e72cd80411fe99ed442ec15
+    harness/run_codex_formal.py: 4c9e8f6ac397fce0b0f60ab647e6d5b17011b6640f6c76cd61ebd73598794aa7
+    harness/run_s7_schedule.py: 3a019eeb0138957efc53e19d67db0919808e00a8240d127b3cab07b42eb1b744
+    harness/run_with_timeout.py: 85073553d34a5f58998458fc1a3b3f0bcec185bce8ea1e0820b677dc713ea429
+    harness/outcomes.py: b1125456e7c84919d878fee2bd9b342b023329895b59f30894510d046e3a8b28
+    metadata/run.schema.json: f92bf470057ca5c97f0948b991ba9d36a37859a79c95c54980ac45a5d42bd71b
+  prompts:
+    template_manifest: be4ab79b9c423378c706c5dd253b5e4ea43ea827184186df8fc85b66ad27b0b8
+    generator: 90d9686d0f95db2871a8898c4377ffe2d4a20db6b75876a85adb649d4d4eedbd
+  schedule:
+    generator: c3b53094bacc6b619ae9f629b51769a3bc11c638ffe3204691642a01b2a0f252
+    balance_report: ab864a76d11b51e82c268ff902018ca5a108b87680dc6c539fbf2b32cac692ef
+    "qwen3.5:9b": {seed: 351009, sha256: e17f8e057e9008cb360da626701258bd7b87ce4909887ab0da97dd4436d6f1a2}
+    "gemma4:26b": {seed: 426009, sha256: 563afd80a0929c3316de12f6ac69ab291cc2268049b08613256802097140a29d}
+    "qwen3.8:27b": {seed: 382709, sha256: a8d0667e9f62a025001e84015d1c2c37a267954d0001bc7931255d593428bd3a}
+    qwen3-coder-next: {seed: 303509, sha256: a6969d2ffd1fcfcef7bc3be6aec7d479a1333b3dca9363fc80e6b7951c31a1aa}
+    "llama3.1:8b": {seed: 318109, sha256: db4c45c043b5581fd2a353d638ce7189330da4071bace7461896dc4e6089e174}
+    gpt-5.6-sol: {seed: 560009, sha256: 8323f5b7feaecbc966770a2a8120fc334b51dfde2ec1152272f0bd6fadc9f89a}
+  skills:
+    skills/A/v0.md: dc21abe4db14593b77d3d85065362a655dd0d84cde2c318d5a757a3241ca3d4c
+    skills/A/v1.md: 32f7eacfcc8719414a41f3dbaf5c25c5ae02e0932b630d060e94f7898fb2c409
+    skills/B/v0.md: eb25c58e2e4754d86eb2669b76e5cb6a2f1e697b566c58a453c278fab1e421de
+    skills/B/v1.md: bc8eb2214bb764ec2ea94e38c43a4af47be67bc2376c1ac9f826b9347857ed94
+    skills/C/v0.md: 793a57ddf92f45bc789640ba5f2522a42db5ab6541191aa15b7f04886a31fc69
+    config/l3b_protocol.yaml: e903163e9ac00d7adc9e9cc1214e6a86d77486a8465db599af7fc74e5e36ebbb
+  frozen_assets:
+    tasks/s3_admission.json: fbc56970a4f5ee0fe14c83d20d3a861e2743e46eee23780532fea37b9fe836df
+    formal_task_and_contract_tree: ff3daca9369ddcc2c31c7f1a97272c6d27911021ca74bd2fb175d6193564275c
+    verifiers/contract_verifier.py: 303ba66edd80c12cf3a8f0271f6002f8f20bc9d3d0b8b655ef56aff380d5fea4
+  analysis:
+    harness/analyze_s7.py: 2a44f34f42225d074c295b5e2e1b9ed0ed26a038248b5025ab82e9afd5f96460
+    harness/summarize_s7.py: 38880416571c3418819746248b59fba6f118e520008cd4c9874ed89d27953aeb
+    harness/make_s7_blinded_packets.py: 1bc084ac576425a0e7dbc9a056d7da6e767a9643c7137edf25fc39f09933f1b1
+    activation_parser: skill-activation-heuristic-v1
+    activation_parser_source: harness/summarize_s5_metrics.py
+
+execution_invariants:
+  - No task, verifier, fixture, skill, prompt, schedule, control, or analysis definition may change after the S7 tag.
+  - Provider-error runs are reported both excluded from the primary denominator and included as non-passes in sensitivity analysis.
+  - An admitted-task defect is an immutable erratum: do not repair or rerun; report all-task and task-excluded views.
+  - Wilson intervals describe individual proportions only; C1-minus-C0 comparisons use task-level paired bootstrap.
+  - v1 and L3b are exploratory and only receive activation/descriptive reporting.

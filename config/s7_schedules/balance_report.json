@@ -1,0 +1,82 @@
+{
+  "gemma4:26b": {
+    "by_condition": {
+      "C0": 54,
+      "C1": 54
+    },
+    "by_split": {
+      "test_in": 72,
+      "test_out": 36
+    },
+    "count": 108,
+    "max_adjacent_same_condition": 1,
+    "unique_run_ids": true
+  },
+  "gpt-5.6-sol": {
+    "by_condition": {
+      "C0": 54,
+      "C1": 54
+    },
+    "by_split": {
+      "test_in": 72,
+      "test_out": 36
+    },
+    "count": 108,
+    "max_adjacent_same_condition": 1,
+    "unique_run_ids": true
+  },
+  "llama3.1:8b": {
+    "by_condition": {
+      "C0": 54,
+      "C1": 54
+    },
+    "by_split": {
+      "test_in": 72,
+      "test_out": 36
+    },
+    "count": 108,
+    "max_adjacent_same_condition": 1,
+    "unique_run_ids": true
+  },
+  "qwen3-coder-next": {
+    "by_condition": {
+      "C0": 54,
+      "C1": 54
+    },
+    "by_split": {
+      "test_in": 72,
+      "test_out": 36
+    },
+    "count": 108,
+    "max_adjacent_same_condition": 1,
+    "unique_run_ids": true
+  },
+  "qwen3.5:9b": {
+    "by_condition": {
+      "C0": 90,
+      "C1": 90,
+      "l3b": 90,
+      "v1": 60
+    },
+    "by_split": {
+      "test_in": 240,
+      "test_out": 90
+    },
+    "count": 330,
+    "max_adjacent_same_condition": 1,
+    "unique_run_ids": true
+  },
+  "qwen3.8:27b": {
+    "by_condition": {
+      "C0": 54,
+      "C1": 54
+    },
+    "by_split": {
+      "test_in": 72,
+      "test_out": 36
+    },
+    "count": 108,
+    "max_adjacent_same_condition": 1,
+    "unique_run_ids": true
+  }
+}

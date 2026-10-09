@@ -236,3 +236,12 @@ interleaving requirement, task-level paired analysis, provider-error and task
 erratum views, and the single-execution freeze procedure. They are not an
 execution authorization: no test task has been run, and no token or currency
 estimate is used.
+
+### S7 execution lock (2026-10-09)
+
+`config/s7_execution_lock.yaml` binds the pre-run formal runner patch,
+serialized prompt templates, deterministic schedules, frozen assets, outcome
+semantics, and analysis entry points. The six interleaved schedules contain
+870 unique run IDs and have been generated without invoking a model or a
+verifier. The lock commit is tagged before any schedule execution; frozen
+conditions may not change afterward.

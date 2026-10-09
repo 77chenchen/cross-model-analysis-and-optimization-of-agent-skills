@@ -1,0 +1,64 @@
+{
+  "C0": {
+    "none": {
+      "prompt": "Read task.md, fix the implementation, and validate your result. Do not create or modify benchmark-owned verifier files.",
+      "sha256": "031b8e43a4717133c07364b1ec9b32334c63f9c9772e7e7ccaafdf42721e11fd",
+      "skill_version": "none",
+      "task_id_for_template": "test_in_a07_slug"
+    }
+  },
+  "C1": {
+    "A": {
+      "prompt": "You have been supplied the following benchmark skill protocol. Follow it as operational guidance, then complete the task in task.md. You have at most 40 tool steps.\n\n--- skill protocol begin ---\n# Skill A — Code modification v0\n\nRead the task, inspect the relevant code and constraints, make the required modification, and run the relevant validation. Do not alter benchmark-owned tests or verifiers.\n--- skill protocol end ---\n\nRead task.md, fix the implementation, and validate your result. Do not create or modify benchmark-owned verifier files.",
+      "sha256": "a0cba30eda1c5a9810db6de24c46f5f33ccbe10070cbe7885141a2c5095d2e66",
+      "skill_version": "v0",
+      "task_id_for_template": "test_in_a07_slug"
+    },
+    "B": {
+      "prompt": "You have been supplied the following benchmark skill protocol. Follow it as operational guidance, then complete the task in task.md. You have at most 40 tool steps.\n\n--- skill protocol begin ---\n# Skill B — File and data processing v0\n\nInspect the provided files and requirements, perform the required transformation, generate the requested artifact, and validate the result against the stated constraints. Do not alter benchmark-owned verifiers.\n--- skill protocol end ---\n\nRead task.md, fix the implementation, and validate your result. Do not create or modify benchmark-owned verifier files.",
+      "sha256": "c3fdfc3be2db7331e5ad096c5bcb150d425e661a4bdc6e50462732ee47b1d42e",
+      "skill_version": "v0",
+      "task_id_for_template": "test_in_b07_tags"
+    },
+    "C": {
+      "prompt": "You have been supplied the following benchmark skill protocol. Follow it as operational guidance, then complete the task in task.md. You have at most 40 tool steps.\n\n--- skill protocol begin ---\n# Skill C — Multi-step workflow v0\n\nInspect the task inputs and requirements, execute the necessary multi-stage workflow, validate the final state, and report completion only after validation. Do not alter benchmark-owned verifiers.\n--- skill protocol end ---\n\nRead task.md, fix the implementation, and validate your result. Do not create or modify benchmark-owned verifier files.",
+      "sha256": "0d878bfc49874e505a0f39bc2dd39c56b59af58ef26a18b2d31fac7bdb681ff2",
+      "skill_version": "v0",
+      "task_id_for_template": "test_out_c01_inventory"
+    }
+  },
+  "l3b": {
+    "A": {
+      "prompt": "You have been supplied the following benchmark skill protocol. Follow it as operational guidance, then complete the task in task.md. You have at most 40 tool steps.\n\n--- skill protocol begin ---\n# Skill A — Code modification v0\n\nRead the task, inspect the relevant code and constraints, make the required modification, and run the relevant validation. Do not alter benchmark-owned tests or verifiers.\n--- skill protocol end ---\n\nRead task.md, fix the implementation, and validate your result. Do not create or modify benchmark-owned verifier files.",
+      "sha256": "a0cba30eda1c5a9810db6de24c46f5f33ccbe10070cbe7885141a2c5095d2e66",
+      "skill_version": "v0",
+      "task_id_for_template": "test_in_a07_slug"
+    },
+    "B": {
+      "prompt": "You have been supplied the following benchmark skill protocol. Follow it as operational guidance, then complete the task in task.md. You have at most 40 tool steps.\n\n--- skill protocol begin ---\n# Skill B — File and data processing v0\n\nInspect the provided files and requirements, perform the required transformation, generate the requested artifact, and validate the result against the stated constraints. Do not alter benchmark-owned verifiers.\n--- skill protocol end ---\n\nRead task.md, fix the implementation, and validate your result. Do not create or modify benchmark-owned verifier files.",
+      "sha256": "c3fdfc3be2db7331e5ad096c5bcb150d425e661a4bdc6e50462732ee47b1d42e",
+      "skill_version": "v0",
+      "task_id_for_template": "test_in_b07_tags"
+    },
+    "C": {
+      "prompt": "You have been supplied the following benchmark skill protocol. Follow it as operational guidance, then complete the task in task.md. You have at most 40 tool steps.\n\n--- skill protocol begin ---\n# Skill C — Multi-step workflow v0\n\nInspect the task inputs and requirements, execute the necessary multi-stage workflow, validate the final state, and report completion only after validation. Do not alter benchmark-owned verifiers.\n--- skill protocol end ---\n\nRead task.md, fix the implementation, and validate your result. Do not create or modify benchmark-owned verifier files.",
+      "sha256": "0d878bfc49874e505a0f39bc2dd39c56b59af58ef26a18b2d31fac7bdb681ff2",
+      "skill_version": "v0",
+      "task_id_for_template": "test_out_c01_inventory"
+    }
+  },
+  "v1": {
+    "A": {
+      "prompt": "You have been supplied the following benchmark skill protocol. Follow it as operational guidance, then complete the task in task.md. You have at most 40 tool steps.\n\n--- skill protocol begin ---\n# Skill A — Code modification v1\n\nRead `task.md` and the target implementation before editing. Convert every\nconstraint sentence in the task into a short private checklist, including\nedge cases, input types, mutation requirements, return shape, and error\nbehavior.\n\nMake the smallest complete change that satisfies the checklist. Prefer a\ndirect file edit over constructing complex source code through nested shell\nquoting. After saving, re-read the edited target file to confirm that the\nfile contains the intended implementation.\n\nBefore reporting completion, run at least these two checks:\n\n1. A syntax/import check appropriate to the language (for Python, use\n   `python3 -m py_compile <target-file>`).\n2. A small behavior check that exercises every material constraint in\n   `task.md`, including malformed or boundary input where relevant.\n\nIf either check fails, repair the target and repeat both checks. Do not report\ncompletion after an edit that was not re-read and validated. Do not alter\nbenchmark-owned tests or verifiers.\n--- skill protocol end ---\n\nRead task.md, fix the implementation, and validate your result. Do not create or modify benchmark-owned verifier files.",
+      "sha256": "5037434ba85670356dd438d535a17b61c96158e63965824a69ac03c7dc1a1388",
+      "skill_version": "v1",
+      "task_id_for_template": "test_in_a07_slug"
+    },
+    "B": {
+      "prompt": "You have been supplied the following benchmark skill protocol. Follow it as operational guidance, then complete the task in task.md. You have at most 40 tool steps.\n\n--- skill protocol begin ---\n# Skill B — File and data processing v1\n\nRead `task.md` and inspect the target file(s). State a short private execution\nchecklist: required output fields or artifacts, normalization rules, invalid\ninput handling, ordering, and non-mutation requirements.\n\nYou must complete all three observable stages before ending the turn:\n\n1. **Modify:** write the requested transformation or artifact to the target\n   file(s). Merely inspecting files is not completion.\n2. **Re-inspect:** read the saved target file(s) to confirm the change exists\n   and has not been truncated or malformed.\n3. **Validate:** run a small candidate-side check containing a normal case and\n   at least one invalid, duplicate, or boundary case specified by `task.md`.\n\nIf a command or edit fails, simplify the command and repair the target rather\nthan ending with an empty response. Do not report completion until modification\nand validation have both occurred. Do not alter benchmark-owned verifiers.\n--- skill protocol end ---\n\nRead task.md, fix the implementation, and validate your result. Do not create or modify benchmark-owned verifier files.",
+      "sha256": "f8219eb2dea4d18e317333db5c2e13509bd7080771a721d7700ff73772acfc19",
+      "skill_version": "v1",
+      "task_id_for_template": "test_in_b07_tags"
+    }
+  }
+}
