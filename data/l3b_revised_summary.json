@@ -1,0 +1,115 @@
+{
+  "status": "post_hoc_exploratory; no efficacy claim",
+  "outcome_reconstruction": {
+    "baseline": {
+      "runs": 36,
+      "reconstructed_outcomes": {
+        "pass": 21,
+        "verifier_fail": 7,
+        "compile_error": 1,
+        "max_steps_reached": 7
+      },
+      "legacy_outcomes": {
+        "empty_termination": 27,
+        "pass": 8,
+        "verifier_fail": 1
+      },
+      "final_empty_rate_all_runs": 0.75,
+      "final_empty_x_pass": {
+        "empty_pass": 13,
+        "empty_nonpass": 14,
+        "nonempty_pass": 8,
+        "nonempty_nonpass": 1
+      }
+    },
+    "l3b": {
+      "runs": 36,
+      "reconstructed_outcomes": {
+        "pass": 23,
+        "timeout": 1,
+        "verifier_fail": 7,
+        "max_steps_reached": 5
+      },
+      "legacy_outcomes": {
+        "empty_termination": 17,
+        "pass": 17,
+        "verifier_fail": 2
+      },
+      "final_empty_rate_all_runs": 0.4722222222222222,
+      "final_empty_x_pass": {
+        "empty_pass": 6,
+        "empty_nonpass": 11,
+        "nonempty_pass": 17,
+        "nonempty_nonpass": 2
+      }
+    }
+  },
+  "final_empty_is_behavioral_not_outcome": true,
+  "replay": {
+    "limit_tool_call": 32,
+    "a_layer_definition": ">=32 completed tool calls",
+    "pre32_workspace_validation": {
+      "checked": 51,
+      "exact_matches": 46,
+      "mismatches": 5,
+      "limitation": "run_command side effects are not replayed"
+    },
+    "baseline_negative_control": {
+      "n": 9,
+      "mean_final_minus_at32": 0.0,
+      "distribution": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "l3b_a_layer": {
+      "n": 10,
+      "mean_final_minus_at32": 0.058333333333333334,
+      "distribution": [
+        0.0,
+        0.0,
+        0.3333333333333333,
+        0.0,
+        0.0,
+        0.25,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "task_paired": {
+      "per_task_means": {
+        "baseline": {
+          "pilot_a04_dependency_order": 0.0,
+          "pilot_a06_path_safety": 0.0,
+          "pilot_b04_multifile_reconciliation": 0.0,
+          "pilot_b02_json_normalization": 0.0,
+          "pilot_b06_schema_conversion": 0.0
+        },
+        "l3b": {
+          "pilot_a04_dependency_order": 0.1111111111111111,
+          "pilot_a02_config_parser": 0.0,
+          "pilot_a06_path_safety": 0.0,
+          "pilot_b04_multifile_reconciliation": 0.0,
+          "pilot_b02_json_normalization": 0.0625
+        }
+      },
+      "comparison": {
+        "task_pairs": 4,
+        "mean_difference_l3b_minus_baseline": 0.043402777777777776,
+        "paired_bootstrap_95": [
+          0.0,
+          0.08680555555555555
+        ]
+      }
+    }
+  }
+}

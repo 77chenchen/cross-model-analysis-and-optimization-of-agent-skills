@@ -198,21 +198,24 @@ descriptive results.
 ## L3b dev-validate descriptive result (2026-10-09)
 
 The preregistered 72-run, single-worker dev-validate batch is complete: 36
-baseline and 36 L3b assignments, with no provider errors. Baseline had 8/36
-passes (Wilson 95% 11.7%--38.1%), 7/36 max-step outcomes, mean partial 0.799,
-and mean seed-relative partial delta 0.696. L3b had 17/36 passes (Wilson 95%
-32.0%--63.0%), 5/36 max-step outcomes, mean partial 0.887, and mean
-seed-relative partial delta 0.784. One L3b run is a user-authorized verifier
-timeout described in `docs/l3b_execution_log.md`.
+baseline and 36 L3b assignments, with no provider errors. The original
+single-label report had 8/36 and 17/36 passes, respectively, with 7/36 and
+5/36 max-step outcomes. One L3b run is a user-authorized verifier timeout
+described in `docs/l3b_execution_log.md`. A later outcome reconstruction now
+separates normal completion from verifier result and treats `final_empty` as a
+non-exclusive behavioral flag; consult the revised report rather than using
+the legacy pass/empty labels as a causal comparison.
 
 The fixed reminder activated in 12/36 L3b assignments (Wilson 95%
-20.2%--49.7%). Among those 12 triggered trajectories, 11 subsequently ran a
-successful command validation, 10/10 scored trajectories had a positive
-seed-relative partial delta, and 2/12 finally passed. Thus the mechanism is
-observable where it activates, but the triggered sample is small. These are
-descriptive dev results, **not** an “effective intervention” conclusion; no
-test task has been run. Full machine-readable and descriptive tables are in
-`data/l3b_summary.json`, `data/l3b_results.csv`, and `docs/l3b_results.md`.
+20.2%--49.7%); 11/12 subsequently ran a successful command validation and
+2/12 finally passed. The post-hoc, explicitly defined incremental metric is
+`final_partial - partial_at_32`, reconstructed by write-only workspace replay
+and compared with the baseline A-layer negative control using task pairing.
+Thus the mechanism is observable where it activates, but the triggered sample
+is small. These are descriptive dev results, **not** an “effective
+intervention” conclusion; no test task has been run. Full machine-readable and
+descriptive tables are in `data/l3b_revised_summary.json`,
+`data/l3b_replay_at32.csv`, and `docs/l3b_results.md`.
 
 ## Test-split status (2026-10-08)
 

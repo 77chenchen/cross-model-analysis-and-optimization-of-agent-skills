@@ -1,23 +1,14 @@
-# L3b descriptive results
+# L3b revised descriptive analysis
 
-This is a dev-validate-only, small-sample descriptive report. It does not claim that L3b is effective.
+Pre-registered metrics are retained separately. Everything below is post-hoc exploratory; Wilson intervals in the original report quantify single proportions only and are not condition-difference tests.
 
-## dev_validate/baseline
+## Reconstructed outcomes and final-empty behavior
 
-Runs: 36; provider errors: 0; outcomes: {'empty_termination': 20, 'max_steps_reached': 7, 'pass': 8, 'verifier_fail': 1}.
+- baseline: reconstructed {'pass': 21, 'verifier_fail': 7, 'compile_error': 1, 'max_steps_reached': 7}; legacy {'empty_termination': 27, 'pass': 8, 'verifier_fail': 1}; final-empty rate 0.750; final-empty × pass {'empty_pass': 13, 'empty_nonpass': 14, 'nonempty_pass': 8, 'nonempty_nonpass': 1}.
+- l3b: reconstructed {'pass': 23, 'timeout': 1, 'verifier_fail': 7, 'max_steps_reached': 5}; legacy {'empty_termination': 17, 'pass': 17, 'verifier_fail': 2}; final-empty rate 0.472; final-empty × pass {'empty_pass': 6, 'empty_nonpass': 11, 'nonempty_pass': 17, 'nonempty_nonpass': 2}.
 
-Pass excluding provider errors: 0.222 (Wilson 95% [0.11716331975796668, 0.38084702946117704]).
-Max-step reached: 0.194 (Wilson 95% [0.09753095418928912, 0.350280429951769]).
-Mean partial score: 0.7990196078431373; mean seed-relative partial delta: 0.696078431372549; positive-delta frequency: 0.8823529411764706 (Wilson 95% [0.7337915722962867, 0.9532855333511756]).
+Final-empty is now an independent behavioral indicator: abnormal termination is classified first, then compile/verifier outcome; legacy `empty_termination` remains for audit only.
 
-## dev_validate/l3b
+## Post-call-32 write-only replay
 
-Runs: 36; provider errors: 0; outcomes: {'empty_termination': 11, 'max_steps_reached': 5, 'pass': 17, 'timeout': 1, 'verifier_fail': 2}.
-
-Pass excluding provider errors: 0.472 (Wilson 95% [0.3198604151517942, 0.62994061977012]).
-Max-step reached: 0.139 (Wilson 95% [0.06081815009132971, 0.28659530389355725]).
-Mean partial score: 0.8872549019607843; mean seed-relative partial delta: 0.7843137254901961; positive-delta frequency: 0.9411764705882353 (Wilson 95% [0.809063930957195, 0.9837173447898768]).
-
-## Mechanism activation
-
-L3b reminders triggered in 12/36 assigned runs (Wilson 95% [0.202146188243056, 0.49666002128843023]). Among triggered runs, post-trigger validation was 0.9166666666666666, partial increase was 1.0, and final pass was 0.16666666666666666. The mechanism is observable only where triggered; samples are small.
+Pre-32 terminal replay exactly matched final workspace in 46/51 checked runs; 5 mismatched. There were 9 baseline and 12 L3b A-layer candidates; 10 L3b increments were scoreable because one user-authorized verifier timeout had no final partial and one verifier result was unavailable. A-layer (>=32 calls) final_partial − partial_at_32: baseline negative control mean 0.0 (n=9), L3b mean 0.058333333333333334 (n=10). Task-paired bootstrap: {'task_pairs': 4, 'mean_difference_l3b_minus_baseline': 0.043402777777777776, 'paired_bootstrap_95': [0.0, 0.08680555555555555]}. `run_command` side effects are not replayed, so these increments are exploratory.
