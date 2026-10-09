@@ -6,6 +6,6 @@ while IFS=$'\t' read -r order task condition repetition model seed; do
   [[ "$order" == "order" ]] && continue
   args=("$root/harness/run_r2_pilot.py" "$task" "$model" --skill-version v0 --run-cohort l3b-dev-validate --split dev --repetition "$repetition" --output-root "$root/data/l3b_runs" --worker-concurrency 1)
   [[ "$condition" == "l3b" ]] && args+=(--l3b-trigger-at 32)
-  python "${args[@]}"
-  python "$root/harness/update_status.py"
+  python3 "${args[@]}"
+  python3 "$root/harness/update_status.py"
 done < "$root/config/l3b_dev_validate_matrix.tsv"

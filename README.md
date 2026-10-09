@@ -158,6 +158,22 @@ distributed across A02/A03 around 13:59--14:03 UTC and A04/B04 around
 to one task. Their replacements use fresh run IDs and one worker; reports will
 show both the original-only result and the replacement-inclusive result.
 
+### Unified `max_steps_reached` denominator statement (2026-10-09)
+
+The following three quantities answer different questions and must not be
+pooled. **B4: 6/36** is the original B3/S5 r2 cohort's terminal-path count:
+all 36 S5 records, including the eight historical provider-error records; it
+predates the new independent flag and was reconstructed from the 40-call
+terminal path. **B5: 3/36** is the replacement-inclusive view: the eight
+historical provider-error records are removed from this denominator and each
+is replaced by one fresh run; all three counts use the new
+`max_steps_reached` flag/category. **dev-diagnose: 2/18** is the original S5
+subset of six dev-diagnose tasks × three repeats; it includes no replacement
+run and was reconstructed from terminal path, not the new flag. The B5 502s
+were observed during a previous three-worker batch and form time clusters, so
+their relationship to concurrency is not identifiable. L3b therefore uses
+one worker rather than two.
+
 The same r2 Qwen3.5:9b/v0 configuration was measured twice: S4 had 11/36
 passes and S5 had 8/36 passes. This 3-run difference is recorded as a
 between-batch remeasurement/noise estimate, not evidence of a skill effect.
