@@ -224,3 +224,13 @@ tasks. `tasks/s3_admission.json` records all 18/18 passing positive,
 negative-template, and shortcut admission checks; zero tasks are missing.
 They have not been executed by any model. The only remaining prerequisite is
 the locked S7 authorization/analysis stage, not task construction.
+
+## S7 documentation-only preflight (2026-10-09)
+
+`docs/s7_execution_plan.md` records the proposed S7 core matrix: C0 (no
+skill) and C1 (frozen v0) across six models, 18 admitted test tasks, and three
+repetitions, for 648 scheduled runs. v1 and L3b remain explicitly exploratory
+and have no selected S7 scope. The plan locks the intended C0/C1 difference,
+task-level paired analysis, provider-error sensitivity views, and the
+single-execution freeze procedure. It is not an execution authorization: no
+test task has been run, and no token or currency estimate is used.
