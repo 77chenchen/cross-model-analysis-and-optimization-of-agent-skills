@@ -15,8 +15,8 @@ except ImportError:
 
 
 def complete(run_dir: Path) -> bool:
-    """A resumable entry requires both metadata and the terminal runtime record."""
-    return (run_dir / "metadata.json").is_file() and (run_dir / "runtime_r2.json").is_file()
+    """A classified timeout is complete even when the killed agent wrote no runtime."""
+    return all((run_dir / name).is_file() for name in ("metadata.json", "process.json", "verifier.json"))
 
 
 def main() -> None:
