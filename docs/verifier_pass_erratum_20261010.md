@@ -154,3 +154,48 @@ evidence supports a mixed diagnosis: a substantive task-solving/validation
 floor is present, with avoidable tool-parameter mistakes contributing. It is
 not the earlier CLI-style empty-output or unparseable-tool-call interface
 failure.
+
+## Addendum: protocol provider-error field
+
+The machine-readable audit now exposes `provider_error_protocol` as the
+authoritative derived field and keeps both `provider_error_flag` and the
+earlier `protocol_provider_error` spelling as legacy diagnostics. It is true
+only for a request that exhausted the protocol retry policy; a hard timeout
+with a broad provider flag is false. The S4 five records and the S5 eight
+original records are all retry-exhausted request-transport records under this
+definition, rather than broad-flag artifacts. This confirms that their counts
+of 5 and 8 are protocol exclusions. The two S7 b09 hard timeouts are not.
+
+## Addendum: call-32 proxy reliability
+
+Among A-layer dev-validate records whose replayed call-32 partial equals 1.0,
+the final frozen verifier did **not** fail in 0/2 baseline records and 0/5 L3b
+records (0/7 total). Thus the available seven-record audit is consistent with
+the proxy meaning “already passed” here. It is intentionally reported as a
+reliability check, not a general validation: write-only replay cannot reproduce
+side effects from commands that have already run.
+
+## Addendum: S4 dev-diagnose cross-model process exploration
+
+[`audit_s4_dev_diagnose_process.py`](../harness/audit_s4_dev_diagnose_process.py)
+uses only the six frozen `dev_diagnose` tasks (18 runs per model) and is marked
+post-hoc exploratory. It measures raw assistant responses, tool-result calls
+per response, and whether a write preceded the first successful file read.
+The full machine-readable result is
+[`s4_dev_diagnose_process_audit_20261010.json`](../data/s4_dev_diagnose_process_audit_20261010.json).
+
+| Model | Assistant responses, median [Q1,Q3] | Calls/response, median [Q1,Q3] | Write before first successful read | One tool-call response then stop |
+|---|---:|---:|---:|---:|
+| gemma4:26b | 8.0 [8.0, 11.0] | 0.88 [0.88, 0.91] | 0/18 | 0/18 |
+| qwen3.5:9b | 8.0 [7.0, 9.0] | 0.88 [0.86, 0.89] | 0/18 | 0/18 |
+| qwen3.8:27b | 6.0 [5.0, 8.75] | 1.00 [1.00, 1.00] | 0/18 | 0/18 |
+| qwen3-coder-next | 9.0 [8.0, 10.0] | 0.89 [0.88, 0.90] | 0/18 | 0/18 |
+| llama3.1:8b | 2.0 [2.0, 2.0] | 1.75 [1.50, 2.00] | 0/18 | 15/18 |
+
+This supports the descriptive statement that llama typically emits one batched
+tool-call reply and then stops, unlike the multi-turn patterns of the other
+S4 models. Across all 36 S4 llama runs, 16/40 `run_command` calls were rejected
+because `timeout_seconds=300` exceeded the 120-second maximum. These are
+post-hoc dev-only observations, not a confirmed causal explanation or a
+selection rule. The corresponding S7 cross-model summaries have been
+pre-declared in the process-analysis revision and will wait for S7 completion.

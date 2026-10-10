@@ -30,6 +30,19 @@ those that do not, and replay-unavailable records. The call-32 partial-score
 proxy is audited against the final frozen verifier before being interpreted as
 "already passed."
 
+For the dev-only replay audit, all 2/2 baseline and 5/5 L3b A-layer records
+with `partial_at_32 == 1.0` also have final `verifier.json.passed == true`;
+0/7 end as verifier failures. This is reassuring for this seven-record audit,
+not proof that write-only replay is a generally sound workspace proxy. In
+particular, it does not replay `run_command` side effects.
+
+The S7 treatment stays deliberately narrower: L3b triggers are expected to be
+sparse, so there will be **no inferential test** of post-trigger conversion.
+The report will give only trigger counts and the call-32 state distribution.
+Any A-layer final verifier-pass contrast will be split into
+already-passed-at-32, not-passed-at-32, and replay-unavailable records before
+interpretation.
+
 ## Cross-model S4 trajectory exploration
 
 The following is a post-hoc, dev-only exploration using only the frozen S4
@@ -49,3 +62,9 @@ hard timeouts remain denominator failures even when the legacy broad
 `provider_error` flag co-occurs. The formal analysis patch will be versioned,
 hashed, and unit-tested before formal analysis, while the locked S7 execution
 remains untouched.
+
+`test_in_b09_phone` is pre-specified for a leave-one-task-out sensitivity in
+all formal pass summaries. Two qwen trajectories on this task reached the
+20-minute runner limit, so every applicable result will be reported both with
+all admitted tasks and with this task excluded. This is an analysis sensitivity,
+not a task change, rerun, or admission reversal.

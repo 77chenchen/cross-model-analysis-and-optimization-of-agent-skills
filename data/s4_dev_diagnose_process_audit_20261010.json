@@ -1,0 +1,2146 @@
+{
+  "by_model": {
+    "gemma4:26b": {
+      "assistant_turns": {
+        "mean": 9.722222222222221,
+        "median": 8.0,
+        "q25": 8.0,
+        "q75": 11.0
+      },
+      "no_successful_read": {
+        "denominator": 18,
+        "numerator": 0
+      },
+      "one_tool_call_response_then_stop": {
+        "denominator": 18,
+        "numerator": 0
+      },
+      "runs": 18,
+      "tool_calls_per_assistant_turn": {
+        "mean": 0.8924122174122174,
+        "median": 0.875,
+        "q25": 0.875,
+        "q75": 0.9090909090909091
+      },
+      "write_before_first_successful_read": {
+        "denominator": 18,
+        "numerator": 0
+      }
+    },
+    "llama3.1:8b": {
+      "assistant_turns": {
+        "mean": 2.1666666666666665,
+        "median": 2.0,
+        "q25": 2.0,
+        "q75": 2.0
+      },
+      "no_successful_read": {
+        "denominator": 18,
+        "numerator": 0
+      },
+      "one_tool_call_response_then_stop": {
+        "denominator": 18,
+        "numerator": 15
+      },
+      "runs": 18,
+      "tool_calls_per_assistant_turn": {
+        "mean": 1.7222222222222223,
+        "median": 1.75,
+        "q25": 1.5,
+        "q75": 2.0
+      },
+      "write_before_first_successful_read": {
+        "denominator": 18,
+        "numerator": 0
+      }
+    },
+    "qwen3-coder-next": {
+      "assistant_turns": {
+        "mean": 9.0,
+        "median": 9.0,
+        "q25": 8.0,
+        "q75": 10.0
+      },
+      "no_successful_read": {
+        "denominator": 18,
+        "numerator": 0
+      },
+      "one_tool_call_response_then_stop": {
+        "denominator": 18,
+        "numerator": 0
+      },
+      "runs": 18,
+      "tool_calls_per_assistant_turn": {
+        "mean": 0.8813692480359147,
+        "median": 0.8888888888888888,
+        "q25": 0.875,
+        "q75": 0.9
+      },
+      "write_before_first_successful_read": {
+        "denominator": 18,
+        "numerator": 0
+      }
+    },
+    "qwen3.5:9b": {
+      "assistant_turns": {
+        "mean": 13.055555555555555,
+        "median": 8.0,
+        "q25": 7.0,
+        "q75": 9.0
+      },
+      "no_successful_read": {
+        "denominator": 18,
+        "numerator": 0
+      },
+      "one_tool_call_response_then_stop": {
+        "denominator": 18,
+        "numerator": 0
+      },
+      "runs": 18,
+      "tool_calls_per_assistant_turn": {
+        "mean": 0.8852106227106228,
+        "median": 0.875,
+        "q25": 0.8571428571428571,
+        "q75": 0.8888888888888888
+      },
+      "write_before_first_successful_read": {
+        "denominator": 18,
+        "numerator": 0
+      }
+    },
+    "qwen3.8:27b": {
+      "assistant_turns": {
+        "mean": 7.055555555555555,
+        "median": 6.0,
+        "q25": 5.0,
+        "q75": 8.75
+      },
+      "no_successful_read": {
+        "denominator": 18,
+        "numerator": 0
+      },
+      "one_tool_call_response_then_stop": {
+        "denominator": 18,
+        "numerator": 0
+      },
+      "runs": 18,
+      "tool_calls_per_assistant_turn": {
+        "mean": 1.0420875420875422,
+        "median": 1.0,
+        "q25": 1.0,
+        "q75": 1.0
+      },
+      "write_before_first_successful_read": {
+        "denominator": 18,
+        "numerator": 0
+      }
+    }
+  },
+  "definitions": {
+    "assistant_turns": "number of stored raw assistant responses",
+    "one_tool_call_response_then_stop": "exactly one response with tool_calls, exactly two responses total, and final finish_reason stop",
+    "tool_calls_per_assistant_turn": "tool_result events divided by stored raw assistant responses",
+    "write_before_first_successful_read": "a write_file tool result precedes the first successful read_file tool result; no successful read counts as early write when a write exists"
+  },
+  "records": [
+    {
+      "assistant_turns": 12,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "gemma4:26b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_b01_csv_cleaning__gemma4_26b__v0__20261008T115122Z__99cebc0691",
+      "task": "pilot_b01_csv_cleaning",
+      "tool_call_responses": 11,
+      "tool_calls": 11,
+      "tool_calls_per_assistant_turn": 0.9166666666666666,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 11,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "qwen3-coder-next",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_a05_version_parser__qwen3-coder-next__v0__20261008T114054Z__f807d39c79",
+      "task": "pilot_a05_version_parser",
+      "tool_call_responses": 10,
+      "tool_calls": 10,
+      "tool_calls_per_assistant_turn": 0.9090909090909091,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 2,
+      "finish_reasons": [
+        "tool_calls",
+        "stop"
+      ],
+      "model": "llama3.1:8b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": true,
+      "run_id": "pilot_a01_label_parser__llama3.1_8b__v0__20261008T105948Z__a5b00851c5",
+      "task": "pilot_a01_label_parser",
+      "tool_call_responses": 1,
+      "tool_calls": 4,
+      "tool_calls_per_assistant_turn": 2.0,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 7,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "qwen3.5:9b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_a03_record_deduplication__qwen3.5_9b__v0__20261008T110646Z__80902d0cc3",
+      "task": "pilot_a03_record_deduplication",
+      "tool_call_responses": 6,
+      "tool_calls": 6,
+      "tool_calls_per_assistant_turn": 0.8571428571428571,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 8,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "gemma4:26b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_a01_label_parser__gemma4_26b__v0__20261008T105847Z__7560832357",
+      "task": "pilot_a01_label_parser",
+      "tool_call_responses": 7,
+      "tool_calls": 7,
+      "tool_calls_per_assistant_turn": 0.875,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 8,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "gemma4:26b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_a05_version_parser__gemma4_26b__v0__20261008T113843Z__1da52a4504",
+      "task": "pilot_a05_version_parser",
+      "tool_call_responses": 7,
+      "tool_calls": 7,
+      "tool_calls_per_assistant_turn": 0.875,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 8,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "gemma4:26b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_b03_duplicate_audit__gemma4_26b__v0__20261008T120531Z__380f200893",
+      "task": "pilot_b03_duplicate_audit",
+      "tool_call_responses": 7,
+      "tool_calls": 7,
+      "tool_calls_per_assistant_turn": 0.875,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 5,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "qwen3.5:9b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_b01_csv_cleaning__qwen3.5_9b__v0__20261008T115028Z__12276b68a0",
+      "task": "pilot_b01_csv_cleaning",
+      "tool_call_responses": 4,
+      "tool_calls": 4,
+      "tool_calls_per_assistant_turn": 0.8,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 8,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "qwen3-coder-next",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_a03_record_deduplication__qwen3-coder-next__v0__20261008T111003Z__7bab38ec33",
+      "task": "pilot_a03_record_deduplication",
+      "tool_call_responses": 7,
+      "tool_calls": 7,
+      "tool_calls_per_assistant_turn": 0.875,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 2,
+      "finish_reasons": [
+        "tool_calls",
+        "stop"
+      ],
+      "model": "llama3.1:8b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": true,
+      "run_id": "pilot_b01_csv_cleaning__llama3.1_8b__v0__20261008T115254Z__4c4a68a5c3",
+      "task": "pilot_b01_csv_cleaning",
+      "tool_call_responses": 1,
+      "tool_calls": 3,
+      "tool_calls_per_assistant_turn": 1.5,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 11,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "gemma4:26b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_b05_date_validation__gemma4_26b__v0__20261008T121744Z__2c60564b62",
+      "task": "pilot_b05_date_validation",
+      "tool_call_responses": 10,
+      "tool_calls": 10,
+      "tool_calls_per_assistant_turn": 0.9090909090909091,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 9,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "qwen3.5:9b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_b03_duplicate_audit__qwen3.5_9b__v0__20261008T120446Z__f361f5abc7",
+      "task": "pilot_b03_duplicate_audit",
+      "tool_call_responses": 8,
+      "tool_calls": 8,
+      "tool_calls_per_assistant_turn": 0.8888888888888888,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 8,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "qwen3.5:9b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_a03_record_deduplication__qwen3.5_9b__v0__20261008T110703Z__1335a17709",
+      "task": "pilot_a03_record_deduplication",
+      "tool_call_responses": 7,
+      "tool_calls": 7,
+      "tool_calls_per_assistant_turn": 0.875,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 6,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "qwen3.5:9b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_b05_date_validation__qwen3.5_9b__v0__20261008T121652Z__0b30dd794f",
+      "task": "pilot_b05_date_validation",
+      "tool_call_responses": 5,
+      "tool_calls": 5,
+      "tool_calls_per_assistant_turn": 0.8333333333333334,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 9,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "qwen3.5:9b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_b03_duplicate_audit__qwen3.5_9b__v0__20261008T120421Z__2a8e22d316",
+      "task": "pilot_b03_duplicate_audit",
+      "tool_call_responses": 8,
+      "tool_calls": 8,
+      "tool_calls_per_assistant_turn": 0.8888888888888888,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 6,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "qwen3.8:27b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_b05_date_validation__qwen3.8_27b__v0__20261008T121628Z__5028352e50",
+      "task": "pilot_b05_date_validation",
+      "tool_call_responses": 5,
+      "tool_calls": 6,
+      "tool_calls_per_assistant_turn": 1.0,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 8,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "gemma4:26b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_a01_label_parser__gemma4_26b__v0__20261008T105853Z__856fbbc2f2",
+      "task": "pilot_a01_label_parser",
+      "tool_call_responses": 7,
+      "tool_calls": 7,
+      "tool_calls_per_assistant_turn": 0.875,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 6,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "qwen3.8:27b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_a01_label_parser__qwen3.8_27b__v0__20261008T105744Z__9d8a0ca0f9",
+      "task": "pilot_a01_label_parser",
+      "tool_call_responses": 5,
+      "tool_calls": 6,
+      "tool_calls_per_assistant_turn": 1.0,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 6,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "qwen3-coder-next",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_b01_csv_cleaning__qwen3-coder-next__v0__20261008T115303Z__50e8d30f95",
+      "task": "pilot_b01_csv_cleaning",
+      "tool_call_responses": 5,
+      "tool_calls": 5,
+      "tool_calls_per_assistant_turn": 0.8333333333333334,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 2,
+      "finish_reasons": [
+        "tool_calls",
+        "stop"
+      ],
+      "model": "llama3.1:8b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": true,
+      "run_id": "pilot_a03_record_deduplication__llama3.1_8b__v0__20261008T110957Z__a50f9330a0",
+      "task": "pilot_a03_record_deduplication",
+      "tool_call_responses": 1,
+      "tool_calls": 4,
+      "tool_calls_per_assistant_turn": 2.0,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 9,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "qwen3-coder-next",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_b03_duplicate_audit__qwen3-coder-next__v0__20261008T120647Z__785fe13f92",
+      "task": "pilot_b03_duplicate_audit",
+      "tool_call_responses": 8,
+      "tool_calls": 8,
+      "tool_calls_per_assistant_turn": 0.8888888888888888,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 5,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "qwen3.8:27b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_a03_record_deduplication__qwen3.8_27b__v0__20261008T110632Z__afd1c68670",
+      "task": "pilot_a03_record_deduplication",
+      "tool_call_responses": 4,
+      "tool_calls": 5,
+      "tool_calls_per_assistant_turn": 1.0,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 8,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "gemma4:26b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_b03_duplicate_audit__gemma4_26b__v0__20261008T120524Z__a20e5a634d",
+      "task": "pilot_b03_duplicate_audit",
+      "tool_call_responses": 7,
+      "tool_calls": 7,
+      "tool_calls_per_assistant_turn": 0.875,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 10,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "gemma4:26b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_a05_version_parser__gemma4_26b__v0__20261008T113530Z__e9e5711e71",
+      "task": "pilot_a05_version_parser",
+      "tool_call_responses": 9,
+      "tool_calls": 9,
+      "tool_calls_per_assistant_turn": 0.9,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 15,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "gemma4:26b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_a05_version_parser__gemma4_26b__v0__20261008T113536Z__22ec66b074",
+      "task": "pilot_a05_version_parser",
+      "tool_call_responses": 14,
+      "tool_calls": 14,
+      "tool_calls_per_assistant_turn": 0.9333333333333333,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 7,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "qwen3.5:9b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_b05_date_validation__qwen3.5_9b__v0__20261008T121651Z__5068662263",
+      "task": "pilot_b05_date_validation",
+      "tool_call_responses": 6,
+      "tool_calls": 6,
+      "tool_calls_per_assistant_turn": 0.8571428571428571,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 10,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "qwen3-coder-next",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_a05_version_parser__qwen3-coder-next__v0__20261008T114048Z__7492afb817",
+      "task": "pilot_a05_version_parser",
+      "tool_call_responses": 9,
+      "tool_calls": 9,
+      "tool_calls_per_assistant_turn": 0.9,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 2,
+      "finish_reasons": [
+        "tool_calls",
+        "stop"
+      ],
+      "model": "llama3.1:8b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": true,
+      "run_id": "pilot_a03_record_deduplication__llama3.1_8b__v0__20261008T110946Z__d4d2fabcbe",
+      "task": "pilot_a03_record_deduplication",
+      "tool_call_responses": 1,
+      "tool_calls": 4,
+      "tool_calls_per_assistant_turn": 2.0,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 2,
+      "finish_reasons": [
+        "tool_calls",
+        "stop"
+      ],
+      "model": "llama3.1:8b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": true,
+      "run_id": "pilot_b01_csv_cleaning__llama3.1_8b__v0__20261008T115303Z__0edea5dcf4",
+      "task": "pilot_b01_csv_cleaning",
+      "tool_call_responses": 1,
+      "tool_calls": 3,
+      "tool_calls_per_assistant_turn": 1.5,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 11,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "qwen3.8:27b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_b03_duplicate_audit__qwen3.8_27b__v0__20261008T120324Z__b7b9f4970c",
+      "task": "pilot_b03_duplicate_audit",
+      "tool_call_responses": 10,
+      "tool_calls": 12,
+      "tool_calls_per_assistant_turn": 1.0909090909090908,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 8,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "qwen3.5:9b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_a03_record_deduplication__qwen3.5_9b__v0__20261008T110658Z__2711a82dbf",
+      "task": "pilot_a03_record_deduplication",
+      "tool_call_responses": 7,
+      "tool_calls": 7,
+      "tool_calls_per_assistant_turn": 0.875,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 8,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "gemma4:26b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_b01_csv_cleaning__gemma4_26b__v0__20261008T115210Z__f71b9f5b3f",
+      "task": "pilot_b01_csv_cleaning",
+      "tool_call_responses": 7,
+      "tool_calls": 7,
+      "tool_calls_per_assistant_turn": 0.875,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 6,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "qwen3.8:27b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_a01_label_parser__qwen3.8_27b__v0__20261008T105744Z__faf5ae7667",
+      "task": "pilot_a01_label_parser",
+      "tool_call_responses": 5,
+      "tool_calls": 6,
+      "tool_calls_per_assistant_turn": 1.0,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 12,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "qwen3.8:27b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_a05_version_parser__qwen3.8_27b__v0__20261008T111810Z__0d63d62334",
+      "task": "pilot_a05_version_parser",
+      "tool_call_responses": 11,
+      "tool_calls": 12,
+      "tool_calls_per_assistant_turn": 1.0,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 5,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "qwen3.8:27b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_a03_record_deduplication__qwen3.8_27b__v0__20261008T110631Z__c57b6e8f32",
+      "task": "pilot_a03_record_deduplication",
+      "tool_call_responses": 4,
+      "tool_calls": 5,
+      "tool_calls_per_assistant_turn": 1.0,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 3,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "llama3.1:8b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_b05_date_validation__llama3.1_8b__v0__20261008T121832Z__2bd8656f33",
+      "task": "pilot_b05_date_validation",
+      "tool_call_responses": 2,
+      "tool_calls": 4,
+      "tool_calls_per_assistant_turn": 1.3333333333333333,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 8,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "qwen3-coder-next",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_a01_label_parser__qwen3-coder-next__v0__20261008T105955Z__1bba360618",
+      "task": "pilot_a01_label_parser",
+      "tool_call_responses": 7,
+      "tool_calls": 7,
+      "tool_calls_per_assistant_turn": 0.875,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 40,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls"
+      ],
+      "model": "qwen3.5:9b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_a05_version_parser__qwen3.5_9b__v0__20261008T113530Z__cf822df4a2",
+      "task": "pilot_a05_version_parser",
+      "tool_call_responses": 40,
+      "tool_calls": 40,
+      "tool_calls_per_assistant_turn": 1.0,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 5,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "qwen3.5:9b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_b01_csv_cleaning__qwen3.5_9b__v0__20261008T115049Z__25bad102f9",
+      "task": "pilot_b01_csv_cleaning",
+      "tool_call_responses": 4,
+      "tool_calls": 4,
+      "tool_calls_per_assistant_turn": 0.8,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 8,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "gemma4:26b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_b05_date_validation__gemma4_26b__v0__20261008T121723Z__266554fecb",
+      "task": "pilot_b05_date_validation",
+      "tool_call_responses": 7,
+      "tool_calls": 7,
+      "tool_calls_per_assistant_turn": 0.875,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 15,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "qwen3-coder-next",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_b05_date_validation__qwen3-coder-next__v0__20261008T121848Z__e29daf6ad5",
+      "task": "pilot_b05_date_validation",
+      "tool_call_responses": 14,
+      "tool_calls": 14,
+      "tool_calls_per_assistant_turn": 0.9333333333333333,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 2,
+      "finish_reasons": [
+        "tool_calls",
+        "stop"
+      ],
+      "model": "llama3.1:8b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": true,
+      "run_id": "pilot_b03_duplicate_audit__llama3.1_8b__v0__20261008T120645Z__e9f399776e",
+      "task": "pilot_b03_duplicate_audit",
+      "tool_call_responses": 1,
+      "tool_calls": 3,
+      "tool_calls_per_assistant_turn": 1.5,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 9,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "qwen3-coder-next",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_a01_label_parser__qwen3-coder-next__v0__20261008T105954Z__2486b83207",
+      "task": "pilot_a01_label_parser",
+      "tool_call_responses": 8,
+      "tool_calls": 8,
+      "tool_calls_per_assistant_turn": 0.8888888888888888,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 2,
+      "finish_reasons": [
+        "tool_calls",
+        "stop"
+      ],
+      "model": "llama3.1:8b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": true,
+      "run_id": "pilot_a01_label_parser__llama3.1_8b__v0__20261008T105950Z__8cae55a43e",
+      "task": "pilot_a01_label_parser",
+      "tool_call_responses": 1,
+      "tool_calls": 4,
+      "tool_calls_per_assistant_turn": 2.0,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 8,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "gemma4:26b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_b05_date_validation__gemma4_26b__v0__20261008T121720Z__05c97ca236",
+      "task": "pilot_b05_date_validation",
+      "tool_call_responses": 7,
+      "tool_calls": 7,
+      "tool_calls_per_assistant_turn": 0.875,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 9,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "qwen3.5:9b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_a01_label_parser__qwen3.5_9b__v0__20261008T105817Z__9131ce7ca6",
+      "task": "pilot_a01_label_parser",
+      "tool_call_responses": 8,
+      "tool_calls": 8,
+      "tool_calls_per_assistant_turn": 0.8888888888888888,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 8,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "qwen3-coder-next",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_a03_record_deduplication__qwen3-coder-next__v0__20261008T111010Z__8d75d14875",
+      "task": "pilot_a03_record_deduplication",
+      "tool_call_responses": 7,
+      "tool_calls": 7,
+      "tool_calls_per_assistant_turn": 0.875,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 7,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "qwen3.8:27b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_a01_label_parser__qwen3.8_27b__v0__20261008T105744Z__878b5b442b",
+      "task": "pilot_a01_label_parser",
+      "tool_call_responses": 6,
+      "tool_calls": 7,
+      "tool_calls_per_assistant_turn": 1.0,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 7,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "qwen3.5:9b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_a01_label_parser__qwen3.5_9b__v0__20261008T105816Z__c49afd6ef2",
+      "task": "pilot_a01_label_parser",
+      "tool_call_responses": 6,
+      "tool_calls": 6,
+      "tool_calls_per_assistant_turn": 0.8571428571428571,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 9,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "qwen3.8:27b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_b05_date_validation__qwen3.8_27b__v0__20261008T121532Z__f1675274b8",
+      "task": "pilot_b05_date_validation",
+      "tool_call_responses": 8,
+      "tool_calls": 9,
+      "tool_calls_per_assistant_turn": 1.0,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 13,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "qwen3.5:9b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_b01_csv_cleaning__qwen3.5_9b__v0__20261008T115059Z__e81d6a678b",
+      "task": "pilot_b01_csv_cleaning",
+      "tool_call_responses": 12,
+      "tool_calls": 12,
+      "tool_calls_per_assistant_turn": 0.9230769230769231,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 8,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "qwen3.5:9b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_b03_duplicate_audit__qwen3.5_9b__v0__20261008T120501Z__e5cbf84ea1",
+      "task": "pilot_b03_duplicate_audit",
+      "tool_call_responses": 7,
+      "tool_calls": 7,
+      "tool_calls_per_assistant_turn": 0.875,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 7,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "qwen3.5:9b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_b05_date_validation__qwen3.5_9b__v0__20261008T121715Z__6da449df1b",
+      "task": "pilot_b05_date_validation",
+      "tool_call_responses": 6,
+      "tool_calls": 6,
+      "tool_calls_per_assistant_turn": 0.8571428571428571,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 7,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "qwen3.5:9b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_a01_label_parser__qwen3.5_9b__v0__20261008T105824Z__9d8b4cf7dc",
+      "task": "pilot_a01_label_parser",
+      "tool_call_responses": 6,
+      "tool_calls": 6,
+      "tool_calls_per_assistant_turn": 0.8571428571428571,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 12,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "qwen3.8:27b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_b03_duplicate_audit__qwen3.8_27b__v0__20261008T120314Z__cef10b8c02",
+      "task": "pilot_b03_duplicate_audit",
+      "tool_call_responses": 11,
+      "tool_calls": 14,
+      "tool_calls_per_assistant_turn": 1.1666666666666667,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 4,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls"
+      ],
+      "model": "qwen3.8:27b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_a05_version_parser__qwen3.8_27b__v0__20261008T111808Z__a7a1318672",
+      "task": "pilot_a05_version_parser",
+      "tool_call_responses": 4,
+      "tool_calls": 6,
+      "tool_calls_per_assistant_turn": 1.5,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 8,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "qwen3-coder-next",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_a03_record_deduplication__qwen3-coder-next__v0__20261008T111013Z__877326ac02",
+      "task": "pilot_a03_record_deduplication",
+      "tool_call_responses": 7,
+      "tool_calls": 7,
+      "tool_calls_per_assistant_turn": 0.875,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 2,
+      "finish_reasons": [
+        "tool_calls",
+        "stop"
+      ],
+      "model": "llama3.1:8b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": true,
+      "run_id": "pilot_a05_version_parser__llama3.1_8b__v0__20261008T113958Z__0b9db694e4",
+      "task": "pilot_a05_version_parser",
+      "tool_call_responses": 1,
+      "tool_calls": 4,
+      "tool_calls_per_assistant_turn": 2.0,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 11,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "gemma4:26b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_a03_record_deduplication__gemma4_26b__v0__20261008T110733Z__a833875df3",
+      "task": "pilot_a03_record_deduplication",
+      "tool_call_responses": 10,
+      "tool_calls": 10,
+      "tool_calls_per_assistant_turn": 0.9090909090909091,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 3,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "llama3.1:8b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_b05_date_validation__llama3.1_8b__v0__20261008T121838Z__d44e850e41",
+      "task": "pilot_b05_date_validation",
+      "tool_call_responses": 2,
+      "tool_calls": 4,
+      "tool_calls_per_assistant_turn": 1.3333333333333333,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 5,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "qwen3.8:27b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_a03_record_deduplication__qwen3.8_27b__v0__20261008T110624Z__736e3cc830",
+      "task": "pilot_a03_record_deduplication",
+      "tool_call_responses": 4,
+      "tool_calls": 5,
+      "tool_calls_per_assistant_turn": 1.0,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 9,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "qwen3-coder-next",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_b03_duplicate_audit__qwen3-coder-next__v0__20261008T120650Z__3285dcd6aa",
+      "task": "pilot_b03_duplicate_audit",
+      "tool_call_responses": 8,
+      "tool_calls": 8,
+      "tool_calls_per_assistant_turn": 0.8888888888888888,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 12,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "gemma4:26b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_a03_record_deduplication__gemma4_26b__v0__20261008T110751Z__b35703d858",
+      "task": "pilot_a03_record_deduplication",
+      "tool_call_responses": 11,
+      "tool_calls": 11,
+      "tool_calls_per_assistant_turn": 0.9166666666666666,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 10,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "gemma4:26b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_a03_record_deduplication__gemma4_26b__v0__20261008T110754Z__8a4ad2d98a",
+      "task": "pilot_a03_record_deduplication",
+      "tool_call_responses": 9,
+      "tool_calls": 9,
+      "tool_calls_per_assistant_turn": 0.9,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 8,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "gemma4:26b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_a01_label_parser__gemma4_26b__v0__20261008T105856Z__454e16a085",
+      "task": "pilot_a01_label_parser",
+      "tool_call_responses": 7,
+      "tool_calls": 7,
+      "tool_calls_per_assistant_turn": 0.875,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 12,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "qwen3-coder-next",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_a05_version_parser__qwen3-coder-next__v0__20261008T114025Z__f941004c7e",
+      "task": "pilot_a05_version_parser",
+      "tool_call_responses": 11,
+      "tool_calls": 11,
+      "tool_calls_per_assistant_turn": 0.9166666666666666,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 9,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "qwen3-coder-next",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_a01_label_parser__qwen3-coder-next__v0__20261008T105956Z__979bd2e8bb",
+      "task": "pilot_a01_label_parser",
+      "tool_call_responses": 8,
+      "tool_calls": 8,
+      "tool_calls_per_assistant_turn": 0.8888888888888888,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 5,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "qwen3.8:27b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_b01_csv_cleaning__qwen3.8_27b__v0__20261008T115004Z__696ad7b5b6",
+      "task": "pilot_b01_csv_cleaning",
+      "tool_call_responses": 4,
+      "tool_calls": 5,
+      "tool_calls_per_assistant_turn": 1.0,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 14,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "gemma4:26b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_b03_duplicate_audit__gemma4_26b__v0__20261008T120604Z__de3cf1de96",
+      "task": "pilot_b03_duplicate_audit",
+      "tool_call_responses": 13,
+      "tool_calls": 13,
+      "tool_calls_per_assistant_turn": 0.9285714285714286,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 2,
+      "finish_reasons": [
+        "tool_calls",
+        "stop"
+      ],
+      "model": "llama3.1:8b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": true,
+      "run_id": "pilot_a03_record_deduplication__llama3.1_8b__v0__20261008T110952Z__f438fe7fa3",
+      "task": "pilot_a03_record_deduplication",
+      "tool_call_responses": 1,
+      "tool_calls": 4,
+      "tool_calls_per_assistant_turn": 2.0,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 10,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "qwen3-coder-next",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_b05_date_validation__qwen3-coder-next__v0__20261008T121900Z__72f2ae881b",
+      "task": "pilot_b05_date_validation",
+      "tool_call_responses": 9,
+      "tool_calls": 9,
+      "tool_calls_per_assistant_turn": 0.9,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 6,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "qwen3-coder-next",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_b01_csv_cleaning__qwen3-coder-next__v0__20261008T115312Z__686559315d",
+      "task": "pilot_b01_csv_cleaning",
+      "tool_call_responses": 5,
+      "tool_calls": 5,
+      "tool_calls_per_assistant_turn": 0.8333333333333334,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 2,
+      "finish_reasons": [
+        "tool_calls",
+        "stop"
+      ],
+      "model": "llama3.1:8b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": true,
+      "run_id": "pilot_a05_version_parser__llama3.1_8b__v0__20261008T114009Z__c17b32dedf",
+      "task": "pilot_a05_version_parser",
+      "tool_call_responses": 1,
+      "tool_calls": 4,
+      "tool_calls_per_assistant_turn": 2.0,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 7,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "qwen3.8:27b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_b03_duplicate_audit__qwen3.8_27b__v0__20261008T120331Z__42c0026bc1",
+      "task": "pilot_b03_duplicate_audit",
+      "tool_call_responses": 6,
+      "tool_calls": 7,
+      "tool_calls_per_assistant_turn": 1.0,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 6,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "qwen3-coder-next",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_b01_csv_cleaning__qwen3-coder-next__v0__20261008T115310Z__acded964de",
+      "task": "pilot_b01_csv_cleaning",
+      "tool_call_responses": 5,
+      "tool_calls": 5,
+      "tool_calls_per_assistant_turn": 0.8333333333333334,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 12,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "qwen3-coder-next",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_b05_date_validation__qwen3-coder-next__v0__20261008T121925Z__e24e26d94b",
+      "task": "pilot_b05_date_validation",
+      "tool_call_responses": 11,
+      "tool_calls": 11,
+      "tool_calls_per_assistant_turn": 0.9166666666666666,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 6,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "qwen3-coder-next",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_b03_duplicate_audit__qwen3-coder-next__v0__20261008T120703Z__e004ed93aa",
+      "task": "pilot_b03_duplicate_audit",
+      "tool_call_responses": 5,
+      "tool_calls": 5,
+      "tool_calls_per_assistant_turn": 0.8333333333333334,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 9,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "qwen3.8:27b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_b05_date_validation__qwen3.8_27b__v0__20261008T121533Z__49367ba5e9",
+      "task": "pilot_b05_date_validation",
+      "tool_call_responses": 8,
+      "tool_calls": 9,
+      "tool_calls_per_assistant_turn": 1.0,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 2,
+      "finish_reasons": [
+        "tool_calls",
+        "stop"
+      ],
+      "model": "llama3.1:8b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": true,
+      "run_id": "pilot_a01_label_parser__llama3.1_8b__v0__20261008T105943Z__26366e65b9",
+      "task": "pilot_a01_label_parser",
+      "tool_call_responses": 1,
+      "tool_calls": 4,
+      "tool_calls_per_assistant_turn": 2.0,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 2,
+      "finish_reasons": [
+        "tool_calls",
+        "stop"
+      ],
+      "model": "llama3.1:8b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": true,
+      "run_id": "pilot_b05_date_validation__llama3.1_8b__v0__20261008T121825Z__f20f82bdf9",
+      "task": "pilot_b05_date_validation",
+      "tool_call_responses": 1,
+      "tool_calls": 3,
+      "tool_calls_per_assistant_turn": 1.5,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 3,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "llama3.1:8b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_b03_duplicate_audit__llama3.1_8b__v0__20261008T120639Z__285d213b46",
+      "task": "pilot_b03_duplicate_audit",
+      "tool_call_responses": 2,
+      "tool_calls": 4,
+      "tool_calls_per_assistant_turn": 1.3333333333333333,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 2,
+      "finish_reasons": [
+        "tool_calls",
+        "stop"
+      ],
+      "model": "llama3.1:8b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": true,
+      "run_id": "pilot_b03_duplicate_audit__llama3.1_8b__v0__20261008T120637Z__66dad8fb2d",
+      "task": "pilot_b03_duplicate_audit",
+      "tool_call_responses": 1,
+      "tool_calls": 3,
+      "tool_calls_per_assistant_turn": 1.5,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 5,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "qwen3.8:27b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_b01_csv_cleaning__qwen3.8_27b__v0__20261008T114948Z__40925da8d5",
+      "task": "pilot_b01_csv_cleaning",
+      "tool_call_responses": 4,
+      "tool_calls": 5,
+      "tool_calls_per_assistant_turn": 1.0,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 8,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "qwen3.8:27b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_a05_version_parser__qwen3.8_27b__v0__20261008T111813Z__938c5fffaa",
+      "task": "pilot_a05_version_parser",
+      "tool_call_responses": 7,
+      "tool_calls": 8,
+      "tool_calls_per_assistant_turn": 1.0,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 40,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls"
+      ],
+      "model": "qwen3.5:9b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_a05_version_parser__qwen3.5_9b__v0__20261008T111958Z__5e8c984b4d",
+      "task": "pilot_a05_version_parser",
+      "tool_call_responses": 40,
+      "tool_calls": 40,
+      "tool_calls_per_assistant_turn": 1.0,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 5,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "qwen3.8:27b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_b01_csv_cleaning__qwen3.8_27b__v0__20261008T115019Z__0939a7dcd1",
+      "task": "pilot_b01_csv_cleaning",
+      "tool_call_responses": 4,
+      "tool_calls": 5,
+      "tool_calls_per_assistant_turn": 1.0,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 8,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ],
+      "model": "gemma4:26b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_b01_csv_cleaning__gemma4_26b__v0__20261008T115103Z__5c8deeb1d8",
+      "task": "pilot_b01_csv_cleaning",
+      "tool_call_responses": 7,
+      "tool_calls": 7,
+      "tool_calls_per_assistant_turn": 0.875,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 2,
+      "finish_reasons": [
+        "tool_calls",
+        "stop"
+      ],
+      "model": "llama3.1:8b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": true,
+      "run_id": "pilot_b01_csv_cleaning__llama3.1_8b__v0__20261008T115257Z__7a44fbb394",
+      "task": "pilot_b01_csv_cleaning",
+      "tool_call_responses": 1,
+      "tool_calls": 3,
+      "tool_calls_per_assistant_turn": 1.5,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 40,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls"
+      ],
+      "model": "qwen3.5:9b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": false,
+      "run_id": "pilot_a05_version_parser__qwen3.5_9b__v0__20261008T112708Z__8de04fdcce",
+      "task": "pilot_a05_version_parser",
+      "tool_call_responses": 40,
+      "tool_calls": 40,
+      "tool_calls_per_assistant_turn": 1.0,
+      "write_before_first_successful_read": false
+    },
+    {
+      "assistant_turns": 2,
+      "finish_reasons": [
+        "tool_calls",
+        "stop"
+      ],
+      "model": "llama3.1:8b",
+      "no_successful_read": false,
+      "one_tool_call_response_then_stop": true,
+      "run_id": "pilot_a05_version_parser__llama3.1_8b__v0__20261008T114017Z__9b39d0009a",
+      "task": "pilot_a05_version_parser",
+      "tool_call_responses": 1,
+      "tool_calls": 4,
+      "tool_calls_per_assistant_turn": 2.0,
+      "write_before_first_successful_read": false
+    }
+  ],
+  "scope": "post_hoc_exploratory; historical S4 dev_diagnose only; no new model calls"
+}

@@ -1,0 +1,1648 @@
+{
+  "by_condition": {
+    "C0": {
+      "primary": {
+        "edited_runs": 86,
+        "rate": 0.6511627906976745,
+        "validated": 56
+      },
+      "sensitivity": {
+        "edited_runs": 86,
+        "rate": 0.9069767441860465,
+        "validated": 78
+      }
+    },
+    "C1": {
+      "primary": {
+        "edited_runs": 88,
+        "rate": 0.3977272727272727,
+        "validated": 35
+      },
+      "sensitivity": {
+        "edited_runs": 88,
+        "rate": 0.6590909090909091,
+        "validated": 58
+      }
+    }
+  },
+  "definitions": {
+    "denominator": "runs with at least one write_file; no-edit runs are not falsely called unvalidated",
+    "primary_validation_intent": "after final write_file, run_command arguments contain test, pytest, unittest, or py_compile",
+    "sensitivity_transport_success": "after final write_file, run_command result.ok is true regardless of command text"
+  },
+  "records": [
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_b08_total-C1-r3",
+      "sensitivity_transport_success": false,
+      "task": "test_in_b08_total"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_b10_cents-C1-r3",
+      "sensitivity_transport_success": false,
+      "task": "test_in_b10_cents"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_b10_cents-C1-r4",
+      "sensitivity_transport_success": true,
+      "task": "test_in_b10_cents"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_b08_total-C1-r4",
+      "sensitivity_transport_success": true,
+      "task": "test_in_b08_total"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_b08_total-C1-r5",
+      "sensitivity_transport_success": true,
+      "task": "test_in_b08_total"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_b10_cents-C1-r5",
+      "sensitivity_transport_success": true,
+      "task": "test_in_b10_cents"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_b10_cents-C1-r2",
+      "sensitivity_transport_success": true,
+      "task": "test_in_b10_cents"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_b08_total-C1-r2",
+      "sensitivity_transport_success": true,
+      "task": "test_in_b08_total"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_a10_extension-C1-r1",
+      "sensitivity_transport_success": true,
+      "task": "test_in_a10_extension"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_b08_total-C0-r5",
+      "sensitivity_transport_success": true,
+      "task": "test_in_b08_total"
+    },
+    {
+      "condition": "C0",
+      "edited": false,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_b10_cents-C0-r5",
+      "sensitivity_transport_success": false,
+      "task": "test_in_b10_cents"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_b10_cents-C0-r2",
+      "sensitivity_transport_success": true,
+      "task": "test_in_b10_cents"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_b08_total-C0-r2",
+      "sensitivity_transport_success": true,
+      "task": "test_in_b08_total"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_a10_extension-C0-r1",
+      "sensitivity_transport_success": true,
+      "task": "test_in_a10_extension"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_b08_total-C0-r3",
+      "sensitivity_transport_success": true,
+      "task": "test_in_b08_total"
+    },
+    {
+      "condition": "C0",
+      "edited": false,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_b10_cents-C0-r3",
+      "sensitivity_transport_success": false,
+      "task": "test_in_b10_cents"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_b10_cents-C0-r4",
+      "sensitivity_transport_success": true,
+      "task": "test_in_b10_cents"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_b08_total-C0-r4",
+      "sensitivity_transport_success": true,
+      "task": "test_in_b08_total"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_out_c03_consolidate-C1-r3",
+      "sensitivity_transport_success": true,
+      "task": "test_out_c03_consolidate"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_b07_tags-C0-r2",
+      "sensitivity_transport_success": true,
+      "task": "test_in_b07_tags"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_out_c03_consolidate-C1-r4",
+      "sensitivity_transport_success": true,
+      "task": "test_out_c03_consolidate"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_b11_bucket-C0-r1",
+      "sensitivity_transport_success": true,
+      "task": "test_in_b11_bucket"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_b07_tags-C0-r5",
+      "sensitivity_transport_success": true,
+      "task": "test_in_b07_tags"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_a08_clamp-C0-r3",
+      "sensitivity_transport_success": true,
+      "task": "test_in_a08_clamp"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_b12_difference-C0-r5",
+      "sensitivity_transport_success": true,
+      "task": "test_in_b12_difference"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_b12_difference-C0-r2",
+      "sensitivity_transport_success": true,
+      "task": "test_in_b12_difference"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_out_c04_policy-C1-r1",
+      "sensitivity_transport_success": true,
+      "task": "test_out_c04_policy"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_a08_clamp-C0-r4",
+      "sensitivity_transport_success": true,
+      "task": "test_in_a08_clamp"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_a09_header-C0-r4",
+      "sensitivity_transport_success": true,
+      "task": "test_in_a09_header"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_out_c05_metrics-C0-r2",
+      "sensitivity_transport_success": true,
+      "task": "test_out_c05_metrics"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_a12_enum-C1-r5",
+      "sensitivity_transport_success": false,
+      "task": "test_in_a12_enum"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_out_c06_migrate-C0-r1",
+      "sensitivity_transport_success": true,
+      "task": "test_out_c06_migrate"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_a12_enum-C1-r2",
+      "sensitivity_transport_success": false,
+      "task": "test_in_a12_enum"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_out_c05_metrics-C0-r5",
+      "sensitivity_transport_success": true,
+      "task": "test_out_c05_metrics"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_a09_header-C0-r3",
+      "sensitivity_transport_success": true,
+      "task": "test_in_a09_header"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_out_c01_inventory-C1-r3",
+      "sensitivity_transport_success": false,
+      "task": "test_out_c01_inventory"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_out_c01_inventory-C1-r4",
+      "sensitivity_transport_success": false,
+      "task": "test_out_c01_inventory"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_a08_clamp-C0-r5",
+      "sensitivity_transport_success": true,
+      "task": "test_in_a08_clamp"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_b12_difference-C0-r3",
+      "sensitivity_transport_success": true,
+      "task": "test_in_b12_difference"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_b12_difference-C0-r4",
+      "sensitivity_transport_success": true,
+      "task": "test_in_b12_difference"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_a08_clamp-C0-r2",
+      "sensitivity_transport_success": true,
+      "task": "test_in_a08_clamp"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_b09_phone-C1-r1",
+      "sensitivity_transport_success": false,
+      "task": "test_in_b09_phone"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_out_c03_consolidate-C1-r5",
+      "sensitivity_transport_success": false,
+      "task": "test_out_c03_consolidate"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_b07_tags-C0-r4",
+      "sensitivity_transport_success": true,
+      "task": "test_in_b07_tags"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_out_c03_consolidate-C1-r2",
+      "sensitivity_transport_success": false,
+      "task": "test_out_c03_consolidate"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_b07_tags-C0-r3",
+      "sensitivity_transport_success": true,
+      "task": "test_in_b07_tags"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_out_c01_inventory-C1-r5",
+      "sensitivity_transport_success": true,
+      "task": "test_out_c01_inventory"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_out_c01_inventory-C1-r2",
+      "sensitivity_transport_success": true,
+      "task": "test_out_c01_inventory"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_a09_header-C0-r2",
+      "sensitivity_transport_success": true,
+      "task": "test_in_a09_header"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_a12_enum-C1-r3",
+      "sensitivity_transport_success": true,
+      "task": "test_in_a12_enum"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_out_c05_metrics-C0-r4",
+      "sensitivity_transport_success": true,
+      "task": "test_out_c05_metrics"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_a11_duration-C1-r1",
+      "sensitivity_transport_success": true,
+      "task": "test_in_a11_duration"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_out_c02_sessions-C1-r1",
+      "sensitivity_transport_success": true,
+      "task": "test_out_c02_sessions"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_out_c05_metrics-C0-r3",
+      "sensitivity_transport_success": true,
+      "task": "test_out_c05_metrics"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_a12_enum-C1-r4",
+      "sensitivity_transport_success": false,
+      "task": "test_in_a12_enum"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_a09_header-C0-r5",
+      "sensitivity_transport_success": true,
+      "task": "test_in_a09_header"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_a07_slug-C0-r1",
+      "sensitivity_transport_success": true,
+      "task": "test_in_a07_slug"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_a08_clamp-C1-r5",
+      "sensitivity_transport_success": true,
+      "task": "test_in_a08_clamp"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_b12_difference-C1-r3",
+      "sensitivity_transport_success": true,
+      "task": "test_in_b12_difference"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_b12_difference-C1-r4",
+      "sensitivity_transport_success": false,
+      "task": "test_in_b12_difference"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_a08_clamp-C1-r2",
+      "sensitivity_transport_success": false,
+      "task": "test_in_a08_clamp"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_b09_phone-C0-r1",
+      "sensitivity_transport_success": true,
+      "task": "test_in_b09_phone"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_out_c03_consolidate-C0-r5",
+      "sensitivity_transport_success": true,
+      "task": "test_out_c03_consolidate"
+    },
+    {
+      "condition": "C1",
+      "edited": false,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_b07_tags-C1-r4",
+      "sensitivity_transport_success": false,
+      "task": "test_in_b07_tags"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_out_c03_consolidate-C0-r2",
+      "sensitivity_transport_success": true,
+      "task": "test_out_c03_consolidate"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_b07_tags-C1-r3",
+      "sensitivity_transport_success": false,
+      "task": "test_in_b07_tags"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_out_c01_inventory-C0-r5",
+      "sensitivity_transport_success": true,
+      "task": "test_out_c01_inventory"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_out_c01_inventory-C0-r2",
+      "sensitivity_transport_success": true,
+      "task": "test_out_c01_inventory"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_a09_header-C1-r2",
+      "sensitivity_transport_success": true,
+      "task": "test_in_a09_header"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_a12_enum-C0-r3",
+      "sensitivity_transport_success": true,
+      "task": "test_in_a12_enum"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_out_c05_metrics-C1-r4",
+      "sensitivity_transport_success": true,
+      "task": "test_out_c05_metrics"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_a11_duration-C0-r1",
+      "sensitivity_transport_success": true,
+      "task": "test_in_a11_duration"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_out_c05_metrics-C1-r3",
+      "sensitivity_transport_success": false,
+      "task": "test_out_c05_metrics"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_out_c02_sessions-C0-r1",
+      "sensitivity_transport_success": false,
+      "task": "test_out_c02_sessions"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_a12_enum-C0-r4",
+      "sensitivity_transport_success": false,
+      "task": "test_in_a12_enum"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_a07_slug-C1-r1",
+      "sensitivity_transport_success": true,
+      "task": "test_in_a07_slug"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_a09_header-C1-r5",
+      "sensitivity_transport_success": true,
+      "task": "test_in_a09_header"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_out_c03_consolidate-C0-r3",
+      "sensitivity_transport_success": false,
+      "task": "test_out_c03_consolidate"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_b07_tags-C1-r2",
+      "sensitivity_transport_success": true,
+      "task": "test_in_b07_tags"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_out_c03_consolidate-C0-r4",
+      "sensitivity_transport_success": true,
+      "task": "test_out_c03_consolidate"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_b07_tags-C1-r5",
+      "sensitivity_transport_success": false,
+      "task": "test_in_b07_tags"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_b11_bucket-C1-r1",
+      "sensitivity_transport_success": false,
+      "task": "test_in_b11_bucket"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_a08_clamp-C1-r3",
+      "sensitivity_transport_success": true,
+      "task": "test_in_a08_clamp"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_b12_difference-C1-r5",
+      "sensitivity_transport_success": true,
+      "task": "test_in_b12_difference"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_out_c04_policy-C0-r1",
+      "sensitivity_transport_success": true,
+      "task": "test_out_c04_policy"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_b12_difference-C1-r2",
+      "sensitivity_transport_success": true,
+      "task": "test_in_b12_difference"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_a08_clamp-C1-r4",
+      "sensitivity_transport_success": false,
+      "task": "test_in_a08_clamp"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_a09_header-C1-r4",
+      "sensitivity_transport_success": false,
+      "task": "test_in_a09_header"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_out_c05_metrics-C1-r2",
+      "sensitivity_transport_success": true,
+      "task": "test_out_c05_metrics"
+    },
+    {
+      "condition": "C0",
+      "edited": false,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_a12_enum-C0-r5",
+      "sensitivity_transport_success": false,
+      "task": "test_in_a12_enum"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_a12_enum-C0-r2",
+      "sensitivity_transport_success": true,
+      "task": "test_in_a12_enum"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_out_c06_migrate-C1-r1",
+      "sensitivity_transport_success": true,
+      "task": "test_out_c06_migrate"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_out_c05_metrics-C1-r5",
+      "sensitivity_transport_success": true,
+      "task": "test_out_c05_metrics"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_a09_header-C1-r3",
+      "sensitivity_transport_success": true,
+      "task": "test_in_a09_header"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_out_c01_inventory-C0-r3",
+      "sensitivity_transport_success": false,
+      "task": "test_out_c01_inventory"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_out_c01_inventory-C0-r4",
+      "sensitivity_transport_success": false,
+      "task": "test_out_c01_inventory"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_a10_extension-C1-r3",
+      "sensitivity_transport_success": true,
+      "task": "test_in_a10_extension"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_a10_extension-C1-r4",
+      "sensitivity_transport_success": true,
+      "task": "test_in_a10_extension"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_a10_extension-C1-r5",
+      "sensitivity_transport_success": false,
+      "task": "test_in_a10_extension"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_a10_extension-C1-r2",
+      "sensitivity_transport_success": true,
+      "task": "test_in_a10_extension"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_b10_cents-C1-r1",
+      "sensitivity_transport_success": false,
+      "task": "test_in_b10_cents"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_b08_total-C1-r1",
+      "sensitivity_transport_success": true,
+      "task": "test_in_b08_total"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_a10_extension-C0-r5",
+      "sensitivity_transport_success": true,
+      "task": "test_in_a10_extension"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_a10_extension-C0-r2",
+      "sensitivity_transport_success": true,
+      "task": "test_in_a10_extension"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_b10_cents-C0-r1",
+      "sensitivity_transport_success": true,
+      "task": "test_in_b10_cents"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_b08_total-C0-r1",
+      "sensitivity_transport_success": true,
+      "task": "test_in_b08_total"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_a10_extension-C0-r3",
+      "sensitivity_transport_success": true,
+      "task": "test_in_a10_extension"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_a10_extension-C0-r4",
+      "sensitivity_transport_success": true,
+      "task": "test_in_a10_extension"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_a12_enum-C1-r1",
+      "sensitivity_transport_success": false,
+      "task": "test_in_a12_enum"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_out_c06_migrate-C0-r2",
+      "sensitivity_transport_success": true,
+      "task": "test_out_c06_migrate"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_out_c02_sessions-C1-r4",
+      "sensitivity_transport_success": true,
+      "task": "test_out_c02_sessions"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_a07_slug-C0-r4",
+      "sensitivity_transport_success": true,
+      "task": "test_in_a07_slug"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_a11_duration-C1-r3",
+      "sensitivity_transport_success": true,
+      "task": "test_in_a11_duration"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_a07_slug-C0-r3",
+      "sensitivity_transport_success": true,
+      "task": "test_in_a07_slug"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_out_c02_sessions-C1-r3",
+      "sensitivity_transport_success": true,
+      "task": "test_out_c02_sessions"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_out_c05_metrics-C0-r1",
+      "sensitivity_transport_success": true,
+      "task": "test_out_c05_metrics"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_out_c06_migrate-C0-r5",
+      "sensitivity_transport_success": true,
+      "task": "test_out_c06_migrate"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_a11_duration-C1-r4",
+      "sensitivity_transport_success": true,
+      "task": "test_in_a11_duration"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_b09_phone-C1-r3",
+      "sensitivity_transport_success": true,
+      "task": "test_in_b09_phone"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_b11_bucket-C0-r2",
+      "sensitivity_transport_success": true,
+      "task": "test_in_b11_bucket"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_b09_phone-C1-r4",
+      "sensitivity_transport_success": false,
+      "task": "test_in_b09_phone"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_b11_bucket-C0-r5",
+      "sensitivity_transport_success": true,
+      "task": "test_in_b11_bucket"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_b07_tags-C0-r1",
+      "sensitivity_transport_success": true,
+      "task": "test_in_b07_tags"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_out_c04_policy-C1-r2",
+      "sensitivity_transport_success": true,
+      "task": "test_out_c04_policy"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_b12_difference-C0-r1",
+      "sensitivity_transport_success": true,
+      "task": "test_in_b12_difference"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_out_c04_policy-C1-r5",
+      "sensitivity_transport_success": true,
+      "task": "test_out_c04_policy"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_out_c01_inventory-C1-r1",
+      "sensitivity_transport_success": true,
+      "task": "test_out_c01_inventory"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_out_c02_sessions-C1-r2",
+      "sensitivity_transport_success": true,
+      "task": "test_out_c02_sessions"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_out_c06_migrate-C0-r4",
+      "sensitivity_transport_success": true,
+      "task": "test_out_c06_migrate"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_a07_slug-C0-r2",
+      "sensitivity_transport_success": true,
+      "task": "test_in_a07_slug"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_a11_duration-C1-r5",
+      "sensitivity_transport_success": true,
+      "task": "test_in_a11_duration"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_a09_header-C0-r1",
+      "sensitivity_transport_success": true,
+      "task": "test_in_a09_header"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_a07_slug-C0-r5",
+      "sensitivity_transport_success": true,
+      "task": "test_in_a07_slug"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_out_c06_migrate-C0-r3",
+      "sensitivity_transport_success": true,
+      "task": "test_out_c06_migrate"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_out_c02_sessions-C1-r5",
+      "sensitivity_transport_success": true,
+      "task": "test_out_c02_sessions"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_a11_duration-C1-r2",
+      "sensitivity_transport_success": true,
+      "task": "test_in_a11_duration"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_out_c04_policy-C1-r4",
+      "sensitivity_transport_success": false,
+      "task": "test_out_c04_policy"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_a08_clamp-C0-r1",
+      "sensitivity_transport_success": true,
+      "task": "test_in_a08_clamp"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_out_c04_policy-C1-r3",
+      "sensitivity_transport_success": true,
+      "task": "test_out_c04_policy"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_out_c03_consolidate-C1-r1",
+      "sensitivity_transport_success": true,
+      "task": "test_out_c03_consolidate"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_b09_phone-C1-r5",
+      "sensitivity_transport_success": false,
+      "task": "test_in_b09_phone"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_b11_bucket-C0-r4",
+      "sensitivity_transport_success": true,
+      "task": "test_in_b11_bucket"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_b09_phone-C1-r2",
+      "sensitivity_transport_success": false,
+      "task": "test_in_b09_phone"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_b11_bucket-C0-r3",
+      "sensitivity_transport_success": true,
+      "task": "test_in_b11_bucket"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_out_c01_inventory-C0-r1",
+      "sensitivity_transport_success": true,
+      "task": "test_out_c01_inventory"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_out_c02_sessions-C0-r2",
+      "sensitivity_transport_success": true,
+      "task": "test_out_c02_sessions"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_out_c06_migrate-C1-r4",
+      "sensitivity_transport_success": true,
+      "task": "test_out_c06_migrate"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_a07_slug-C1-r2",
+      "sensitivity_transport_success": true,
+      "task": "test_in_a07_slug"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_a11_duration-C0-r5",
+      "sensitivity_transport_success": true,
+      "task": "test_in_a11_duration"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_a07_slug-C1-r5",
+      "sensitivity_transport_success": true,
+      "task": "test_in_a07_slug"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_a09_header-C1-r1",
+      "sensitivity_transport_success": true,
+      "task": "test_in_a09_header"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_out_c06_migrate-C1-r3",
+      "sensitivity_transport_success": false,
+      "task": "test_out_c06_migrate"
+    },
+    {
+      "condition": "C0",
+      "edited": false,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_out_c02_sessions-C0-r5",
+      "sensitivity_transport_success": false,
+      "task": "test_out_c02_sessions"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_a11_duration-C0-r2",
+      "sensitivity_transport_success": true,
+      "task": "test_in_a11_duration"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_out_c04_policy-C0-r4",
+      "sensitivity_transport_success": true,
+      "task": "test_out_c04_policy"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_a08_clamp-C1-r1",
+      "sensitivity_transport_success": true,
+      "task": "test_in_a08_clamp"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_out_c04_policy-C0-r3",
+      "sensitivity_transport_success": true,
+      "task": "test_out_c04_policy"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_out_c03_consolidate-C0-r1",
+      "sensitivity_transport_success": true,
+      "task": "test_out_c03_consolidate"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_b09_phone-C0-r5",
+      "sensitivity_transport_success": false,
+      "task": "test_in_b09_phone"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_b11_bucket-C1-r4",
+      "sensitivity_transport_success": true,
+      "task": "test_in_b11_bucket"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_b09_phone-C0-r2",
+      "sensitivity_transport_success": true,
+      "task": "test_in_b09_phone"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_b11_bucket-C1-r3",
+      "sensitivity_transport_success": true,
+      "task": "test_in_b11_bucket"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_out_c06_migrate-C1-r2",
+      "sensitivity_transport_success": false,
+      "task": "test_out_c06_migrate"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_a12_enum-C0-r1",
+      "sensitivity_transport_success": true,
+      "task": "test_in_a12_enum"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_out_c02_sessions-C0-r4",
+      "sensitivity_transport_success": true,
+      "task": "test_out_c02_sessions"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_a07_slug-C1-r4",
+      "sensitivity_transport_success": true,
+      "task": "test_in_a07_slug"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_a11_duration-C0-r3",
+      "sensitivity_transport_success": true,
+      "task": "test_in_a11_duration"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_a07_slug-C1-r3",
+      "sensitivity_transport_success": true,
+      "task": "test_in_a07_slug"
+    },
+    {
+      "condition": "C1",
+      "edited": false,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_out_c05_metrics-C1-r1",
+      "sensitivity_transport_success": false,
+      "task": "test_out_c05_metrics"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_out_c02_sessions-C0-r3",
+      "sensitivity_transport_success": true,
+      "task": "test_out_c02_sessions"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_out_c06_migrate-C1-r5",
+      "sensitivity_transport_success": false,
+      "task": "test_out_c06_migrate"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_a11_duration-C0-r4",
+      "sensitivity_transport_success": true,
+      "task": "test_in_a11_duration"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_b09_phone-C0-r3",
+      "sensitivity_transport_success": false,
+      "task": "test_in_b09_phone"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_b11_bucket-C1-r2",
+      "sensitivity_transport_success": false,
+      "task": "test_in_b11_bucket"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_in_b09_phone-C0-r4",
+      "sensitivity_transport_success": true,
+      "task": "test_in_b09_phone"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_b07_tags-C1-r1",
+      "sensitivity_transport_success": false,
+      "task": "test_in_b07_tags"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_b11_bucket-C1-r5",
+      "sensitivity_transport_success": true,
+      "task": "test_in_b11_bucket"
+    },
+    {
+      "condition": "C1",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_in_b12_difference-C1-r1",
+      "sensitivity_transport_success": true,
+      "task": "test_in_b12_difference"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": false,
+      "run_id": "s7-qwen3-5-9b-test_out_c04_policy-C0-r2",
+      "sensitivity_transport_success": false,
+      "task": "test_out_c04_policy"
+    },
+    {
+      "condition": "C0",
+      "edited": true,
+      "primary_validation_intent": true,
+      "run_id": "s7-qwen3-5-9b-test_out_c04_policy-C0-r5",
+      "sensitivity_transport_success": true,
+      "task": "test_out_c04_policy"
+    }
+  ],
+  "scope": "qwen3.5:9b C0/C1 only; read-only monitoring; no other model process snapshot",
+  "task_paired_direction": {
+    "primary": {
+      "C1_minus_C0_quantiles": {
+        "median": -0.20000000000000007,
+        "q25": -0.4,
+        "q75": -0.19999999999999996
+      },
+      "negative": 14,
+      "per_task": [
+        {
+          "C1_minus_C0": -0.20000000000000007,
+          "task": "test_in_a07_slug"
+        },
+        {
+          "C1_minus_C0": -0.2,
+          "task": "test_in_a08_clamp"
+        },
+        {
+          "C1_minus_C0": 0.0,
+          "task": "test_in_a09_header"
+        },
+        {
+          "C1_minus_C0": -0.19999999999999996,
+          "task": "test_in_a10_extension"
+        },
+        {
+          "C1_minus_C0": -0.20000000000000007,
+          "task": "test_in_a11_duration"
+        },
+        {
+          "C1_minus_C0": -0.75,
+          "task": "test_in_a12_enum"
+        },
+        {
+          "C1_minus_C0": -0.4,
+          "task": "test_in_b07_tags"
+        },
+        {
+          "C1_minus_C0": -0.39999999999999997,
+          "task": "test_in_b08_total"
+        },
+        {
+          "C1_minus_C0": -0.6,
+          "task": "test_in_b09_phone"
+        },
+        {
+          "C1_minus_C0": -0.6,
+          "task": "test_in_b10_cents"
+        },
+        {
+          "C1_minus_C0": -0.2,
+          "task": "test_in_b11_bucket"
+        },
+        {
+          "C1_minus_C0": -0.39999999999999997,
+          "task": "test_in_b12_difference"
+        },
+        {
+          "C1_minus_C0": -0.2,
+          "task": "test_out_c01_inventory"
+        },
+        {
+          "C1_minus_C0": 0.25,
+          "task": "test_out_c02_sessions"
+        },
+        {
+          "C1_minus_C0": -0.20000000000000007,
+          "task": "test_out_c03_consolidate"
+        },
+        {
+          "C1_minus_C0": 0.19999999999999996,
+          "task": "test_out_c04_policy"
+        },
+        {
+          "C1_minus_C0": 0.15000000000000002,
+          "task": "test_out_c05_metrics"
+        },
+        {
+          "C1_minus_C0": -0.8,
+          "task": "test_out_c06_migrate"
+        }
+      ],
+      "positive": 3,
+      "task_count": 18,
+      "zero": 1
+    },
+    "sensitivity": {
+      "C1_minus_C0_quantiles": {
+        "median": -0.2,
+        "q25": -0.4,
+        "q75": -0.04999999999999999
+      },
+      "negative": 13,
+      "per_task": [
+        {
+          "C1_minus_C0": 0.0,
+          "task": "test_in_a07_slug"
+        },
+        {
+          "C1_minus_C0": -0.4,
+          "task": "test_in_a08_clamp"
+        },
+        {
+          "C1_minus_C0": -0.19999999999999996,
+          "task": "test_in_a09_header"
+        },
+        {
+          "C1_minus_C0": -0.19999999999999996,
+          "task": "test_in_a10_extension"
+        },
+        {
+          "C1_minus_C0": 0.0,
+          "task": "test_in_a11_duration"
+        },
+        {
+          "C1_minus_C0": -0.55,
+          "task": "test_in_a12_enum"
+        },
+        {
+          "C1_minus_C0": -0.75,
+          "task": "test_in_b07_tags"
+        },
+        {
+          "C1_minus_C0": -0.19999999999999996,
+          "task": "test_in_b08_total"
+        },
+        {
+          "C1_minus_C0": -0.39999999999999997,
+          "task": "test_in_b09_phone"
+        },
+        {
+          "C1_minus_C0": -0.4,
+          "task": "test_in_b10_cents"
+        },
+        {
+          "C1_minus_C0": -0.4,
+          "task": "test_in_b11_bucket"
+        },
+        {
+          "C1_minus_C0": -0.19999999999999996,
+          "task": "test_in_b12_difference"
+        },
+        {
+          "C1_minus_C0": 0.0,
+          "task": "test_out_c01_inventory"
+        },
+        {
+          "C1_minus_C0": 0.25,
+          "task": "test_out_c02_sessions"
+        },
+        {
+          "C1_minus_C0": -0.20000000000000007,
+          "task": "test_out_c03_consolidate"
+        },
+        {
+          "C1_minus_C0": 0.0,
+          "task": "test_out_c04_policy"
+        },
+        {
+          "C1_minus_C0": -0.25,
+          "task": "test_out_c05_metrics"
+        },
+        {
+          "C1_minus_C0": -0.6,
+          "task": "test_out_c06_migrate"
+        }
+      ],
+      "positive": 1,
+      "task_count": 18,
+      "zero": 4
+    }
+  }
+}

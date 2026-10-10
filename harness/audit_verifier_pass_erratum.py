@@ -96,7 +96,7 @@ def records(root: Path, cohort: str) -> list[dict]:
         # The protocol excludes transport exhaustion, not a hard runner timeout.
         # The historic flag unfortunately conflates them when a killed process
         # fails to emit a terminal event.
-        protocol_provider_error = bool(metadata.get("outcome_category") == "provider_error" or runtime.get("provider_error"))
+        provider_error_protocol = bool(metadata.get("outcome_category") == "provider_error" or runtime.get("provider_error"))
         result.append({
             "cohort": cohort,
             "run_dir": str(metadata_path.parent.relative_to(ROOT)),
@@ -110,7 +110,14 @@ def records(root: Path, cohort: str) -> list[dict]:
             "verifier_pass": verifier.get("passed") is True,
             "verifier_fail": verifier.get("passed") is False,
             "provider_error_flag": provider_error_flag,
-            "protocol_provider_error": protocol_provider_error,
+            # `provider_error_flag` is retained verbatim from historical
+            # metadata.  It can be true for a runner timeout, so it is not the
+            # protocol exclusion rule.  This derived field is the authoritative
+            # analysis field: exhausted request-transport failure only.
+            "provider_error_protocol": provider_error_protocol,
+            # Compatibility alias for the first erratum snapshot; do not use
+            # it in new analysis code.
+            "protocol_provider_error": provider_error_protocol,
             "timeout": bool(flags.get("timeout")),
             "tool_calls": len(tool_events(metadata_path.parent)),
             "l3b_triggered": bool(metadata.get("l3b_triggered")),
@@ -122,14 +129,15 @@ def records(root: Path, cohort: str) -> list[dict]:
 
 def summary(rows: list[dict]) -> dict:
     scheduled = len(rows)
-    providers = sum(row["protocol_provider_error"] for row in rows)
+    providers = sum(row["provider_error_protocol"] for row in rows)
     provider_flags = sum(row["provider_error_flag"] for row in rows)
-    usable = [row for row in rows if not row["protocol_provider_error"]]
+    usable = [row for row in rows if not row["provider_error_protocol"]]
     legacy = sum(row["legacy_pass"] for row in usable)
     verifier = sum(row["verifier_pass"] for row in usable)
     return {
         "scheduled": scheduled,
-        "protocol_provider_error": providers,
+        "provider_error_protocol": providers,
+        "protocol_provider_error_legacy_alias": providers,
         "provider_error_flag": provider_flags,
         "verifier_available": sum(row["verifier_available"] for row in rows),
         "primary_denominator_excluding_provider_error": len(usable),
@@ -140,8 +148,8 @@ def summary(rows: list[dict]) -> dict:
         "difference_verifier_minus_legacy_passes": verifier - legacy,
         "sensitivity_denominator_including_provider_error": scheduled,
         "verifier_pass_rate_provider_as_nonpass": verifier / scheduled if scheduled else None,
-        "protocol_provider_errors_with_verifier_result": sum(row["protocol_provider_error"] and row["verifier_available"] for row in rows),
-        "protocol_provider_errors_with_verifier_fail": sum(row["protocol_provider_error"] and row["verifier_fail"] for row in rows),
+        "protocol_provider_errors_with_verifier_result": sum(row["provider_error_protocol"] and row["verifier_available"] for row in rows),
+        "protocol_provider_errors_with_verifier_fail": sum(row["provider_error_protocol"] and row["verifier_fail"] for row in rows),
     }
 
 
@@ -179,16 +187,16 @@ def l3b_detail(rows: list[dict]) -> dict:
                 "post_trigger_validation_denominator": len(validations),
                 "post_trigger_partial_increase_numerator": sum(float(item["final_minus_at32"]) > 0 for item in replayable),
                 "post_trigger_partial_increase_denominator": len(replayable),
-                "post_trigger_verifier_pass_numerator": sum(row["verifier_pass"] for row in triggered if not row["protocol_provider_error"]),
-                "post_trigger_verifier_pass_denominator": sum(not row["protocol_provider_error"] for row in triggered),
+                "post_trigger_verifier_pass_numerator": sum(row["verifier_pass"] for row in triggered if not row["provider_error_protocol"]),
+                "post_trigger_verifier_pass_denominator": sum(not row["provider_error_protocol"] for row in triggered),
             }
         else:
             eligible = [row for row in layers["A_reached_call_32"] if replay.get(row["run_id"], {}).get("final_minus_at32") not in (None, "")]
             result[condition]["negative_control"] = {
                 "A_layer_replayable_runs": len(eligible),
                 "A_layer_partial_increase_numerator": sum(float(replay[row["run_id"]]["final_minus_at32"]) > 0 for row in eligible),
-                "A_layer_verifier_pass_numerator": sum(row["verifier_pass"] for row in layers["A_reached_call_32"] if not row["protocol_provider_error"]),
-                "A_layer_verifier_pass_denominator": sum(not row["protocol_provider_error"] for row in layers["A_reached_call_32"]),
+                "A_layer_verifier_pass_numerator": sum(row["verifier_pass"] for row in layers["A_reached_call_32"] if not row["provider_error_protocol"]),
+                "A_layer_verifier_pass_denominator": sum(not row["provider_error_protocol"] for row in layers["A_reached_call_32"]),
             }
     return result
 
@@ -220,9 +228,19 @@ def l3b_transition_audit(rows: list[dict]) -> dict:
         commands = [event for event in events[marker + 1:] if event.get("event") == "tool_result" and event.get("tool_name") == "run_command"]
         old_validation.append(any(event.get("result", {}).get("ok") for event in commands))
         strict_validation.append(any(any(token in str(event.get("arguments") or "").lower() for token in ("test", "pytest", "unittest", "py_compile")) for event in commands))
+    proxy_reliability = {}
+    for condition, values in at32_passed.items():
+        final_fail = [row for row in values if not row["verifier_pass"]]
+        proxy_reliability[condition] = {
+            "partial_at_32_equals_1_runs": len(values),
+            "final_verifier_not_pass": len(final_fail),
+            "final_verifier_pass": len(values) - len(final_fail),
+            "run_ids_final_verifier_not_pass": [row["run_id"] for row in final_fail],
+        }
     return {
         "at32_status": {condition: {"A_layer_runs": len(a_layer[condition]), "already_verifier_pass_at32": len(at32_passed[condition]), "not_verifier_pass_at32": len(at32_not_passed[condition]), "at32_unavailable": len(at32_unavailable[condition])} for condition in groups},
         "comparisons": [comparison("A layer: final verifier pass", a_layer["baseline"], a_layer["l3b"]), comparison("B layer: final verifier pass", b_layer["baseline"], b_layer["l3b"]), comparison("At-call-32 non-pass only: final verifier pass", at32_not_passed["baseline"], at32_not_passed["l3b"])],
+        "partial_at_32_proxy_reliability": proxy_reliability,
         "trigger_validation_definitions": {"legacy_transport_success_any_run_command": {"successes": sum(old_validation), "denominator": len(old_validation)}, "strict_validation_intent_keyword_after_trigger": {"successes": sum(strict_validation), "denominator": len(strict_validation), "keywords": ["test", "pytest", "unittest", "py_compile"]}},
     }
 
@@ -236,7 +254,7 @@ def provider_error_audit(rows: list[dict]) -> list[dict]:
         metadata, process = read_json(run_dir / "metadata.json"), read_json(run_dir / "process.json")
         runtime_path = run_dir / "runtime_r2.json"
         runtime = read_json(runtime_path) if runtime_path.exists() else {}
-        output.append({"run_id": row["run_id"], "condition": row["condition"], "outcome_category": metadata.get("outcome_category"), "provider_error_flag": row["provider_error_flag"], "protocol_provider_error": row["protocol_provider_error"], "timeout_flag": row["timeout"], "process_timed_out": process.get("timed_out"), "process_returncode": process.get("returncode"), "runtime_present": runtime_path.exists(), "runtime_provider_error": runtime.get("provider_error"), "request_retry_count": metadata.get("request_retry_count"), "request_retry_events": runtime.get("retry_events", []), "verifier_pass": row["verifier_pass"], "verifier_available": row["verifier_available"], "final_empty": row["final_empty"]})
+        output.append({"run_id": row["run_id"], "condition": row["condition"], "outcome_category": metadata.get("outcome_category"), "provider_error_flag": row["provider_error_flag"], "provider_error_protocol": row["provider_error_protocol"], "protocol_provider_error_legacy_alias": row["protocol_provider_error"], "timeout_flag": row["timeout"], "process_timed_out": process.get("timed_out"), "process_returncode": process.get("returncode"), "runtime_present": runtime_path.exists(), "runtime_provider_error": runtime.get("provider_error"), "request_retry_count": metadata.get("request_retry_count"), "request_retry_events": runtime.get("retry_events", []), "verifier_pass": row["verifier_pass"], "verifier_available": row["verifier_available"], "final_empty": row["final_empty"]})
     return output
 
 
@@ -280,7 +298,7 @@ def main() -> None:
         "S7_completed_snapshot": ROOT / "data" / "s7_runs",
     }
     all_records = {name: records(path, name) for name, path in cohorts.items()}
-    s5_effective = [row for row in all_records["S5_r2_raw"] if not row["protocol_provider_error"]] + all_records["S5_provider_replacements"]
+    s5_effective = [row for row in all_records["S5_r2_raw"] if not row["provider_error_protocol"]] + all_records["S5_provider_replacements"]
     s4_by_model = by_field(all_records["S4_r2"], "model")
     calibration = {model: {**value, "eligible_20_to_80_percent": value["verifier_pass_rate"] is not None and .2 <= value["verifier_pass_rate"] <= .8} for model, value in s4_by_model.items()}
     payload = {
