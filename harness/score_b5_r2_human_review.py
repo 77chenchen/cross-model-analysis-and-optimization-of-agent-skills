@@ -16,9 +16,15 @@ def interval(values):
     values = sorted(values); return [values[int(.025*(len(values)-1))], values[int(.975*(len(values)-1))]]
 def binary(judge, human):
     n = len(judge); agreement = sum(a == b for a, b in zip(judge, human))/n; pabak = 2*agreement-1
-    if sum(judge) in {0,n} or sum(human) in {0,n}: return {"n":n,"kappa":None,"kappa_estimable":False,"pabak":pabak,"observed_agreement":agreement}
+    contingency = {
+        "human_positive_judge_positive": sum(h and j for j, h in zip(judge, human)),
+        "human_positive_judge_negative": sum(h and not j for j, h in zip(judge, human)),
+        "human_negative_judge_positive": sum(not h and j for j, h in zip(judge, human)),
+        "human_negative_judge_negative": sum(not h and not j for j, h in zip(judge, human)),
+    }
+    if sum(judge) in {0,n} or sum(human) in {0,n}: return {"n":n,"kappa":None,"kappa_estimable":False,"pabak":pabak,"observed_agreement":agreement,"contingency_2x2":contingency}
     pj, ph = sum(judge)/n, sum(human)/n; expected = pj*ph+(1-pj)*(1-ph)
-    return {"n":n,"kappa":(agreement-expected)/(1-expected),"kappa_estimable":True,"pabak":pabak,"observed_agreement":agreement}
+    return {"n":n,"kappa":(agreement-expected)/(1-expected),"kappa_estimable":True,"pabak":pabak,"observed_agreement":agreement,"contingency_2x2":contingency}
 def score(rows):
     per = {label:binary([label in j["failure_modes"] for j,_ in rows],[label in h["failure_modes"] for _,h in rows]) for label in LABELS}
     kappas=[x["kappa"] for x in per.values() if x["kappa"] is not None]
@@ -29,6 +35,7 @@ def main():
     if len(packets)!=24 or not HUMAN.exists(): raise SystemExit("need 24 public packets and complete human_annotations.jsonl")
     raw=[json.loads(x) for x in HUMAN.read_text(encoding="utf-8").splitlines() if x.strip()]; human={x.get("run_id"):x for x in raw}
     if len(raw)!=24 or set(human)!=set(packets): raise SystemExit("human labels must first pass harness/check_b5_r2_human_review.py")
+    if {item.get("annotator_id") for item in raw} != {"wangqichen"}: raise SystemExit("all 24 records must be confirmed human annotations by wangqichen")
     rows=[]; excluded=[]
     for packet in packets:
         judge=json.loads((JUDGE/f"{packet}.json").read_text()); h=human[packet]

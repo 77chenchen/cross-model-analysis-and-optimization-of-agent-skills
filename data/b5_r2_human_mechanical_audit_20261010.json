@@ -1,0 +1,434 @@
+{
+  "by_label": {
+    "file_corruption": {
+      "agreement_n": 24,
+      "agreement_rate": 1.0,
+      "clopper_pearson_95": [
+        0.8575264022774742,
+        1.0
+      ],
+      "contingency_2x2": {
+        "human_negative_mechanical_negative": 21,
+        "human_negative_mechanical_positive": 0,
+        "human_positive_mechanical_negative": 0,
+        "human_positive_mechanical_positive": 3
+      },
+      "n": 24
+    },
+    "ineffective_debugging_loop": {
+      "agreement_n": 15,
+      "agreement_rate": 0.625,
+      "clopper_pearson_95": [
+        0.40593638400794385,
+        0.8120070718039978
+      ],
+      "contingency_2x2": {
+        "human_negative_mechanical_negative": 14,
+        "human_negative_mechanical_positive": 8,
+        "human_positive_mechanical_negative": 1,
+        "human_positive_mechanical_positive": 1
+      },
+      "n": 24
+    },
+    "insufficient_validation": {
+      "agreement_n": 15,
+      "agreement_rate": 0.625,
+      "clopper_pearson_95": [
+        0.40593638400794385,
+        0.8120070718039978
+      ],
+      "contingency_2x2": {
+        "human_negative_mechanical_negative": 8,
+        "human_negative_mechanical_positive": 5,
+        "human_positive_mechanical_negative": 4,
+        "human_positive_mechanical_positive": 7
+      },
+      "n": 24
+    },
+    "tool_misuse": {
+      "agreement_n": 17,
+      "agreement_rate": 0.7083333333333334,
+      "clopper_pearson_95": [
+        0.4890521861421656,
+        0.8738479114763087
+      ],
+      "contingency_2x2": {
+        "human_negative_mechanical_negative": 11,
+        "human_negative_mechanical_positive": 6,
+        "human_positive_mechanical_negative": 1,
+        "human_positive_mechanical_positive": 6
+      },
+      "n": 24
+    }
+  },
+  "definitions": {
+    "file_corruption": "at least one final workspace Python file fails compile(source, ..., 'exec')",
+    "ineffective_debugging_loop": "an identical tool-name/arguments pair occurs at least three times",
+    "insufficient_validation": "edited run has no later run_command containing test, pytest, unittest, or py_compile",
+    "interval": "two-sided Clopper-Pearson 95% interval for raw agreement",
+    "tool_misuse": "a tool reports ok=false, or run_command times out/returns nonzero"
+  },
+  "records": [
+    {
+      "human": {
+        "file_corruption": false,
+        "ineffective_debugging_loop": false,
+        "insufficient_validation": false,
+        "tool_misuse": false
+      },
+      "mechanical": {
+        "file_corruption": false,
+        "ineffective_debugging_loop": false,
+        "insufficient_validation": true,
+        "tool_misuse": false
+      },
+      "packet_id": "packet_001"
+    },
+    {
+      "human": {
+        "file_corruption": false,
+        "ineffective_debugging_loop": false,
+        "insufficient_validation": false,
+        "tool_misuse": false
+      },
+      "mechanical": {
+        "file_corruption": false,
+        "ineffective_debugging_loop": false,
+        "insufficient_validation": true,
+        "tool_misuse": false
+      },
+      "packet_id": "packet_002"
+    },
+    {
+      "human": {
+        "file_corruption": false,
+        "ineffective_debugging_loop": false,
+        "insufficient_validation": false,
+        "tool_misuse": false
+      },
+      "mechanical": {
+        "file_corruption": false,
+        "ineffective_debugging_loop": false,
+        "insufficient_validation": false,
+        "tool_misuse": true
+      },
+      "packet_id": "packet_003"
+    },
+    {
+      "human": {
+        "file_corruption": false,
+        "ineffective_debugging_loop": false,
+        "insufficient_validation": false,
+        "tool_misuse": false
+      },
+      "mechanical": {
+        "file_corruption": false,
+        "ineffective_debugging_loop": false,
+        "insufficient_validation": false,
+        "tool_misuse": false
+      },
+      "packet_id": "packet_004"
+    },
+    {
+      "human": {
+        "file_corruption": false,
+        "ineffective_debugging_loop": false,
+        "insufficient_validation": false,
+        "tool_misuse": false
+      },
+      "mechanical": {
+        "file_corruption": false,
+        "ineffective_debugging_loop": false,
+        "insufficient_validation": false,
+        "tool_misuse": true
+      },
+      "packet_id": "packet_005"
+    },
+    {
+      "human": {
+        "file_corruption": false,
+        "ineffective_debugging_loop": false,
+        "insufficient_validation": false,
+        "tool_misuse": false
+      },
+      "mechanical": {
+        "file_corruption": false,
+        "ineffective_debugging_loop": false,
+        "insufficient_validation": false,
+        "tool_misuse": true
+      },
+      "packet_id": "packet_006"
+    },
+    {
+      "human": {
+        "file_corruption": false,
+        "ineffective_debugging_loop": false,
+        "insufficient_validation": false,
+        "tool_misuse": true
+      },
+      "mechanical": {
+        "file_corruption": false,
+        "ineffective_debugging_loop": true,
+        "insufficient_validation": false,
+        "tool_misuse": true
+      },
+      "packet_id": "packet_007"
+    },
+    {
+      "human": {
+        "file_corruption": true,
+        "ineffective_debugging_loop": true,
+        "insufficient_validation": true,
+        "tool_misuse": true
+      },
+      "mechanical": {
+        "file_corruption": true,
+        "ineffective_debugging_loop": false,
+        "insufficient_validation": true,
+        "tool_misuse": true
+      },
+      "packet_id": "packet_008"
+    },
+    {
+      "human": {
+        "file_corruption": false,
+        "ineffective_debugging_loop": false,
+        "insufficient_validation": true,
+        "tool_misuse": true
+      },
+      "mechanical": {
+        "file_corruption": false,
+        "ineffective_debugging_loop": true,
+        "insufficient_validation": false,
+        "tool_misuse": true
+      },
+      "packet_id": "packet_009"
+    },
+    {
+      "human": {
+        "file_corruption": false,
+        "ineffective_debugging_loop": true,
+        "insufficient_validation": true,
+        "tool_misuse": true
+      },
+      "mechanical": {
+        "file_corruption": false,
+        "ineffective_debugging_loop": true,
+        "insufficient_validation": true,
+        "tool_misuse": true
+      },
+      "packet_id": "packet_010"
+    },
+    {
+      "human": {
+        "file_corruption": false,
+        "ineffective_debugging_loop": false,
+        "insufficient_validation": true,
+        "tool_misuse": true
+      },
+      "mechanical": {
+        "file_corruption": false,
+        "ineffective_debugging_loop": true,
+        "insufficient_validation": true,
+        "tool_misuse": true
+      },
+      "packet_id": "packet_011"
+    },
+    {
+      "human": {
+        "file_corruption": false,
+        "ineffective_debugging_loop": false,
+        "insufficient_validation": true,
+        "tool_misuse": true
+      },
+      "mechanical": {
+        "file_corruption": false,
+        "ineffective_debugging_loop": true,
+        "insufficient_validation": true,
+        "tool_misuse": true
+      },
+      "packet_id": "packet_012"
+    },
+    {
+      "human": {
+        "file_corruption": false,
+        "ineffective_debugging_loop": false,
+        "insufficient_validation": true,
+        "tool_misuse": false
+      },
+      "mechanical": {
+        "file_corruption": false,
+        "ineffective_debugging_loop": false,
+        "insufficient_validation": false,
+        "tool_misuse": false
+      },
+      "packet_id": "packet_013"
+    },
+    {
+      "human": {
+        "file_corruption": false,
+        "ineffective_debugging_loop": false,
+        "insufficient_validation": true,
+        "tool_misuse": false
+      },
+      "mechanical": {
+        "file_corruption": false,
+        "ineffective_debugging_loop": false,
+        "insufficient_validation": false,
+        "tool_misuse": false
+      },
+      "packet_id": "packet_014"
+    },
+    {
+      "human": {
+        "file_corruption": false,
+        "ineffective_debugging_loop": false,
+        "insufficient_validation": true,
+        "tool_misuse": false
+      },
+      "mechanical": {
+        "file_corruption": false,
+        "ineffective_debugging_loop": false,
+        "insufficient_validation": false,
+        "tool_misuse": false
+      },
+      "packet_id": "packet_015"
+    },
+    {
+      "human": {
+        "file_corruption": false,
+        "ineffective_debugging_loop": false,
+        "insufficient_validation": false,
+        "tool_misuse": false
+      },
+      "mechanical": {
+        "file_corruption": false,
+        "ineffective_debugging_loop": false,
+        "insufficient_validation": false,
+        "tool_misuse": true
+      },
+      "packet_id": "packet_016"
+    },
+    {
+      "human": {
+        "file_corruption": false,
+        "ineffective_debugging_loop": false,
+        "insufficient_validation": false,
+        "tool_misuse": false
+      },
+      "mechanical": {
+        "file_corruption": false,
+        "ineffective_debugging_loop": true,
+        "insufficient_validation": false,
+        "tool_misuse": true
+      },
+      "packet_id": "packet_017"
+    },
+    {
+      "human": {
+        "file_corruption": false,
+        "ineffective_debugging_loop": false,
+        "insufficient_validation": true,
+        "tool_misuse": false
+      },
+      "mechanical": {
+        "file_corruption": false,
+        "ineffective_debugging_loop": false,
+        "insufficient_validation": true,
+        "tool_misuse": false
+      },
+      "packet_id": "packet_018"
+    },
+    {
+      "human": {
+        "file_corruption": true,
+        "ineffective_debugging_loop": false,
+        "insufficient_validation": true,
+        "tool_misuse": false
+      },
+      "mechanical": {
+        "file_corruption": true,
+        "ineffective_debugging_loop": true,
+        "insufficient_validation": true,
+        "tool_misuse": false
+      },
+      "packet_id": "packet_019"
+    },
+    {
+      "human": {
+        "file_corruption": true,
+        "ineffective_debugging_loop": false,
+        "insufficient_validation": true,
+        "tool_misuse": false
+      },
+      "mechanical": {
+        "file_corruption": true,
+        "ineffective_debugging_loop": true,
+        "insufficient_validation": true,
+        "tool_misuse": false
+      },
+      "packet_id": "packet_020"
+    },
+    {
+      "human": {
+        "file_corruption": false,
+        "ineffective_debugging_loop": false,
+        "insufficient_validation": false,
+        "tool_misuse": false
+      },
+      "mechanical": {
+        "file_corruption": false,
+        "ineffective_debugging_loop": false,
+        "insufficient_validation": true,
+        "tool_misuse": false
+      },
+      "packet_id": "packet_021"
+    },
+    {
+      "human": {
+        "file_corruption": false,
+        "ineffective_debugging_loop": false,
+        "insufficient_validation": false,
+        "tool_misuse": true
+      },
+      "mechanical": {
+        "file_corruption": false,
+        "ineffective_debugging_loop": false,
+        "insufficient_validation": true,
+        "tool_misuse": false
+      },
+      "packet_id": "packet_022"
+    },
+    {
+      "human": {
+        "file_corruption": false,
+        "ineffective_debugging_loop": false,
+        "insufficient_validation": false,
+        "tool_misuse": false
+      },
+      "mechanical": {
+        "file_corruption": false,
+        "ineffective_debugging_loop": true,
+        "insufficient_validation": true,
+        "tool_misuse": false
+      },
+      "packet_id": "packet_023"
+    },
+    {
+      "human": {
+        "file_corruption": false,
+        "ineffective_debugging_loop": false,
+        "insufficient_validation": false,
+        "tool_misuse": false
+      },
+      "mechanical": {
+        "file_corruption": false,
+        "ineffective_debugging_loop": false,
+        "insufficient_validation": false,
+        "tool_misuse": true
+      },
+      "packet_id": "packet_024"
+    }
+  ],
+  "scope": "24 confirmed human labels; local historical B5 trajectories only; post hoc mechanical convergent audit"
+}

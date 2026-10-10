@@ -30,6 +30,20 @@ interval: 0.434--0.771). Macro PABAK across all eight labels was 0.677
 | tool misuse | 91.7% | 0.780 | 0.429--1.000 | 0.833 |
 | file corruption | 95.8% | 0.833 | 0.467--1.000 | 0.917 |
 
+The human-by-judge 2x2 counts are shown as `both + / human only / judge only /
+both -`:
+
+| failure mode | 2x2 counts |
+|---|---:|
+| premature implementation | 0 / 0 / 0 / 24 |
+| repeated exploration | 0 / 0 / 7 / 17 |
+| ineffective debugging loop | 2 / 0 / 8 / 14 |
+| insufficient validation | 9 / 2 / 5 / 8 |
+| missed constraint | 10 / 0 / 4 / 10 |
+| premature completion | 0 / 0 / 2 / 22 |
+| tool misuse | 5 / 2 / 0 / 17 |
+| file corruption | 3 / 0 / 1 / 20 |
+
 Kappa is not estimable for premature implementation, repeated exploration, or
 premature completion because at least one rater has zero variance for that
 label. They are excluded from macro kappa as pre-specified; PABAK remains
@@ -45,3 +59,17 @@ intervals are consequently wide. `empty_termination` remains a mechanical
 terminal-log flag outside the human label set and outside all agreement
 statistics. These values support reporting the judge's labels descriptively;
 they do not validate those labels as ground truth.
+
+## Mechanical convergent audit
+
+Four narrow deterministic signals were compared with the confirmed human
+labels. Agreement and exact Clopper--Pearson 95% intervals were: insufficient
+validation 15/24 = 62.5% [40.6%, 81.2%], ineffective debugging loop 15/24 =
+62.5% [40.6%, 81.2%], tool misuse 17/24 = 70.8% [48.9%, 87.4%], and file
+corruption 24/24 = 100% [85.8%, 100%]. Definitions and 2x2 counts are retained
+in `data/b5_r2_human_mechanical_audit_20261010.json`.
+
+LLM-judge labels are used as supporting conclusion evidence only for file
+corruption, tool misuse, and missed constraint. Other semantic failure labels
+remain exploratory; validation and loop conclusions use the declared
+mechanical metrics instead.

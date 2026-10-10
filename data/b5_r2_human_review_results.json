@@ -13,56 +13,104 @@
         "kappa": null,
         "kappa_estimable": false,
         "pabak": 1.0,
-        "observed_agreement": 1.0
+        "observed_agreement": 1.0,
+        "contingency_2x2": {
+          "human_positive_judge_positive": 0,
+          "human_positive_judge_negative": 0,
+          "human_negative_judge_positive": 0,
+          "human_negative_judge_negative": 24
+        }
       },
       "repeated_exploration": {
         "n": 24,
         "kappa": null,
         "kappa_estimable": false,
         "pabak": 0.41666666666666674,
-        "observed_agreement": 0.7083333333333334
+        "observed_agreement": 0.7083333333333334,
+        "contingency_2x2": {
+          "human_positive_judge_positive": 0,
+          "human_positive_judge_negative": 0,
+          "human_negative_judge_positive": 7,
+          "human_negative_judge_negative": 17
+        }
       },
       "ineffective_debugging_loop": {
         "n": 24,
         "kappa": 0.22580645161290339,
         "kappa_estimable": true,
         "pabak": 0.33333333333333326,
-        "observed_agreement": 0.6666666666666666
+        "observed_agreement": 0.6666666666666666,
+        "contingency_2x2": {
+          "human_positive_judge_positive": 2,
+          "human_positive_judge_negative": 0,
+          "human_negative_judge_positive": 8,
+          "human_negative_judge_negative": 14
+        }
       },
       "insufficient_validation": {
         "n": 24,
         "kappa": 0.4246575342465754,
         "kappa_estimable": true,
         "pabak": 0.41666666666666674,
-        "observed_agreement": 0.7083333333333334
+        "observed_agreement": 0.7083333333333334,
+        "contingency_2x2": {
+          "human_positive_judge_positive": 9,
+          "human_positive_judge_negative": 2,
+          "human_negative_judge_positive": 5,
+          "human_negative_judge_negative": 8
+        }
       },
       "missed_constraint": {
         "n": 24,
         "kappa": 0.6756756756756758,
         "kappa_estimable": true,
         "pabak": 0.6666666666666667,
-        "observed_agreement": 0.8333333333333334
+        "observed_agreement": 0.8333333333333334,
+        "contingency_2x2": {
+          "human_positive_judge_positive": 10,
+          "human_positive_judge_negative": 0,
+          "human_negative_judge_positive": 4,
+          "human_negative_judge_negative": 10
+        }
       },
       "premature_completion": {
         "n": 24,
         "kappa": null,
         "kappa_estimable": false,
         "pabak": 0.8333333333333333,
-        "observed_agreement": 0.9166666666666666
+        "observed_agreement": 0.9166666666666666,
+        "contingency_2x2": {
+          "human_positive_judge_positive": 0,
+          "human_positive_judge_negative": 0,
+          "human_negative_judge_positive": 2,
+          "human_negative_judge_negative": 22
+        }
       },
       "tool_misuse": {
         "n": 24,
         "kappa": 0.7798165137614679,
         "kappa_estimable": true,
         "pabak": 0.8333333333333333,
-        "observed_agreement": 0.9166666666666666
+        "observed_agreement": 0.9166666666666666,
+        "contingency_2x2": {
+          "human_positive_judge_positive": 5,
+          "human_positive_judge_negative": 2,
+          "human_negative_judge_positive": 0,
+          "human_negative_judge_negative": 17
+        }
       },
       "file_corruption": {
         "n": 24,
         "kappa": 0.8333333333333334,
         "kappa_estimable": true,
         "pabak": 0.9166666666666667,
-        "observed_agreement": 0.9583333333333334
+        "observed_agreement": 0.9583333333333334,
+        "contingency_2x2": {
+          "human_positive_judge_positive": 3,
+          "human_positive_judge_negative": 0,
+          "human_negative_judge_positive": 1,
+          "human_negative_judge_negative": 20
+        }
       }
     },
     "macro_kappa": 0.5878579017259912,
