@@ -6,14 +6,14 @@ Date: 2026-10-10. This is a read-only analysis correction. It does not alter any
 
 The primary pass numerator is the frozen `verifier.json` field `passed: true`. It is independent of final-message content. A `provider_error` is excluded from the primary denominator; the sensitivity denominator includes it as a non-pass. Legacy pass is `legacy_outcome_category == "pass"` (or the historic `outcome_category` where that predecessor field is absent). It is preserved for auditing only.
 
-| Cohort | Scheduled | Provider errors | Primary denominator | Legacy pass | Verifier pass | Difference |
+| Cohort | Scheduled | Protocol provider errors | Primary denominator | Legacy pass | Verifier pass | Difference |
 |---|---:|---:|---:|---:|---:|---:|
 | S4 r2 calibration | 180 | 5 | 175 | 102 (58.3%) | 110 (62.9%) | +8 |
 | S5 r2 original | 36 | 8 | 28 | 8 (28.6%) | 18 (64.3%) | +10 |
 | S5 eight replacements | 8 | 0 | 8 | 4 (50.0%) | 6 (75.0%) | +2 |
 | S5 replacement-inclusive effective cohort | 36 | 0 | 36 | 12 (33.3%) | 24 (66.7%) | +12 |
 | S6 L3b dev-validate, both conditions | 72 | 0 | 72 | 25 (34.7%) | 48 (66.7%) | +23 |
-| S7 completed snapshot (2026-10-10 02:02:56 UTC) | 353 | 7 | 346 | 106 (30.6%) | 187 (54.0%) | +81 |
+| S7 completed snapshot (2026-10-10 02:19:28 UTC) | 362 | 5 (flag count: 7) | 357 | 113 (31.7%) | 194 (54.3%) | +81 |
 
 The S5 replacement-inclusive cohort excludes the eight immutable original provider-error records and includes the eight designated replacements; it is therefore again 36 records. No original record is overwritten or pooled into that effective denominator.
 
@@ -52,17 +52,105 @@ The following is an operational snapshot only, not formal S7 analysis.
 
 | Model / condition | Scheduled complete | Provider errors | Primary verifier pass | Legacy pass |
 |---|---:|---:|---:|---:|
-| qwen3.5:9b C0 | 90 | 2 | 43/88 (48.9%) | 19/88 (21.6%) |
-| qwen3.5:9b C1 | 90 | 2 | 45/88 (51.1%) | 20/88 (22.7%) |
+| qwen3.5:9b C0 | 90 | 1 (flag count: 2) | 43/89 (48.3%) | 19/89 (21.3%) |
+| qwen3.5:9b C1 | 90 | 1 (flag count: 2) | 45/89 (50.6%) | 20/89 (22.5%) |
 | qwen3.5:9b v1 | 60 | 0 | 38/60 (63.3%) | 24/60 (40.0%) |
 | qwen3.5:9b L3b | 90 | 3 | 46/87 (52.9%) | 28/87 (32.2%) |
-| gemma4:26b C0 | 11 | 0 | 6/11 (54.5%) | 6/11 (54.5%) |
-| gemma4:26b C1 | 12 | 0 | 9/12 (75.0%) | 9/12 (75.0%) |
+| gemma4:26b C0 | 16 | 0 | 11/16 (68.8%) | 11/16 (68.8%) |
+| gemma4:26b C1 | 16 | 0 | 11/16 (68.8%) | 11/16 (68.8%) |
 
-The older qwen snapshot reported one C0 and one C1 `provider_error` because it tabulated a single legacy category. The independent flag correctly counts two in each condition: in both conditions, one is categorised as `provider_error` and the other as `timeout`; all four retain `provider_error: true`. Every one of these four records nevertheless has a verifier result because the verifier is run against the retained workspace. For C0, one provider-error record verifier-passes and one fails; for C1, both fail. They are excluded from the primary numerator and denominator, so C0 is 43/88 rather than 44/88; the provider-as-non-pass sensitivity is 43/90. C1 is 45/88, with sensitivity 45/90. This is why `pass + verifier_fail = n` can be true in a complete-verifier table while `provider_error` is nonzero: provider error and verifier result are independent flags, not competing outcomes.
+The older qwen snapshot reported one C0 and one C1 `provider_error` because it tabulated a single legacy category. The independent flag counts two in each condition: in both, one is categorised as `provider_error` and the other as `timeout`; all four retain `provider_error: true`. The next section corrects the denominator treatment: a transport-exhaustion provider error is excluded, while a 20-minute runner timeout is a completed non-pass and stays in the denominator.
 
 ## S7 formal-analysis implementation check
 
 The locked execution plan already specifies a provider-error exclusion but did not explicitly state that its pass source is `verifier.json.passed`. The current [`summarize_s7.py`](../harness/summarize_s7.py) instead derives pass from the `outcome` column emitted by `monitor_s7_metrics.py`, which in turn is `outcome_category`. This is non-compliant with the corrected primary-outcome rule. Neither file is changed here: the S7 execution lock and its live run are not modified mid-batch. Before formal analysis after run completion, a versioned, reviewable post-lock analysis patch must read verifier `passed` directly and record its own hash; no formal S7 result has been produced by the legacy summarizer.
 
 The revised process-hypothesis document is [`s7_process_hypothesis_revision_20261010.md`](s7_process_hypothesis_revision_20261010.md). It makes validation-after-last-edit the sole primary process hypothesis, demotes rewrite/loop directions to secondary descriptive hypotheses, declares the explicit-reference prediction, and restricts v1 versus C1 to task-paired `test_in` using verifier pass.
+
+## Addendum: L3b transition table and exact small-sample checks
+
+The table below restricts the transition analysis to A-layer trajectories whose
+write-only replay provides a call-32 partial score. “Already pass at 32” means
+that replayed verifier partial equals 1.0; “not pass at 32” is strictly below
+1.0. Final outcome always uses the frozen verifier's boolean `passed` field.
+
+| Call-32 status | Baseline | L3b |
+|---|---:|---:|
+| Reached call 32 (A layer) | 9 | 12 |
+| Already pass at call 32 | 2 | 5 |
+| Not pass at call 32 | 7 | 6 |
+| Call-32 replay unavailable | 0 | 1 |
+| Final pass among not-pass-at-32 | 0/7 | 1/6 |
+
+For transparency, all comparisons use two-sided Fisher exact tests and exact
+Clopper--Pearson 95% intervals for each condition's proportion. These are
+descriptive uncertainty summaries, not effect claims.
+
+| Comparison: final verifier pass | Baseline, exact 95% CI | L3b, exact 95% CI | Fisher two-sided p |
+|---|---:|---:|---:|
+| A layer | 2/9 = 22.2% [2.8%, 60.2%] | 6/12 = 50.0% [21.0%, 79.0%] | 0.367 |
+| B layer (ended before call 32) | 20/27 = 74.1% [53.4%, 89.0%] | 20/24 = 83.3% [62.4%, 95.3%] | 0.508 |
+| Not pass at call 32 only | 0/7 = 0.0% [0.0%, 41.0%] | 1/6 = 16.7% [0.4%, 64.2%] | 0.462 |
+
+Mechanism-layer composition differs materially (A-layer 2/9 versus 6/12),
+while the B layer also differs. With these very small, trajectory-selected
+denominators, the data cannot determine whether the reminder changes final
+outcomes. The fixed reminder remains observable in 12 trajectories; no effect
+claim is made.
+
+### Why validation is both 11/12 and 9/12
+
+The earlier 11/12 is retained as the **transport-success definition**: at
+least one post-reminder `run_command` produced a successful tool execution
+(`result.ok=true`), regardless of command content. The corrected 9/12 is the
+stricter **validation-intent definition**: the post-reminder command text
+contains one of `test`, `pytest`, `unittest`, or `py_compile`. The two excluded
+trajectories only ran ad-hoc `python -c` function invocations after the
+reminder; their tool transport succeeded, but they do not meet the declared
+test-intent rule. Neither count asserts that a complete frozen verifier was
+run by the model.
+
+## Addendum: provider-error flag versus protocol denominator
+
+`outcome_flags.provider_error` is an implementation-level non-exclusive flag,
+not a clean transport-only outcome. In `outcomes.py`, it is set when the agent
+process returns nonzero without a terminal `turn.completed`; a killed hard
+timeout can therefore set it even when no endpoint error was established. The
+formal runner then ORs this with `runtime.provider_error`, which is set after
+all three retryable transport attempts fail.
+
+| Run | Category | Why `provider_error` flag is true | Retries | Verifier | Primary denominator |
+|---|---|---|---:|---|---|
+| `...a09_header-C1-r4` | provider_error | third retry exhausted: 500 then 503/503 | 3 | fail | exclude |
+| `...c02_sessions-C0-r3` | provider_error | third retry exhausted: 502/502/502 | 3 | pass | exclude |
+| `...b09_phone-C0-r3` | timeout | 20-minute process-group kill; runtime absent, so nonzero exit set the broad flag | no completed runtime; two recorded failed requests before kill | fail | include as non-pass |
+| `...b09_phone-C1-r4` | timeout | 20-minute process-group kill; runtime absent, so nonzero exit set the broad flag | no completed runtime/events to count | fail | include as non-pass |
+
+Each run still receives a verifier result because the formal runner invokes the
+frozen verifier against the workspace after the agent exits or is killed. Thus
+the verifier may pass even for an excluded transport-exhaustion record; it is
+not included in the primary numerator or denominator by protocol. The timeout
+records, however, are content-level terminal outcomes and remain in the
+primary denominator as failures. The prior all-flag exclusion (43/88 and
+45/88) was too broad; the protocol-correct qwen values are 43/89 and 45/89.
+
+## Addendum: llama3.1:8b zero-pass diagnosis
+
+S4 contains 36 llama3.1:8b r2 records; the still-running S7 snapshot contains
+zero llama records, so no S7 diagnosis is possible yet. In S4, all 36 final
+responses were non-empty `stop` completions, all 36 runs made parseable tool
+calls and wrote a file, and all 36 frozen verifiers failed. There were 130
+tool calls total: 114 valid tool executions, zero invalid-JSON calls, zero
+invalid-schema calls, and zero unknown-tool calls. Forty raw responses carried
+tool calls; 40 assistant responses were `tool_calls`, followed by 36 terminal
+`stop` responses.
+
+There is nevertheless a concrete tool-use defect: 16 of 40 `run_command`
+calls (across 13 runs) supplied `timeout_seconds: 300`, exceeding the declared
+maximum of 120, and were rejected before command execution. This is an
+argument-value/tool-usage mistake, not a tool-call serialization failure.
+Together with edits in every trajectory and universal verifier failure, the
+evidence supports a mixed diagnosis: a substantive task-solving/validation
+floor is present, with avoidable tool-parameter mistakes contributing. It is
+not the earlier CLI-style empty-output or unparseable-tool-call interface
+failure.

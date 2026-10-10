@@ -174,9 +174,13 @@ were observed during a previous three-worker batch and form time clusters, so
 their relationship to concurrency is not identifiable. L3b therefore uses
 one worker rather than two.
 
-The same r2 Qwen3.5:9b/v0 configuration was measured twice: S4 had 11/36
-passes and S5 had 8/36 passes. This 3-run difference is recorded as a
-between-batch remeasurement/noise estimate, not evidence of a skill effect.
+The old-label S4/S5 counts (11 and 8) are retained as legacy audit facts, but
+not as primary pass rates; see `docs/verifier_pass_erratum_20261010.md` for
+verifier-pass recalculation. Differences among cohort pass rates are consistent
+with ordinary binomial sampling noise (at n=36, a proportion near 0.5 has a
+standard error of about 8 percentage points). Detection power is limited by
+these sample sizes; this is not evidence of unusually large between-batch
+noise or of a skill effect.
 For dev-diagnose alone, 2/18 S5 trajectories reached the 40-call limit; their
 partial scores were 2/3 and 1.0. This independently motivates studying a fixed
 budget guard without using dev-validate trajectories to invent a text skill.
@@ -207,8 +211,12 @@ non-exclusive behavioral flag; consult the revised report rather than using
 the legacy pass/empty labels as a causal comparison.
 
 The fixed reminder activated in 12/36 L3b assignments (Wilson 95%
-20.2%--49.7%); 11/12 subsequently ran a successful command validation and
-2/12 finally passed. The post-hoc, explicitly defined incremental metric is
+20.2%--49.7%). The historical transport-success definition counted 11/12
+post-reminder `run_command` executions; the stricter validation-intent rule
+counts 9/12 commands containing a test/compile marker. Verifier-pass and
+call-32 transition corrections are documented in
+`docs/verifier_pass_erratum_20261010.md`; the legacy pass labels here are not
+the primary outcome. The post-hoc, explicitly defined incremental metric is
 `final_partial - partial_at_32`, reconstructed by write-only workspace replay
 and compared with the baseline A-layer negative control using task pairing.
 Thus the mechanism is observable where it activates, but the triggered sample
