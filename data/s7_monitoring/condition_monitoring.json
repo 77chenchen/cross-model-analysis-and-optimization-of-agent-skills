@@ -1,0 +1,96 @@
+{
+  "by_model_condition": {
+    "gemma4:26b::C0": {
+      "activation_labels": {
+        "observable_inferred": 3
+      },
+      "activation_rate": 1.0,
+      "final_empty_rate": 0.0,
+      "mean_first_edit_position": 4.0,
+      "mean_loop_count": 0.6666666666666666,
+      "mean_steps": 7.666666666666667,
+      "mean_write_file_rewrite_count": 0.3333333333333333,
+      "runs": 3,
+      "validation_after_last_edit_rate": 1.0
+    },
+    "gemma4:26b::C1": {
+      "activation_labels": {
+        "explicit": 3,
+        "observable_inferred": 1
+      },
+      "activation_rate": 1.0,
+      "final_empty_rate": 0.0,
+      "mean_first_edit_position": 5.0,
+      "mean_loop_count": 0.0,
+      "mean_steps": 8.0,
+      "mean_write_file_rewrite_count": 0.0,
+      "runs": 4,
+      "validation_after_last_edit_rate": 1.0
+    },
+    "qwen3.5:9b::C0": {
+      "activation_labels": {
+        "not_observed": 27,
+        "observable_inferred": 63
+      },
+      "activation_rate": 0.7,
+      "final_empty_rate": 0.5777777777777777,
+      "mean_first_edit_position": 3.811111111111111,
+      "mean_loop_count": 1.0555555555555556,
+      "mean_steps": 11.822222222222223,
+      "mean_write_file_rewrite_count": 2.6777777777777776,
+      "runs": 90,
+      "validation_after_last_edit_rate": 0.6444444444444445
+    },
+    "qwen3.5:9b::C1": {
+      "activation_labels": {
+        "explicit": 31,
+        "not_observed": 31,
+        "observable_inferred": 28
+      },
+      "activation_rate": 0.6555555555555556,
+      "final_empty_rate": 0.5888888888888889,
+      "mean_first_edit_position": 3.6333333333333333,
+      "mean_loop_count": 2.2555555555555555,
+      "mean_steps": 12.922222222222222,
+      "mean_write_file_rewrite_count": 4.555555555555555,
+      "runs": 90,
+      "validation_after_last_edit_rate": 0.37777777777777777
+    },
+    "qwen3.5:9b::l3b": {
+      "activation_labels": {
+        "explicit": 24,
+        "not_observed": 35,
+        "observable_inferred": 31
+      },
+      "activation_rate": 0.6111111111111112,
+      "final_empty_rate": 0.43333333333333335,
+      "mean_first_edit_position": 3.7222222222222223,
+      "mean_loop_count": 1.1,
+      "mean_steps": 12.166666666666666,
+      "mean_write_file_rewrite_count": 2.7222222222222223,
+      "runs": 90,
+      "validation_after_last_edit_rate": 0.45555555555555555
+    },
+    "qwen3.5:9b::v1": {
+      "activation_labels": {
+        "explicit": 48,
+        "not_observed": 1,
+        "observable_inferred": 11
+      },
+      "activation_rate": 0.9833333333333333,
+      "final_empty_rate": 0.45,
+      "mean_first_edit_position": 3.4,
+      "mean_loop_count": 1.2666666666666666,
+      "mean_steps": 12.3,
+      "mean_write_file_rewrite_count": 3.033333333333333,
+      "runs": 60,
+      "validation_after_last_edit_rate": 0.7666666666666667
+    }
+  },
+  "metric_definitions": {
+    "activation_heuristic": "skill-activation-heuristic-v1",
+    "loop_count": "sum(count-1) for identical tool-name/arguments pairs with count >= 3",
+    "write_file_rewrite_count": "write_file calls minus unique written paths"
+  },
+  "scope": "monitoring_only_not_formal_inference"
+}
