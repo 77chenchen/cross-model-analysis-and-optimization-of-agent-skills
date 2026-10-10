@@ -2,6 +2,11 @@
 
 This repository implements a controlled benchmark for studying cross-model agent trajectories and turning observable failure patterns into transferable skill transformations.
 
+> **Current status (2026-10-10):** S7 is executing from the immutable
+> `s7-execution-lock-20261009-r3` schedule. Historical statements below that
+> say test tasks had not yet run describe the dated preflight state, not the
+> current live batch. Formal S7 analysis remains blocked until 870/870.
+
 The project has completed D1--D5 pilot infrastructure, weak-model diagnosis,
 and a recorded v0/v1 pilot comparison. Historical exploratory benchmark assets
 have been removed from the current tree and are not part of the formal study.
@@ -254,3 +259,102 @@ semantics, and analysis entry points. The six interleaved schedules contain
 870 unique run IDs and have been generated without invoking a model or a
 verifier. The lock commit is tagged before any schedule execution; frozen
 conditions may not change afterward.
+
+## Environment and dependencies
+
+- macOS/zsh; Python 3.14 was used for r2 and the current analyses.
+- Analysis and tests use only the Python standard library. `sips` is used to
+  convert SVG charts to opaque 200-dpi PNG files on macOS.
+- Direct r2 execution additionally needs the locally configured SoC LaaS
+  environment. Credentials must remain in the environment and never in Git.
+- GPT is executed through Codex as a sampling-uncontrolled reference anchor.
+
+The execution lock and hashes are in `config/s7_execution_lock.yaml`; use tag
+`s7-execution-lock-20261009-r3` to inspect the exact pre-run state. The
+verifier-pass analysis is version `verifier-pass-v2.0.0`, manifest-locked in
+`analysis/analysis_patch_manifest.json`.
+
+## Reproduction guide
+
+All commands are run from the repository root. Model-execution commands are
+shown for audit but must not be run during the current S7 batch.
+
+1. Admission checks:
+
+   ```sh
+   python3 harness/check_pilot_admission.py
+   python3 harness/check_s3_admission.py
+   ```
+
+   Expected: 12 pilot tasks validate and `tasks/s3_admission.json` reports
+   `task_count: 18`, `all_accepted: true`. Split source tag: `s3-split-lock`.
+
+2. Calibration and dev summaries from retained local artifacts:
+
+   ```sh
+   python3 harness/summarize_b3_s4.py
+   python3 harness/audit_verifier_pass_erratum.py
+   python3 -m analysis.audit_verifier_pass_v2
+   ```
+
+   Expected: S4 180 scheduled/175 primary records/110 verifier passes; original
+   S5 36/28/18; replacement-inclusive S5 36/36/24; S6 72/72/48. Analysis
+   patch commit: `5dc37ab`.
+
+3. Locked S7 execution (audit command only; do not start a second worker):
+
+   ```sh
+   python3 harness/run_s7_schedule.py config/s7_schedules/<model>.tsv --execute
+   ```
+
+   Expected: idempotent schedule-order continuation with `STATUS.md` updated
+   after each completed run. Lock tag: `s7-execution-lock-20261009-r3`.
+
+4. Current pre-S7 tables and figures:
+
+   ```sh
+   python3 -m analysis.make_tables
+   python3 -m analysis.make_figures
+   ```
+
+   Expected: T1--T7 as Markdown/CSV under `results/tables/`; F1--F9 as SVG,
+   200-dpi PNG, and source CSV under `figures/`. Exhibit commit: `a8cca17`.
+
+5. Formal S7 analysis after completion only:
+
+   ```sh
+   python3 -m analysis.summarize_s7_v2
+   python3 -m analysis.make_tables --formal-s7
+   python3 -m analysis.make_figures --formal-s7
+   ```
+
+   Expected before 870/870: all formal entries refuse to run. After completion,
+   the status and analysis-file hash gates must both pass before a separate
+   formal-results commit is created.
+
+6. Human-label and release-data checks:
+
+   ```sh
+   python3 harness/check_b5_r2_human_review.py
+   python3 harness/score_b5_r2_human_review.py
+   python3 analysis/export_sanitized_dev_data.py
+   python3 analysis/scan_git_history_secrets.py
+   ```
+
+   Expected: 24 valid confirmed human labels; deterministic agreement JSON;
+   four sanitized combined JSONL files plus a manifest; and a redacted secret
+   scan with zero findings.
+
+## Data publication
+
+The committed `data/release/` export includes sanitized metadata, verifier
+results, event streams, derived actions, counts, and hashes for completed
+pre-S7 r2 cohorts. It deliberately excludes raw provider responses and the
+live S7 directory. The three raw-response release options and their tradeoffs
+are in `docs/data_release_policy.md`; the repository owner must choose one.
+
+## Repository map and license
+
+See `docs/repository_layout.md`. `LICENSE` is an all-rights-reserved placeholder
+until the owner selects a public license. This agent does not change remote
+visibility.

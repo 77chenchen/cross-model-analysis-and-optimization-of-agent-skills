@@ -1,0 +1,33 @@
+{
+  "cohorts": {
+    "S4": 180,
+    "S5": 36,
+    "S5_replacements": 8,
+    "S6_L3b": 72
+  },
+  "files": {
+    "actions.jsonl": {
+      "bytes": 4219256,
+      "records": 3719,
+      "sha256": "eef6116fe67686092abe8c17d4c900bfe99b191e757e2c1beabfe6452891412f"
+    },
+    "events.jsonl": {
+      "bytes": 7280602,
+      "records": 7613,
+      "sha256": "b8cbbe09367e806b00f3f33c6a5bd6b72e288a73a5b1dd27ce5b78f436c70caa"
+    },
+    "metadata.jsonl": {
+      "bytes": 214026,
+      "records": 296,
+      "sha256": "1012541ff34277478074199508b67b6753a82ce0a419437706b9d531b49eafe2"
+    },
+    "verifier.jsonl": {
+      "bytes": 87113,
+      "records": 296,
+      "sha256": "46be9b90473f6c12dae24b2a362addb7c5e5d0133e84df5cd7c78d80dfd67040"
+    }
+  },
+  "raw_responses_included": false,
+  "sanitization": "absolute paths replaced; provider connection/auth/reasoning fields omitted",
+  "scope": "completed pre-S7 r2 cohorts only"
+}
