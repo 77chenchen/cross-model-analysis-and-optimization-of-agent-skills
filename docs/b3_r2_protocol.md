@@ -1,5 +1,9 @@
 # B3 r2 recalibration protocol
 
+> **Outcome erratum.** Legacy outcome labels remain preserved for audit. See
+> [`verifier_pass_erratum_20261010.md`](verifier_pass_erratum_20261010.md) for
+> the verifier-pass recalculation used for corrected pass-rate statements.
+
 Date: 2026-10-08
 Status: locked before B3 runs.
 

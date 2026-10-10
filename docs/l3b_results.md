@@ -1,5 +1,10 @@
 # L3b revised descriptive analysis
 
+> **Superseded for pass-rate interpretation.** The retained tables below use
+> reconstructed/legacy outcome categories. The verifier-pass correction,
+> including A/B-layer recomputation and updated descriptive wording, is in
+> [`verifier_pass_erratum_20261010.md`](verifier_pass_erratum_20261010.md).
+
 Pre-registered metrics are retained separately. Everything below is post-hoc exploratory; Wilson intervals in the original report quantify single proportions only and are not condition-difference tests.
 
 ## Reconstructed outcomes and final-empty behavior
