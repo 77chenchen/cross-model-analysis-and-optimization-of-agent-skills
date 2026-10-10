@@ -34,6 +34,13 @@ ignored. These 24 are the only future source for reported human-vs-judge
 Cohen's kappa. The prior packet set remains method-validation-only and will
 not enter kappa.
 
+Any later agreement report will state that there is one human annotator (the
+researcher), that the comparison is human-vs-LLM judge rather than independent
+inter-annotator reliability, that blinding is incomplete because task content
+and behavioral traces remain visible, and that the fixed 24-packet sample is
+small. The revised failure-mode-only protocol is pre-specified in
+`docs/b5_r2_human_kappa_protocol_20261010.md`.
+
 ## Scope and next gate
 
 `STATUS.md` records B5 as 8/8 replacements and 24/24 judge outputs. L3b is
