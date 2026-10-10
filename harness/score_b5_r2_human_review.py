@@ -7,6 +7,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 REVIEW = ROOT / "data" / "b5_r2_human_review"
 HUMAN, JUDGE = REVIEW / "human_annotations.jsonl", ROOT / "data" / "b5_r2_blinded_annotations"
+OUTPUT = ROOT / "data" / "b5_r2_human_review_results.json"
 LABELS = ["premature_implementation", "repeated_exploration", "ineffective_debugging_loop", "insufficient_validation", "missed_constraint", "premature_completion", "tool_misuse", "file_corruption"]
 DRAW, SEED = 10_000, 20261010
 
@@ -43,5 +44,8 @@ def main():
         for label,value in item["per_label"].items():
             if value["kappa"] is not None: boot[f"{label}:kappa"].append(value["kappa"])
             boot[f"{label}:pabak"].append(value["pabak"])
-    print(json.dumps({"protocol":"b5-r2-human-kappa-20261010","scorable_packets":len(rows),"unscorable_packet_ids":excluded,"bootstrap":{"draws":DRAW,"seed":SEED},"observed":observed,"bootstrap_95":{k:{"interval":interval(v),"estimable_replicates":len(v)} for k,v in boot.items()}},indent=2))
+    result = {"protocol":"b5-r2-human-kappa-20261010","scorable_packets":len(rows),"unscorable_packet_ids":excluded,"bootstrap":{"draws":DRAW,"seed":SEED},"observed":observed,"bootstrap_95":{k:{"interval":interval(v),"estimable_replicates":len(v)} for k,v in boot.items()}}
+    rendered = json.dumps(result, indent=2) + "\n"
+    OUTPUT.write_text(rendered, encoding="utf-8")
+    print(rendered, end="")
 if __name__ == "__main__": main()

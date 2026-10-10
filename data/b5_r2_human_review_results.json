@@ -1,0 +1,199 @@
+{
+  "protocol": "b5-r2-human-kappa-20261010",
+  "scorable_packets": 24,
+  "unscorable_packet_ids": [],
+  "bootstrap": {
+    "draws": 10000,
+    "seed": 20261010
+  },
+  "observed": {
+    "per_label": {
+      "premature_implementation": {
+        "n": 24,
+        "kappa": null,
+        "kappa_estimable": false,
+        "pabak": 1.0,
+        "observed_agreement": 1.0
+      },
+      "repeated_exploration": {
+        "n": 24,
+        "kappa": null,
+        "kappa_estimable": false,
+        "pabak": 0.41666666666666674,
+        "observed_agreement": 0.7083333333333334
+      },
+      "ineffective_debugging_loop": {
+        "n": 24,
+        "kappa": 0.22580645161290339,
+        "kappa_estimable": true,
+        "pabak": 0.33333333333333326,
+        "observed_agreement": 0.6666666666666666
+      },
+      "insufficient_validation": {
+        "n": 24,
+        "kappa": 0.4246575342465754,
+        "kappa_estimable": true,
+        "pabak": 0.41666666666666674,
+        "observed_agreement": 0.7083333333333334
+      },
+      "missed_constraint": {
+        "n": 24,
+        "kappa": 0.6756756756756758,
+        "kappa_estimable": true,
+        "pabak": 0.6666666666666667,
+        "observed_agreement": 0.8333333333333334
+      },
+      "premature_completion": {
+        "n": 24,
+        "kappa": null,
+        "kappa_estimable": false,
+        "pabak": 0.8333333333333333,
+        "observed_agreement": 0.9166666666666666
+      },
+      "tool_misuse": {
+        "n": 24,
+        "kappa": 0.7798165137614679,
+        "kappa_estimable": true,
+        "pabak": 0.8333333333333333,
+        "observed_agreement": 0.9166666666666666
+      },
+      "file_corruption": {
+        "n": 24,
+        "kappa": 0.8333333333333334,
+        "kappa_estimable": true,
+        "pabak": 0.9166666666666667,
+        "observed_agreement": 0.9583333333333334
+      }
+    },
+    "macro_kappa": 0.5878579017259912,
+    "macro_kappa_estimable_labels": 5,
+    "macro_pabak": 0.6770833333333334,
+    "exact_set_match_rate": 0.25
+  },
+  "bootstrap_95": {
+    "macro_kappa": {
+      "interval": [
+        0.43392431098313444,
+        0.7708333333333334
+      ],
+      "estimable_replicates": 10000
+    },
+    "macro_pabak": {
+      "interval": [
+        0.5520833333333334,
+        0.78125
+      ],
+      "estimable_replicates": 10000
+    },
+    "exact_set_match_rate": {
+      "interval": [
+        0.08333333333333333,
+        0.4166666666666667
+      ],
+      "estimable_replicates": 10000
+    },
+    "premature_implementation:kappa": {
+      "interval": null,
+      "estimable_replicates": 0
+    },
+    "repeated_exploration:kappa": {
+      "interval": null,
+      "estimable_replicates": 0
+    },
+    "ineffective_debugging_loop:kappa": {
+      "interval": [
+        0.07096774193548383,
+        0.5384615384615384
+      ],
+      "estimable_replicates": 8802
+    },
+    "insufficient_validation:kappa": {
+      "interval": [
+        0.05714285714285695,
+        0.75
+      ],
+      "estimable_replicates": 9999
+    },
+    "missed_constraint:kappa": {
+      "interval": [
+        0.3846153846153845,
+        0.9166666666666667
+      ],
+      "estimable_replicates": 10000
+    },
+    "premature_completion:kappa": {
+      "interval": null,
+      "estimable_replicates": 0
+    },
+    "tool_misuse:kappa": {
+      "interval": [
+        0.4285714285714286,
+        1.0
+      ],
+      "estimable_replicates": 9973
+    },
+    "file_corruption:kappa": {
+      "interval": [
+        0.46666666666666606,
+        1.0
+      ],
+      "estimable_replicates": 9615
+    },
+    "premature_implementation:pabak": {
+      "interval": [
+        1.0,
+        1.0
+      ],
+      "estimable_replicates": 10000
+    },
+    "repeated_exploration:pabak": {
+      "interval": [
+        0.0,
+        0.75
+      ],
+      "estimable_replicates": 10000
+    },
+    "ineffective_debugging_loop:pabak": {
+      "interval": [
+        -0.08333333333333337,
+        0.6666666666666667
+      ],
+      "estimable_replicates": 10000
+    },
+    "insufficient_validation:pabak": {
+      "interval": [
+        0.0,
+        0.75
+      ],
+      "estimable_replicates": 10000
+    },
+    "missed_constraint:pabak": {
+      "interval": [
+        0.33333333333333326,
+        0.9166666666666667
+      ],
+      "estimable_replicates": 10000
+    },
+    "premature_completion:pabak": {
+      "interval": [
+        0.5833333333333333,
+        1.0
+      ],
+      "estimable_replicates": 10000
+    },
+    "tool_misuse:pabak": {
+      "interval": [
+        0.5833333333333333,
+        1.0
+      ],
+      "estimable_replicates": 10000
+    },
+    "file_corruption:pabak": {
+      "interval": [
+        0.75,
+        1.0
+      ],
+      "estimable_replicates": 10000
+    }
+  }
+}
