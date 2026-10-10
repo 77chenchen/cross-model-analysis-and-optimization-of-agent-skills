@@ -1,0 +1,177 @@
+{
+  "counterexample": null,
+  "eligibility": {
+    "pilot_a01_label_parser": {
+      "eligible": false,
+      "reason_if_excluded": "missing strong pass or weak failure",
+      "strong_pass_candidates": 9,
+      "weak_fail_candidates": 0
+    },
+    "pilot_a03_record_deduplication": {
+      "eligible": true,
+      "reason_if_excluded": null,
+      "strong_pass_candidates": 9,
+      "weak_fail_candidates": 3
+    },
+    "pilot_a05_version_parser": {
+      "eligible": true,
+      "reason_if_excluded": null,
+      "strong_pass_candidates": 9,
+      "weak_fail_candidates": 2
+    },
+    "pilot_b01_csv_cleaning": {
+      "eligible": false,
+      "reason_if_excluded": "missing strong pass or weak failure",
+      "strong_pass_candidates": 9,
+      "weak_fail_candidates": 0
+    },
+    "pilot_b03_duplicate_audit": {
+      "eligible": true,
+      "reason_if_excluded": null,
+      "strong_pass_candidates": 3,
+      "weak_fail_candidates": 3
+    },
+    "pilot_b05_date_validation": {
+      "eligible": false,
+      "reason_if_excluded": "missing strong pass or weak failure",
+      "strong_pass_candidates": 9,
+      "weak_fail_candidates": 0
+    }
+  },
+  "implicit_behavior_task_counts": {
+    "avoids_repeated_full_rewrite": {
+      "strong": 3,
+      "strong_yes_weak_no": 1,
+      "weak": 2
+    },
+    "read_before_edit": {
+      "strong": 3,
+      "strong_yes_weak_no": 0,
+      "weak": 3
+    },
+    "reread_after_edit": {
+      "strong": 2,
+      "strong_yes_weak_no": 1,
+      "weak": 2
+    },
+    "validation_after_edit": {
+      "strong": 3,
+      "strong_yes_weak_no": 0,
+      "weak": 3
+    }
+  },
+  "llama_case": {
+    "behavior": {
+      "avoids_repeated_full_rewrite": true,
+      "read_before_edit": true,
+      "reread_after_edit": false,
+      "validation_after_edit": false
+    },
+    "model": "llama3.1:8b",
+    "passed": false,
+    "run_dir": "data/b3_s4_r2_runs/pilot_a01_label_parser__llama3.1_8b__v0__20261008T105948Z__a5b00851c5",
+    "run_id": "pilot_a01_label_parser__llama3.1_8b__v0__20261008T105948Z__a5b00851c5",
+    "task": "pilot_a01_label_parser"
+  },
+  "s8_candidates_min_two_strong_success_tasks": {
+    "avoids_repeated_full_rewrite": 3,
+    "read_before_edit": 3,
+    "reread_after_edit": 2,
+    "validation_after_edit": 3
+  },
+  "scope": "S4 dev_diagnose only; post hoc case description; no test data",
+  "seed": 31010,
+  "selected": [
+    {
+      "skill": "A",
+      "strong": {
+        "behavior": {
+          "avoids_repeated_full_rewrite": true,
+          "read_before_edit": true,
+          "reread_after_edit": true,
+          "validation_after_edit": true
+        },
+        "model": "qwen3-coder-next",
+        "passed": true,
+        "run_dir": "data/b3_s4_r2_runs/pilot_a03_record_deduplication__qwen3-coder-next__v0__20261008T111013Z__877326ac02",
+        "run_id": "pilot_a03_record_deduplication__qwen3-coder-next__v0__20261008T111013Z__877326ac02",
+        "task": "pilot_a03_record_deduplication"
+      },
+      "task": "pilot_a03_record_deduplication",
+      "weak": {
+        "behavior": {
+          "avoids_repeated_full_rewrite": true,
+          "read_before_edit": true,
+          "reread_after_edit": true,
+          "validation_after_edit": true
+        },
+        "model": "qwen3.5:9b",
+        "passed": false,
+        "run_dir": "data/b3_s4_r2_runs/pilot_a03_record_deduplication__qwen3.5_9b__v0__20261008T110658Z__2711a82dbf",
+        "run_id": "pilot_a03_record_deduplication__qwen3.5_9b__v0__20261008T110658Z__2711a82dbf",
+        "task": "pilot_a03_record_deduplication"
+      }
+    },
+    {
+      "skill": "A",
+      "strong": {
+        "behavior": {
+          "avoids_repeated_full_rewrite": true,
+          "read_before_edit": true,
+          "reread_after_edit": true,
+          "validation_after_edit": true
+        },
+        "model": "qwen3-coder-next",
+        "passed": true,
+        "run_dir": "data/b3_s4_r2_runs/pilot_a05_version_parser__qwen3-coder-next__v0__20261008T114054Z__f807d39c79",
+        "run_id": "pilot_a05_version_parser__qwen3-coder-next__v0__20261008T114054Z__f807d39c79",
+        "task": "pilot_a05_version_parser"
+      },
+      "task": "pilot_a05_version_parser",
+      "weak": {
+        "behavior": {
+          "avoids_repeated_full_rewrite": false,
+          "read_before_edit": true,
+          "reread_after_edit": false,
+          "validation_after_edit": true
+        },
+        "model": "qwen3.5:9b",
+        "passed": false,
+        "run_dir": "data/b3_s4_r2_runs/pilot_a05_version_parser__qwen3.5_9b__v0__20261008T112708Z__8de04fdcce",
+        "run_id": "pilot_a05_version_parser__qwen3.5_9b__v0__20261008T112708Z__8de04fdcce",
+        "task": "pilot_a05_version_parser"
+      }
+    },
+    {
+      "skill": "B",
+      "strong": {
+        "behavior": {
+          "avoids_repeated_full_rewrite": true,
+          "read_before_edit": true,
+          "reread_after_edit": false,
+          "validation_after_edit": true
+        },
+        "model": "qwen3.8:27b",
+        "passed": true,
+        "run_dir": "data/b3_s4_r2_runs/pilot_b03_duplicate_audit__qwen3.8_27b__v0__20261008T120314Z__cef10b8c02",
+        "run_id": "pilot_b03_duplicate_audit__qwen3.8_27b__v0__20261008T120314Z__cef10b8c02",
+        "task": "pilot_b03_duplicate_audit"
+      },
+      "task": "pilot_b03_duplicate_audit",
+      "weak": {
+        "behavior": {
+          "avoids_repeated_full_rewrite": true,
+          "read_before_edit": true,
+          "reread_after_edit": true,
+          "validation_after_edit": true
+        },
+        "model": "qwen3.5:9b",
+        "passed": false,
+        "run_dir": "data/b3_s4_r2_runs/pilot_b03_duplicate_audit__qwen3.5_9b__v0__20261008T120421Z__2a8e22d316",
+        "run_id": "pilot_b03_duplicate_audit__qwen3.5_9b__v0__20261008T120421Z__2a8e22d316",
+        "task": "pilot_b03_duplicate_audit"
+      }
+    }
+  ],
+  "selection_rule": "seeded eligible-task shuffle; first two Skill A and first two Skill B; seeded run selection"
+}
