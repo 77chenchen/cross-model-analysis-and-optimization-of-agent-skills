@@ -31,7 +31,7 @@ def main() -> None:
         kind=git("cat-file","-t",oid).strip()
         if kind != b"blob": continue
         size=int(git("cat-file","-s",oid)); scanned += 1
-        if size > 5_000_000: skipped += 1; continue
+        if size > 10_000_000: skipped += 1; continue
         data=git("cat-file","-p",oid)
         if b"\x00" in data[:4096]: continue
         for name,pattern in PATTERNS.items():
