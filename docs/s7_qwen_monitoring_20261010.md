@@ -1,5 +1,11 @@
 # S7 qwen3.5:9b interim monitoring snapshot
 
+> **Superseded for activation and outcome interpretation.** See
+> [`s7_qwen_monitoring_revision_20261010.md`](s7_qwen_monitoring_revision_20261010.md)
+> for the non-exclusive outcome flags, explicit/behaviour-only activation split,
+> task-paired distributions, and call-32 negative-control check. This original
+> snapshot is retained as a historical monitoring artifact.
+
 Date: 2026-10-10. The qwen3.5:9b schedule is complete (330/330 cells). This
 is operational monitoring only. Formal analysis remains prohibited until all
 870 S7 cells complete; no condition, schedule, prompt, or metric definition
