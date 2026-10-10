@@ -1,0 +1,9 @@
+{
+  "analysis_version": "verifier-pass-v2.0.0",
+  "verifier_pass_module": "analysis/verifier_pass_v2.py",
+  "verifier_pass_module_sha256": "72b1e0b8252566ccf0f408a7c4311c939157be9d33cb016a385ea95efd218bcc",
+  "formal_entry": "analysis/summarize_s7_v2.py",
+  "formal_gate": "STATUS.md must report 870/870 and verifier_pass_module_sha256 must match",
+  "primary_outcome": "verifier.json.passed",
+  "version_locked_before_formal_s7_analysis": true
+}

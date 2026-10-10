@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Locked task-level descriptive and paired-bootstrap S7 summaries."""
+"""Legacy S7 summarizer retained only to reject the obsolete pass source."""
 from __future__ import annotations
 
 import argparse
@@ -28,6 +28,12 @@ def bootstrap(differences: list[float], seed: int = 701009, draws: int = 10_000)
 
 
 def main() -> None:
+    raise SystemExit(
+        "ERROR: harness/summarize_s7.py is a legacy entry that derives pass "
+        "from outcome_category. After S7 reaches 870/870, use "
+        "python3 -m analysis.summarize_s7_v2; verifier.json.passed is the "
+        "only valid primary outcome."
+    )
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("metrics", type=Path)
     parser.add_argument("--output", type=Path, default=ROOT / "data" / "s7_summary.json")

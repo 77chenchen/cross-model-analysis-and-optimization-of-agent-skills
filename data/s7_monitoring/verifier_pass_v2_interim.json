@@ -1,0 +1,59 @@
+{
+  "analysis_version": "verifier-pass-v2.0.0",
+  "completed_records_at_snapshot": 438,
+  "views": {
+    "all": {
+      "legacy_pass": 159,
+      "max_steps_in_primary_denominator": 26,
+      "primary_n": 433,
+      "provider_error_protocol": 5,
+      "scheduled": 438,
+      "sensitivity_n_provider_as_failure": 438,
+      "sensitivity_pass_rate": 0.5502283105022832,
+      "sensitivity_verifier_pass": 241,
+      "timeouts_in_primary_denominator": 2,
+      "verifier_pass": 241,
+      "verifier_pass_rate": 0.5565819861431871
+    },
+    "exclude_A04": {
+      "legacy_pass": 159,
+      "max_steps_in_primary_denominator": 26,
+      "primary_n": 433,
+      "provider_error_protocol": 5,
+      "scheduled": 438,
+      "sensitivity_n_provider_as_failure": 438,
+      "sensitivity_pass_rate": 0.5502283105022832,
+      "sensitivity_verifier_pass": 241,
+      "timeouts_in_primary_denominator": 2,
+      "verifier_pass": 241,
+      "verifier_pass_rate": 0.5565819861431871
+    },
+    "exclude_A04_and_b09_phone": {
+      "legacy_pass": 153,
+      "max_steps_in_primary_denominator": 19,
+      "primary_n": 407,
+      "provider_error_protocol": 5,
+      "scheduled": 412,
+      "sensitivity_n_provider_as_failure": 412,
+      "sensitivity_pass_rate": 0.5606796116504854,
+      "sensitivity_verifier_pass": 231,
+      "timeouts_in_primary_denominator": 0,
+      "verifier_pass": 231,
+      "verifier_pass_rate": 0.5675675675675675
+    },
+    "exclude_b09_phone": {
+      "legacy_pass": 153,
+      "max_steps_in_primary_denominator": 19,
+      "primary_n": 407,
+      "provider_error_protocol": 5,
+      "scheduled": 412,
+      "sensitivity_n_provider_as_failure": 412,
+      "sensitivity_pass_rate": 0.5606796116504854,
+      "sensitivity_verifier_pass": 231,
+      "timeouts_in_primary_denominator": 0,
+      "verifier_pass": 231,
+      "verifier_pass_rate": 0.5675675675675675
+    }
+  },
+  "watermark": "INTERIM MONITORING \u2014 NOT FORMAL S7 RESULTS"
+}

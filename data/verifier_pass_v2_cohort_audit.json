@@ -1,0 +1,275 @@
+{
+  "analysis_version": "verifier-pass-v2.0.0",
+  "cohorts": {
+    "S4": {
+      "all": {
+        "legacy_pass": 102,
+        "max_steps_in_primary_denominator": 0,
+        "primary_n": 175,
+        "provider_error_protocol": 5,
+        "scheduled": 180,
+        "sensitivity_n_provider_as_failure": 180,
+        "sensitivity_pass_rate": 0.6111111111111112,
+        "sensitivity_verifier_pass": 110,
+        "timeouts_in_primary_denominator": 0,
+        "verifier_pass": 110,
+        "verifier_pass_rate": 0.6285714285714286
+      },
+      "exclude_A04": {
+        "legacy_pass": 102,
+        "max_steps_in_primary_denominator": 0,
+        "primary_n": 160,
+        "provider_error_protocol": 5,
+        "scheduled": 165,
+        "sensitivity_n_provider_as_failure": 165,
+        "sensitivity_pass_rate": 0.6666666666666666,
+        "sensitivity_verifier_pass": 110,
+        "timeouts_in_primary_denominator": 0,
+        "verifier_pass": 110,
+        "verifier_pass_rate": 0.6875
+      },
+      "exclude_A04_and_b09_phone": {
+        "legacy_pass": 102,
+        "max_steps_in_primary_denominator": 0,
+        "primary_n": 160,
+        "provider_error_protocol": 5,
+        "scheduled": 165,
+        "sensitivity_n_provider_as_failure": 165,
+        "sensitivity_pass_rate": 0.6666666666666666,
+        "sensitivity_verifier_pass": 110,
+        "timeouts_in_primary_denominator": 0,
+        "verifier_pass": 110,
+        "verifier_pass_rate": 0.6875
+      },
+      "exclude_b09_phone": {
+        "legacy_pass": 102,
+        "max_steps_in_primary_denominator": 0,
+        "primary_n": 175,
+        "provider_error_protocol": 5,
+        "scheduled": 180,
+        "sensitivity_n_provider_as_failure": 180,
+        "sensitivity_pass_rate": 0.6111111111111112,
+        "sensitivity_verifier_pass": 110,
+        "timeouts_in_primary_denominator": 0,
+        "verifier_pass": 110,
+        "verifier_pass_rate": 0.6285714285714286
+      }
+    },
+    "S5_original": {
+      "all": {
+        "legacy_pass": 8,
+        "max_steps_in_primary_denominator": 0,
+        "primary_n": 28,
+        "provider_error_protocol": 8,
+        "scheduled": 36,
+        "sensitivity_n_provider_as_failure": 36,
+        "sensitivity_pass_rate": 0.5,
+        "sensitivity_verifier_pass": 18,
+        "timeouts_in_primary_denominator": 0,
+        "verifier_pass": 18,
+        "verifier_pass_rate": 0.6428571428571429
+      },
+      "exclude_A04": {
+        "legacy_pass": 8,
+        "max_steps_in_primary_denominator": 0,
+        "primary_n": 26,
+        "provider_error_protocol": 7,
+        "scheduled": 33,
+        "sensitivity_n_provider_as_failure": 33,
+        "sensitivity_pass_rate": 0.5454545454545454,
+        "sensitivity_verifier_pass": 18,
+        "timeouts_in_primary_denominator": 0,
+        "verifier_pass": 18,
+        "verifier_pass_rate": 0.6923076923076923
+      },
+      "exclude_A04_and_b09_phone": {
+        "legacy_pass": 8,
+        "max_steps_in_primary_denominator": 0,
+        "primary_n": 26,
+        "provider_error_protocol": 7,
+        "scheduled": 33,
+        "sensitivity_n_provider_as_failure": 33,
+        "sensitivity_pass_rate": 0.5454545454545454,
+        "sensitivity_verifier_pass": 18,
+        "timeouts_in_primary_denominator": 0,
+        "verifier_pass": 18,
+        "verifier_pass_rate": 0.6923076923076923
+      },
+      "exclude_b09_phone": {
+        "legacy_pass": 8,
+        "max_steps_in_primary_denominator": 0,
+        "primary_n": 28,
+        "provider_error_protocol": 8,
+        "scheduled": 36,
+        "sensitivity_n_provider_as_failure": 36,
+        "sensitivity_pass_rate": 0.5,
+        "sensitivity_verifier_pass": 18,
+        "timeouts_in_primary_denominator": 0,
+        "verifier_pass": 18,
+        "verifier_pass_rate": 0.6428571428571429
+      }
+    },
+    "S5_replacement_inclusive": {
+      "all": {
+        "legacy_pass": 12,
+        "max_steps_in_primary_denominator": 3,
+        "primary_n": 36,
+        "provider_error_protocol": 0,
+        "scheduled": 36,
+        "sensitivity_n_provider_as_failure": 36,
+        "sensitivity_pass_rate": 0.6666666666666666,
+        "sensitivity_verifier_pass": 24,
+        "timeouts_in_primary_denominator": 0,
+        "verifier_pass": 24,
+        "verifier_pass_rate": 0.6666666666666666
+      },
+      "exclude_A04": {
+        "legacy_pass": 12,
+        "max_steps_in_primary_denominator": 2,
+        "primary_n": 33,
+        "provider_error_protocol": 0,
+        "scheduled": 33,
+        "sensitivity_n_provider_as_failure": 33,
+        "sensitivity_pass_rate": 0.7272727272727273,
+        "sensitivity_verifier_pass": 24,
+        "timeouts_in_primary_denominator": 0,
+        "verifier_pass": 24,
+        "verifier_pass_rate": 0.7272727272727273
+      },
+      "exclude_A04_and_b09_phone": {
+        "legacy_pass": 12,
+        "max_steps_in_primary_denominator": 2,
+        "primary_n": 33,
+        "provider_error_protocol": 0,
+        "scheduled": 33,
+        "sensitivity_n_provider_as_failure": 33,
+        "sensitivity_pass_rate": 0.7272727272727273,
+        "sensitivity_verifier_pass": 24,
+        "timeouts_in_primary_denominator": 0,
+        "verifier_pass": 24,
+        "verifier_pass_rate": 0.7272727272727273
+      },
+      "exclude_b09_phone": {
+        "legacy_pass": 12,
+        "max_steps_in_primary_denominator": 3,
+        "primary_n": 36,
+        "provider_error_protocol": 0,
+        "scheduled": 36,
+        "sensitivity_n_provider_as_failure": 36,
+        "sensitivity_pass_rate": 0.6666666666666666,
+        "sensitivity_verifier_pass": 24,
+        "timeouts_in_primary_denominator": 0,
+        "verifier_pass": 24,
+        "verifier_pass_rate": 0.6666666666666666
+      }
+    },
+    "S5_replacements": {
+      "all": {
+        "legacy_pass": 4,
+        "max_steps_in_primary_denominator": 3,
+        "primary_n": 8,
+        "provider_error_protocol": 0,
+        "scheduled": 8,
+        "sensitivity_n_provider_as_failure": 8,
+        "sensitivity_pass_rate": 0.75,
+        "sensitivity_verifier_pass": 6,
+        "timeouts_in_primary_denominator": 0,
+        "verifier_pass": 6,
+        "verifier_pass_rate": 0.75
+      },
+      "exclude_A04": {
+        "legacy_pass": 4,
+        "max_steps_in_primary_denominator": 2,
+        "primary_n": 7,
+        "provider_error_protocol": 0,
+        "scheduled": 7,
+        "sensitivity_n_provider_as_failure": 7,
+        "sensitivity_pass_rate": 0.8571428571428571,
+        "sensitivity_verifier_pass": 6,
+        "timeouts_in_primary_denominator": 0,
+        "verifier_pass": 6,
+        "verifier_pass_rate": 0.8571428571428571
+      },
+      "exclude_A04_and_b09_phone": {
+        "legacy_pass": 4,
+        "max_steps_in_primary_denominator": 2,
+        "primary_n": 7,
+        "provider_error_protocol": 0,
+        "scheduled": 7,
+        "sensitivity_n_provider_as_failure": 7,
+        "sensitivity_pass_rate": 0.8571428571428571,
+        "sensitivity_verifier_pass": 6,
+        "timeouts_in_primary_denominator": 0,
+        "verifier_pass": 6,
+        "verifier_pass_rate": 0.8571428571428571
+      },
+      "exclude_b09_phone": {
+        "legacy_pass": 4,
+        "max_steps_in_primary_denominator": 3,
+        "primary_n": 8,
+        "provider_error_protocol": 0,
+        "scheduled": 8,
+        "sensitivity_n_provider_as_failure": 8,
+        "sensitivity_pass_rate": 0.75,
+        "sensitivity_verifier_pass": 6,
+        "timeouts_in_primary_denominator": 0,
+        "verifier_pass": 6,
+        "verifier_pass_rate": 0.75
+      }
+    },
+    "S6_L3b": {
+      "all": {
+        "legacy_pass": 25,
+        "max_steps_in_primary_denominator": 12,
+        "primary_n": 72,
+        "provider_error_protocol": 0,
+        "scheduled": 72,
+        "sensitivity_n_provider_as_failure": 72,
+        "sensitivity_pass_rate": 0.6666666666666666,
+        "sensitivity_verifier_pass": 48,
+        "timeouts_in_primary_denominator": 1,
+        "verifier_pass": 48,
+        "verifier_pass_rate": 0.6666666666666666
+      },
+      "exclude_A04": {
+        "legacy_pass": 25,
+        "max_steps_in_primary_denominator": 11,
+        "primary_n": 60,
+        "provider_error_protocol": 0,
+        "scheduled": 60,
+        "sensitivity_n_provider_as_failure": 60,
+        "sensitivity_pass_rate": 0.8,
+        "sensitivity_verifier_pass": 48,
+        "timeouts_in_primary_denominator": 0,
+        "verifier_pass": 48,
+        "verifier_pass_rate": 0.8
+      },
+      "exclude_A04_and_b09_phone": {
+        "legacy_pass": 25,
+        "max_steps_in_primary_denominator": 11,
+        "primary_n": 60,
+        "provider_error_protocol": 0,
+        "scheduled": 60,
+        "sensitivity_n_provider_as_failure": 60,
+        "sensitivity_pass_rate": 0.8,
+        "sensitivity_verifier_pass": 48,
+        "timeouts_in_primary_denominator": 0,
+        "verifier_pass": 48,
+        "verifier_pass_rate": 0.8
+      },
+      "exclude_b09_phone": {
+        "legacy_pass": 25,
+        "max_steps_in_primary_denominator": 12,
+        "primary_n": 72,
+        "provider_error_protocol": 0,
+        "scheduled": 72,
+        "sensitivity_n_provider_as_failure": 72,
+        "sensitivity_pass_rate": 0.6666666666666666,
+        "sensitivity_verifier_pass": 48,
+        "timeouts_in_primary_denominator": 1,
+        "verifier_pass": 48,
+        "verifier_pass_rate": 0.6666666666666666
+      }
+    }
+  }
+}
