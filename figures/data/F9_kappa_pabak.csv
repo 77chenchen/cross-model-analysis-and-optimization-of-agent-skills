@@ -1,0 +1,9 @@
+label,kappa,kappa_estimable,kappa_low,kappa_high,pabak,human_positive_judge_positive,human_positive_judge_negative,human_negative_judge_positive,human_negative_judge_negative
+premature_implementation,0,False,0,0,1.0,0,0,0,24
+repeated_exploration,0,False,0,0,0.41666666666666674,0,0,7,17
+ineffective_debugging_loop,0.22580645161290339,True,0.07096774193548383,0.5384615384615384,0.33333333333333326,2,0,8,14
+insufficient_validation,0.4246575342465754,True,0.05714285714285695,0.75,0.41666666666666674,9,2,5,8
+missed_constraint,0.6756756756756758,True,0.3846153846153845,0.9166666666666667,0.6666666666666667,10,0,4,10
+premature_completion,0,False,0,0,0.8333333333333333,0,0,2,22
+tool_misuse,0.7798165137614679,True,0.4285714285714286,1.0,0.8333333333333333,5,2,0,17
+file_corruption,0.8333333333333334,True,0.46666666666666606,1.0,0.9166666666666667,3,0,1,20

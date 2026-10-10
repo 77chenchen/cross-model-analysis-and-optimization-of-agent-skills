@@ -1,0 +1,9 @@
+cohort_metric,cohort,metric,numerator,denominator,rate
+S4 legacy_pass,S4,legacy_pass,102,175,0.5828571428571429
+S4 verifier_pass,S4,verifier_pass,110,175,0.6285714285714286
+S5_original legacy_pass,S5_original,legacy_pass,8,28,0.2857142857142857
+S5_original verifier_pass,S5_original,verifier_pass,18,28,0.6428571428571429
+S5_replacement_inclusive legacy_pass,S5_replacement_inclusive,legacy_pass,12,36,0.3333333333333333
+S5_replacement_inclusive verifier_pass,S5_replacement_inclusive,verifier_pass,24,36,0.6666666666666666
+S6_L3b legacy_pass,S6_L3b,legacy_pass,25,72,0.3472222222222222
+S6_L3b verifier_pass,S6_L3b,verifier_pass,48,72,0.6666666666666666

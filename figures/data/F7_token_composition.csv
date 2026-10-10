@@ -1,0 +1,6 @@
+model,input_tokens,cached_tokens,output_tokens,reasoning_tokens,n
+gemma4:26b,14151.0,0.0,3433.0,0.0,36
+llama3.1:8b,880.0,0.0,282.0,0.0,36
+qwen3-coder-next,15417.0,0.0,1818.0,0.0,36
+qwen3.5:9b,14238.5,0.0,2641.0,0.0,36
+qwen3.8:27b,6831.5,0.0,3174.5,0.0,36

@@ -1,0 +1,6 @@
+model,n,assistant_turns_median,calls_per_turn_median,blind_write_rate
+gemma4:26b,18,8.0,0.875,0.0
+llama3.1:8b,18,2.0,1.75,0.0
+qwen3-coder-next,18,9.0,0.8888888888888888,0.0
+qwen3.5:9b,18,8.0,0.875,0.0
+qwen3.8:27b,18,6.0,1.0,0.0

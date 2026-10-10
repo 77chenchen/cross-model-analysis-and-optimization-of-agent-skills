@@ -1,0 +1,6 @@
+| hypothesis | commit | source | status |
+|---|---|---|---|
+| C1 validation-after-final-edit < C0 | 7393db428004 | qwen monitoring (generation); other models independent | pending S7 completion |
+| explicit skill reference rises with model capability | 7393db428004 | pre-cross-model declaration | pending S7 completion |
+| v1 validation rate > C1 on test_in | 7393db428004 | exploratory | pending S7 completion |
+| L3b call-32 mechanism observation only | 82501127fa66 | dev replay | descriptive; no conversion test |

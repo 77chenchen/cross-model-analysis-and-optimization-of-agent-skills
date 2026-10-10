@@ -1,0 +1,26 @@
+model_flag,model,flag,count,n,rate
+gemma4:26b verifier_pass,gemma4:26b,verifier_pass,30,36,0.8333333333333334
+gemma4:26b final_empty,gemma4:26b,final_empty,1,36,0.027777777777777776
+gemma4:26b timeout,gemma4:26b,timeout,0,36,0.0
+gemma4:26b max_steps_reached,gemma4:26b,max_steps_reached,0,36,0.0
+gemma4:26b provider_error_protocol,gemma4:26b,provider_error_protocol,0,36,0.0
+llama3.1:8b verifier_pass,llama3.1:8b,verifier_pass,0,36,0.0
+llama3.1:8b final_empty,llama3.1:8b,final_empty,0,36,0.0
+llama3.1:8b timeout,llama3.1:8b,timeout,0,36,0.0
+llama3.1:8b max_steps_reached,llama3.1:8b,max_steps_reached,0,36,0.0
+llama3.1:8b provider_error_protocol,llama3.1:8b,provider_error_protocol,0,36,0.0
+qwen3-coder-next verifier_pass,qwen3-coder-next,verifier_pass,30,36,0.8333333333333334
+qwen3-coder-next final_empty,qwen3-coder-next,final_empty,0,36,0.0
+qwen3-coder-next timeout,qwen3-coder-next,timeout,0,36,0.0
+qwen3-coder-next max_steps_reached,qwen3-coder-next,max_steps_reached,0,36,0.0
+qwen3-coder-next provider_error_protocol,qwen3-coder-next,provider_error_protocol,0,36,0.0
+qwen3.5:9b verifier_pass,qwen3.5:9b,verifier_pass,19,36,0.5277777777777778
+qwen3.5:9b final_empty,qwen3.5:9b,final_empty,19,36,0.5277777777777778
+qwen3.5:9b timeout,qwen3.5:9b,timeout,0,36,0.0
+qwen3.5:9b max_steps_reached,qwen3.5:9b,max_steps_reached,0,36,0.0
+qwen3.5:9b provider_error_protocol,qwen3.5:9b,provider_error_protocol,4,36,0.1111111111111111
+qwen3.8:27b verifier_pass,qwen3.8:27b,verifier_pass,33,36,0.9166666666666666
+qwen3.8:27b final_empty,qwen3.8:27b,final_empty,1,36,0.027777777777777776
+qwen3.8:27b timeout,qwen3.8:27b,timeout,0,36,0.0
+qwen3.8:27b max_steps_reached,qwen3.8:27b,max_steps_reached,0,36,0.0
+qwen3.8:27b provider_error_protocol,qwen3.8:27b,provider_error_protocol,1,36,0.027777777777777776

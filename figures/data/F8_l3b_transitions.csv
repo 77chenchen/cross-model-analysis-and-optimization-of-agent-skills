@@ -1,0 +1,9 @@
+condition_state,condition,state,count
+baseline A_layer_runs,baseline,A_layer_runs,9
+baseline already_pass_at_32,baseline,already_pass_at_32,2
+baseline not_pass_at_32,baseline,not_pass_at_32,7
+baseline final_pass_among_not_pass_at_32,baseline,final_pass_among_not_pass_at_32,0
+l3b A_layer_runs,l3b,A_layer_runs,12
+l3b already_pass_at_32,l3b,already_pass_at_32,5
+l3b not_pass_at_32,l3b,not_pass_at_32,6
+l3b final_pass_among_not_pass_at_32,l3b,final_pass_among_not_pass_at_32,1

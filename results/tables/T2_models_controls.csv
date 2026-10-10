@@ -1,0 +1,7 @@
+model,role,runner,temperature,seed,max_steps,context_limit,hard_timeout_s
+qwen3.5:9b,weak target,r2,0.5 requested,sent if supported,40,65536,1200
+gemma4:26b,cross-model,r2,0.5 requested,sent if supported,40,65536,1200
+qwen3.8:27b,cross-model,r2,0.5 requested,sent if supported,40,65536,1200
+qwen3-coder-next,specialized,r2,0.5 requested,sent if supported,40,65536,1200
+llama3.1:8b,lower bound,r2,0.5 requested,sent if supported,40,65536,1200
+gpt-5.6-sol,reference anchor,Codex,uncontrolled,uncontrolled,not aligned,not verified,1200
