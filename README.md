@@ -149,9 +149,7 @@ v1 相对 C1：v1 明确要求编辑后验证，模型对该指令的显式引�
 
 ## 主结果与论文
 
-![Figure 1: controlled C0/C1 results, process depth, and outcome flags](figures/s7/S7_F1_main_results.png)
-
-完整报告见 [PDF](paper/main.pdf) 与 [LaTeX 源码](paper/main.tex);矢量版主图见 [Figure 1 PDF](figures/s7/S7_F1_main_results.pdf)。
+完整报告见 [PDF](paper/main.pdf) 与 [LaTeX 源码](paper/main.tex)
 
 ## 目录
 
