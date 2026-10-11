@@ -1,0 +1,29 @@
+{
+  "active_total": 108,
+  "active_unique_run_ids": 108,
+  "condition_counts": {
+    "C0": 54,
+    "C1": 54
+  },
+  "duplicate_active_run_ids": [],
+  "exact_run_id_intersection_C0_C1": [],
+  "note": "The /tmp locations preserve the pre-overwrite artifacts on this machine but are not durable repository storage.",
+  "pre_overwrite_archives": [
+    {
+      "exists_at_audit": true,
+      "path": "/tmp/s7-gpt-overwrite.qlslty",
+      "run_directories": 104
+    },
+    {
+      "exists_at_audit": true,
+      "path": "/tmp/s7-gpt-overwrite-round2.lAppQs",
+      "run_directories": 42
+    }
+  ],
+  "task_repetition_key_count": {
+    "C0": 54,
+    "C1": 54
+  },
+  "task_repetition_keys_identical_C0_C1": true,
+  "version": "report-supplements-v1.0.0"
+}

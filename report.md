@@ -71,21 +71,111 @@ outcome-definition corrections, not performance improvements.
 
 ### Formal benchmark
 
-Across all held-out tasks, C0/C1 verifier pass is 43/89 versus 45/89 for
-qwen3.5:9b, 33/54 versus 36/54 for gemma4:26b, 45/54 versus 46/54 for
-qwen3.8:27b, 33/54 versus 34/54 for qwen3-coder-next, and 0/54 versus 0/54
-for llama3.1:8b. Task-paired C1-minus-C0 differences are respectively +1.9,
-+5.6, +1.9, +1.9, and 0.0 percentage points. The 10,000-draw paired
-bootstrap intervals are [-6.9, 10.6], [0.0, 14.8], [-3.7, 7.4], [-7.4,
-13.0], and [0.0, 0.0] points. These patterns do not show a consistent C1
-advantage across the controlled model panel.
+<!-- S7_CHECK:CORE_BEGIN -->
+| Model | C0 verifier pass | C1 verifier pass | C1-C0 pp, task-paired bootstrap 95% interval |
+|---|---:|---:|---:|
+| qwen3.5:9b | 43/89 (48.3%) | 45/89 (50.6%) | +1.9 [-6.9, 10.6] |
+| gemma4:26b | 33/54 (61.1%) | 36/54 (66.7%) | +5.6 [0.0, 14.8] |
+| qwen3.8:27b | 45/54 (83.3%) | 46/54 (85.2%) | +1.9 [-3.7, 7.4] |
+| qwen3-coder-next | 33/54 (61.1%) | 34/54 (63.0%) | +1.9 [-7.4, 13.0] |
+| llama3.1:8b | 0/54 (0.0%) | 0/54 (0.0%) | 0.0 [0.0, 0.0] |
+| gpt-5.6-sol (reference anchor) | 44/54 (81.5%) | 44/54 (81.5%) | 0.0 [-5.6, 5.6] |
+<!-- S7_CHECK:CORE_END -->
 
-GPT-5.6 Sol, the sampling-uncontrolled Codex anchor, is 44/54 in both C0 and
-C1; it is not pooled with r2 models. The active GPT cohort follows an
-owner-authorized post-completion overwrite of 104 usage-limit failures, a
-deviation documented separately. One controlled core task,
-`test_in_b11_bucket`, is an all-zero floor; there are no all-one ceiling
-tasks. Full split and b09 sensitivity views are in
+The controlled rows do not show a consistent C1 advantage. GPT-5.6 Sol is a
+sampling-uncontrolled Codex reference anchor and is not pooled with r2 models.
+
+![Formal S7 benchmark overview](figures/s7/S7_F1_main_results.png)
+
+Figure 1 uses the completed S7 formal data, not an interim monitoring export.
+Its pass intervals are single-proportion Wilson intervals; condition
+comparisons use the task-paired bootstrap reported in the tables.
+
+The split-specific paired estimates show that neither split supplies a common
+direction across models:
+
+<!-- S7_CHECK:SPLIT_BEGIN -->
+| Model | test_in C1-C0 pp (95% bootstrap interval; 12 tasks) | test_out C1-C0 pp (95% bootstrap interval; 6 tasks) |
+|---|---:|---:|
+| qwen3.5:9b | +5.0 [-5.0, 13.3] | -4.2 [-23.3, 14.2] |
+| gemma4:26b | +8.3 [0.0, 22.2] | 0.0 [0.0, 0.0] |
+| qwen3.8:27b | -2.8 [-8.3, 0.0] | +11.1 [0.0, 22.2] |
+| qwen3-coder-next | -2.8 [-11.1, 5.6] | +11.1 [0.0, 33.3] |
+| llama3.1:8b | 0.0 [0.0, 0.0] | 0.0 [0.0, 0.0] |
+| gpt-5.6-sol (reference anchor) | 0.0 [-8.3, 8.3] | 0.0 [0.0, 0.0] |
+<!-- S7_CHECK:SPLIT_END -->
+
+### Strong-versus-weak process summary
+
+Here, *strong* is the fixed case-study panel (gemma4:26b, qwen3.8:27b, and
+qwen3-coder-next), and *weak* is qwen3.5:9b. Values are run-level median
+[IQR]. Binary metrics also show the raw occurrence rate in parentheses. Under
+r2, a step is one parsed tool result, so `steps` and `tool calls` are
+identical by construction.
+
+| Cohort / condition | n (tasks x repetitions x models) | Steps | Tool calls | Assistant turns | Validate-intent after last edit | Successful command after last edit | Any same-path `write_file` rewrite | Timeout |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| Strong / C0 | 162 (18 x 3 x 3) | 8.0 [7.0, 11.0] | 8.0 [7.0, 11.0] | 9.0 [7.2, 12.0] | 100 [0, 100]% (68.5%) | 100 [100, 100]% (93.8%) | 0 [0, 75]% (25.3%) | 0 [0, 0]% (0.0%) |
+| Strong / C1 | 162 (18 x 3 x 3) | 9.0 [7.0, 12.0] | 9.0 [7.0, 12.0] | 9.0 [7.0, 12.0] | 100 [0, 100]% (71.6%) | 100 [100, 100]% (97.5%) | 0 [0, 0]% (17.9%) | 0 [0, 0]% (0.0%) |
+| Weak / C0 | 89 usable of 90 (18 x 5) | 8.0 [6.0, 14.0] | 8.0 [6.0, 14.0] | 9.0 [7.0, 15.0] | 100 [0, 100]% (64.0%) | 100 [100, 100]% (86.5%) | 0 [0, 100]% (40.4%) | 0 [0, 0]% (1.1%) |
+| Weak / C1 | 89 usable of 90 (18 x 5) | 7.0 [5.0, 19.0] | 7.0 [5.0, 19.0] | 8.0 [6.0, 20.0] | 0 [0, 100]% (38.2%) | 100 [0, 100]% (65.2%) | 0 [0, 100]% (31.5%) | 0 [0, 0]% (1.1%) |
+
+The strict validation-intent metric is the preregistered primary process
+definition; any successful post-edit command is the sensitivity definition.
+The original qwen-generated directional hypothesis was specifically that C1
+would *decrease* validation after the last edit relative to C0. The table is a
+process description, not a mediation analysis.
+
+### Detectability and post-hoc informative-task sensitivity
+
+For the controlled three-repeat models, an approximate two-sided 5%, 80%-power
+minimum detectable difference was computed from the observed within-task
+Bernoulli variance: each condition's unbiased repeat variance is divided by
+three, the two condition variances are added, and the mean across 18 tasks is
+divided by 18 before multiplying the standard error by 1.96 + 0.842. This
+within-task-only planning calculation gives 11.6 points for gemma4:26b, 10.4
+for qwen3-coder-next, and 9.0 for qwen3.8:27b. Llama has zero observed variance
+at its floor, making the formula degenerate rather than demonstrating high
+power. The formal bootstrap remains the inferential analysis because it also
+respects task-level heterogeneity.
+
+The following sensitivity analysis is explicitly **post hoc**. For each
+model, it removes task pairs where both C0 and C1 are all failures or both are
+all passes, then repeats the task bootstrap. It is selection on observed
+outcomes and is not a replacement for the full 18-task result.
+
+| Model | Retained tasks | Removed all-0 | Removed all-1 | C1-C0 pp [95% bootstrap interval] |
+|---|---:|---:|---:|---:|
+| qwen3.5:9b | 11 | 3 | 4 | +3.2 [-11.8, 16.8] |
+| gemma4:26b | 3 | 5 | 10 | +33.3 [0.0, 66.7] |
+| qwen3.8:27b | 3 | 1 | 14 | +11.1 [-33.3, 33.3] |
+| qwen3-coder-next | 4 | 5 | 9 | +8.3 [-33.3, 50.0] |
+| llama3.1:8b | 0 | 18 | 0 | not estimable |
+| gpt-5.6-sol (reference anchor) | 2 | 2 | 14 | 0.0 [-33.3, 33.3] |
+
+### Denominator and overwrite reconciliation
+
+Qwen's core denominator is 89 rather than 54 because it was scheduled for
+five repeats per task (18 x 5 = 90) and one retry-exhausted transport failure
+was excluded in each of C0 and C1. Each other core condition used three
+repeats (18 x 3 = 54); the strong-model core had no protocol provider errors.
+Across all qwen S7 conditions, the five retry-exhausted records are distributed
+as follows: one C0 `test_out_c02_sessions`, one C1
+`test_in_a09_header`, two L3b `test_out_c02_sessions`, and one L3b
+`test_out_c03_consolidate`. Thus two affect the core denominators and three
+affect only the exploratory L3b denominator.
+
+The active GPT cohort has 108 records and 108 unique run ids: 54 C0 and 54 C1,
+with no exact run-id overlap. After parsing the `-rN` suffix, both conditions
+contain the same 54 task-repetition keys and neither contains duplicates. The
+pre-overwrite 104-record archive remains at
+`/tmp/s7-gpt-overwrite.qlslty`; the 42-record second-round archive remains at
+`/tmp/s7-gpt-overwrite-round2.lAppQs`. These are machine-local, non-durable
+locations, recorded in `data/s7_gpt_overwrite_audit_20261011.json` rather than
+silently treated as active data.
+
+One controlled core task, `test_in_b11_bucket`, is an all-zero floor; there
+are no all-one ceiling tasks. Full split and b09 sensitivity views are in
 `docs/s7_formal_results_20261011.md` and `results/tables/s7/`.
 
 ## 6. Case studies
@@ -96,7 +186,11 @@ and B05 had no qwen failure candidate. No same-task weak-success/strong-failure
 counterexample existed; this absence was retained. Recurrent strong-trajectory
 behaviors were reading before editing, validating after editing, avoiding
 repeated full rewrites, and rereading after editing. Full step tables are in
-`docs/case_studies.md`.
+`docs/case_studies.md`. Their mechanically defined strong-pass, strong-fail,
+weak-pass, and weak-fail occurrence rates are reported in
+`docs/behavior_outcome_crosstab.md`. The cross-tab uses only S4
+`dev_diagnose`; it is observational and does not imply that a behavior causes
+verifier success.
 
 ## 7. Patterns and anomalies
 
@@ -133,8 +227,10 @@ separately. No v2 skill is introduced here.
 
 ## 9. Was the intervention effective?
 
-The controlled S7 core does not show a consistent verifier-pass improvement
-from C1 across models or splits. v1 produces observable mechanism changes:
+The main finding is that the v1 mechanism was activated, but verifier pass
+rate did not change. The controlled S7 core likewise does not show a
+consistent verifier-pass improvement from C1 across models or splits. v1
+produces observable mechanism changes:
 explicit reference occurs in 48/60 runs and task-level validation rises by
 45.0 points relative to C1. Its paired verifier-pass difference is 0.0 points
 with a [-11.7, 13.3] bootstrap interval, so it does not meet the preregistered
@@ -163,11 +259,14 @@ cannot help outside this task pool.
 
 ## 11. Future directions
 
-S8 may compare an
-externalized process, a trajectory-imitation prompt, and a length-matched
-generic prompt on `dev_validate`; it must not retroactively modify S7. A new
-6--8-task untouched holdout would improve separation between diagnosis and
-evaluation.
+S8 was not executed because it is a post-S7, separately preregistered
+follow-up and this report-freeze task explicitly forbids new experiments.
+Running it now would also turn a dev-diagnose-derived proposal into an
+unregistered extension of the completed benchmark. If separately approved,
+S8 may compare an externalized process, a trajectory-imitation prompt, and a
+length-matched generic prompt on `dev_validate`; it must not retroactively
+modify S7. A new 6--8-task untouched holdout would improve separation between
+diagnosis and evaluation.
 
 ## Errata and methodological lessons
 

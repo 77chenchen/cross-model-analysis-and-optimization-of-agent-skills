@@ -1,0 +1,6 @@
+| behavior | strong-pass_count | strong-pass_n | strong-pass_rate | strong-fail_count | strong-fail_n | strong-fail_rate | weak-pass_count | weak-pass_n | weak-pass_rate | weak-fail_count | weak-fail_n | weak-fail_rate |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| read_before_edit | 47 | 47 | 1.0 | 6 | 6 | 1.0 | 10 | 10 | 1.0 | 8 | 8 | 1.0 |
+| validation_after_edit | 33 | 47 | 0.7021276595744681 | 6 | 6 | 1.0 | 3 | 10 | 0.3 | 5 | 8 | 0.625 |
+| avoids_rewrite | 36 | 47 | 0.7659574468085106 | 5 | 6 | 0.8333333333333334 | 8 | 10 | 0.8 | 6 | 8 | 0.75 |
+| reread_after_edit | 12 | 47 | 0.2553191489361702 | 3 | 6 | 0.5 | 2 | 10 | 0.2 | 4 | 8 | 0.5 |
