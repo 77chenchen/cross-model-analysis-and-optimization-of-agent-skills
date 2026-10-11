@@ -11,6 +11,12 @@ Research question: when a coding agent receives a written skill, does it repair 
 - For the weak target, qwen3.5:9b, C1 reduces the task-level rate of validation after the final edit by 25.0 percentage points while increasing verifier pass by 1.9 percentage points ([S7_T7_process_paired.csv](results/tables/s7/S7_T7_process_paired.csv); [S7_T2_core_paired_differences.csv](results/tables/s7/S7_T2_core_paired_differences.csv)).
 - The central question is therefore not only whether a skill improves pass rate, but whether it changes the path through reading, writing, validating, and terminating. For qwen3.5:9b, C1 produces 25.0 percentage points less post-edit validation, slightly longer trajectories, and more rewrites and repeated actions; verifier pass moves from 48.3% to 50.6%. Relative to C1, v1 is explicitly referenced in 80% of runs and raises post-edit validation by 45.0 percentage points, yet does not change verifier pass ([S7_T4_process_metrics.csv](results/tables/s7/S7_T4_process_metrics.csv); [S7_T5_activation.csv](results/tables/s7/S7_T5_activation.csv); [S7_T6_exploratory.csv](results/tables/s7/S7_T6_exploratory.csv); [S7_T7_process_paired.csv](results/tables/s7/S7_T7_process_paired.csv)).
 
+## Results at a glance
+
+[![Formal S7 verifier pass rates by model and condition](figures/s7/S7_F1_bar_results.png)](figures/s7/S7_F1_bar_results.pdf)
+
+**Formal S7 core result.** Bars show the C0/C1 verifier pass rate on all held-out tasks; whiskers are 95% Wilson intervals. The colored circles next to model names are original model-family badges, not vendor logos. Download the [vector PDF](figures/s7/S7_F1_bar_results.pdf) or [editable SVG](figures/s7/S7_F1_bar_results.svg). GPT-5.6 Sol remains a sampling-uncontrolled reference anchor.
+
 ## Paper
 
 Read the complete report as a [PDF](paper/main.pdf) or inspect the [LaTeX source](paper/main.tex).

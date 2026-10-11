@@ -1,0 +1,7 @@
+{
+  "figure": "S7_F1_bar_results",
+  "source": "results/tables/s7/S7_T1_model_condition_summary.csv",
+  "source_sha256": "6a7a8c1a5d1eb3ddba243935acef9bee99943612ecf1bd8a53274a85f8e83436",
+  "definition": "Grouped C0/C1 verifier pass rates with Wilson intervals; all formal S7 tasks.",
+  "model_badges": "Original monograms; not vendor logos."
+}
