@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Interactive view of the SkillTraj S7 formal results." />
+    <title>SkillTraj · Results</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main>
+      <header class="topbar">
+        <a class="brand" href="#top">SKILLTRAJ <span>RESULTS</span></a>
+        <nav><a href="#performance">Performance</a><a href="#mechanisms">Trajectories</a><a href="#methods">Methods</a></nav>
+        <a class="external" href="https://github.com/77chenchen/skill-trajectory-benchmark" target="_blank" rel="noreferrer">Repository ↗</a>
+      </header>
+      <section id="top" class="intro">
+        <div><p class="eyebrow">S7 FORMAL EVALUATION · 870 SCHEDULED RUNS</p><h1>Does a written skill change how coding agents work?</h1><p class="lede">Explore verifier-based pass rates and recorded agent trajectories under matched no-skill (C0) and fixed-skill (C1) conditions.</p></div>
+        <aside class="protocol"><strong>Controlled comparison</strong><span>Primary outcome: <code>verifier.json.passed</code></span><span>Uncontrolled GPT anchor is visually separated.</span></aside>
+      </section>
+      <section id="performance" class="panel">
+        <div class="section-head"><div><p class="eyebrow">01 · AGENT PERFORMANCE</p><h2>Resolution rate by model and condition</h2><p>Hover a point for exact values. Lines join C0 and C1 for the same model; intervals are 95% Wilson intervals.</p></div>
+          <div class="controls"><label>Split <select id="split"><option value="all">All tasks</option><option value="test_in">test_in</option><option value="test_out">test_out</option></select></label><label>Models <select id="models"><option value="controlled">Controlled only</option><option value="all">Include GPT anchor</option></select></label></div>
+        </div>
+        <div class="legend"><span><i class="dot c0"></i>C0 · no skill</span><span><i class="dot c1"></i>C1 · fixed skill</span><span><i class="dash"></i>GPT reference anchor</span><span class="right">Primary denominator excludes retry-exhausted provider errors.</span></div>
+        <div id="performance-chart" class="chart" aria-label="Pass rate chart"></div>
+        <div id="tooltip" class="tooltip" hidden></div>
+      </section>
+      <section id="mechanisms" class="grid">
+        <article class="panel"><p class="eyebrow">02 · TRAJECTORY SCALE</p><h2>Steps and tool calls per run</h2><p>Median with interquartile range. A process difference is not evidence of a pass-rate difference.</p><div id="process-chart" class="chart compact"></div></article>
+        <article class="panel"><p class="eyebrow">03 · OUTCOME FLAGS</p><h2>Observed non-exclusive flags</h2><p>Rows are model × condition. Hover cells for counts and denominators.</p><div id="flags-chart" class="chart compact"></div></article>
+      </section>
+      <section class="panel paired"><div class="section-head"><div><p class="eyebrow">04 · TASK-PAIRED CONTRASTS</p><h2>What changed in the weak-model trajectories?</h2></div><span class="chip">Exploratory process measures</span></div><div id="paired-table"></div></section>
+      <section id="methods" class="methods"><div><p class="eyebrow">READ THIS FIRST</p><h2>Interpretation guardrails</h2></div><ol><li>Pass means the frozen external verifier returned <code>passed: true</code>.</li><li>Conditions were interleaved under a locked schedule. Tasks—not repetitions—are the inferential units.</li><li>GPT-5.6 Sol is displayed as a reference anchor because its Codex path had uncontrolled sampling.</li><li>Charts are descriptive views of the released S7 tables; they do not add experiments or change the analysis.</li></ol></section>
+      <footer>SkillTraj · S7 formal results · <a href="https://github.com/77chenchen/skill-trajectory-benchmark/blob/main/docs/s7_formal_results_20261011.md" target="_blank" rel="noreferrer">Methods &amp; result note ↗</a></footer>
+    </main>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
