@@ -7,4 +7,4 @@
 - **Sample unit:** one completed run; `provider_error_protocol` rows are excluded from each displayed primary denominator.
 - **Statistics:** bars show `verifier.json.passed / primary_n`; error bars are 95% Wilson intervals for each individual condition, not tests of C1 minus C0.
 - **Source:** `results/tables/s7/S7_T1_model_condition_summary.csv`, `split=all` and conditions C0/C1.
-- **Integrity note:** colored circles are original family monograms, not vendor trademarks or logos.
+- **Visual encoding:** each model uses a vendor-family color; C0 is rendered as a light all-vector gradient and C1 as a saturated all-vector gradient. Colored circles are original family monograms, not vendor trademarks or logos.
