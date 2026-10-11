@@ -250,25 +250,34 @@ def kappa_forest() -> None:
         "tool_misuse": "Tool misuse",
         "file_corruption": "File corruption",
     }
-    rows.sort(key=lambda r: float(r["pabak"]))
-    fig, ax = plt.subplots(figsize=(5.5, 3.35), layout="constrained")
+    # Raw agreement is deliberately used as the visual encoding here: it makes
+    # the human-versus-judge comparison legible without asking readers to
+    # interpret two chance-adjusted coefficients.  Kappa/PABAK remain reported
+    # in the appendix text, where their base-rate caveat can be stated fully.
+    rows.sort(key=lambda r: (
+        int(r["human_positive_judge_positive"]) + int(r["human_negative_judge_negative"]),
+        r["label"],
+    ))
+    fig, ax = plt.subplots(figsize=(5.5, 3.45), layout="constrained")
     y = np.arange(len(rows))[::-1]
     for yi, row in zip(y, rows):
-        if row["kappa_estimable"].lower() == "true":
-            est, low, high = [float(row[k]) for k in ("kappa", "kappa_low", "kappa_high")]
-            ax.errorbar(est, yi + .10, xerr=[[est-low], [high-est]], fmt="o", color=BLUE,
-                        capsize=2, markersize=3.8, linewidth=.9)
-        estimate = float(row["pabak"])
-        ax.plot(estimate, yi - .10, marker="D", markerfacecolor="white", markeredgecolor="#D55E00",
-                color="#D55E00", markersize=3.8, linestyle="none")
         agree = int(row["human_positive_judge_positive"]) + int(row["human_negative_judge_negative"])
-        ax.text(1.13, yi, f"{agree}/24", ha="right", va="center", fontsize=7)
+        disagree = 24 - agree
+        ax.barh(yi, agree, height=.58, color="#2A9D8F", edgecolor="white", linewidth=.6, label="Same judgment" if yi == y[0] else None)
+        ax.barh(yi, disagree, left=agree, height=.58, color="#D9D9D9", edgecolor="white", linewidth=.6, label="Different judgment" if yi == y[0] else None)
+        ax.text(agree / 2, yi, f"{agree}/24 same", ha="center", va="center", fontsize=6.6,
+                color="white" if agree >= 10 else INK, fontweight="bold" if agree >= 10 else "normal")
+        if disagree:
+            ax.text(agree + disagree / 2, yi, f"{disagree}", ha="center", va="center", fontsize=6.5, color=INK)
     ax.set_yticks(y, [labels[row["label"]] for row in rows])
-    ax.set_xlim(0, 1.16); ax.set_xticks(np.arange(0, 1.01, .2))
-    ax.set_xlabel("Agreement coefficient", fontsize=7.2)
+    ax.set_xlim(0, 24); ax.set_xticks(np.arange(0, 25, 4))
+    ax.set_xlabel("Number of packets (out of 24)", fontsize=7.2)
     ax.tick_params(axis="both", labelsize=7, direction="out")
-    ax.grid(axis="x", color=GRID, linewidth=.45); ax.set_axisbelow(True)
+    # Tick marks give the scale without vertical rules crossing the in-bar counts.
+    ax.grid(False)
     ax.spines["top"].set_visible(False); ax.spines["right"].set_visible(False)
+    ax.legend(loc="lower left", bbox_to_anchor=(0.0, 1.02), ncol=2, frameon=False,
+              fontsize=6.7, handlelength=1.4, columnspacing=1.3)
     save(fig, "kappa_pabak.pdf")
 
 
