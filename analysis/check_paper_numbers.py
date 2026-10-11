@@ -112,7 +112,7 @@ def main() -> int:
         raise AssertionError("internal batch label remains in the manuscript")
     if "[repository URL to be added]" not in tex:
         raise AssertionError("repository URL placeholder missing")
-    for fig in ("main_results.pdf", "decoupling.pdf", "behavior_outcome.pdf", "failure_flags.pdf", "legacy_vs_verifier.pdf", "kappa_pabak.pdf"):
+    for fig in ("main_results.pdf", "decoupling.pdf", "behavior_outcome.pdf", "failure_flags.pdf", "legacy_vs_verifier.pdf", "kappa_pabak.png"):
         if not (PAPER / "figures" / fig).exists():
             raise AssertionError(f"missing figure asset: {fig}")
     print(f"PASS: {checked} numeric checks; abstract={len(words)} words; all required figure assets present.")
