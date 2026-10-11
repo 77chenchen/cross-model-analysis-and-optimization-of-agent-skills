@@ -206,12 +206,12 @@ failure predictors.
 This connects directly to Section 9: v1 externalizes these same behaviors.
 Its +45.0-point change in strict post-edit validation with no verifier-pass
 change is consistent with the cross-tab's observation that performing the
-behavior does not by itself explain success. The available weak-model failure
-taxonomy is in `docs/weak_failure_taxonomy.md`; it uses only the three
-human-audited judge labels allowed as conclusion evidence and retains an
-explicit `Other / unlabeled` column. Because none of the 98 in-scope failures
-was covered by that existing judge sample, the table documents a coverage gap
-rather than estimating failure-mode prevalence.
+behavior does not by itself explain success. The mechanical failure
+classification is in `docs/weak_failure_taxonomy.md`. Across the 98
+weak-target failures, terminal flags are non-exclusive: 57 have an empty final
+message, 13 reach the step limit, and 2 time out. The same document tabulates
+failed verifier checks and comparable strong-model S7 failure rows; these
+descriptive counts do not attribute a cause.
 
 ## 7. Patterns and anomalies
 
@@ -237,7 +237,14 @@ post-edit validation relative to C0. That direction is observed for qwen
 (task-level C1-minus-C0 validation after final edit: -25.0 points) but not
 across the independent r2 models: gemma is +11.1, qwen3.8 is 0.0, qwen-coder
 is -1.9, and llama is +38.9 points. Explicit C1 skill-reference rates also do
-not rise monotonically with model capability under the locked parser.
+not rise monotonically with model capability under the locked parser. For
+qwen3.8, qwen-coder-next, and llama, C1 was supplied inline in each serialized
+request rather than as a workspace skill file. A local re-scan of stored
+content and reasoning fields found literal skill markers in 0/54, 0/54, and
+1/54 usable C1 runs, respectively, matching the locked mention-based parser;
+see `docs/s7_c1_reference_diagnostic.md`. Thus the near-zero citation rate is
+a delivery-and-measurement limitation, not evidence that those models were not
+shown the protocol.
 
 ## 8. Skill modifications
 
@@ -272,7 +279,8 @@ cannot help outside this task pool.
 - GPT runs through Codex are a sampling-uncontrolled reference anchor.
 - The active GPT cohort overwrote 104 initial usage-limit failures after S7
   completion at the owner's direction, violating the original run-once rule;
-  it is descriptive only.
+  it is descriptive only. The temporary archives have been deleted; only the
+  retained manifest, `data/s7_gpt_overwrite_audit_20261011.json`, remains.
 - r2 and Codex expose different tool surfaces and cannot be assumed equivalent.
 - v1 and L3b lack a length-matched generic-prompt control (C3).
 - Post-hoc analyses include qwen-generated process hypotheses, S4 cross-model

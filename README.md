@@ -355,8 +355,28 @@ pre-S7 r2 cohorts. It deliberately excludes raw provider responses and the
 live S7 directory. The three raw-response release options and their tradeoffs
 are in `docs/data_release_policy.md`; the repository owner must choose one.
 
+## Reproduce released tables
+
+From a checkout containing `data/release/`, generate the released pre-S7 tables:
+
+```bash
+python3 -m analysis.make_tables
+```
+
+Expected output: CSV and Markdown under `results/tables/`. Formal S7 tables
+require locally retained `data/s7_runs/` (not included in `data/release/`):
+
+```bash
+python3 -m analysis.formal_s7_results
+python3 -m analysis.make_s7_figures
+python3 -m analysis.build_report_supplements
+python3 analysis/check_report_numbers.py
+```
+
+Expected output: `results/tables/s7/`, `results/s7/run_metrics.csv`, and
+supporting tables in `results/tables/report/`.
+
 ## Repository map and license
 
-See `docs/repository_layout.md`. `LICENSE` is an all-rights-reserved placeholder
-until the owner selects a public license. This agent does not change remote
-visibility.
+See `docs/repository_layout.md`. Source code is MIT licensed; released data and
+documentation are CC BY 4.0. This does not change remote visibility.

@@ -369,73 +369,112 @@ def retry_distribution(rows: list[dict[str, str]]) -> list[dict]:
     ]
 
 
-def weak_failure_taxonomy(rows: list[dict[str, str]]) -> list[dict]:
-    """Summarize only the three judge labels permitted as conclusion evidence.
-
-    Labels are non-exclusive.  A failure with none of the three permitted
-    labels, including a run never sent to the frozen judge, is counted once in
-    ``other_or_unlabeled``.
-    """
-    reliable = ("file_corruption", "tool_misuse", "missed_constraint")
-    packet_for_run = {item["run_id"]: item["packet_id"] for item in load(JUDGE_MANIFEST)}
-    judge_for_run: dict[str, set[str]] = {}
-    for run_id, packet_id in packet_for_run.items():
-        annotation = load(JUDGE_ANNOTATIONS / f"{packet_id}.json")
-        judge_for_run[run_id] = set(annotation.get("failure_modes") or [])
-
-    s4_runs, _ = s4_behavior_rows()
-    cohorts: dict[str, list[str]] = {
-        "S4 dev_diagnose": [run["run_id"] for run in s4_runs if run["cell"] == "weak-fail"],
-        "S7 C0": [
-            row["run_id"] for row in rows
-            if row["model"] == WEAK and row["condition"] == "C0"
-            and not as_bool(row["provider_error_protocol"])
-            and not as_bool(row["verifier_pass"])
-        ],
-        "S7 C1": [
-            row["run_id"] for row in rows
-            if row["model"] == WEAK and row["condition"] == "C1"
-            and not as_bool(row["provider_error_protocol"])
-            and not as_bool(row["verifier_pass"])
-        ],
+def _failure_record(run_dir: Path, cohort: str, metadata: dict, flags: dict) -> dict:
+    verifier = load(run_dir / "verifier.json")
+    checks = verifier.get("checks") if isinstance(verifier.get("checks"), dict) else {}
+    failed_checks = [name for name, passed in checks.items() if passed is not True]
+    listed = any(bool(flags.get(name)) for name in ("no_edit", "final_empty", "timeout", "compile_error", "max_steps_reached"))
+    return {
+        "cohort": cohort,
+        "run_id": metadata.get("run_id", run_dir.name),
+        "run_dir": str(run_dir),
+        "no_edit": bool(flags.get("no_edit")),
+        "final_empty": bool(flags.get("final_empty")),
+        "timeout": bool(flags.get("timeout")),
+        "compile_error": bool(flags.get("compile_error")),
+        "max_steps_reached": bool(flags.get("max_steps_reached")),
+        # A residual for terminal flags only; verifier checks are reported separately.
+        "other": not listed,
+        "failed_checks": failed_checks,
+        "verifier_error": verifier.get("error"),
     }
-    cohorts["Combined"] = [run_id for name, run_ids in cohorts.items() if name != "Combined" for run_id in run_ids]
-
-    output: list[dict] = []
-    for cohort, run_ids in cohorts.items():
-        label_sets = [judge_for_run.get(run_id, set()) for run_id in run_ids]
-        output.append({
-            "cohort": cohort,
-            "failed_runs_n": len(run_ids),
-            "judge_covered_n": sum(run_id in judge_for_run for run_id in run_ids),
-            **{label: sum(label in labels for labels in label_sets) for label in reliable},
-            "other_or_unlabeled": sum(not (set(reliable) & labels) for labels in label_sets),
-        })
-    return output
 
 
-def write_taxonomy_doc(rows: list[dict]) -> None:
+def mechanical_failure_records(rows: list[dict[str, str]]) -> list[dict]:
+    records: list[dict] = []
+    for metadata_path in sorted(S4_RUNS.glob("*/metadata.json")):
+        run_dir, metadata = metadata_path.parent, load(metadata_path)
+        if metadata.get("task_id") not in DEV_DIAGNOSE or metadata.get("requested_model_id") != WEAK:
+            continue
+        runtime = load(run_dir / "runtime_r2.json") or load(run_dir / "runtime.json")
+        if provider_error_protocol(metadata, runtime) or load(run_dir / "verifier.json").get("passed") is True:
+            continue
+        flags = dict(metadata.get("outcome_flags") or {})
+        flags["timeout"] = bool(flags.get("timeout")) or bool(metadata.get("process_timed_out"))
+        flags["max_steps_reached"] = runtime.get("finish_reason") == "max_steps"
+        records.append(_failure_record(run_dir, "S4 dev_diagnose / qwen3.5:9b", metadata, flags))
+    for row in rows:
+        model, condition = row["model"], row["condition"]
+        if condition not in {"C0", "C1"} or model not in ({WEAK} | STRONG):
+            continue
+        if as_bool(row["provider_error_protocol"]) or as_bool(row["verifier_pass"]):
+            continue
+        run_dir = ROOT / "data" / "s7_runs" / row["run_id"]
+        flags = {name: as_bool(row.get(name, "False")) for name in
+                 ("no_edit", "final_empty", "timeout", "compile_error", "max_steps_reached")}
+        metadata = load(run_dir / "metadata.json")
+        records.append(_failure_record(run_dir, f"S7 / {model} / {condition}", metadata, flags))
+    return records
+
+
+def weak_failure_taxonomy(rows: list[dict[str, str]]) -> tuple[list[dict], list[dict], list[dict]]:
+    records = mechanical_failure_records(rows)
+    groups = {
+        "S4 dev_diagnose / qwen3.5:9b": [r for r in records if r["cohort"] == "S4 dev_diagnose / qwen3.5:9b"],
+        "S7 / qwen3.5:9b / C0": [r for r in records if r["cohort"] == "S7 / qwen3.5:9b / C0"],
+        "S7 / qwen3.5:9b / C1": [r for r in records if r["cohort"] == "S7 / qwen3.5:9b / C1"],
+        "Combined weak target": [r for r in records if "qwen3.5:9b" in r["cohort"]],
+    }
+    for model in sorted(STRONG):
+        groups[f"S7 / {model} / C0+C1"] = [r for r in records if r["cohort"].startswith(f"S7 / {model} /")]
+    table = []
+    for cohort, selected in groups.items():
+        table.append({"cohort": cohort, "failed_runs_n": len(selected),
+                      **{flag: sum(r[flag] for r in selected) for flag in ("no_edit", "final_empty", "timeout", "compile_error", "max_steps_reached", "other")}})
+    checks = []
+    for cohort, selected in groups.items():
+        counter = Counter(name for record in selected for name in record["failed_checks"])
+        errors = sum(bool(record["verifier_error"]) for record in selected)
+        for name, count in sorted(counter.items()):
+            checks.append({"cohort": cohort, "verifier_failed_check": name, "count": count, "failed_runs_n": len(selected)})
+        if errors:
+            checks.append({"cohort": cohort, "verifier_failed_check": "verifier_error_no_named_check", "count": errors, "failed_runs_n": len(selected)})
+    return table, checks, records
+
+
+def write_taxonomy_doc(rows: list[dict], checks: list[dict]) -> None:
     lines = [
-        "# Weak-model failure taxonomy",
+        "# Mechanical failure classification",
         "",
         "> Scope: verifier-failing qwen3.5:9b runs in S4 `dev_diagnose` and",
-        "> formal S7 C0/C1. Retry-exhausted transport errors are excluded.",
-        "> The only judge labels used are `file_corruption`, `tool_misuse`, and",
-        "> `missed_constraint`, the three labels permitted as conclusion evidence",
-        "> by the human--judge agreement audit.",
+        "> formal S7 C0/C1; the lower comparison rows cover the three strong S7",
+        "> models. Retry-exhausted transport errors are excluded. Flags are mechanical",
+        "> and non-exclusive; a run can appear in several columns.",
         "",
-        "| Cohort | Failed runs n | Judge-covered n | File corruption | Tool misuse | Missed constraint | Other / unlabeled |",
-        "|---|---:|---:|---:|---:|---:|---:|",
+        "| Cohort | Failed runs n | No edit | Final empty | Timeout | Compile error | Max steps reached | Other terminal state |",
+        "|---|---:|---:|---:|---:|---:|---:|---:|",
     ]
     for row in rows:
         lines.append(
-            f"| {row['cohort']} | {row['failed_runs_n']} | {row['judge_covered_n']} | "
-            f"{row['file_corruption']} | {row['tool_misuse']} | {row['missed_constraint']} | "
-            f"{row['other_or_unlabeled']} |"
+            f"| {row['cohort']} | {row['failed_runs_n']} | {row['no_edit']} | {row['final_empty']} | "
+            f"{row['timeout']} | {row['compile_error']} | {row['max_steps_reached']} | {row['other']} |"
         )
     lines.extend([
         "",
-        "Labels are non-exclusive, so the three named columns can overlap. `Other / unlabeled` means that none of the three reliable labels was present; it includes failures outside the existing blinded judge sample. No new judge request was made. Consequently, the S7 rows primarily document missing taxonomy coverage and must not be read as evidence that the three failure modes were absent.",
+        "`Other terminal state` means none of the five named terminal flags was set; it does **not** mean no verifier failure. It is intentionally separate from the named verifier checks below. No new judge request was made.",
+        "",
+        "## Failed verifier checks",
+        "",
+        "| Cohort | Failed verifier check | Count | Denominator (failed runs) |",
+        "|---|---|---:|---:|",
+    ])
+    for row in checks:
+        lines.append(f"| {row['cohort']} | `{row['verifier_failed_check']}` | {row['count']} | {row['failed_runs_n']} |")
+    lines.extend([
+        "",
+        "## Judge-coverage gap retained for audit",
+        "",
+        "The existing 24 blinded judge packets cover none of the 98 in-scope weak-target failures. The earlier judge taxonomy therefore remains a coverage-gap observation, not a prevalence estimate. This mechanical table does not use judge labels.",
     ])
     TAXONOMY_DOC.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
@@ -447,7 +486,7 @@ def main() -> None:
     mde = minimum_detectable_effect(rows)
     informative = informative_task_sensitivity(rows)
     retries = retry_distribution(rows)
-    taxonomy = weak_failure_taxonomy(rows)
+    taxonomy, taxonomy_checks, taxonomy_records = weak_failure_taxonomy(rows)
 
     emit("strong_weak_process", process)
     emit("behavior_outcome_crosstab", behavior)
@@ -455,14 +494,16 @@ def main() -> None:
     emit("posthoc_informative_task_sensitivity", informative)
     emit("qwen_retry_exhausted_distribution", retries)
     emit("weak_failure_taxonomy", taxonomy)
+    emit("weak_failure_taxonomy_checks", taxonomy_checks)
     write_behavior_doc(behavior, behavior_runs, behavior_excluded)
-    write_taxonomy_doc(taxonomy)
+    write_taxonomy_doc(taxonomy, taxonomy_checks)
     print(json.dumps({
         "version": VERSION,
-        "tables": 6,
+        "tables": 7,
         "behavior_runs": len(behavior_runs),
         "behavior_excluded": len(behavior_excluded),
-        "weak_failures": taxonomy[-1]["failed_runs_n"],
+        "weak_failures": next(row["failed_runs_n"] for row in taxonomy if row["cohort"] == "Combined weak target"),
+        "mechanical_failure_records": len(taxonomy_records),
     }, sort_keys=True))
 
 
