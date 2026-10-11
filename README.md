@@ -1,7 +1,7 @@
 <a id="english"></a>
 <p align="right"><strong>English</strong> &nbsp;|&nbsp; <a href="#zh">中文</a></p>
 
-# Can Written Skills Change Coding-Agent Performance?
+# How Written Skills Change Coding-Agent Performance?
 
 Research question: when a coding agent receives a written skill, does it repair repository defects more successfully across models? Even when final pass rates do not change, does the skill alter how the agent reads, edits, and validates code?
 
@@ -133,7 +133,7 @@ Authors are pending. Replace the placeholder before external citation.
 <a id="zh"></a>
 <p align="right"><a href="#english">English</a> &nbsp;|&nbsp; <strong>中文</strong></p>
 
-# Written Skill能否改变Coding Agent的表现？
+# Written Skill 如何影响Coding Agent？
 
 研究问题：给coding agent加入一段skill后，它在不同模型上会不会更容易修好仓库中的缺陷；即使最终通过率不变，它的阅读、修改和验证路径又会怎样变化。
 
