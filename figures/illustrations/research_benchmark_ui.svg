@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1500" viewBox="0 0 1600 1500" role="img" aria-labelledby="title desc">
+  <title id="title">TrajectoryBench research benchmark overview</title>
+  <desc id="desc">A research dashboard inspired by the information hierarchy of LiveBench. It summarizes the locked benchmark protocol, experimental conditions, model panel, runner controls, and verifier-based outcome without displaying unfinished S7 results.</desc>
+
+  <defs>
+    <style>
+      .ui { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; }
+      .mono { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; }
+      .ink { fill: #172033; }
+      .muted { fill: #657084; }
+      .blue { fill: #315bd8; }
+      .green { fill: #39aa7f; }
+      .white { fill: #ffffff; }
+      .hairline { stroke: #dce2ec; stroke-width: 1.5; }
+      .card { fill: #ffffff; stroke: #dce2ec; stroke-width: 1.5; }
+      .tiny { font-size: 12px; letter-spacing: 2.1px; }
+      .small { font-size: 14px; }
+      .body { font-size: 17px; }
+      .nav { font-size: 15px; font-weight: 550; }
+      .label { font-size: 13px; font-weight: 650; letter-spacing: 1px; }
+      .metric { font-size: 28px; font-weight: 760; }
+      .section { font-size: 27px; font-weight: 760; }
+      .rowtitle { font-size: 16px; font-weight: 700; }
+      .headline { font-size: 56px; font-weight: 780; letter-spacing: -2.2px; }
+    </style>
+
+    <filter id="softShadow" x="-10%" y="-15%" width="120%" height="135%">
+      <feDropShadow dx="0" dy="5" stdDeviation="8" flood-color="#1f2b45" flood-opacity="0.055"/>
+    </filter>
+
+    <marker id="arrowBlue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#315bd8"/>
+    </marker>
+
+    <pattern id="dotGrid" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="#dfe5ef"/>
+    </pattern>
+  </defs>
+
+  <!-- Canvas -->
+  <rect width="1600" height="1500" fill="#f5f7fb"/>
+  <rect x="0" y="0" width="1600" height="1500" fill="url(#dotGrid)" opacity="0.2"/>
+
+  <!-- Navigation -->
+  <g class="ui">
+    <rect x="0" y="0" width="1600" height="86" fill="#f8f9fc"/>
+    <line x1="0" y1="85" x2="1600" y2="85" stroke="#dce2ec" stroke-width="1.5"/>
+
+    <circle cx="34" cy="43" r="6" fill="#39aa7f"/>
+    <text x="51" y="51" class="ink" font-size="23" font-weight="780">TrajectoryBench</text>
+    <rect x="242" y="29" width="71" height="27" rx="5" fill="none" stroke="#52aa8a" stroke-width="1.2"/>
+    <text x="257" y="48" class="mono green" font-size="12" letter-spacing="1.4">S7 LIVE</text>
+
+    <text x="1050" y="49" class="nav ink">Protocol</text>
+    <text x="1158" y="49" class="nav muted">Models</text>
+    <text x="1253" y="49" class="nav muted">Measures</text>
+    <text x="1361" y="49" class="nav muted">Artifacts</text>
+    <text x="1464" y="49" class="nav muted">Code ↗</text>
+  </g>
+
+  <!-- Hero -->
+  <g class="ui">
+    <text x="46" y="152" class="mono tiny blue">SKILL-GUIDED CODING AGENT BENCHMARK</text>
+
+    <text x="46" y="222" class="headline ink">When do coding agents</text>
+    <text x="46" y="286" class="headline ink">turn guidance into action?</text>
+
+    <text x="46" y="340" class="body muted">A locked, verifier-backed study of how models inspect, edit, validate, and finish.</text>
+    <text x="46" y="370" class="body muted">Compare conditions by task—not by anecdotes—and keep exploratory mechanisms separate.</text>
+
+    <!-- Hero metric rail -->
+    <g transform="translate(1042 126)" filter="url(#softShadow)">
+      <rect width="510" height="224" rx="12" class="card"/>
+      <text x="26" y="34" class="mono tiny muted">LOCKED STUDY SCALE</text>
+      <line x1="26" y1="52" x2="484" y2="52" class="hairline"/>
+
+      <g transform="translate(26 76)">
+        <text class="metric ink">18</text>
+        <text x="0" y="27" class="small muted">held-out tasks</text>
+      </g>
+      <g transform="translate(150 76)">
+        <text class="metric ink">6</text>
+        <text x="0" y="27" class="small muted">model panel</text>
+      </g>
+      <g transform="translate(274 76)">
+        <text class="metric ink">870</text>
+        <text x="0" y="27" class="small muted">scheduled runs</text>
+      </g>
+      <g transform="translate(408 76)">
+        <text class="metric ink">4</text>
+        <text x="0" y="27" class="small muted">conditions</text>
+      </g>
+
+      <rect x="26" y="161" width="458" height="38" rx="19" fill="#eef7f3"/>
+      <circle cx="48" cy="180" r="5" fill="#39aa7f"/>
+      <text x="64" y="185" class="mono" fill="#27795f" font-size="13">RUNNING FROM IMMUTABLE SCHEDULES</text>
+    </g>
+  </g>
+
+  <!-- Protocol release rail -->
+  <g class="ui" transform="translate(46 416)" filter="url(#softShadow)">
+    <rect width="1506" height="150" rx="12" class="card"/>
+    <text x="28" y="35" class="mono tiny muted">RESEARCH PROTOCOL</text>
+    <text x="1375" y="35" class="mono" fill="#315bd8" font-size="15" font-weight="650">S7 · LOCKED</text>
+
+    <line x1="38" y1="84" x2="1468" y2="84" stroke="#315bd8" stroke-width="2"/>
+
+    <g class="mono" font-size="11" text-anchor="middle">
+      <g transform="translate(38 84)">
+        <circle r="8" fill="#315bd8"/>
+        <text y="38" class="muted">D1 · TASKS</text>
+      </g>
+      <g transform="translate(273 84)">
+        <circle r="8" fill="#315bd8"/>
+        <text y="38" class="muted">D2 · RUNS</text>
+      </g>
+      <g transform="translate(508 84)">
+        <circle r="8" fill="#315bd8"/>
+        <text y="38" class="muted">D3 · DIAGNOSE</text>
+      </g>
+      <g transform="translate(743 84)">
+        <circle r="8" fill="#315bd8"/>
+        <text y="38" class="muted">D4 · SKILL v1</text>
+      </g>
+      <g transform="translate(978 84)">
+        <circle r="8" fill="#315bd8"/>
+        <text y="38" class="muted">D5 · PILOT</text>
+      </g>
+      <g transform="translate(1213 84)">
+        <circle r="8" fill="#315bd8"/>
+        <text y="38" class="muted">L3b · GUARDRAIL</text>
+      </g>
+      <g transform="translate(1468 84)">
+        <circle r="13" fill="#eaf7f2" stroke="#39aa7f" stroke-width="2"/>
+        <circle r="5" fill="#39aa7f"/>
+        <text y="38" fill="#27795f">S7 · BENCHMARK</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Section 01 -->
+  <g class="ui">
+    <text x="46" y="643" class="mono" fill="#728099" font-size="14">01</text>
+    <text x="82" y="643" class="section ink">Benchmark design</text>
+    <text x="46" y="677" class="body muted">One frozen task enters controlled conditions; every trajectory ends at the same external verifier.</text>
+
+    <g transform="translate(46 716)">
+      <!-- Task card -->
+      <rect x="0" y="0" width="265" height="250" rx="12" class="card"/>
+      <rect x="0" y="0" width="265" height="6" rx="3" fill="#8e9aae"/>
+      <text x="24" y="40" class="mono tiny muted">INPUT</text>
+      <text x="24" y="76" class="rowtitle ink">Frozen task package</text>
+      <text x="24" y="107" class="small muted">task.md</text>
+      <text x="24" y="133" class="small muted">fixture + seed workspace</text>
+      <text x="24" y="159" class="small muted">external verifier</text>
+
+      <rect x="24" y="190" width="96" height="31" rx="15.5" fill="#f0f3f8"/>
+      <text x="72" y="210" class="mono" text-anchor="middle" fill="#556277" font-size="11">test_in ×12</text>
+      <rect x="129" y="190" width="110" height="31" rx="15.5" fill="#f0f3f8"/>
+      <text x="184" y="210" class="mono" text-anchor="middle" fill="#556277" font-size="11">test_out ×6</text>
+
+      <!-- Arrow 1 -->
+      <line x1="278" y1="125" x2="324" y2="125" stroke="#315bd8" stroke-width="2" marker-end="url(#arrowBlue)"/>
+
+      <!-- Conditions card -->
+      <rect x="340" y="0" width="440" height="250" rx="12" class="card"/>
+      <rect x="340" y="0" width="440" height="6" rx="3" fill="#315bd8"/>
+      <text x="364" y="40" class="mono tiny muted">CONDITIONS</text>
+
+      <g transform="translate(364 62)">
+        <rect width="184" height="53" rx="8" fill="#f0f2f6" stroke="#d6dce6"/>
+        <circle cx="22" cy="26.5" r="7" fill="#9a9a9a"/>
+        <text x="40" y="23" class="label ink">C0 · NO SKILL</text>
+        <text x="40" y="40" class="mono" fill="#7a8495" font-size="10">CORE CONTROL</text>
+      </g>
+      <g transform="translate(563 62)">
+        <rect width="193" height="53" rx="8" fill="#edf3fb" stroke="#b9cbe4"/>
+        <circle cx="22" cy="26.5" r="7" fill="#3b6ea5"/>
+        <text x="40" y="23" class="label ink">C1 · SKILL v0</text>
+        <text x="40" y="40" class="mono" fill="#587391" font-size="10">CORE TREATMENT</text>
+      </g>
+      <g transform="translate(364 128)">
+        <rect width="184" height="53" rx="8" fill="#ebf7f4" stroke="#a9d8cc"/>
+        <circle cx="22" cy="26.5" r="7" fill="#2a9d8f"/>
+        <text x="40" y="23" class="label ink">v1 · REVISED</text>
+        <text x="40" y="40" class="mono" fill="#4f7f77" font-size="10">EXPLORATORY</text>
+      </g>
+      <g transform="translate(563 128)">
+        <rect width="193" height="53" rx="8" fill="#fff5e9" stroke="#eccaa2"/>
+        <circle cx="22" cy="26.5" r="7" fill="#e08e2b"/>
+        <text x="40" y="23" class="label ink">L3b · REMINDER</text>
+        <text x="40" y="40" class="mono" fill="#8f6d42" font-size="10">EXPLORATORY</text>
+      </g>
+      <text x="364" y="220" class="mono" fill="#7a8495" font-size="11">TASK × CONDITION × REPETITION, INTERLEAVED</text>
+
+      <!-- Arrow 2 -->
+      <line x1="794" y1="125" x2="840" y2="125" stroke="#315bd8" stroke-width="2" marker-end="url(#arrowBlue)"/>
+
+      <!-- Runner card -->
+      <rect x="856" y="0" width="265" height="250" rx="12" class="card"/>
+      <rect x="856" y="0" width="265" height="6" rx="3" fill="#8c6bb1"/>
+      <text x="880" y="40" class="mono tiny muted">EXECUTION</text>
+      <text x="880" y="76" class="rowtitle ink">Minimal runner r2</text>
+      <text x="880" y="108" class="small muted">temperature 0.5</text>
+      <text x="880" y="134" class="small muted">max steps 40</text>
+      <text x="880" y="160" class="small muted">hard timeout 20 min</text>
+      <text x="880" y="186" class="small muted">raw events + tool calls</text>
+      <rect x="880" y="207" width="214" height="27" rx="13.5" fill="#f4eff9"/>
+      <text x="987" y="225" class="mono" text-anchor="middle" fill="#6f538d" font-size="10">GPT = CODEX REFERENCE ANCHOR</text>
+
+      <!-- Arrow 3 -->
+      <line x1="1135" y1="125" x2="1181" y2="125" stroke="#315bd8" stroke-width="2" marker-end="url(#arrowBlue)"/>
+
+      <!-- Outcome card -->
+      <rect x="1197" y="0" width="309" height="250" rx="12" class="card"/>
+      <rect x="1197" y="0" width="309" height="6" rx="3" fill="#39aa7f"/>
+      <text x="1221" y="40" class="mono tiny muted">PRIMARY OUTCOME</text>
+      <text x="1221" y="77" class="rowtitle ink">verifier.json.passed</text>
+
+      <g transform="translate(1221 99)">
+        <circle cx="12" cy="12" r="12" fill="#eaf7f2"/>
+        <path d="M6 12.5 L10.3 16.5 L18.5 7.5" fill="none" stroke="#29916c" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="36" y="17" class="small muted">task-level pairing</text>
+      </g>
+      <g transform="translate(1221 140)">
+        <circle cx="12" cy="12" r="12" fill="#edf3fb"/>
+        <path d="M7 12 H17 M12 7 V17" stroke="#315bd8" stroke-width="2" stroke-linecap="round"/>
+        <text x="36" y="17" class="small muted">process measures</text>
+      </g>
+      <g transform="translate(1221 181)">
+        <circle cx="12" cy="12" r="12" fill="#fff5e9"/>
+        <path d="M12 6 V13 M12 17 V18" stroke="#c97c20" stroke-width="2.2" stroke-linecap="round"/>
+        <text x="36" y="17" class="small muted">errors kept visible</text>
+      </g>
+      <text x="1221" y="228" class="mono" fill="#7a8495" font-size="10">NO RESULT-AWARE RETRIES</text>
+    </g>
+  </g>
+
+  <!-- Section 02 -->
+  <g class="ui">
+    <text x="46" y="1043" class="mono" fill="#728099" font-size="14">02</text>
+    <text x="82" y="1043" class="section ink">Model panel</text>
+    <text x="46" y="1077" class="body muted">Open-weight models share runner r2; GPT remains a separately marked reference anchor.</text>
+
+    <g transform="translate(46 1110)" filter="url(#softShadow)">
+      <rect width="1506" height="322" rx="12" class="card"/>
+
+      <!-- Header -->
+      <text x="25" y="32" class="mono tiny muted">MODEL</text>
+      <text x="385" y="32" class="mono tiny muted">STUDY ROLE</text>
+      <text x="720" y="32" class="mono tiny muted">RUNNER</text>
+      <text x="920" y="32" class="mono tiny muted">CONDITIONS</text>
+      <text x="1322" y="32" class="mono tiny muted">SAMPLING</text>
+      <line x1="0" y1="48" x2="1506" y2="48" class="hairline"/>
+
+      <!-- row 1 -->
+      <g transform="translate(0 49)">
+        <circle cx="25" cy="22" r="6" fill="#d55e00"/>
+        <text x="42" y="27" class="rowtitle ink">qwen3.5:9b</text>
+        <rect x="188" y="8" width="103" height="27" rx="13.5" fill="#fff0e8"/>
+        <text x="239" y="26" class="mono" text-anchor="middle" fill="#a6490a" font-size="10">WEAK TARGET</text>
+        <text x="385" y="27" class="small muted">primary mechanism probe</text>
+        <text x="720" y="27" class="mono small ink">r2</text>
+        <text x="920" y="27" class="mono small ink">C0 · C1 · v1 · L3b</text>
+        <text x="1322" y="27" class="mono small muted">controlled*</text>
+      </g>
+      <line x1="0" y1="94" x2="1506" y2="94" class="hairline"/>
+
+      <!-- row 2 -->
+      <g transform="translate(0 94)">
+        <circle cx="25" cy="22" r="6" fill="#009e73"/>
+        <text x="42" y="27" class="rowtitle ink">gemma4:26b</text>
+        <text x="385" y="27" class="small muted">cross-model comparison</text>
+        <text x="720" y="27" class="mono small ink">r2</text>
+        <text x="920" y="27" class="mono small ink">C0 · C1</text>
+        <text x="1322" y="27" class="mono small muted">controlled*</text>
+      </g>
+      <line x1="0" y1="139" x2="1506" y2="139" class="hairline"/>
+
+      <!-- row 3 -->
+      <g transform="translate(0 139)">
+        <circle cx="25" cy="22" r="6" fill="#0072b2"/>
+        <text x="42" y="27" class="rowtitle ink">qwen3.8:27b</text>
+        <text x="385" y="27" class="small muted">cross-model comparison</text>
+        <text x="720" y="27" class="mono small ink">r2</text>
+        <text x="920" y="27" class="mono small ink">C0 · C1</text>
+        <text x="1322" y="27" class="mono small muted">controlled*</text>
+      </g>
+      <line x1="0" y1="184" x2="1506" y2="184" class="hairline"/>
+
+      <!-- row 4 -->
+      <g transform="translate(0 184)">
+        <circle cx="25" cy="22" r="6" fill="#8c6bb1"/>
+        <text x="42" y="27" class="rowtitle ink">qwen3-coder-next</text>
+        <text x="385" y="27" class="small muted">coding specialist comparison</text>
+        <text x="720" y="27" class="mono small ink">r2</text>
+        <text x="920" y="27" class="mono small ink">C0 · C1</text>
+        <text x="1322" y="27" class="mono small muted">controlled*</text>
+      </g>
+      <line x1="0" y1="229" x2="1506" y2="229" class="hairline"/>
+
+      <!-- row 5 -->
+      <g transform="translate(0 229)">
+        <circle cx="25" cy="22" r="6" fill="#cc79a7"/>
+        <text x="42" y="27" class="rowtitle ink">llama3.1:8b</text>
+        <text x="385" y="27" class="small muted">lower-bound + format stress</text>
+        <text x="720" y="27" class="mono small ink">r2</text>
+        <text x="920" y="27" class="mono small ink">C0 · C1</text>
+        <text x="1322" y="27" class="mono small muted">controlled*</text>
+      </g>
+      <line x1="0" y1="274" x2="1506" y2="274" class="hairline"/>
+
+      <!-- row 6 -->
+      <g transform="translate(0 274)">
+        <circle cx="25" cy="22" r="6" fill="#ffffff" stroke="#3b3b3b" stroke-width="2"/>
+        <text x="42" y="27" class="rowtitle ink">gpt-5.6-sol</text>
+        <rect x="188" y="8" width="151" height="27" rx="13.5" fill="#f0f1f3"/>
+        <text x="263" y="26" class="mono" text-anchor="middle" fill="#555b64" font-size="10">REFERENCE ANCHOR</text>
+        <text x="385" y="27" class="small muted">descriptive reference only</text>
+        <text x="720" y="27" class="mono small ink">Codex</text>
+        <text x="920" y="27" class="mono small ink">C0 · C1</text>
+        <text x="1322" y="27" class="mono small muted">uncontrolled</text>
+      </g>
+    </g>
+
+    <text x="46" y="1472" class="mono" fill="#748096" font-size="11">* Requested temperature = 0.5; effective endpoint sampling settings are recorded when available. No S7 outcomes are shown in this protocol view.</text>
+    <text x="1552" y="1472" class="mono" text-anchor="end" fill="#315bd8" font-size="11">PROTOCOL VIEW · 2026-10-10</text>
+  </g>
+</svg>
