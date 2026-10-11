@@ -150,7 +150,7 @@ Authors are pending. Replace the placeholder before external citation.
 
 ![Figure 1: controlled C0/C1 results, process depth, and outcome flags](figures/s7/S7_F1_main_results.png)
 
-矢量版主图见 [Figure 1 PDF](figures/s7/S7_F1_main_results.pdf)。完整论文见 [PDF](paper/main.pdf) 与 [LaTeX 源码](paper/main.tex)；[report.md](report.md) 仅作为论文入口页，避免两份正文随时间产生不一致。
+完整报告见 [PDF](paper/main.pdf) 与 [LaTeX 源码](paper/main.tex);矢量版主图见 [Figure 1 PDF](figures/s7/S7_F1_main_results.pdf)。
 
 ## 目录
 
