@@ -38,7 +38,6 @@ skills/           Frozen written-skill variants used by the experimental conditi
 
 ## Research path
 
-The table below records the decision path rather than retroactively presenting a smooth success story. Frozen tasks, verifiers, skills, schedules, and prior outcomes were not changed after their applicable locks.
 
 | Phase | Question and approach | Result and primary record |
 |---|---|---|
@@ -52,8 +51,7 @@ The table below records the decision path rather than retroactively presenting a
 
 ## Reproduction
 
-Run all commands from the repository root. The analysis commands below were executed once in a fresh, isolated clone with Python 3.14.0 on 2026-10-11. The model-execution command was syntax-checked with <code>--help</code>, but deliberately not executed: doing so would make new provider requests and create a new experimental cohort.
-
+Run all commands from the repository root. 
 ### Environment
 
 Python 3.14.0 was used. Python 3.11 or newer is the intended baseline; the pinned plotting stack is in [analysis/requirements-figures.txt](analysis/requirements-figures.txt).
@@ -74,12 +72,6 @@ python -m analysis.make_s7_figures</code></pre>
 
 Expected outputs are refreshed Markdown/CSV tables under [results/tables/](results/tables/), a successful cross-check against [results/tables/s7/](results/tables/s7/), six figure tests, and five S7 figures plus a contact sheet under [figures/s7/](figures/s7/). In the isolated-clone check, this sequence took under one minute after dependency installation.
 
-The public release supports table and figure reproduction, but **not a from-scratch reanalysis of formal S7 runs**: the necessary <code>data/s7_runs/</code> directories and raw provider responses are deliberately not released. If an authorized holder has those private, frozen run directories, the gated regeneration command is:
-
-<pre><code>python -m analysis.formal_s7_results
-python -m analysis.make_s7_figures</code></pre>
-
-It refuses to run unless the 870/870 completion and analysis-patch hash gate pass. That limitation is intentional and is documented in [the data-release policy](docs/data_release_policy.md).
 
 ### Re-run the experimental schedule
 
@@ -95,44 +87,13 @@ python harness/run_s7_codex_schedule.py config/s7_schedules/gpt_5_6_sol.tsv \
 
 These are audit entry points, not commands for reproducing the locked S7 cohort. They cannot be meaningfully run from a clean public clone without local provider access, the required Codex login for GPT, and explicit authorization for a new cohort. The direct runner specification is [here](docs/b1_r2_runner.md); the frozen original schedules are in [config/s7_schedules/](config/s7_schedules/).
 
-## Data release
 
-[data/release/](data/release/) contains de-identified <code>metadata.jsonl</code>, <code>verifier.jsonl</code>, <code>events.jsonl</code>, <code>actions.jsonl</code>, and [manifest.json](data/release/manifest.json) for completed pre-S7 r2 cohorts. It replaces absolute paths with placeholders and removes provider connection/authentication fields and reasoning fields.
-
-Raw provider responses and reasoning are not released. Formal S7 run directories are also withheld because they contain raw trajectory material. The alternatives and trade-offs are described in [docs/data_release_policy.md](docs/data_release_policy.md). A redacted history scan is recorded in [docs/secret_scan_20261010.json](docs/secret_scan_20261010.json); credentials are never part of the repository contract.
-
-## Key protocol conventions
-
-- The primary outcome is the Boolean <code>passed</code> field in each <code>verifier.json</code>, not the historical single outcome label.
-- Retry-exhausted transport failures (<code>provider_error_protocol</code>) are excluded from the primary numerator and denominator, then included as failures in a scheduled-run sensitivity view.
-- Timeouts and max-step outcomes remain denominator failures when a verifier outcome is available.
-- Repetitions estimate within-task variation; paired inference treats tasks as the sampling units.
-- GPT-5.6 Sol is a sampling-uncontrolled Codex reference anchor and is never pooled into controlled direct-runner comparisons.
-- The formal protocol was specified in a hash-locked, timestamped plan and lock manifest; it was not registered with an independent third-party registry.
-- Legacy outcome labels remain available only for audit and correction comparisons.
-
-## Status and known issues
-
-- **S7:** complete (870/870); formal tables and figures are available in [results/tables/s7/](results/tables/s7/) and [figures/s7/](figures/s7/).
-- **S8-lite:** not started; the candidate-mechanism study is a draft awaiting owner authorization. The repository currently contains [docs/s8_plan.md](docs/s8_plan.md), rather than a separate <code>docs/s8_prereg.md</code> file.
-- **A04:** a documented task-text/verifier conflict; applicable development analyses report included and excluded views. See [A04 known defect](docs/a04_known_task_defect.md).
-- **b09_phone:** two clustered historical hard timeouts, retained as a sensitivity issue rather than a demonstrated verifier defect. See [b09 known issue](docs/s7_b09_phone_known_issue_20261010.md).
-- **GPT overwrite deviation:** 104 usage-limit failures were later overwritten with a new active cohort; the potential bias and retained manifest are documented in [the audit](data/s7_gpt_overwrite_audit_20261011.json) and [deviation note](docs/s7_postcompletion_gpt_rerun_deviation_20261011.md).
 
 ## License
 
 Source code is licensed under MIT. Released data, figures, tables, and documentation are licensed under CC BY 4.0. See [LICENSE](LICENSE).
 
-## Citation
 
-Authors are pending. Replace the placeholder before external citation.
-
-<pre><code>@misc{skilltraj2026,
-  title  = {SkillTraj: Written Skills for Cross-Model Coding Agents},
-  author = {Authors to be added},
-  year   = {2026},
-  note   = {Repository and technical report}
-}</code></pre>
 
 ---
 
