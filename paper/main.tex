@@ -21,6 +21,9 @@
 \setlength{\parskip}{0pt}
 \setlength{\emergencystretch}{1.5em}
 \captionsetup{font=small,labelfont=bf}
+\makeatletter
+\setlength{\@fptop}{0pt}
+\makeatother
 
 \newcommand{\pp}{\,\text{pp}}
 \newcommand{\QwenWeak}{\texttt{qwen3.5:\allowbreak 9b}}
@@ -32,7 +35,7 @@
 \newcommand{\SkillTraj}{\textsc{SkillTraj}}
 
 \title{Written Skills Alter Validation Behavior Without Consistently Improving Repository Repair}
-\author{Anonymous Authors}
+\author{Wang Qichen}
 \date{}
 
 \begin{document}
@@ -244,7 +247,7 @@ Reread after edit & 12/47 (25.5\%) & 3/6 (50.0\%) & 2/10 (20.0\%) & 4/8 (50.0\%)
 \subsection{Mechanical failure classification}
 Among 98 verifier-failing weak-target runs from development diagnosis and held-out C0/C1, terminal flags were non-exclusive: 57 had an empty final message, 13 reached the step limit, two timed out, and two had a compile error. In the three stronger model configurations' held-out C0/C1 failures (\(n=97\)), five reached the step limit and five had empty final messages. Failed verifier checks also included hidden-boundary and verifier-exception categories; details and counts are in the appendix. The sampled earlier judge packets cover none of these 98 weak-target failures, so the classifications in \cref{fig:failures} are mechanical rather than judge-derived.
 
-\begin{figure}[t]
+\begin{figure}[!htbp]
 \centering
 \includegraphics[width=\textwidth]{failure_flags.pdf}
 \caption{Mechanical terminal flags among verifier-failing runs. Bars show the percentage of runs in each cohort carrying a flag; flags are non-exclusive and counts are printed beside each bar. Denominators are 98 weak-target failures and 97 failures from three stronger models; no interval is shown.}
@@ -256,7 +259,7 @@ Human--judge agreement was assessed on 24 packets; agreement statistics and thei
 \subsection{Evaluation pipeline}
 The evaluation freezes tasks and verifiers, interleaves conditions, records tool trajectories, and verifies final workspaces before task-paired analysis (Figure~\ref{fig:pipeline}).
 
-\begin{figure}[t]
+\begin{figure}[!htbp]
 \centering
 \begin{tikzpicture}[
   node distance=0.2cm,
