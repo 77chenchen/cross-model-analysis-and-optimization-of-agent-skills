@@ -142,7 +142,7 @@ Authors are pending. Replace the placeholder before external citation.
 
 ## 核心结论
 
-- 在六个受控模型配置中，C0（不提供技能指令）与 C1（提供固定技能指令）的通过率相比C1有提升（[S7_T1_model_condition_summary.csv](results/tables/s7/S7_T1_model_condition_summary.csv)、[S7_T2_core_paired_differences.csv](results/tables/s7/S7_T2_core_paired_differences.csv)）。
+- 在六个受控模型配置中，C1（提供固定技能指令）的通过率相比 C0（不提供技能指令 有提升（[S7_T1_model_condition_summary.csv](results/tables/s7/S7_T1_model_condition_summary.csv)、[S7_T2_core_paired_differences.csv](results/tables/s7/S7_T2_core_paired_differences.csv)）。
 - 对弱目标模型 qwen3.5:9b，C1 使“最终一次编辑后再验证”的任务级比例降低 25.0 个百分点，通过率增加 1.9 个百分点（[S7_T7_process_paired.csv](results/tables/s7/S7_T7_process_paired.csv)、[S7_T2_core_paired_differences.csv](results/tables/s7/S7_T2_core_paired_differences.csv)）。
 - 探索性 v1 指令使同一验证行为提高 45.0 个百分点，但相对 C1 的通过率没有变化（[S7_T7_process_paired.csv](results/tables/s7/S7_T7_process_paired.csv)、[S7_T6_exploratory.csv](results/tables/s7/S7_T6_exploratory.csv)）。
 
