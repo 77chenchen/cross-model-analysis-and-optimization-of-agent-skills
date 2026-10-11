@@ -1,0 +1,240 @@
+{
+  "protocol": "s8-dev-only-v1",
+  "model": "qwen3.5:9b",
+  "schedule_seed": 20261011,
+  "tasks": [
+    "pilot_a02_config_parser",
+    "pilot_a04_dependency_order",
+    "pilot_a06_path_safety",
+    "pilot_b02_json_normalization",
+    "pilot_b04_multifile_reconciliation",
+    "pilot_b06_schema_conversion"
+  ],
+  "conditions": [
+    "C1",
+    "externalized",
+    "imitation",
+    "generic_control"
+  ],
+  "repetitions": 8,
+  "scheduled_runs": 192,
+  "schedule_sha256": "60497c1401a1c23ec67da4a17edcc9fcbbc6833be3247a45570d7571298d8d19",
+  "prompts": {
+    "pilot_a02_config_parser/C1": {
+      "task_id": "pilot_a02_config_parser",
+      "condition": "C1",
+      "semantic_condition": "A-v0",
+      "prompt_sha256": "e4aa639fe8ff47457893ee31e111669d8d55f0e21119dae71ac30993dc90041d",
+      "guidance_sha256": "dc21abe4db14593b77d3d85065362a655dd0d84cde2c318d5a757a3241ca3d4c",
+      "guidance_whitespace_word_count": 32,
+      "prompt": "You have been supplied the following benchmark guidance. Follow it as operational guidance, then complete the task in task.md. You have at most 40 tool steps.\n\n--- guidance begin ---\n# Skill A \u2014 Code modification v0\n\nRead the task, inspect the relevant code and constraints, make the required modification, and run the relevant validation. Do not alter benchmark-owned tests or verifiers.\n\n--- guidance end ---\n\nRead task.md, fix the implementation, and validate your result. Do not create or modify benchmark-owned verifier files."
+    },
+    "pilot_a02_config_parser/externalized": {
+      "task_id": "pilot_a02_config_parser",
+      "condition": "externalized",
+      "semantic_condition": "externalized",
+      "prompt_sha256": "2d64a7d1fba728de4beda0536c592da4693cfd159c26f55ebd59a903d012135b",
+      "guidance_sha256": "a653d485b7e7e4fc9a32670dd15280cb3e03a2c19763f91e97480cacf0c77615",
+      "guidance_whitespace_word_count": 51,
+      "prompt": "You have been supplied the following benchmark guidance. Follow it as operational guidance, then complete the task in task.md. You have at most 40 tool steps.\n\n--- guidance begin ---\nUse this process throughout: read task.md and the target implementation before editing. Make a targeted minimal edit and avoid rewriting a whole file unless required. After the final edit, run a focused validation covering stated constraints. Re-read the final target file before giving a final response. Keep work concise and task-specific.\n--- guidance end ---\n\nRead task.md, fix the implementation, and validate your result. Do not create or modify benchmark-owned verifier files."
+    },
+    "pilot_a02_config_parser/imitation": {
+      "task_id": "pilot_a02_config_parser",
+      "condition": "imitation",
+      "semantic_condition": "imitation",
+      "prompt_sha256": "04bf349b87deac9d6c3d3719158db02641dce064eae550a3007f3280e6025d32",
+      "guidance_sha256": "fd99919fc1c6ead25ee2916fe46677c7c45824ed8e3bb04ac6d092cdeca2f9fd",
+      "guidance_whitespace_word_count": 51,
+      "prompt": "You have been supplied the following benchmark guidance. Follow it as operational guidance, then complete the task in task.md. You have at most 40 tool steps.\n\n--- guidance begin ---\nUse this abstract process example throughout: read task.md and target code, make a targeted minimal edit, run a focused validation, re-read the final target file, then give a final response. Apply this sequence to the current task without copying task content. Keep work concise and task-specific at every stage from start.\n--- guidance end ---\n\nRead task.md, fix the implementation, and validate your result. Do not create or modify benchmark-owned verifier files."
+    },
+    "pilot_a02_config_parser/generic_control": {
+      "task_id": "pilot_a02_config_parser",
+      "condition": "generic_control",
+      "semantic_condition": "generic_control",
+      "prompt_sha256": "d93e8e1da3511eb18c2aa2f40779c425942c9e20171b20de5c36d753acb280b5",
+      "guidance_sha256": "d02d15351dfae016160ffc954bd9fa09672f1463da08dfbf2bfd6ec70f346b19",
+      "guidance_whitespace_word_count": 51,
+      "prompt": "You have been supplied the following benchmark guidance. Follow it as operational guidance, then complete the task in task.md. You have at most 40 tool steps.\n\n--- guidance begin ---\nUse this general completion guidance throughout: understand task.md and target code, work carefully and efficiently, keep changes organized, review progress, then give a final response. Apply this guidance to the current task without assuming unstated requirements. Keep work concise and task-specific at every stage with deliberate clear organized completion work now.\n--- guidance end ---\n\nRead task.md, fix the implementation, and validate your result. Do not create or modify benchmark-owned verifier files."
+    },
+    "pilot_a04_dependency_order/C1": {
+      "task_id": "pilot_a04_dependency_order",
+      "condition": "C1",
+      "semantic_condition": "A-v0",
+      "prompt_sha256": "e4aa639fe8ff47457893ee31e111669d8d55f0e21119dae71ac30993dc90041d",
+      "guidance_sha256": "dc21abe4db14593b77d3d85065362a655dd0d84cde2c318d5a757a3241ca3d4c",
+      "guidance_whitespace_word_count": 32,
+      "prompt": "You have been supplied the following benchmark guidance. Follow it as operational guidance, then complete the task in task.md. You have at most 40 tool steps.\n\n--- guidance begin ---\n# Skill A \u2014 Code modification v0\n\nRead the task, inspect the relevant code and constraints, make the required modification, and run the relevant validation. Do not alter benchmark-owned tests or verifiers.\n\n--- guidance end ---\n\nRead task.md, fix the implementation, and validate your result. Do not create or modify benchmark-owned verifier files."
+    },
+    "pilot_a04_dependency_order/externalized": {
+      "task_id": "pilot_a04_dependency_order",
+      "condition": "externalized",
+      "semantic_condition": "externalized",
+      "prompt_sha256": "2d64a7d1fba728de4beda0536c592da4693cfd159c26f55ebd59a903d012135b",
+      "guidance_sha256": "a653d485b7e7e4fc9a32670dd15280cb3e03a2c19763f91e97480cacf0c77615",
+      "guidance_whitespace_word_count": 51,
+      "prompt": "You have been supplied the following benchmark guidance. Follow it as operational guidance, then complete the task in task.md. You have at most 40 tool steps.\n\n--- guidance begin ---\nUse this process throughout: read task.md and the target implementation before editing. Make a targeted minimal edit and avoid rewriting a whole file unless required. After the final edit, run a focused validation covering stated constraints. Re-read the final target file before giving a final response. Keep work concise and task-specific.\n--- guidance end ---\n\nRead task.md, fix the implementation, and validate your result. Do not create or modify benchmark-owned verifier files."
+    },
+    "pilot_a04_dependency_order/imitation": {
+      "task_id": "pilot_a04_dependency_order",
+      "condition": "imitation",
+      "semantic_condition": "imitation",
+      "prompt_sha256": "04bf349b87deac9d6c3d3719158db02641dce064eae550a3007f3280e6025d32",
+      "guidance_sha256": "fd99919fc1c6ead25ee2916fe46677c7c45824ed8e3bb04ac6d092cdeca2f9fd",
+      "guidance_whitespace_word_count": 51,
+      "prompt": "You have been supplied the following benchmark guidance. Follow it as operational guidance, then complete the task in task.md. You have at most 40 tool steps.\n\n--- guidance begin ---\nUse this abstract process example throughout: read task.md and target code, make a targeted minimal edit, run a focused validation, re-read the final target file, then give a final response. Apply this sequence to the current task without copying task content. Keep work concise and task-specific at every stage from start.\n--- guidance end ---\n\nRead task.md, fix the implementation, and validate your result. Do not create or modify benchmark-owned verifier files."
+    },
+    "pilot_a04_dependency_order/generic_control": {
+      "task_id": "pilot_a04_dependency_order",
+      "condition": "generic_control",
+      "semantic_condition": "generic_control",
+      "prompt_sha256": "d93e8e1da3511eb18c2aa2f40779c425942c9e20171b20de5c36d753acb280b5",
+      "guidance_sha256": "d02d15351dfae016160ffc954bd9fa09672f1463da08dfbf2bfd6ec70f346b19",
+      "guidance_whitespace_word_count": 51,
+      "prompt": "You have been supplied the following benchmark guidance. Follow it as operational guidance, then complete the task in task.md. You have at most 40 tool steps.\n\n--- guidance begin ---\nUse this general completion guidance throughout: understand task.md and target code, work carefully and efficiently, keep changes organized, review progress, then give a final response. Apply this guidance to the current task without assuming unstated requirements. Keep work concise and task-specific at every stage with deliberate clear organized completion work now.\n--- guidance end ---\n\nRead task.md, fix the implementation, and validate your result. Do not create or modify benchmark-owned verifier files."
+    },
+    "pilot_a06_path_safety/C1": {
+      "task_id": "pilot_a06_path_safety",
+      "condition": "C1",
+      "semantic_condition": "A-v0",
+      "prompt_sha256": "e4aa639fe8ff47457893ee31e111669d8d55f0e21119dae71ac30993dc90041d",
+      "guidance_sha256": "dc21abe4db14593b77d3d85065362a655dd0d84cde2c318d5a757a3241ca3d4c",
+      "guidance_whitespace_word_count": 32,
+      "prompt": "You have been supplied the following benchmark guidance. Follow it as operational guidance, then complete the task in task.md. You have at most 40 tool steps.\n\n--- guidance begin ---\n# Skill A \u2014 Code modification v0\n\nRead the task, inspect the relevant code and constraints, make the required modification, and run the relevant validation. Do not alter benchmark-owned tests or verifiers.\n\n--- guidance end ---\n\nRead task.md, fix the implementation, and validate your result. Do not create or modify benchmark-owned verifier files."
+    },
+    "pilot_a06_path_safety/externalized": {
+      "task_id": "pilot_a06_path_safety",
+      "condition": "externalized",
+      "semantic_condition": "externalized",
+      "prompt_sha256": "2d64a7d1fba728de4beda0536c592da4693cfd159c26f55ebd59a903d012135b",
+      "guidance_sha256": "a653d485b7e7e4fc9a32670dd15280cb3e03a2c19763f91e97480cacf0c77615",
+      "guidance_whitespace_word_count": 51,
+      "prompt": "You have been supplied the following benchmark guidance. Follow it as operational guidance, then complete the task in task.md. You have at most 40 tool steps.\n\n--- guidance begin ---\nUse this process throughout: read task.md and the target implementation before editing. Make a targeted minimal edit and avoid rewriting a whole file unless required. After the final edit, run a focused validation covering stated constraints. Re-read the final target file before giving a final response. Keep work concise and task-specific.\n--- guidance end ---\n\nRead task.md, fix the implementation, and validate your result. Do not create or modify benchmark-owned verifier files."
+    },
+    "pilot_a06_path_safety/imitation": {
+      "task_id": "pilot_a06_path_safety",
+      "condition": "imitation",
+      "semantic_condition": "imitation",
+      "prompt_sha256": "04bf349b87deac9d6c3d3719158db02641dce064eae550a3007f3280e6025d32",
+      "guidance_sha256": "fd99919fc1c6ead25ee2916fe46677c7c45824ed8e3bb04ac6d092cdeca2f9fd",
+      "guidance_whitespace_word_count": 51,
+      "prompt": "You have been supplied the following benchmark guidance. Follow it as operational guidance, then complete the task in task.md. You have at most 40 tool steps.\n\n--- guidance begin ---\nUse this abstract process example throughout: read task.md and target code, make a targeted minimal edit, run a focused validation, re-read the final target file, then give a final response. Apply this sequence to the current task without copying task content. Keep work concise and task-specific at every stage from start.\n--- guidance end ---\n\nRead task.md, fix the implementation, and validate your result. Do not create or modify benchmark-owned verifier files."
+    },
+    "pilot_a06_path_safety/generic_control": {
+      "task_id": "pilot_a06_path_safety",
+      "condition": "generic_control",
+      "semantic_condition": "generic_control",
+      "prompt_sha256": "d93e8e1da3511eb18c2aa2f40779c425942c9e20171b20de5c36d753acb280b5",
+      "guidance_sha256": "d02d15351dfae016160ffc954bd9fa09672f1463da08dfbf2bfd6ec70f346b19",
+      "guidance_whitespace_word_count": 51,
+      "prompt": "You have been supplied the following benchmark guidance. Follow it as operational guidance, then complete the task in task.md. You have at most 40 tool steps.\n\n--- guidance begin ---\nUse this general completion guidance throughout: understand task.md and target code, work carefully and efficiently, keep changes organized, review progress, then give a final response. Apply this guidance to the current task without assuming unstated requirements. Keep work concise and task-specific at every stage with deliberate clear organized completion work now.\n--- guidance end ---\n\nRead task.md, fix the implementation, and validate your result. Do not create or modify benchmark-owned verifier files."
+    },
+    "pilot_b02_json_normalization/C1": {
+      "task_id": "pilot_b02_json_normalization",
+      "condition": "C1",
+      "semantic_condition": "B-v0",
+      "prompt_sha256": "ad7dd4459f09a111a7bcc937ffca24748c445d7a74f501d769d8cc695be6c3b2",
+      "guidance_sha256": "eb25c58e2e4754d86eb2669b76e5cb6a2f1e697b566c58a453c278fab1e421de",
+      "guidance_whitespace_word_count": 36,
+      "prompt": "You have been supplied the following benchmark guidance. Follow it as operational guidance, then complete the task in task.md. You have at most 40 tool steps.\n\n--- guidance begin ---\n# Skill B \u2014 File and data processing v0\n\nInspect the provided files and requirements, perform the required transformation, generate the requested artifact, and validate the result against the stated constraints. Do not alter benchmark-owned verifiers.\n\n--- guidance end ---\n\nRead task.md, fix the implementation, and validate your result. Do not create or modify benchmark-owned verifier files."
+    },
+    "pilot_b02_json_normalization/externalized": {
+      "task_id": "pilot_b02_json_normalization",
+      "condition": "externalized",
+      "semantic_condition": "externalized",
+      "prompt_sha256": "2d64a7d1fba728de4beda0536c592da4693cfd159c26f55ebd59a903d012135b",
+      "guidance_sha256": "a653d485b7e7e4fc9a32670dd15280cb3e03a2c19763f91e97480cacf0c77615",
+      "guidance_whitespace_word_count": 51,
+      "prompt": "You have been supplied the following benchmark guidance. Follow it as operational guidance, then complete the task in task.md. You have at most 40 tool steps.\n\n--- guidance begin ---\nUse this process throughout: read task.md and the target implementation before editing. Make a targeted minimal edit and avoid rewriting a whole file unless required. After the final edit, run a focused validation covering stated constraints. Re-read the final target file before giving a final response. Keep work concise and task-specific.\n--- guidance end ---\n\nRead task.md, fix the implementation, and validate your result. Do not create or modify benchmark-owned verifier files."
+    },
+    "pilot_b02_json_normalization/imitation": {
+      "task_id": "pilot_b02_json_normalization",
+      "condition": "imitation",
+      "semantic_condition": "imitation",
+      "prompt_sha256": "04bf349b87deac9d6c3d3719158db02641dce064eae550a3007f3280e6025d32",
+      "guidance_sha256": "fd99919fc1c6ead25ee2916fe46677c7c45824ed8e3bb04ac6d092cdeca2f9fd",
+      "guidance_whitespace_word_count": 51,
+      "prompt": "You have been supplied the following benchmark guidance. Follow it as operational guidance, then complete the task in task.md. You have at most 40 tool steps.\n\n--- guidance begin ---\nUse this abstract process example throughout: read task.md and target code, make a targeted minimal edit, run a focused validation, re-read the final target file, then give a final response. Apply this sequence to the current task without copying task content. Keep work concise and task-specific at every stage from start.\n--- guidance end ---\n\nRead task.md, fix the implementation, and validate your result. Do not create or modify benchmark-owned verifier files."
+    },
+    "pilot_b02_json_normalization/generic_control": {
+      "task_id": "pilot_b02_json_normalization",
+      "condition": "generic_control",
+      "semantic_condition": "generic_control",
+      "prompt_sha256": "d93e8e1da3511eb18c2aa2f40779c425942c9e20171b20de5c36d753acb280b5",
+      "guidance_sha256": "d02d15351dfae016160ffc954bd9fa09672f1463da08dfbf2bfd6ec70f346b19",
+      "guidance_whitespace_word_count": 51,
+      "prompt": "You have been supplied the following benchmark guidance. Follow it as operational guidance, then complete the task in task.md. You have at most 40 tool steps.\n\n--- guidance begin ---\nUse this general completion guidance throughout: understand task.md and target code, work carefully and efficiently, keep changes organized, review progress, then give a final response. Apply this guidance to the current task without assuming unstated requirements. Keep work concise and task-specific at every stage with deliberate clear organized completion work now.\n--- guidance end ---\n\nRead task.md, fix the implementation, and validate your result. Do not create or modify benchmark-owned verifier files."
+    },
+    "pilot_b04_multifile_reconciliation/C1": {
+      "task_id": "pilot_b04_multifile_reconciliation",
+      "condition": "C1",
+      "semantic_condition": "B-v0",
+      "prompt_sha256": "ad7dd4459f09a111a7bcc937ffca24748c445d7a74f501d769d8cc695be6c3b2",
+      "guidance_sha256": "eb25c58e2e4754d86eb2669b76e5cb6a2f1e697b566c58a453c278fab1e421de",
+      "guidance_whitespace_word_count": 36,
+      "prompt": "You have been supplied the following benchmark guidance. Follow it as operational guidance, then complete the task in task.md. You have at most 40 tool steps.\n\n--- guidance begin ---\n# Skill B \u2014 File and data processing v0\n\nInspect the provided files and requirements, perform the required transformation, generate the requested artifact, and validate the result against the stated constraints. Do not alter benchmark-owned verifiers.\n\n--- guidance end ---\n\nRead task.md, fix the implementation, and validate your result. Do not create or modify benchmark-owned verifier files."
+    },
+    "pilot_b04_multifile_reconciliation/externalized": {
+      "task_id": "pilot_b04_multifile_reconciliation",
+      "condition": "externalized",
+      "semantic_condition": "externalized",
+      "prompt_sha256": "2d64a7d1fba728de4beda0536c592da4693cfd159c26f55ebd59a903d012135b",
+      "guidance_sha256": "a653d485b7e7e4fc9a32670dd15280cb3e03a2c19763f91e97480cacf0c77615",
+      "guidance_whitespace_word_count": 51,
+      "prompt": "You have been supplied the following benchmark guidance. Follow it as operational guidance, then complete the task in task.md. You have at most 40 tool steps.\n\n--- guidance begin ---\nUse this process throughout: read task.md and the target implementation before editing. Make a targeted minimal edit and avoid rewriting a whole file unless required. After the final edit, run a focused validation covering stated constraints. Re-read the final target file before giving a final response. Keep work concise and task-specific.\n--- guidance end ---\n\nRead task.md, fix the implementation, and validate your result. Do not create or modify benchmark-owned verifier files."
+    },
+    "pilot_b04_multifile_reconciliation/imitation": {
+      "task_id": "pilot_b04_multifile_reconciliation",
+      "condition": "imitation",
+      "semantic_condition": "imitation",
+      "prompt_sha256": "04bf349b87deac9d6c3d3719158db02641dce064eae550a3007f3280e6025d32",
+      "guidance_sha256": "fd99919fc1c6ead25ee2916fe46677c7c45824ed8e3bb04ac6d092cdeca2f9fd",
+      "guidance_whitespace_word_count": 51,
+      "prompt": "You have been supplied the following benchmark guidance. Follow it as operational guidance, then complete the task in task.md. You have at most 40 tool steps.\n\n--- guidance begin ---\nUse this abstract process example throughout: read task.md and target code, make a targeted minimal edit, run a focused validation, re-read the final target file, then give a final response. Apply this sequence to the current task without copying task content. Keep work concise and task-specific at every stage from start.\n--- guidance end ---\n\nRead task.md, fix the implementation, and validate your result. Do not create or modify benchmark-owned verifier files."
+    },
+    "pilot_b04_multifile_reconciliation/generic_control": {
+      "task_id": "pilot_b04_multifile_reconciliation",
+      "condition": "generic_control",
+      "semantic_condition": "generic_control",
+      "prompt_sha256": "d93e8e1da3511eb18c2aa2f40779c425942c9e20171b20de5c36d753acb280b5",
+      "guidance_sha256": "d02d15351dfae016160ffc954bd9fa09672f1463da08dfbf2bfd6ec70f346b19",
+      "guidance_whitespace_word_count": 51,
+      "prompt": "You have been supplied the following benchmark guidance. Follow it as operational guidance, then complete the task in task.md. You have at most 40 tool steps.\n\n--- guidance begin ---\nUse this general completion guidance throughout: understand task.md and target code, work carefully and efficiently, keep changes organized, review progress, then give a final response. Apply this guidance to the current task without assuming unstated requirements. Keep work concise and task-specific at every stage with deliberate clear organized completion work now.\n--- guidance end ---\n\nRead task.md, fix the implementation, and validate your result. Do not create or modify benchmark-owned verifier files."
+    },
+    "pilot_b06_schema_conversion/C1": {
+      "task_id": "pilot_b06_schema_conversion",
+      "condition": "C1",
+      "semantic_condition": "B-v0",
+      "prompt_sha256": "ad7dd4459f09a111a7bcc937ffca24748c445d7a74f501d769d8cc695be6c3b2",
+      "guidance_sha256": "eb25c58e2e4754d86eb2669b76e5cb6a2f1e697b566c58a453c278fab1e421de",
+      "guidance_whitespace_word_count": 36,
+      "prompt": "You have been supplied the following benchmark guidance. Follow it as operational guidance, then complete the task in task.md. You have at most 40 tool steps.\n\n--- guidance begin ---\n# Skill B \u2014 File and data processing v0\n\nInspect the provided files and requirements, perform the required transformation, generate the requested artifact, and validate the result against the stated constraints. Do not alter benchmark-owned verifiers.\n\n--- guidance end ---\n\nRead task.md, fix the implementation, and validate your result. Do not create or modify benchmark-owned verifier files."
+    },
+    "pilot_b06_schema_conversion/externalized": {
+      "task_id": "pilot_b06_schema_conversion",
+      "condition": "externalized",
+      "semantic_condition": "externalized",
+      "prompt_sha256": "2d64a7d1fba728de4beda0536c592da4693cfd159c26f55ebd59a903d012135b",
+      "guidance_sha256": "a653d485b7e7e4fc9a32670dd15280cb3e03a2c19763f91e97480cacf0c77615",
+      "guidance_whitespace_word_count": 51,
+      "prompt": "You have been supplied the following benchmark guidance. Follow it as operational guidance, then complete the task in task.md. You have at most 40 tool steps.\n\n--- guidance begin ---\nUse this process throughout: read task.md and the target implementation before editing. Make a targeted minimal edit and avoid rewriting a whole file unless required. After the final edit, run a focused validation covering stated constraints. Re-read the final target file before giving a final response. Keep work concise and task-specific.\n--- guidance end ---\n\nRead task.md, fix the implementation, and validate your result. Do not create or modify benchmark-owned verifier files."
+    },
+    "pilot_b06_schema_conversion/imitation": {
+      "task_id": "pilot_b06_schema_conversion",
+      "condition": "imitation",
+      "semantic_condition": "imitation",
+      "prompt_sha256": "04bf349b87deac9d6c3d3719158db02641dce064eae550a3007f3280e6025d32",
+      "guidance_sha256": "fd99919fc1c6ead25ee2916fe46677c7c45824ed8e3bb04ac6d092cdeca2f9fd",
+      "guidance_whitespace_word_count": 51,
+      "prompt": "You have been supplied the following benchmark guidance. Follow it as operational guidance, then complete the task in task.md. You have at most 40 tool steps.\n\n--- guidance begin ---\nUse this abstract process example throughout: read task.md and target code, make a targeted minimal edit, run a focused validation, re-read the final target file, then give a final response. Apply this sequence to the current task without copying task content. Keep work concise and task-specific at every stage from start.\n--- guidance end ---\n\nRead task.md, fix the implementation, and validate your result. Do not create or modify benchmark-owned verifier files."
+    },
+    "pilot_b06_schema_conversion/generic_control": {
+      "task_id": "pilot_b06_schema_conversion",
+      "condition": "generic_control",
+      "semantic_condition": "generic_control",
+      "prompt_sha256": "d93e8e1da3511eb18c2aa2f40779c425942c9e20171b20de5c36d753acb280b5",
+      "guidance_sha256": "d02d15351dfae016160ffc954bd9fa09672f1463da08dfbf2bfd6ec70f346b19",
+      "guidance_whitespace_word_count": 51,
+      "prompt": "You have been supplied the following benchmark guidance. Follow it as operational guidance, then complete the task in task.md. You have at most 40 tool steps.\n\n--- guidance begin ---\nUse this general completion guidance throughout: understand task.md and target code, work carefully and efficiently, keep changes organized, review progress, then give a final response. Apply this guidance to the current task without assuming unstated requirements. Keep work concise and task-specific at every stage with deliberate clear organized completion work now.\n--- guidance end ---\n\nRead task.md, fix the implementation, and validate your result. Do not create or modify benchmark-owned verifier files."
+    }
+  }
+}

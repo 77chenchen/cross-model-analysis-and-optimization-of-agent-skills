@@ -1,0 +1,31 @@
+protocol: s8-dev-only-v1
+locked_on: 2026-10-11
+scope: dev_validate_only
+model: qwen3.5:9b
+matrix:
+  tasks: 6
+  conditions: [C1, externalized, imitation, generic_control]
+  repetitions_per_task_condition: 8
+  scheduled_runs: 192
+conditions:
+  C1: fresh_v0_reference
+  externalized: read_targeted_edit_validate_reread
+  imitation: abstract_read_edit_test_reread_sequence
+  generic_control: length_matched_generic_guidance
+controls:
+  temperature_requested: 0.5
+  request_seed: deterministic_per_run
+  max_steps: 40
+  context_limit: 65536
+  process_group_timeout_seconds: 1200
+  verifier_timeout_seconds: 1200
+  worker_concurrency: 1
+  retry_policy: up_to_3_total_attempts_for_no_response_transport_failure_only
+  schedule: fixed_seeded_interleaved_tsv_resume_in_original_order
+analysis:
+  primary_comparisons: [externalized_vs_generic_control, imitation_vs_generic_control]
+  primary_outcome: verifier.json.passed
+  task_unit: task_with_repetitions_aggregated
+  pairing: paired_bootstrap_10000_draws_fixed_seed
+  sensitivity: [provider_error_as_failure, exclude_A04]
+  no_test_split: true

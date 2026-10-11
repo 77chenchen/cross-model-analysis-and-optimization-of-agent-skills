@@ -1,0 +1,25 @@
+locked_on: 2026-10-11
+protocol: s8-dev-only-v1
+authorization: owner_approved_2026-10-11
+scope: six_dev_validate_pilot_tasks_only
+invariants:
+  - no_formal_test_task_is_addressable_by_the_s8_runner
+  - no_s7_asset_or_result_is_modified
+  - schedule_is_sequential_and_resume_only_in_original_order
+  - prompts_and_activation_definition_are_frozen_before_first_request
+  - provider_error_retries_apply_only_before_any_provider_response
+matrix: {tasks: 6, arms: 4, repetitions: 8, scheduled_runs: 192}
+controls: {model: qwen3.5:9b, temperature: 0.5, max_steps: 40, context_limit: 65536, process_timeout_seconds: 1200, verifier_timeout_seconds: 1200, worker_concurrency: 1}
+hashes:
+  harness/s8_protocol.py: 9735dc5238abc81112efd140ec9d594637702c45b08fd9063f9591f3e03cc1fa
+  harness/make_s8_schedule.py: 427742898bb530a5dfb824d00145f12da10e28eef55556688194c5d83f5070fa
+  harness/run_s8.py: 24e4517f0f17b258de7c6c807cf75282388ac0a724ec0ce714d1b7a797162457
+  harness/run_s8_schedule.py: e6bebcb29c029b18c8af3bfb5a756f9d07d860cb962b92c9c9ee8aeed9a42ad8
+  config/s8_protocol.yaml: 327841164b124b279f330e9d2ee533f0577c9031aa92da983a2e0ed5c0119f43
+  config/s8_dev_validate_schedule.tsv: 87f1515c1fde63f2aedad9deb5124dd52213fec4ca81139fe63e12b568196f5c
+  config/s8_prompt_manifest.json: c3291e317443a60ff3f3e7d78b2ad84eb0c52a2b83b1310a9a9ebd6b308128be
+analysis:
+  primary: paired_task_bootstrap_each_behavioral_arm_vs_generic_control
+  primary_outcome: verifier.json.passed
+  decision_rule: docs/s8_plan.md
+  task_defect_sensitivity: exclude_pilot_a04_dependency_order

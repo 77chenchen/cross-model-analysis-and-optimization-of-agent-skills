@@ -32,6 +32,7 @@ data/b5_r2_human_review/packet_*.json
 data/b5_r2_blinded_packets/b5_r2_private_manifest.json
 data/l3b_runs/pilot_*/
 data/l3b_runs/driver_logs/
+data/s8_runs/
 data/s7_runs/
 data/**/raw_responses/
 # Local 600-dpi publication TIFF exports are reproducible from analysis scripts
