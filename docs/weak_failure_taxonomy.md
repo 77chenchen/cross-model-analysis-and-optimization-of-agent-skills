@@ -50,3 +50,25 @@
 ## Judge-coverage gap retained for audit
 
 The existing 24 blinded judge packets cover none of the 98 in-scope weak-target failures. The earlier judge taxonomy therefore remains a coverage-gap observation, not a prevalence estimate. This mechanical table does not use judge labels.
+
+## `final_empty` conditional denominators
+
+Scope is all completed S7 C0+C1 records for qwen3.5:9b and the three strong comparison models, including any protocol provider-error records because this is a descriptive behavior rate. `verifier_pass` remains the frozen verifier field; these conditional rates are not causal estimates.
+
+| Model | All runs n | Final empty n (%) | Pass among final-empty | Non-final-empty n | Pass among non-final-empty | Provider-error records |
+|---|---:|---:|---:|---:|---:|---:|
+| qwen3.5:9b | 180 | 105 (58.3%) | 50/105 (47.6%) | 75 | 39/75 (52.0%) | 2 |
+| gemma4:26b | 108 | 2 (1.9%) | 1/2 (50.0%) | 106 | 68/106 (64.2%) | 0 |
+| qwen3.8:27b | 108 | 0 (0.0%) | 0/0 (NA) | 108 | 91/108 (84.3%) | 0 |
+| qwen3-coder-next | 108 | 7 (6.5%) | 3/7 (42.9%) | 101 | 64/101 (63.4%) | 0 |
+
+## `final_empty` conditional denominators
+
+Scope is all completed S7 C0+C1 records for qwen3.5:9b and the three strong comparison models, including any protocol provider-error records because this is a descriptive behavior rate. `verifier_pass` remains the frozen verifier field; these conditional rates are not causal estimates.
+
+| Model | All runs n | Final empty n (%) | Pass among final-empty | Non-final-empty n | Pass among non-final-empty | Provider-error records |
+|---|---:|---:|---:|---:|---:|---:|
+| qwen3.5:9b | 180 | 105 (58.3%) | 50/105 (47.6%) | 75 | 39/75 (52.0%) | 2 |
+| gemma4:26b | 108 | 2 (1.9%) | 1/2 (50.0%) | 106 | 68/106 (64.2%) | 0 |
+| qwen3.8:27b | 108 | 0 (0.0%) | 0/0 (NA) | 108 | 91/108 (84.3%) | 0 |
+| qwen3-coder-next | 108 | 7 (6.5%) | 3/7 (42.9%) | 101 | 64/101 (63.4%) | 0 |

@@ -1,0 +1,14 @@
+| model | condition | eligible_n | verifier_timeout | verifier_exception_or_abnormal_exit | output_unparseable | no_named_check_passed_false | total_no_named_check |
+|---|---|---|---|---|---|---|---|
+| qwen3.5:9b | C0 | 89 | 0 | 4 | 0 | 1 | 5 |
+| qwen3.5:9b | C1 | 89 | 0 | 4 | 0 | 1 | 5 |
+| gemma4:26b | C0 | 54 | 0 | 6 | 0 | 0 | 6 |
+| gemma4:26b | C1 | 54 | 0 | 5 | 0 | 0 | 5 |
+| qwen3.8:27b | C0 | 54 | 0 | 2 | 0 | 0 | 2 |
+| qwen3.8:27b | C1 | 54 | 0 | 2 | 0 | 0 | 2 |
+| qwen3-coder-next | C0 | 54 | 0 | 4 | 0 | 0 | 4 |
+| qwen3-coder-next | C1 | 54 | 0 | 5 | 0 | 0 | 5 |
+| llama3.1:8b | C0 | 54 | 0 | 0 | 0 | 0 | 0 |
+| llama3.1:8b | C1 | 54 | 0 | 0 | 0 | 1 | 1 |
+| gpt-5.6-sol | C0 | 54 | 0 | 2 | 0 | 0 | 2 |
+| gpt-5.6-sol | C1 | 54 | 0 | 3 | 0 | 0 | 3 |

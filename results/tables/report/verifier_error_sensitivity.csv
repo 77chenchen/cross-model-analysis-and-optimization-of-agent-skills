@@ -1,0 +1,19 @@
+model,row_type,condition,primary_n,excluded_no_named_check,sensitivity_n,verifier_pass_n,verifier_pass_rate,C1_minus_C0_task_pp,bootstrap_95pct_pp
+qwen3.5:9b,condition,C0,89,5,84,43,51.2%,,
+qwen3.5:9b,condition,C1,89,5,84,45,53.6%,,
+qwen3.5:9b,paired_task_difference,C1-C0,,,18,,,+0.9,"[-8.9, +10.0]"
+gemma4:26b,condition,C0,54,6,48,33,68.8%,,
+gemma4:26b,condition,C1,54,5,49,36,73.5%,,
+gemma4:26b,paired_task_difference,C1-C0,,,16,,,+6.2,"[+0.0, +16.7]"
+qwen3.8:27b,condition,C0,54,2,52,45,86.5%,,
+qwen3.8:27b,condition,C1,54,2,52,46,88.5%,,
+qwen3.8:27b,paired_task_difference,C1-C0,,,18,,,+1.9,"[-3.7, +7.4]"
+qwen3-coder-next,condition,C0,54,4,50,33,66.0%,,
+qwen3-coder-next,condition,C1,54,5,49,34,69.4%,,
+qwen3-coder-next,paired_task_difference,C1-C0,,,17,,,+3.9,"[-7.8, +17.6]"
+llama3.1:8b,condition,C0,54,0,54,0,0.0%,,
+llama3.1:8b,condition,C1,54,1,53,0,0.0%,,
+llama3.1:8b,paired_task_difference,C1-C0,,,18,,,+0.0,"[+0.0, +0.0]"
+gpt-5.6-sol,condition,C0,54,2,52,44,84.6%,,
+gpt-5.6-sol,condition,C1,54,3,51,44,86.3%,,
+gpt-5.6-sol,paired_task_difference,C1-C0,,,17,,,+2.0,"[+0.0, +5.9]"

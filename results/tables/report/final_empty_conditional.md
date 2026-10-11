@@ -1,0 +1,6 @@
+| model | all_runs_n | final_empty_n | final_empty_rate | final_empty_pass_n | final_empty_pass_rate | non_final_empty_n | non_final_empty_pass_n | non_final_empty_pass_rate | provider_error_protocol_n |
+|---|---|---|---|---|---|---|---|---|---|
+| qwen3.5:9b | 180 | 105 | 58.3% | 50 | 47.6% | 75 | 39 | 52.0% | 2 |
+| gemma4:26b | 108 | 2 | 1.9% | 1 | 50.0% | 106 | 68 | 64.2% | 0 |
+| qwen3.8:27b | 108 | 0 | 0.0% | 0 | NA | 108 | 91 | 84.3% | 0 |
+| qwen3-coder-next | 108 | 7 | 6.5% | 3 | 42.9% | 101 | 64 | 63.4% | 0 |

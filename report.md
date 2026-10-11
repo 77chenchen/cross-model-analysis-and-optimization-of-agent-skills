@@ -88,6 +88,12 @@ outcome-definition corrections, not performance improvements.
 The controlled rows do not show a consistent C1 advantage. GPT-5.6 Sol is a
 sampling-uncontrolled Codex reference anchor and is not pooled with r2 models.
 
+As a descriptive denominator sensitivity, excluding failed runs with no named
+verifier check changes qwen C0/C1 from 43/89 and 45/89 to 43/84 and 45/84;
+the corresponding task-paired C1-minus-C0 value is +0.9 points [-8.9, 10.0].
+The full model-by-condition composition and sensitivity table is in
+`docs/verifier_error_sensitivity.md`; the preregistered primary table above is unchanged.
+
 ![Formal S7 benchmark overview](figures/s7/S7_F1_main_results.png)
 
 Figure 1 uses the completed S7 formal data, not an interim monitoring export.
@@ -212,6 +218,8 @@ weak-target failures, terminal flags are non-exclusive: 57 have an empty final
 message, 13 reach the step limit, and 2 time out. The same document tabulates
 failed verifier checks and comparable strong-model S7 failure rows; these
 descriptive counts do not attribute a cause.
+For all S7 C0+C1 records, the same document also gives each model's
+`final_empty` rate and verifier-pass rate conditional on final-empty status.
 
 ## 7. Patterns and anomalies
 
@@ -239,12 +247,12 @@ across the independent r2 models: gemma is +11.1, qwen3.8 is 0.0, qwen-coder
 is -1.9, and llama is +38.9 points. Explicit C1 skill-reference rates also do
 not rise monotonically with model capability under the locked parser. For
 qwen3.8, qwen-coder-next, and llama, C1 was supplied inline in each serialized
-request rather than as a workspace skill file. A local re-scan of stored
-content and reasoning fields found literal skill markers in 0/54, 0/54, and
-1/54 usable C1 runs, respectively, matching the locked mention-based parser;
-see `docs/s7_c1_reference_diagnostic.md`. Thus the near-zero citation rate is
-a delivery-and-measurement limitation, not evidence that those models were not
-shown the protocol.
+request rather than as a workspace skill file. The locked parser first counted
+explicit references in 0/54, 0/54, and 1/54 usable C1 runs; local content-field
+re-scan found the same 0/54, 0/54, and 1/54, while the reasoning-field re-scan
+added 0/54 for every model (see `docs/s7_c1_reference_diagnostic.md`). Thus the
+near-zero citation rate is a delivery-and-measurement limitation, not evidence
+that those models were not shown the protocol.
 
 ## 8. Skill modifications
 
