@@ -136,7 +136,8 @@ def sensitivity_table(rows: list[dict[str, str]]) -> list[dict]:
 
 
 def write_docs(final_rows: list[dict], errors: list[dict], sensitivity: list[dict]) -> None:
-    tax = DOC_TAXONOMY.read_text(encoding="utf-8")
+    # Regeneration is idempotent: replace, rather than append, this derived section.
+    tax = DOC_TAXONOMY.read_text(encoding="utf-8").split("## `final_empty` conditional denominators", 1)[0].rstrip()
     section = ["", "## `final_empty` conditional denominators", "", "Scope is all completed S7 C0+C1 records for qwen3.5:9b and the three strong comparison models, including any protocol provider-error records because this is a descriptive behavior rate. `verifier_pass` remains the frozen verifier field; these conditional rates are not causal estimates.", "", "| Model | All runs n | Final empty n (%) | Pass among final-empty | Non-final-empty n | Pass among non-final-empty | Provider-error records |", "|---|---:|---:|---:|---:|---:|---:|"]
     for row in final_rows:
         section.append(f"| {row['model']} | {row['all_runs_n']} | {row['final_empty_n']} ({row['final_empty_rate']}) | {row['final_empty_pass_n']}/{row['final_empty_n']} ({row['final_empty_pass_rate']}) | {row['non_final_empty_n']} | {row['non_final_empty_pass_n']}/{row['non_final_empty_n']} ({row['non_final_empty_pass_rate']}) | {row['provider_error_protocol_n']} |")

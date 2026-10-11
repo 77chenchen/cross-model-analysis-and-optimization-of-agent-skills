@@ -217,9 +217,12 @@ classification is in `docs/weak_failure_taxonomy.md`. Across the 98
 weak-target failures, terminal flags are non-exclusive: 57 have an empty final
 message, 13 reach the step limit, and 2 time out. The same document tabulates
 failed verifier checks and comparable strong-model S7 failure rows; these
-descriptive counts do not attribute a cause.
-For all S7 C0+C1 records, the same document also gives each model's
-`final_empty` rate and verifier-pass rate conditional on final-empty status.
+descriptive counts do not attribute a cause. Across all S7 C0+C1 records,
+`final_empty` is an output-habit difference rather than a success/failure
+class: the accompanying conditional table does not distinguish success from
+failure. The no-named-check sensitivity excludes only failed runs and therefore
+is mechanically optimistic for pass rate; the primary analysis retains them as
+failures.
 
 ## 7. Patterns and anomalies
 

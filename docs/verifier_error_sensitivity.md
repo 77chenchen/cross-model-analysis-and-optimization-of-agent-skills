@@ -45,3 +45,25 @@ The condition rows give verifier-pass rates after the exclusion. The difference 
 | gpt-5.6-sol | C0 | 54 | 2 | 52 | 44 | 84.6% | |
 | gpt-5.6-sol | C1 | 54 | 3 | 51 | 44 | 86.3% | |
 | gpt-5.6-sol | C1-C0 paired tasks (n=17) | | | | | | +2.0 [+0.0, +5.9] |
+
+## Five-case artifact versus verifier review
+
+This is a manual, descriptive audit of five existing exception cases; no task,
+fixture, verifier, model run, or judge call was changed. “Task/verifier
+interface defect” means the frozen task text describes a direct value/list/text
+argument while the frozen contract invokes `transform` with an operation
+wrapper dictionary. “Model-produced artifact” means the candidate conflicts
+with that frozen contract independently of such a mismatch.
+
+| Run | Frozen task and contract evidence | Candidate artifact / error | Assessment |
+|---|---|---|---|
+| `s7-qwen3-5-9b-test_in_b11_bucket-C0-r4` | Task says bucket a nonnegative integer; contract calls with `{op: "bucket", value: 10}`. | Candidate compares the whole request with `0`; verifier raises `TypeError: '<' not supported between dict and int`. | Task/verifier interface defect exposed by a task-literal implementation; not attributable solely to the model artifact. |
+| `s7-gemma4-26b-test_out_c02_sessions-C0-r1` | Task says “from events”; contract calls with `{op: "sessions", events: [...]}`. | Candidate iterates the wrapper, then calls `.get` on string keys; verifier raises `AttributeError: 'str' object has no attribute 'get'`. | Task/verifier interface defect exposed by a task-literal implementation; not attributable solely to the model artifact. |
+| `s7-qwen3-coder-next-test_in_a09_header-C1-r2` | Task specifies header text; contract calls with `{op: "header", text: " X-Id : abc "}`. | Candidate calls `.split` on the wrapper; verifier raises `AttributeError: 'dict' object has no attribute 'split'`. | Task/verifier interface defect exposed by a task-literal implementation; not attributable solely to the model artifact. |
+| `s7-qwen3-5-9b-test_out_c01_inventory-C0-r3` | Contract supplies wrapper fields `rows` and `reorder`. | Candidate uses an invalid `getattr(...)(['rows'])` expression and does not implement the contract’s global `reorder`; verifier raises `TypeError: unhashable type: 'list'`. | Model-produced artifact under the frozen contract. |
+| `s7-qwen3-5-9b-test_in_b09_phone-C1-r1` | Contract supplies wrapper field `text`; candidate itself branches for dictionary input. | Candidate’s normalization branch is incomplete and does not return the prescribed normalized value; verifier raises `TypeError: 'str' object cannot be interpreted as an integer`. | Model-produced artifact under the frozen contract. |
+
+The five cases show that this aggregate category mixes frozen task/verifier
+interface defects with candidate artifacts. Excluding all such failures is
+therefore not a neutral correction and is reported only as an optimistic
+sensitivity analysis.
