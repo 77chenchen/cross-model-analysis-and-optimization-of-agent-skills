@@ -8,7 +8,4 @@ All figures use `verifier.json.passed` through the gated formal analysis. GPT-5.
 - `S7_F4_process_mechanisms`: validation and explicit-reference mechanism measures.
 - `S7_F5_exploratory`: qwen v1/L3b descriptive comparisons and call-32 strata.
 
-Each figure is exported as PDF, SVG, 300-dpi PNG, and 600-dpi TIFF. Plotting
-data are under `figures/s7/data/`; hashes are in `figure_manifest.json`.
-The sibling `qa/` directory records color-vision simulations, panel alignment,
-PDF text sizes (minimum 5 pt), and collision audits (zero blocking collisions).
+Each figure is exported as PDF, SVG, and 300-dpi PNG. Plotting data are under `figures/s7/data/`; hashes are in `figure_manifest.json`.

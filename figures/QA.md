@@ -12,7 +12,7 @@ or any frozen experimental asset.
 | F2 / S7_F2 | How does a pass-definition correction change rates, and what are task-paired C1 minus C0 differences? | F2 is a definitional audit; S7_F2 reports paired bootstrap intervals. |
 | F3 / S7_F3 | Which non-exclusive run flags and task-level pass distributions occur? | Descriptive; flags are not collapsed into a single outcome. |
 | F4--F7 / S7_F4 | How are actions, process measures, turn structure, and token use distributed? | Descriptive process evidence. |
-| F8 / S7_F5 | What call-32 and exploratory strata are observed? | Descriptive only; not an effect estimate. |
+| F8 / S7_F5 | What call-32 and exploratory strata are observed? | Descriptive only; not an effect estimate. F8 uses aggregate bars because individual-level flows are unavailable. |
 | F9 | How closely do human and judge labels agree? | Agreement evidence with raw counts and intervals. |
 
 ## Render contract and checks

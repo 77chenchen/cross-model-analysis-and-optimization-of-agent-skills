@@ -43,3 +43,11 @@ token labels, and all figures were re-exported in PDF, SVG, PNG, and TIFF.
 The final set passed PDF text-size QA (minimum 5 pt) and has zero blocking
 collision findings. Figure 4 retains nine expected warnings where its numeric
 heatmap annotations intentionally overlay their cells.
+
+## 2026-10-11 readability revision
+
+Following visual review, three descriptive views now use horizontal bars:
+F6 uses one summary bar per model, F8 uses explicit aggregate transition-count
+bars rather than an alluvial whose individual flows are unavailable, and
+S7_F4 uses bars with retained Wilson intervals. This changes visual encoding
+only; the CSV inputs and all numerical values are unchanged.

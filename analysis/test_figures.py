@@ -62,10 +62,15 @@ class FigureIntegrityTests(unittest.TestCase):
         for stem in FIGURE_STEMS:
             self.assertGreaterEqual(FIGURE_PANEL_COUNTS[stem], 2, stem)
 
-    def test_bar_calls_are_confined_to_f7_token_stack(self) -> None:
+    def test_bar_calls_are_confined_to_declared_descriptive_bar_panels(self) -> None:
         source_path = Path(__file__).with_name("make_figures.py")
         tree = ast.parse(source_path.read_text(encoding="utf-8"))
         violations: list[tuple[str | None, str, int]] = []
+        allowed = {
+            ("draw_token_stack", "barh"),       # F7 token composition.
+            ("render_figure6", "barh"),         # F6 aggregate process summaries.
+            ("draw_transition_panel", "barh"),  # F8 frozen aggregate transitions.
+        }
         stack: list[str] = []
 
         class Visitor(ast.NodeVisitor):
@@ -77,7 +82,7 @@ class FigureIntegrityTests(unittest.TestCase):
             def visit_Call(self, node: ast.Call) -> None:
                 if isinstance(node.func, ast.Attribute) and node.func.attr in {"bar", "barh"}:
                     function = stack[-1] if stack else None
-                    if not (function == "draw_token_stack" and node.func.attr == "barh"):
+                    if (function, node.func.attr) not in allowed:
                         violations.append((function, node.func.attr, node.lineno))
                 self.generic_visit(node)
 

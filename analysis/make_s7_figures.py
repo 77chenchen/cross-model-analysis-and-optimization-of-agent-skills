@@ -11,6 +11,7 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.lines import Line2D
+from matplotlib.patches import Patch
 
 from analysis.figure_templates import annotated_heatmap, direct_label, interval_point, make_contact_sheet, panel_label
 from analysis.formal_s7_results import MODELS, OUT, TABLES, wilson
@@ -174,14 +175,16 @@ def render_process() -> None:
         for condition, offset in (("C0", -0.08), ("C1", 0.08)):
             successes, denominator, estimate = rate(model, condition, "validated_after_last_edit_intent")
             low, high = wilson(successes, denominator)
-            interval_point(axes[0], position + offset, estimate, low or 0, high or 0, color=CONDITION_COLORS[condition], marker="o")
+            axes[0].barh(position + offset, estimate, height=0.14, color=CONDITION_COLORS[condition], alpha=0.84, edgecolor="none")
+            axes[0].errorbar(estimate, position + offset, xerr=[[estimate - (low or 0)], [(high or 0) - estimate]], color=INK, linewidth=0.65, capsize=1.4, fmt="none")
             export.append({"panel": "validation", "model": model, "condition": condition, "successes": successes, "n": denominator, "rate": estimate})
         successes, denominator, estimate = rate(model, "C1", "activation", expected="explicit")
         low, high = wilson(successes, denominator)
-        interval_point(axes[1], position, estimate, low or 0, high or 0, color=model_style(model)["color"], marker=model_style(model)["marker"])
+        axes[1].barh(position, estimate, height=0.38, color=model_style(model)["color"], alpha=0.84, edgecolor="none")
+        axes[1].errorbar(estimate, position, xerr=[[estimate - (low or 0)], [(high or 0) - estimate]], color=INK, linewidth=0.65, capsize=1.4, fmt="none")
         export.append({"panel": "explicit_activation", "model": model, "condition": "C1", "successes": successes, "n": denominator, "rate": estimate})
     axes[0].set_yticks(y, [model_label(model) for model in open_models]); axes[0].set_xlim(0, 1); axes[0].set_xlabel("Validation after final edit")
-    axes[0].legend(handles=[Line2D([], [], marker="o", color=CONDITION_COLORS[c], linestyle="none", label=c) for c in ("C0", "C1")], loc="lower right")
+    axes[0].legend(handles=[Patch(facecolor=CONDITION_COLORS[c], edgecolor="none", label=c) for c in ("C0", "C1")], loc="lower right")
     axes[1].set_yticks(y, []); axes[1].set_xlim(0, 1); axes[1].set_xlabel("Explicit skill reference, C1")
     for ax, label in zip(axes[:2], ("a", "b")):
         despine(ax); panel_label(ax, label)
@@ -191,7 +194,8 @@ def render_process() -> None:
     for position, condition in enumerate(qwen_conditions):
         successes, denominator, estimate = rate("qwen3.5:9b", condition, "validated_after_last_edit_intent")
         low, high = wilson(successes, denominator)
-        interval_point(axes[2], position, estimate, low or 0, high or 0, color=CONDITION_COLORS[condition], marker="o")
+        axes[2].barh(position, estimate, height=0.42, color=CONDITION_COLORS[condition], alpha=0.84, edgecolor="none")
+        axes[2].errorbar(estimate, position, xerr=[[estimate - (low or 0)], [(high or 0) - estimate]], color=INK, linewidth=0.65, capsize=1.4, fmt="none")
         export.append({"panel": "qwen_conditions", "model": "qwen3.5:9b", "condition": condition, "successes": successes, "n": denominator, "rate": estimate})
     axes[2].set_yticks(positions, qwen_conditions); axes[2].set_xlim(0, 1); axes[2].set_xlabel("Qwen validation rate")
     despine(axes[2]); panel_label(axes[2], "c")

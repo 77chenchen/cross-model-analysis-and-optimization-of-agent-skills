@@ -82,8 +82,9 @@ panel-alignment overlays, PDF text-size audits, and collision-audit reports.
 
 ## Figure 6 — Assistant/tool-call structure
 
-- **Panels:** assistant turns/run, tool calls/assistant turn, and blind-write
-  fraction.
+- **Panels:** horizontal summary bars for assistant turns/run, tool
+  calls/assistant turn, and blind-write fraction. These frozen inputs provide
+  one summary per model, so bars are clearer than pseudo-distribution dots.
 - **Source:** `F6_turns_calls_blindwrite.csv`, dev-diagnose post hoc summaries,
   n=18 per model.
 - **Scope note:** only medians/rates were frozen in the CSV, so an ECDF or violin
@@ -100,7 +101,9 @@ panel-alignment overlays, PDF text-size audits, and collision-audit reports.
 
 ## Figure 8 — L3b call-32 state transitions
 
-- **Panels:** paired alluvial views for baseline and L3b A-layer runs.
+- **Panels:** paired transition-count bar charts for baseline and L3b A-layer
+  runs; bars separate already-passed, newly-passed, final non-pass, and any
+  unclassified runs without implying unavailable individual-level flows.
 - **Source:** `F8_l3b_transitions.csv` from the S6 replay audit.
 - **n/interpretation:** node and conversion counts are printed directly. The
   diagram is descriptive and is not an effect estimate or significance test.

@@ -331,11 +331,14 @@ def render_figure6() -> None:
     specs = [("assistant_turns_median", "Assistant turns / run", "a"), ("calls_per_turn_median", "Tool calls / turn", "b"), ("blind_write_rate", "Blind-write fraction", "c")]
     fig, axes = plt.subplots(1, 3, figsize=(DOUBLE_COLUMN_IN, 3.05), sharey=True, layout="constrained")
     for ax, (field, xlabel, letter) in zip(axes, specs):
+        values = [number(rows[model], field) for model in models]
         for pos, model in enumerate(models):
-            value = number(rows[model], field)
             style = model_style(model)
-            ax.plot(value, pos, marker=style["marker"], color=style["color"], linestyle="none", markersize=4.6)
+            value = values[pos]
+            ax.barh(pos, value, height=0.52, color=style["color"], alpha=0.82, edgecolor="none")
+            direct_label(ax, value + max(values) * 0.035, pos, f"{value:.2g}", color=style["color"], fontsize=6.4)
         ax.set_yticks(np.arange(len(models)), [model_label(x) for x in models])
+        ax.set_xlim(0, max(values) * 1.28 if max(values) else 1)
         ax.set_xlabel(xlabel)
         despine(ax)
         panel_label(ax, letter)
@@ -397,30 +400,30 @@ def curved_flow(ax: mpl.axes.Axes, start: tuple[float, float], end: tuple[float,
 
 
 def draw_transition_panel(ax: mpl.axes.Axes, condition: str, values: dict[str, int], letter: str) -> None:
+    """Use count bars instead of an alluvial: the frozen data are aggregates."""
     total = values["A_layer_runs"]
     already = values["already_pass_at_32"]
     not_pass = values["not_pass_at_32"]
     converted = values["final_pass_among_not_pass_at_32"]
     unknown = max(0, total - already - not_pass)
-    colour = CONDITION_COLORS[condition]
-    start = {"pass": (0.08, 0.76), "not": (0.08, 0.33), "unknown": (0.08, 0.08)}
-    end = {"pass": (0.92, 0.72), "fail": (0.92, 0.27), "unknown": (0.92, 0.06)}
-    curved_flow(ax, start["pass"], end["pass"], already, colour, total)
-    curved_flow(ax, start["not"], end["pass"], converted, "#2A9D8F", total)
-    curved_flow(ax, start["not"], end["fail"], not_pass - converted, "#8C6D62", total)
-    curved_flow(ax, start["unknown"], end["unknown"], unknown, MUTED, total)
-    nodes = [(*start["pass"], already, "passed @32"), (*start["not"], not_pass, "not passed @32"), (*end["pass"], already + converted, "final pass"), (*end["fail"], not_pass - converted, "final non-pass")]
+    labels = ["Passed at call 32", "New final pass", "Final non-pass"]
+    counts = [already, converted, not_pass - converted]
+    colours = ["#3B6EA5", "#2A9D8F", "#8C6D62"]
     if unknown:
-        nodes.extend([(*start["unknown"], unknown, "unclassified @32"), (*end["unknown"], unknown, "unclassified")])
-    for x, y, count, label in nodes:
-        ax.scatter(x, y, s=22 + 9 * count, color=colour if x < 0.5 else "#555555", edgecolor="white", linewidth=0.5, zorder=5)
-        direct_label(ax, x - 0.025 if x < 0.5 else x + 0.025, y, f"{label}\n{count}", ha="right" if x < 0.5 else "left", fontsize=6.2)
-    ax.text(0.5, 0.94, "Baseline" if condition == "baseline" else "L3b", ha="center", va="center", fontsize=8, weight="bold", color=colour)
-    ax.text(0.5, 0.88, f"conversion among not-passed @32: {converted}/{not_pass}", ha="center", va="center", fontsize=6.5, color=INK)
-    ax.set_xlim(-0.08, 1.08)
-    ax.set_ylim(-0.02, 1.02)
-    ax.axis("off")
-    panel_label(ax, letter, x=-0.02)
+        labels.append("Unclassified")
+        counts.append(unknown)
+        colours.append(MUTED)
+    positions = np.arange(len(labels))
+    ax.barh(positions, counts, height=0.58, color=colours, edgecolor="none")
+    for pos, count in enumerate(counts):
+        direct_label(ax, count + 0.15, pos, str(count), color=INK, fontsize=6.5)
+    ax.set_yticks(positions, labels)
+    ax.set_xlim(0, max(1, total) + 1.05)
+    ax.set_xlabel("A-layer runs")
+    label = "Baseline" if condition == "baseline" else "L3b"
+    ax.set_title(f"{label}: {converted}/{not_pass} new passes after call 32", loc="center", color=CONDITION_COLORS[condition], weight="bold", pad=16, fontsize=7.2)
+    despine(ax)
+    panel_label(ax, letter)
 
 
 def render_figure8() -> None:
@@ -431,7 +434,6 @@ def render_figure8() -> None:
     fig, (ax_a, ax_b) = plt.subplots(1, 2, figsize=(DOUBLE_COLUMN_IN, 3.15), layout="constrained")
     draw_transition_panel(ax_a, "baseline", grouped["baseline"], "a")
     draw_transition_panel(ax_b, "l3b", grouped["l3b"], "b")
-    fig.text(0.5, 0.01, "Descriptive call-32 state transitions; not an effect estimate.", ha="center", va="bottom", color=MUTED, fontsize=6.6)
     save_figure(fig, FIG / "F8_l3b_transitions")
 
 
