@@ -13,9 +13,9 @@ Research question: when a coding agent receives a written skill, does it repair 
 
 ## Results at a glance
 
-[![Formal S7 verifier pass rates by model and condition](figures/s7/S7_F1_bar_results.png)](figures/s7/S7_F1_bar_results.pdf)
+[![Formal S7 verifier pass rates by model and condition](figures/s7/verifier_pass_rates_by_model.png)](figures/s7/verifier_pass_rates_by_model.png)
 
-**Formal S7 core result.** Bars show the C0/C1 verifier pass rate on all held-out tasks; whiskers are 95% Wilson intervals. The vector PDF uses vendor marks beside the corresponding model families for private, nominative identification. Download the [vector PDF](figures/s7/S7_F1_bar_results.pdf). GPT-5.6 Sol remains a sampling-uncontrolled reference anchor.
+**Formal S7 core result.** Bars show the C0/C1 verifier pass rate on all held-out tasks; whiskers are 95% Wilson intervals. This is the project-maintainer supplied display image; the underlying results remain in `results/tables/s7/`. GPT-5.6 Sol remains a sampling-uncontrolled reference anchor.
 
 ## Paper
 

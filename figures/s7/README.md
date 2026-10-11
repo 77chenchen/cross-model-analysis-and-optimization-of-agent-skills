@@ -3,7 +3,7 @@
 All figures use `verifier.json.passed` through the gated formal analysis. GPT-5.6 Sol is always an uncontrolled Codex reference anchor.
 
 - `S7_F1_main_results`: core pass rates, aligned r2 process depth, and non-exclusive outcome flags.
-- `S7_F1_bar_results`: README-facing horizontal C0/C1 pass-rate bars with 95% Wilson intervals and original model-family badges; available as vector PDF and editable SVG.
+- `verifier_pass_rates_by_model.png`: project-maintainer supplied horizontal C0/C1 pass-rate display image for the README. The corresponding numerical source remains `results/tables/s7/S7_T1_model_condition_summary.csv`.
 - `S7_F2_paired_differences`: task-paired C1-minus-C0 differences with 10,000-draw bootstrap intervals.
 - `S7_F3_task_heatmap`: within-task repetition pass rates by model and core condition.
 - `S7_F4_process_mechanisms`: validation and explicit-reference mechanism measures.
