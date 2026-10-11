@@ -4,5 +4,5 @@
   "source_sha256": "6a7a8c1a5d1eb3ddba243935acef9bee99943612ecf1bd8a53274a85f8e83436",
   "definition": "Grouped C0/C1 verifier pass rates with Wilson intervals; all formal S7 tasks.",
   "color_scheme": "Vendor-family colors; C0 uses a light vector gradient and C1 a saturated vector gradient.",
-  "model_badges": "Original monograms; not vendor logos."
+  "vendor_icons": "OpenAI, Google, Meta, and Alibaba Cloud application icons; source details in assets/vendor-icons/manifest.json."
 }

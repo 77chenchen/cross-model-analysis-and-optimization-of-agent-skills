@@ -5,8 +5,8 @@
     "ready": true,
     "strict": false,
     "counts": {
-      "PASS": 21,
-      "WARN": 0,
+      "PASS": 20,
+      "WARN": 1,
       "FAIL": 0
     }
   },
@@ -30,7 +30,7 @@
     {
       "check_id": "FONT-SIZE",
       "level": "PASS",
-      "message": "All detected text sizes are at least 5 pt (minimum 5.2 pt)",
+      "message": "All detected text sizes are at least 5 pt (minimum 6.5 pt)",
       "evidence": []
     },
     {
@@ -71,11 +71,9 @@
     },
     {
       "check_id": "RASTER-DPI",
-      "level": "PASS",
-      "message": "A raster export of at least 600 dpi is configured",
-      "evidence": [
-        "600"
-      ]
+      "level": "WARN",
+      "message": "No explicit raster DPI/resolution found",
+      "evidence": []
     },
     {
       "check_id": "FINAL-WIDTH",

@@ -10,11 +10,14 @@ import csv
 import json
 from hashlib import sha256
 from pathlib import Path
+from tempfile import TemporaryDirectory
 
+import cairosvg
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.patches import Patch
-from matplotlib.transforms import blended_transform_factory
+import pymupdf
+from PIL import Image
 
 # Required for selectable SVG text and portable sans-serif fallbacks.
 plt.rcParams["font.family"] = "sans-serif"
@@ -48,14 +51,15 @@ BRAND_COLORS = {
     "llama3.1:8b": "#0866FF",      # Meta / Llama family
 }
 
-BADGES = {
-    "qwen3.8:27b": "Q",
-    "gpt-5.6-sol": "GPT",
-    "gemma4:26b": "G",
-    "qwen3-coder-next": "Q",
-    "qwen3.5:9b": "Q",
-    "llama3.1:8b": "L",
+VENDOR_ICONS = {
+    "qwen3.8:27b": "alibabacloud.svg",
+    "gpt-5.6-sol": "openai.svg",
+    "gemma4:26b": "google.svg",
+    "qwen3-coder-next": "alibabacloud.svg",
+    "qwen3.5:9b": "alibabacloud.svg",
+    "llama3.1:8b": "meta.svg",
 }
+ICON_DIR = OUT / "assets" / "vendor-icons"
 
 
 def read_rows() -> list[dict[str, str]]:
@@ -89,6 +93,57 @@ def vector_gradient_barh(ax: plt.Axes, y: float, width: float, height: float, ba
         ax.barh(y, width, height=height, color="none", edgecolor=edge, linewidth=0.55, align="center", zorder=3.5)
 
 
+def add_vector_vendor_icons(pdf_path: Path) -> None:
+    """Overlay SVG-derived logo PDFs without rasterizing the final vector PDF."""
+    document = pymupdf.open(pdf_path)
+    page = document[0]
+    words = page.get_text("words", sort=True)
+    # First word in the visible model label, in the same plotted order.
+    anchors = {
+        "qwen3.8:27b": "Qwen3.8",
+        "gpt-5.6-sol": "GPT-5.6",
+        "gemma4:26b": "Gemma4",
+        "qwen3-coder-next": "Qwen3",
+        "qwen3.5:9b": "Qwen3.5",
+        "llama3.1:8b": "Llama3.1",
+    }
+    with TemporaryDirectory(prefix="skilltraj-icons-") as temporary:
+        directory = Path(temporary)
+        for model in ORDER:
+            anchor = next((word for word in words if word[4] == anchors[model]), None)
+            if anchor is None:
+                raise RuntimeError(f"Could not place vendor icon for {model}")
+            source = ICON_DIR / VENDOR_ICONS[model]
+            logo_pdf = directory / f"{model}.pdf"
+            cairosvg.svg2pdf(url=str(source), write_to=str(logo_pdf), output_width=120, output_height=120)
+            icon_doc = pymupdf.open(logo_pdf)
+            x0, y0, _x1, y1, *_ = anchor
+            # The unusually long Qwen Coder label reaches the left crop edge.
+            # Keep that one mark beside (rather than before) its text so that
+            # all six provider marks remain visible in the final PDF.
+            if model == "qwen3-coder-next":
+                last_word = next((word for word in words if word[4] == "Next" and abs(word[1] - y0) < 1.0), anchor)
+                rect = pymupdf.Rect(last_word[2] + 4, y0 - 3.0, last_word[2] + 24, y1 + 3.0)
+            else:
+                rect = pymupdf.Rect(x0 - 25, y0 - 3.0, x0 - 5, y1 + 3.0)
+            page.show_pdf_page(rect, icon_doc, 0, keep_proportion=True, overlay=True)
+            icon_doc.close()
+        rewritten = pdf_path.with_name(pdf_path.stem + ".icons.pdf")
+        document.save(rewritten, garbage=4, deflate=True)
+    document.close()
+    rewritten.replace(pdf_path)
+
+
+def render_pdf_preview(pdf_path: Path, png_path: Path, tiff_path: Path) -> None:
+    """Create README and archival raster previews from the final icon-bearing PDF."""
+    document = pymupdf.open(pdf_path)
+    for dpi, path, image_format in ((300, png_path, "PNG"), (600, tiff_path, "TIFF")):
+        pixmap = document[0].get_pixmap(matrix=pymupdf.Matrix(dpi / 72, dpi / 72), alpha=False)
+        image = Image.frombytes("RGB", (pixmap.width, pixmap.height), pixmap.samples)
+        image.save(path, format=image_format, dpi=(dpi, dpi))
+    document.close()
+
+
 def main() -> None:
     configure_matplotlib()
     plt.rcParams.update({"font.size": 8.5, "axes.labelsize": 8.5, "ytick.labelsize": 9.2, "xtick.labelsize": 8.0})
@@ -100,7 +155,9 @@ def main() -> None:
 
     # Wide, one-panel layout optimised for a README preview and downloadable PDF.
     fig, ax = plt.subplots(figsize=(7.2, 4.25))
-    fig.subplots_adjust(left=0.42, right=0.975, top=0.83, bottom=0.23)
+    # Leave enough room for the longest model label and its vendor mark.  The
+    # Qwen Coder label otherwise begins at the page edge and clips its icon.
+    fig.subplots_adjust(left=0.56, right=0.975, top=0.83, bottom=0.23)
     y = np.arange(len(ORDER))
     offsets = {"C0": 0.18, "C1": -0.18}
     height = 0.30
@@ -123,15 +180,6 @@ def main() -> None:
     ax.tick_params(axis="y", length=0, pad=10)
     despine(ax)
 
-    # Model-family monograms sit to the immediate left of their names.
-    badge_transform = blended_transform_factory(ax.transAxes, ax.transData)
-    for position, model in enumerate(ORDER):
-        text, color = BADGES[model], BRAND_COLORS[model]
-        ax.scatter([-0.520], [position], s=265, marker="o", color=color, transform=badge_transform,
-                   clip_on=False, zorder=8)
-        ax.text(-0.520, position, text, transform=badge_transform, ha="center", va="center", clip_on=False,
-                color="white", fontsize=5.2 if text == "GPT" else 7.1, fontweight="bold", zorder=9)
-
     for position, model in enumerate(ORDER):
         n = int(core[(model, "C0")]["primary_n"])
         ax.text(1.035, position, f"n = {n}", ha="left", va="center", fontsize=7.0, color=MUTED)
@@ -145,15 +193,15 @@ def main() -> None:
         entry.set_color(MUTED)
     ax.text(0.0, -0.175,
             "† GPT-5.6 Sol is a sampling-uncontrolled reference anchor.  Primary denominator excludes retry-exhausted provider errors.\n"
-            "Each bar uses a vendor-family vector gradient; model badges are original monograms, not vendor logos.",
+            "Each bar uses a vendor-family vector gradient; left labels use vendor application icons for identification only.",
             transform=ax.transAxes, ha="left", va="top", fontsize=6.5, color=MUTED, linespacing=1.45)
 
     OUT.mkdir(parents=True, exist_ok=True)
     fig.savefig(STEM.with_suffix(".pdf"), bbox_inches="tight", pad_inches=0.05)
     fig.savefig(STEM.with_suffix(".svg"), bbox_inches="tight", pad_inches=0.05)
-    fig.savefig(STEM.with_suffix(".png"), dpi=300, bbox_inches="tight", pad_inches=0.05)
-    fig.savefig(STEM.with_suffix(".tiff"), dpi=600, bbox_inches="tight", pad_inches=0.05)
     plt.close(fig)
+    add_vector_vendor_icons(STEM.with_suffix(".pdf"))
+    render_pdf_preview(STEM.with_suffix(".pdf"), STEM.with_suffix(".png"), STEM.with_suffix(".tiff"))
     # Preserve the visual SVG while keeping repository whitespace checks clean.
     svg_path = STEM.with_suffix(".svg")
     svg_path.write_text("\n".join(line.rstrip() for line in svg_path.read_text(encoding="utf-8").splitlines()) + "\n", encoding="utf-8")
@@ -164,7 +212,7 @@ def main() -> None:
         "source_sha256": sha256(TABLE.read_bytes()).hexdigest(),
         "definition": "Grouped C0/C1 verifier pass rates with Wilson intervals; all formal S7 tasks.",
         "color_scheme": "Vendor-family colors; C0 uses a light vector gradient and C1 a saturated vector gradient.",
-        "model_badges": "Original monograms; not vendor logos.",
+        "vendor_icons": "OpenAI, Google, Meta, and Alibaba Cloud application icons; source details in assets/vendor-icons/manifest.json.",
     }
     (OUT / f"{STEM.name}.metadata.json").write_text(json.dumps(metadata, indent=2) + "\n", encoding="utf-8")
 
