@@ -1,0 +1,6 @@
+| cohort | failed_runs_n | judge_covered_n | file_corruption | tool_misuse | missed_constraint | other_or_unlabeled |
+|---|---|---|---|---|---|---|
+| S4 dev_diagnose | 8 | 0 | 0 | 0 | 0 | 8 |
+| S7 C0 | 46 | 0 | 0 | 0 | 0 | 46 |
+| S7 C1 | 44 | 0 | 0 | 0 | 0 | 44 |
+| Combined | 98 | 0 | 0 | 0 | 0 | 98 |

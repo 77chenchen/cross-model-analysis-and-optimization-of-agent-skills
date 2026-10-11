@@ -27,7 +27,9 @@ S7_METRICS = ROOT / "results" / "s7" / "run_metrics.csv"
 S4_RUNS = ROOT / "data" / "b3_s4_r2_runs"
 TABLES = ROOT / "results" / "tables" / "report"
 DOC = ROOT / "docs" / "behavior_outcome_crosstab.md"
-GPT_AUDIT = ROOT / "data" / "s7_gpt_overwrite_audit_20261011.json"
+TAXONOMY_DOC = ROOT / "docs" / "weak_failure_taxonomy.md"
+JUDGE_MANIFEST = ROOT / "data" / "b5_r2_blinded_packets" / "b5_r2_private_manifest.json"
+JUDGE_ANNOTATIONS = ROOT / "data" / "b5_r2_blinded_annotations"
 
 STRONG = {"gemma4:26b", "qwen3.8:27b", "qwen3-coder-next"}
 WEAK = "qwen3.5:9b"
@@ -367,45 +369,75 @@ def retry_distribution(rows: list[dict[str, str]]) -> list[dict]:
     ]
 
 
-def gpt_audit(rows: list[dict[str, str]]) -> dict:
-    selected = [row for row in rows if row["model"] == "gpt-5.6-sol" and row["condition"] in {"C0", "C1"}]
-    ids = [row["run_id"] for row in selected]
-    by_condition = {
-        condition: [row for row in selected if row["condition"] == condition]
-        for condition in ("C0", "C1")
-    }
-    def repetition(row: dict[str, str]) -> str:
-        # Codex-anchor metadata did not populate the r2 repetition field; the
-        # locked run id still carries the scheduled repetition suffix.
-        match = re.search(r"-r(\d+)$", row["run_id"])
-        return row["repetition"] or (match.group(1) if match else "")
+def weak_failure_taxonomy(rows: list[dict[str, str]]) -> list[dict]:
+    """Summarize only the three judge labels permitted as conclusion evidence.
 
-    keys = {
-        condition: {(row["split"], row["task"], repetition(row)) for row in subset}
-        for condition, subset in by_condition.items()
-    }
-    archives = [Path("/tmp/s7-gpt-overwrite.qlslty"), Path("/tmp/s7-gpt-overwrite-round2.lAppQs")]
-    payload = {
-        "version": VERSION,
-        "active_total": len(selected),
-        "active_unique_run_ids": len(set(ids)),
-        "duplicate_active_run_ids": sorted(run_id for run_id, count in Counter(ids).items() if count > 1),
-        "condition_counts": {condition: len(subset) for condition, subset in by_condition.items()},
-        "exact_run_id_intersection_C0_C1": sorted(set(row["run_id"] for row in by_condition["C0"]) & set(row["run_id"] for row in by_condition["C1"])),
-        "task_repetition_keys_identical_C0_C1": keys["C0"] == keys["C1"],
-        "task_repetition_key_count": {condition: len(value) for condition, value in keys.items()},
-        "pre_overwrite_archives": [
-            {
-                "path": str(path),
-                "exists_at_audit": path.is_dir(),
-                "run_directories": len([child for child in path.iterdir() if child.is_dir()]) if path.is_dir() else None,
-            }
-            for path in archives
+    Labels are non-exclusive.  A failure with none of the three permitted
+    labels, including a run never sent to the frozen judge, is counted once in
+    ``other_or_unlabeled``.
+    """
+    reliable = ("file_corruption", "tool_misuse", "missed_constraint")
+    packet_for_run = {item["run_id"]: item["packet_id"] for item in load(JUDGE_MANIFEST)}
+    judge_for_run: dict[str, set[str]] = {}
+    for run_id, packet_id in packet_for_run.items():
+        annotation = load(JUDGE_ANNOTATIONS / f"{packet_id}.json")
+        judge_for_run[run_id] = set(annotation.get("failure_modes") or [])
+
+    s4_runs, _ = s4_behavior_rows()
+    cohorts: dict[str, list[str]] = {
+        "S4 dev_diagnose": [run["run_id"] for run in s4_runs if run["cell"] == "weak-fail"],
+        "S7 C0": [
+            row["run_id"] for row in rows
+            if row["model"] == WEAK and row["condition"] == "C0"
+            and not as_bool(row["provider_error_protocol"])
+            and not as_bool(row["verifier_pass"])
         ],
-        "note": "The /tmp locations preserve the pre-overwrite artifacts on this machine but are not durable repository storage.",
+        "S7 C1": [
+            row["run_id"] for row in rows
+            if row["model"] == WEAK and row["condition"] == "C1"
+            and not as_bool(row["provider_error_protocol"])
+            and not as_bool(row["verifier_pass"])
+        ],
     }
-    GPT_AUDIT.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-    return payload
+    cohorts["Combined"] = [run_id for name, run_ids in cohorts.items() if name != "Combined" for run_id in run_ids]
+
+    output: list[dict] = []
+    for cohort, run_ids in cohorts.items():
+        label_sets = [judge_for_run.get(run_id, set()) for run_id in run_ids]
+        output.append({
+            "cohort": cohort,
+            "failed_runs_n": len(run_ids),
+            "judge_covered_n": sum(run_id in judge_for_run for run_id in run_ids),
+            **{label: sum(label in labels for labels in label_sets) for label in reliable},
+            "other_or_unlabeled": sum(not (set(reliable) & labels) for labels in label_sets),
+        })
+    return output
+
+
+def write_taxonomy_doc(rows: list[dict]) -> None:
+    lines = [
+        "# Weak-model failure taxonomy",
+        "",
+        "> Scope: verifier-failing qwen3.5:9b runs in S4 `dev_diagnose` and",
+        "> formal S7 C0/C1. Retry-exhausted transport errors are excluded.",
+        "> The only judge labels used are `file_corruption`, `tool_misuse`, and",
+        "> `missed_constraint`, the three labels permitted as conclusion evidence",
+        "> by the human--judge agreement audit.",
+        "",
+        "| Cohort | Failed runs n | Judge-covered n | File corruption | Tool misuse | Missed constraint | Other / unlabeled |",
+        "|---|---:|---:|---:|---:|---:|---:|",
+    ]
+    for row in rows:
+        lines.append(
+            f"| {row['cohort']} | {row['failed_runs_n']} | {row['judge_covered_n']} | "
+            f"{row['file_corruption']} | {row['tool_misuse']} | {row['missed_constraint']} | "
+            f"{row['other_or_unlabeled']} |"
+        )
+    lines.extend([
+        "",
+        "Labels are non-exclusive, so the three named columns can overlap. `Other / unlabeled` means that none of the three reliable labels was present; it includes failures outside the existing blinded judge sample. No new judge request was made. Consequently, the S7 rows primarily document missing taxonomy coverage and must not be read as evidence that the three failure modes were absent.",
+    ])
+    TAXONOMY_DOC.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
 def main() -> None:
@@ -415,20 +447,22 @@ def main() -> None:
     mde = minimum_detectable_effect(rows)
     informative = informative_task_sensitivity(rows)
     retries = retry_distribution(rows)
-    audit = gpt_audit(rows)
+    taxonomy = weak_failure_taxonomy(rows)
 
     emit("strong_weak_process", process)
     emit("behavior_outcome_crosstab", behavior)
     emit("minimum_detectable_effect", mde)
     emit("posthoc_informative_task_sensitivity", informative)
     emit("qwen_retry_exhausted_distribution", retries)
+    emit("weak_failure_taxonomy", taxonomy)
     write_behavior_doc(behavior, behavior_runs, behavior_excluded)
+    write_taxonomy_doc(taxonomy)
     print(json.dumps({
         "version": VERSION,
-        "tables": 5,
+        "tables": 6,
         "behavior_runs": len(behavior_runs),
         "behavior_excluded": len(behavior_excluded),
-        "gpt_active_unique": audit["active_unique_run_ids"],
+        "weak_failures": taxonomy[-1]["failed_runs_n"],
     }, sort_keys=True))
 
 

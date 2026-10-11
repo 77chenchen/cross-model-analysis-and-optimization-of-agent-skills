@@ -137,7 +137,7 @@ def main() -> int:
         if row["scope"] == "all" and row["contrast"] == "C1-C0" and row["metric"] == "validated_after_last_edit_intent"
     }
     validation_match = re.search(
-        r"qwen \(task-level\s+C1-minus-C0 validation after final edit: ([-+]?\d+\.\d+) points\).*?gemma is ([-+]?\d+\.\d+), qwen3\.8 is ([-+]?\d+\.\d+), qwen-coder is ([-+]?\d+\.\d+),\s+and llama is ([-+]?\d+\.\d+) points",
+        r"qwen\s+\(task-level\s+C1-minus-C0 validation after final edit: ([-+]?\d+\.\d+) points\).*?gemma is ([-+]?\d+\.\d+), qwen3\.8 is ([-+]?\d+\.\d+), qwen-coder\s+is ([-+]?\d+\.\d+), and llama is ([-+]?\d+\.\d+) points",
         text,
         re.S,
     )

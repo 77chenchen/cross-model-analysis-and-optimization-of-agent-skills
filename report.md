@@ -38,8 +38,11 @@ bound, and GPT-5.6 Sol as a Codex reference anchor. GPT sampling is not aligned
 with r2 and is never pooled as a controlled comparison.
 
 S4 verifier-pass calibration placed qwen3.5:9b inside the predeclared 20%--80%
-band. Gemma, qwen3.8, and qwen-coder were near the upper end; llama was at the
-floor. These calibration observations are descriptive rather than rankings.
+band at 18/32 usable runs (56.2%). On the same calibration batch, gemma4:26b
+was 30/36 (83.3%), qwen3.8:27b was 32/35 (91.4%), qwen3-coder-next was 30/36
+(83.3%), and llama3.1:8b was 0/36 (0.0%). These ranges come from the 12 pilot
+tasks used in S4, not the 18 held-out S7 tasks, so they are descriptive
+calibration observations rather than S7 rankings.
 
 ## 4. Data collection and analysis
 
@@ -167,12 +170,10 @@ affect only the exploratory L3b denominator.
 
 The active GPT cohort has 108 records and 108 unique run ids: 54 C0 and 54 C1,
 with no exact run-id overlap. After parsing the `-rN` suffix, both conditions
-contain the same 54 task-repetition keys and neither contains duplicates. The
-pre-overwrite 104-record archive remains at
-`/tmp/s7-gpt-overwrite.qlslty`; the 42-record second-round archive remains at
-`/tmp/s7-gpt-overwrite-round2.lAppQs`. These are machine-local, non-durable
-locations, recorded in `data/s7_gpt_overwrite_audit_20261011.json` rather than
-silently treated as active data.
+contain the same 54 task-repetition keys and neither contains duplicates. At
+the owner's direction, the two temporary pre-overwrite copies were removed
+from `/tmp`; they are not part of the active analysis or retained repository
+data.
 
 One controlled core task, `test_in_b11_bucket`, is an all-zero floor; there
 are no all-one ceiling tasks. Full split and b09 sensitivity views are in
@@ -191,6 +192,26 @@ weak-pass, and weak-fail occurrence rates are reported in
 `docs/behavior_outcome_crosstab.md`. The cross-tab uses only S4
 `dev_diagnose`; it is observational and does not imply that a behavior causes
 verifier success.
+
+More importantly, the four behaviors do not separate success from failure in
+this sample. Reading before editing is 100% in all four cells. Post-edit
+validation and rereading are not lower in the failure cells: validation is
+70.2% versus 100.0% for strong pass/fail and 30.0% versus 62.5% for weak
+pass/fail; rereading is 25.5% versus 50.0% and 20.0% versus 50.0%,
+respectively. Avoiding a repeated full-file write is also similar across the
+four cells (76.6%, 83.3%, 80.0%, and 75.0%). The weak-pass and weak-fail cells
+contain only n=10 and n=8 runs, so these are descriptive rates, not stable
+failure predictors.
+
+This connects directly to Section 9: v1 externalizes these same behaviors.
+Its +45.0-point change in strict post-edit validation with no verifier-pass
+change is consistent with the cross-tab's observation that performing the
+behavior does not by itself explain success. The available weak-model failure
+taxonomy is in `docs/weak_failure_taxonomy.md`; it uses only the three
+human-audited judge labels allowed as conclusion evidence and retains an
+explicit `Other / unlabeled` column. Because none of the 98 in-scope failures
+was covered by that existing judge sample, the table documents a coverage gap
+rather than estimating failure-mode prevalence.
 
 ## 7. Patterns and anomalies
 
@@ -211,11 +232,12 @@ The call-32 partial=1 proxy agreed with final verifier pass in all seven
 available dev cases (0/7 proxy-positive final failures), but write-only replay
 cannot reproduce command side effects.
 
-In S7, the qwen-generated validation hypothesis replicates for qwen (task-level
-C1-minus-C0 validation after final edit: -25.0 points) but not across the
-independent r2 models: gemma is +11.1, qwen3.8 is 0.0, qwen-coder is -1.9,
-and llama is +38.9 points. Explicit C1 skill-reference rates also do not rise
-monotonically with model capability under the locked parser.
+In S7, the preregistered directional prediction was that C1 would reduce
+post-edit validation relative to C0. That direction is observed for qwen
+(task-level C1-minus-C0 validation after final edit: -25.0 points) but not
+across the independent r2 models: gemma is +11.1, qwen3.8 is 0.0, qwen-coder
+is -1.9, and llama is +38.9 points. Explicit C1 skill-reference rates also do
+not rise monotonically with model capability under the locked parser.
 
 ## 8. Skill modifications
 
