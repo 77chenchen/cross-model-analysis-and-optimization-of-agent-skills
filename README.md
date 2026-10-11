@@ -142,11 +142,10 @@ Authors are pending. Replace the placeholder before external citation.
 
 ## 核心结论
 
-- 在六个受控模型配置中，C1 相对 C0 的通过率点估计均未更低，并在部分模型上略有上升；但这些差异很小，无法支持“固定技能指令在跨模型上稳定提高通过率”的结论（[S7_T1_model_condition_summary.csv](results/tables/s7/S7_T1_model_condition_summary.csv)、[S7_T2_core_paired_differences.csv](results/tables/s7/S7_T2_core_paired_differences.csv)）。
-- 对弱目标模型 qwen3.5:9b，C1 使“最终一次编辑后再验证”的任务级比例降低 25.0 个百分点，而通过率仅增加 1.9 个百分点：过程改变不等于结果改善（[S7_T7_process_paired.csv](results/tables/s7/S7_T7_process_paired.csv)、[S7_T2_core_paired_differences.csv](results/tables/s7/S7_T2_core_paired_differences.csv)）。
-- 探索性 v1 指令使同一验证行为提高 45.0 个百分点，但相对 C1 的通过率没有变化（[S7_T7_process_paired.csv](results/tables/s7/S7_T7_process_paired.csv)、[S7_T6_exploratory.csv](results/tables/s7/S7_T6_exploratory.csv)）。
-- 因而，本研究的核心不只在于“skill 有没有提高通过率”，还在于检验：**即使最终通过率没有明显变化，skill 是否会改变智能体读取代码、写入文件、执行验证以及结束任务的路径。** 对 qwen3.5:9b，C1 与 v1 都观察到了这类轨迹层变化，但现有证据不足以把它们解释为稳定的成功机制（[S7_T4_process_metrics.csv](results/tables/s7/S7_T4_process_metrics.csv)、[S7_T7_process_paired.csv](results/tables/s7/S7_T7_process_paired.csv)）。
-- 本研究只有 18 个测试任务，对小于约 9–12 个百分点的差异没有足够分辨力；所有发现都应理解为基于合成修复任务的探索性证据（[论文](paper/main.pdf)，任务级比较见 [S7_T2_core_paired_differences.csv](results/tables/s7/S7_T2_core_paired_differences.csv)）。
+- 在六个受控模型配置中，C1 相对 C0 的通过率点在小模型上有上升，对于强模型来说没有提升（[S7_T1_model_condition_summary.csv](results/tables/s7/S7_T1_model_condition_summary.csv)、[S7_T2_core_paired_differences.csv](results/tables/s7/S7_T2_core_paired_differences.csv)）。
+- 对弱目标模型 qwen3.5:9b，C1 使“最终一次编辑后再验证”的任务级比例降低 25.0 个百分点，通过率增加 1.9 个百分点（[S7_T7_process_paired.csv](results/tables/s7/S7_T7_process_paired.csv)、[S7_T2_core_paired_differences.csv](results/tables/s7/S7_T2_core_paired_differences.csv)）。
+- 本研究的核心不只在于“skill 有没有提高通过率”，还在于检验：**即使最终通过率没有明显变化，skill 是否会改变智能体读取代码、写入文件、执行验证以及结束任务的路径。** 对 qwen3.5:9b，C1 与 v1 都观察到了这类轨迹层变化，C1 相对 C0：编辑后的验证行为减少了 25.0 个百分点，同时平均轨迹略长，并出现更多重写和重复动作；通过率从 48.3% 到 50.6%。
+v1 相对 C1：v1 明确要求编辑后验证，模型对该指令的显式引用达到 80%，编辑后验证行为增加 45.0 个百分点；但通过率没有变化。（[S7_T4_process_metrics.csv](results/tables/s7/S7_T4_process_metrics.csv)、[S7_T7_process_paired.csv](results/tables/s7/S7_T7_process_paired.csv)）。
 
 ## 主结果与论文
 
