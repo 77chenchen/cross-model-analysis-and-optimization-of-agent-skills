@@ -487,7 +487,12 @@ def main() -> None:
     args = parser.parse_args()
     if args.formal_s7:
         enforce_formal_s7_gate(ROOT / "STATUS.md", ROOT / "analysis/analysis_patch_manifest.json")
-        raise SystemExit("S7 gate passed; formal figures require the post-completion analysis commit")
+        from analysis.formal_s7_results import main as make_formal_s7_results
+        from analysis.make_s7_figures import main as make_formal_s7_figures
+
+        make_formal_s7_results()
+        make_formal_s7_figures()
+        return
     configure_matplotlib()
     verify_csv_hashes()
     render_figure1()

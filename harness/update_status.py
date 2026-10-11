@@ -41,9 +41,14 @@ elif s7 < 870:
     current = "Current task: S7 is running from immutable schedules; completed run IDs are resumable only with complete artifacts."
     estimate = f"Estimated remaining: {870-s7} locked S7 runs."
 else:
-    s7_state = "complete; analysis pending"
-    current = "Current task: S7 scheduled runs are complete; derive only the locked analyses."
-    estimate = "Estimated remaining: no further model calls; analyze the immutable run artifacts."
+    if (ROOT / "results/s7/analysis_manifest.json").exists():
+        s7_state = "complete; formal analysis complete"
+        current = "Current task: S7 execution and gated formal analysis are complete; await the owner's S8 decision."
+        estimate = "Estimated remaining: no authorized model calls; formal S7 tables and figures are available."
+    else:
+        s7_state = "complete; analysis pending"
+        current = "Current task: S7 scheduled runs are complete; derive only the locked analyses."
+        estimate = "Estimated remaining: no further model calls; analyze the immutable run artifacts."
 lines = [
     "# Batch status", "",
     "This ledger is refreshed by `harness/update_status.py` after each completed run or judge annotation.", "",

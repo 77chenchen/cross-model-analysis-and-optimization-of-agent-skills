@@ -1,0 +1,54 @@
+{
+  "analysis_source_sha256": "635f2e84fbe0ccf35ae2a23832c64da76a5b6a9fddac184bdb0070a21900e027",
+  "analysis_version": "s7-formal-v1.0.0",
+  "bootstrap": {
+    "draws": 10000,
+    "seed": 701009,
+    "unit": "task"
+  },
+  "event_parse_errors": [
+    {
+      "error": "Unterminated string starting at: line 1 column 882 (char 881)",
+      "line": 28,
+      "path": "data/s7_runs/s7-qwen3-8-27b-test_out_c03_consolidate-C0-r3/events.jsonl"
+    },
+    {
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "line": 29,
+      "path": "data/s7_runs/s7-qwen3-8-27b-test_out_c03_consolidate-C0-r3/events.jsonl"
+    },
+    {
+      "error": "Expecting value: line 1 column 1 (char 0)",
+      "line": 30,
+      "path": "data/s7_runs/s7-qwen3-8-27b-test_out_c03_consolidate-C0-r3/events.jsonl"
+    }
+  ],
+  "notes": [
+    "GPT is an uncontrolled Codex reference anchor and is never pooled with r2 comparisons.",
+    "v1 and L3b are exploratory; call-32 strata are post-assignment descriptive strata.",
+    "Malformed event lines are skipped only for process metrics and listed above; verifier outcomes are unaffected."
+  ],
+  "provider_error_protocol": 5,
+  "raw_event_files_missing": 108,
+  "run_count": 870,
+  "run_metrics_sha256": "db7ea19ec66591392cbc05c768f87dd891c938431f1614577217e98bbc8cd865",
+  "tables": {
+    "S7_T1_model_condition_summary.csv": "6a7a8c1a5d1eb3ddba243935acef9bee99943612ecf1bd8a53274a85f8e83436",
+    "S7_T2_core_paired_differences.csv": "93c7fe03904c0aaad4ae78fd4686e301c2a03d48579767f0cf5e11d971a60d6a",
+    "S7_T3_task_distribution.csv": "fc0d9b8051dfa2b1682b9ec82192ecfa86f860df58b3f32a99712c8c0e7a87ee",
+    "S7_T4_process_metrics.csv": "d2b587c6e8b2cd78c8e27b95d85f50a59b8fd5abf0710ad000f69194906b89a4",
+    "S7_T5_activation.csv": "1b4319092381a9b1f77cdf95fda0a773f0d757f054978a4b12a433c2fbb1ae3c",
+    "S7_T6_exploratory.csv": "88fcdc21e3b4a682f03620ba730db2c023b0bde912eea8301017e3525cbd1c6f",
+    "S7_T7_process_paired.csv": "ff650f12b303ec0ca45f544bb5a9ca084d7e0393398e47f03217803e9e6eba21"
+  },
+  "verifier_available": 870,
+  "verifier_pass_patch": {
+    "analysis_version": "verifier-pass-v2.0.0",
+    "formal_entry": "analysis/summarize_s7_v2.py",
+    "formal_gate": "STATUS.md must report 870/870 and verifier_pass_module_sha256 must match",
+    "primary_outcome": "verifier.json.passed",
+    "verifier_pass_module": "analysis/verifier_pass_v2.py",
+    "verifier_pass_module_sha256": "72b1e0b8252566ccf0f408a7c4311c939157be9d33cb016a385ea95efd218bcc",
+    "version_locked_before_formal_s7_analysis": true
+  }
+}

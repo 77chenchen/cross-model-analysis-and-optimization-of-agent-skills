@@ -34,7 +34,10 @@ def main() -> None:
     args = parser.parse_args()
     if args.formal_s7:
         enforce_formal_s7_gate(ROOT / "STATUS.md", ROOT / "analysis/analysis_patch_manifest.json")
-        raise SystemExit("S7 gate passed; formal table generation is intentionally a separate post-completion commit")
+        from analysis.formal_s7_results import main as make_formal_s7_results
+
+        make_formal_s7_results()
+        return
 
     pilot = json.loads((ROOT / "tasks/pilot/admission.json").read_text())
     formal = json.loads((ROOT / "tasks/s3_admission.json").read_text())

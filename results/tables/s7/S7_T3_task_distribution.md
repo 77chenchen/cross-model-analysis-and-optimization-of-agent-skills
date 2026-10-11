@@ -1,0 +1,20 @@
+| task | split | skill | qwen3.5:9b_C0 | qwen3.5:9b_C1 | gemma4:26b_C0 | gemma4:26b_C1 | qwen3.8:27b_C0 | qwen3.8:27b_C1 | qwen3-coder-next_C0 | qwen3-coder-next_C1 | llama3.1:8b_C0 | llama3.1:8b_C1 | gpt-5.6-sol_C0 | gpt-5.6-sol_C1 | controlled_all_zero | controlled_all_one |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| test_in_a07_slug | test_in | A | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 0.0 | 0.0 | 1.0 | 1.0 | False | False |
+| test_in_a08_clamp | test_in | A | 0.8 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 0.0 | 0.0 | 1.0 | 1.0 | False | False |
+| test_in_a09_header | test_in | A | 0.0 | 0.0 | 0.0 | 0.6666666666666666 | 1.0 | 1.0 | 0.0 | 0.0 | 0.0 | 0.0 | 1.0 | 1.0 | False | False |
+| test_in_a10_extension | test_in | A | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 0.0 | 0.0 | 1.0 | 1.0 | False | False |
+| test_in_a11_duration | test_in | A | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 0.0 | 0.0 | 1.0 | 1.0 | False | False |
+| test_in_a12_enum | test_in | A | 0.8 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 0.0 | 0.0 | 1.0 | 1.0 | False | False |
+| test_in_b07_tags | test_in | B | 0.6 | 0.8 | 1.0 | 1.0 | 1.0 | 1.0 | 0.6666666666666666 | 1.0 | 0.0 | 0.0 | 0.0 | 0.0 | False | False |
+| test_in_b08_total | test_in | B | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 0.0 | 0.0 | 1.0 | 1.0 | False | False |
+| test_in_b09_phone | test_in | B | 0.4 | 0.0 | 0.6666666666666666 | 0.6666666666666666 | 1.0 | 1.0 | 1.0 | 0.6666666666666666 | 0.0 | 0.0 | 1.0 | 1.0 | False | False |
+| test_in_b10_cents | test_in | B | 0.0 | 0.2 | 0.0 | 0.0 | 0.3333333333333333 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.3333333333333333 | 0.6666666666666666 | False | False |
+| test_in_b11_bucket | test_in | B | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.3333333333333333 | 0.0 | True | False |
+| test_in_b12_difference | test_in | B | 0.4 | 0.6 | 0.3333333333333333 | 0.6666666666666666 | 1.0 | 1.0 | 0.3333333333333333 | 0.0 | 0.0 | 0.0 | 1.0 | 1.0 | False | False |
+| test_out_c01_inventory | test_out | C | 0.2 | 0.2 | 0.0 | 0.0 | 0.6666666666666666 | 1.0 | 0.0 | 0.0 | 0.0 | 0.0 | 1.0 | 1.0 | False | False |
+| test_out_c02_sessions | test_out | C | 0.25 | 0.6 | 0.0 | 0.0 | 1.0 | 1.0 | 0.0 | 0.6666666666666666 | 0.0 | 0.0 | 1.0 | 1.0 | False | False |
+| test_out_c03_consolidate | test_out | C | 0.4 | 0.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 0.0 | 0.0 | 1.0 | 1.0 | False | False |
+| test_out_c04_policy | test_out | C | 0.2 | 0.2 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 0.0 | 0.0 | 1.0 | 1.0 | False | False |
+| test_out_c05_metrics | test_out | C | 0.6 | 0.4 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 0.0 | 0.0 | 1.0 | 1.0 | False | False |
+| test_out_c06_migrate | test_out | C | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.3333333333333333 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | False | False |

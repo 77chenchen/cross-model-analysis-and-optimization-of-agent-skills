@@ -1,0 +1,18 @@
+{
+  "figure_data_sha256": {
+    "S7_F1_main_results.csv": "b5603c2b4abb7ebc61055453e09fa494fe2f15ffb6826d1cbfd01753c12dd5b4",
+    "S7_F2_paired_differences.csv": "399de78737f85d3cf5c14b62718b63c053d93011dc7fb08136856ed0a7aded75",
+    "S7_F3_task_heatmap.csv": "fc0d9b8051dfa2b1682b9ec82192ecfa86f860df58b3f32a99712c8c0e7a87ee",
+    "S7_F4_process_mechanisms.csv": "eebc959504ee047c69c7ab9ab93359c6d42a50015accceb56b541a20d31c3678",
+    "S7_F5_exploratory.csv": "88fcdc21e3b4a682f03620ba730db2c023b0bde912eea8301017e3525cbd1c6f"
+  },
+  "figures": [
+    "S7_F1_main_results",
+    "S7_F2_paired_differences",
+    "S7_F3_task_heatmap",
+    "S7_F4_process_mechanisms",
+    "S7_F5_exploratory"
+  ],
+  "format": "publication-multipanel-formal-s7-v1",
+  "source_analysis_manifest": "0299794c459e3c09a4362bf16760e5dfab2613ce592ed040742f9e76d4d64dd1"
+}

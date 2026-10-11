@@ -1,7 +1,7 @@
 # Skill-trajectory benchmark report
 
-Status: pre-S7 analysis skeleton. Every formal test result is marked
-`[S7 PENDING]`. This document does not interpret the live S7 batch.
+Status: S7 formal analysis complete. All primary pass quantities below read
+`verifier.json.passed` through analysis version `s7-formal-v1.0.0`.
 
 ## 1. Problem
 
@@ -17,7 +17,10 @@ The study separates `dev_diagnose`, `dev_validate`, `test_in`, and `test_out`.
 Frozen admission checks require positive fixtures to pass and buggy/shortcut
 fixtures to fail an external verifier. The formal S7 core compares C0 (no
 skill) with C1 (frozen v0 skill) across six models; v1 and L3b are exploratory.
-The locked plan contains 870 interleaved runs. `[S7 PENDING]`
+The locked plan contains 870 interleaved runs, all of which have metadata and
+a Boolean verifier result. Five qwen retry-exhausted transport failures are
+excluded from the primary denominator and treated as failures in sensitivity
+analysis.
 
 Primary outcome is the frozen `verifier.json.passed` boolean. Retry-exhausted
 transport errors are excluded from the primary numerator and denominator and
@@ -68,8 +71,22 @@ outcome-definition corrections, not performance improvements.
 
 ### Formal benchmark
 
-`[S7 PENDING: C0/C1 model-by-split pass tables, task-paired differences,
-activation-stratified descriptions, floors/ceilings, and formal figures.]`
+Across all held-out tasks, C0/C1 verifier pass is 43/89 versus 45/89 for
+qwen3.5:9b, 33/54 versus 36/54 for gemma4:26b, 45/54 versus 46/54 for
+qwen3.8:27b, 33/54 versus 34/54 for qwen3-coder-next, and 0/54 versus 0/54
+for llama3.1:8b. Task-paired C1-minus-C0 differences are respectively +1.9,
++5.6, +1.9, +1.9, and 0.0 percentage points. The 10,000-draw paired
+bootstrap intervals are [-6.9, 10.6], [0.0, 14.8], [-3.7, 7.4], [-7.4,
+13.0], and [0.0, 0.0] points. These patterns do not show a consistent C1
+advantage across the controlled model panel.
+
+GPT-5.6 Sol, the sampling-uncontrolled Codex anchor, is 44/54 in both C0 and
+C1; it is not pooled with r2 models. The active GPT cohort follows an
+owner-authorized post-completion overwrite of 104 usage-limit failures, a
+deviation documented separately. One controlled core task,
+`test_in_b11_bucket`, is an all-zero floor; there are no all-one ceiling
+tasks. Full split and b09 sensitivity views are in
+`docs/s7_formal_results_20261011.md` and `results/tables/s7/`.
 
 ## 6. Case studies
 
@@ -100,6 +117,12 @@ The call-32 partial=1 proxy agreed with final verifier pass in all seven
 available dev cases (0/7 proxy-positive final failures), but write-only replay
 cannot reproduce command side effects.
 
+In S7, the qwen-generated validation hypothesis replicates for qwen (task-level
+C1-minus-C0 validation after final edit: -25.0 points) but not across the
+independent r2 models: gemma is +11.1, qwen3.8 is 0.0, qwen-coder is -1.9,
+and llama is +38.9 points. Explicit C1 skill-reference rates also do not rise
+monotonically with model capability under the locked parser.
+
 ## 8. Skill modifications
 
 v1 externalizes requirement inventory, rereading, and validation behaviors
@@ -110,10 +133,15 @@ separately. No v2 skill is introduced here.
 
 ## 9. Was the intervention effective?
 
-`[S7 PENDING]` No effectiveness statement is made before the locked benchmark
-finishes. Even after completion, exploratory v1/L3b language is restricted to
-mechanism activation and descriptive outcomes. “Effective” requires observed
-mechanism activation and observable improvement under the preregistered rule.
+The controlled S7 core does not show a consistent verifier-pass improvement
+from C1 across models or splits. v1 produces observable mechanism changes:
+explicit reference occurs in 48/60 runs and task-level validation rises by
+45.0 points relative to C1. Its paired verifier-pass difference is 0.0 points
+with a [-11.7, 13.3] bootstrap interval, so it does not meet the preregistered
+threshold requiring mechanism activation plus observable outcome improvement.
+L3b triggers in only 11/87 usable runs; its call-32 strata are post-assignment
+and remain descriptive. These findings do not establish that written skills
+cannot help outside this task pool.
 
 ## 10. Limitations
 
@@ -124,6 +152,9 @@ mechanism activation and observable improvement under the preregistered rule.
 - The LLM judge may be biased. There is one human annotator, the researcher;
   the 24-packet comparison is human-vs-judge, incompletely blinded, and small.
 - GPT runs through Codex are a sampling-uncontrolled reference anchor.
+- The active GPT cohort overwrote 104 initial usage-limit failures after S7
+  completion at the owner's direction, violating the original run-once rule;
+  it is descriptive only.
 - r2 and Codex expose different tool surfaces and cannot be assumed equivalent.
 - v1 and L3b lack a length-matched generic-prompt control (C3).
 - Post-hoc analyses include qwen-generated process hypotheses, S4 cross-model
@@ -132,8 +163,7 @@ mechanism activation and observable improvement under the preregistered rule.
 
 ## 11. Future directions
 
-After S7, apply the locked verifier-pass patch, generate formal tables once,
-and create a blinded model/outcome-stratified judge subset. S8 may compare an
+S8 may compare an
 externalized process, a trajectory-imitation prompt, and a length-matched
 generic prompt on `dev_validate`; it must not retroactively modify S7. A new
 6--8-task untouched holdout would improve separation between diagnosis and

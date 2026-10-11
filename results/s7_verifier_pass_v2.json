@@ -1,0 +1,66 @@
+{
+  "analysis_version": "verifier-pass-v2.0.0",
+  "patch_manifest": {
+    "analysis_version": "verifier-pass-v2.0.0",
+    "formal_entry": "analysis/summarize_s7_v2.py",
+    "formal_gate": "STATUS.md must report 870/870 and verifier_pass_module_sha256 must match",
+    "primary_outcome": "verifier.json.passed",
+    "verifier_pass_module": "analysis/verifier_pass_v2.py",
+    "verifier_pass_module_sha256": "72b1e0b8252566ccf0f408a7c4311c939157be9d33cb016a385ea95efd218bcc",
+    "version_locked_before_formal_s7_analysis": true
+  },
+  "views": {
+    "all": {
+      "legacy_pass": 402,
+      "max_steps_in_primary_denominator": 33,
+      "primary_n": 865,
+      "provider_error_protocol": 5,
+      "scheduled": 870,
+      "sensitivity_n_provider_as_failure": 870,
+      "sensitivity_pass_rate": 0.5597701149425287,
+      "sensitivity_verifier_pass": 487,
+      "timeouts_in_primary_denominator": 2,
+      "verifier_pass": 487,
+      "verifier_pass_rate": 0.5630057803468208
+    },
+    "exclude_A04": {
+      "legacy_pass": 402,
+      "max_steps_in_primary_denominator": 33,
+      "primary_n": 865,
+      "provider_error_protocol": 5,
+      "scheduled": 870,
+      "sensitivity_n_provider_as_failure": 870,
+      "sensitivity_pass_rate": 0.5597701149425287,
+      "sensitivity_verifier_pass": 487,
+      "timeouts_in_primary_denominator": 2,
+      "verifier_pass": 487,
+      "verifier_pass_rate": 0.5630057803468208
+    },
+    "exclude_A04_and_b09_phone": {
+      "legacy_pass": 379,
+      "max_steps_in_primary_denominator": 26,
+      "primary_n": 815,
+      "provider_error_protocol": 5,
+      "scheduled": 820,
+      "sensitivity_n_provider_as_failure": 820,
+      "sensitivity_pass_rate": 0.5609756097560976,
+      "sensitivity_verifier_pass": 460,
+      "timeouts_in_primary_denominator": 0,
+      "verifier_pass": 460,
+      "verifier_pass_rate": 0.5644171779141104
+    },
+    "exclude_b09_phone": {
+      "legacy_pass": 379,
+      "max_steps_in_primary_denominator": 26,
+      "primary_n": 815,
+      "provider_error_protocol": 5,
+      "scheduled": 820,
+      "sensitivity_n_provider_as_failure": 820,
+      "sensitivity_pass_rate": 0.5609756097560976,
+      "sensitivity_verifier_pass": 460,
+      "timeouts_in_primary_denominator": 0,
+      "verifier_pass": 460,
+      "verifier_pass_rate": 0.5644171779141104
+    }
+  }
+}

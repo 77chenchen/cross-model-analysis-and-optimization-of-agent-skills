@@ -2,10 +2,12 @@
 
 This repository implements a controlled benchmark for studying cross-model agent trajectories and turning observable failure patterns into transferable skill transformations.
 
-> **Current status (2026-10-10):** S7 is executing from the immutable
-> `s7-execution-lock-20261009-r3` schedule. Historical statements below that
-> say test tasks had not yet run describe the dated preflight state, not the
-> current live batch. Formal S7 analysis remains blocked until 870/870.
+> **Current status (2026-10-11):** S7 is complete at 870/870. Formal analysis
+> version `s7-formal-v1.0.0` uses `verifier-pass-v2.0.0`, task-paired bootstrap,
+> and the preregistered provider-error denominator. Tables are in
+> `results/tables/s7/` and publication figures are in `figures/s7/`. GPT remains
+> an uncontrolled Codex reference anchor and has a documented post-completion
+> overwrite deviation in `docs/s7_postcompletion_gpt_rerun_deviation_20261011.md`.
 
 The project has completed D1--D5 pilot infrastructure, weak-model diagnosis,
 and a recorded v0/v1 pilot comparison. Historical exploratory benchmark assets

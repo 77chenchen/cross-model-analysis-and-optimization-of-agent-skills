@@ -8,7 +8,7 @@ This ledger is refreshed by `harness/update_status.py` after each completed run 
 | B5 provider-error replacements | 8 | 8 | 0 | protocol committed; sequential concurrency=1 |
 | B5 r2 blind LLM judge | 24 | 24 | 0 | newly anonymized packets only |
 | L3b dev-validate | 72 | 72 | 0 | complete; analysis pending |
-| S7 locked formal benchmark | 870 | 0 | 870 | locked; not started |
+| S7 locked formal benchmark | 870 | 870 | 0 | complete; formal analysis complete |
 
-Current task: S7 execution lock is complete; no scheduled test run has started.
-Estimated remaining: 870 locked S7 runs; resume only in the checked-in per-model schedule order.
+Current task: S7 execution and gated formal analysis are complete; await the owner's S8 decision.
+Estimated remaining: no authorized model calls; formal S7 tables and figures are available.
