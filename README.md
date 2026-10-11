@@ -136,9 +136,9 @@ Authors are pending. Replace the placeholder before external citation.
 <a id="zh"></a>
 <p align="right"><a href="#english">English</a> &nbsp;|&nbsp; <strong>中文</strong></p>
 
-# SkillTraj：自然语言技能指令能否改变编码智能体的修复表现？
+# SkillTraj：Written Skill能否改变Coding Agent的表现？
 
-本项目考察一种很具体的问题：给代码智能体加入一段明确的自然语言操作规程后，它在不同模型上会不会更容易修好仓库中的缺陷；即使最终通过率不变，它的阅读、修改和验证路径又会怎样变化。
+研究问题：给coding agent加入一段skill后，它在不同模型上会不会更容易修好仓库中的缺陷；即使最终通过率不变，它的阅读、修改和验证路径又会怎样变化。
 
 ## 核心结论
 
