@@ -3,7 +3,8 @@
 All data-bearing marks are rendered by `analysis/make_figures.py` from the
 immutable CSV files in `figures/data/`. The script checks every CSV SHA-256
 before and after rendering and never rewrites a CSV. Outputs are double-column
-width (7.0 in), with vector PDF/SVG and 300 dpi PNG variants. Typography,
+width (7.0 in), with vector PDF/SVG, 300 dpi PNG, and 600 dpi TIFF variants.
+Typography,
 model/condition encodings, and export settings are centralized in
 `analysis/style.py`; reusable panel/interval/heatmap helpers are in
 `analysis/figure_templates.py`.
@@ -23,7 +24,8 @@ python3.13 -m venv .venv-figures
 ```
 
 The Python environment requires matplotlib, NumPy, Pillow, and colorspacious.
-`figures/qa/` contains full-severity deuteranomaly and protanomaly simulations.
+`figures/qa/` contains full-severity deuteranomaly and protanomaly simulations,
+panel-alignment overlays, PDF text-size audits, and collision-audit reports.
 
 ## Figure 1 — Dev benchmark and trajectory context
 
@@ -116,4 +118,8 @@ The Python environment requires matplotlib, NumPy, Pillow, and colorspacious.
 - `contact_sheet.png`: all nine main PNGs.
 - `qa/*_deuteranopia.png`: full-severity deuteranomaly simulations.
 - `qa/*_protanopia.png`: full-severity protanomaly simulations.
+- `qa/*.alignment.{json,svg}`: final-layout alignment records and overlays.
+- `qa/text/*.json`: final-PDF text-size reports (all text runs are at least 5 pt).
+- `qa/collision/*.json`: collision audits. Figure 4 has only intentional
+  heatmap-label/filled-cell warnings; every figure has zero blocking collisions.
 - `panel_manifest.json`: panel counts, bootstrap settings, and frozen CSV hashes.

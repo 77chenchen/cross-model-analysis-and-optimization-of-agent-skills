@@ -1,0 +1,16 @@
+{
+  "pdf": "figures/s7/S7_F3_task_heatmap.pdf",
+  "auditable": true,
+  "minimum_required_pt": 5.0,
+  "minimum_found_pt": 4.8,
+  "text_run_count": 7,
+  "below_minimum_count": 1,
+  "below_minimum": [
+    {
+      "stream": 1,
+      "font": "F1",
+      "size_pt": 4.8
+    }
+  ],
+  "warnings": []
+}

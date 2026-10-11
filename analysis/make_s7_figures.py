@@ -80,7 +80,6 @@ def render_main() -> None:
             estimate = value(row, "verifier_pass_rate") or 0.0
             low, high = value(row, "wilson_low") or 0.0, value(row, "wilson_high") or 0.0
             interval_point(ax_a, position + offset, estimate, low, high, color=CONDITION_COLORS[condition], marker="o", open_marker=model == "gpt-5.6-sol")
-        direct_label(ax_a, 1.02, position, f"n={integer(c0, 'primary_n')}+{integer(c1, 'primary_n')}", fontsize=5.7)
     ax_a.axvspan(0.2, 0.8, color="#EEEEEE", alpha=0.65, zorder=0)
     ax_a.set_yticks(y, [model_label(model) + ("†" if model == "gpt-5.6-sol" else "") for model in order])
     ax_a.set_xlim(0, 1.16); ax_a.set_xlabel("Verifier pass rate (95% Wilson CI)")
@@ -151,7 +150,7 @@ def render_tasks() -> None:
     matrix = np.asarray([[value(row, column) if value(row, column) is not None else np.nan for column in columns] for row in rows])
     labels = [model_label(model).replace(" ", "\n", 1) + f"\n{condition}" for model in MODELS for condition in ("C0", "C1")]
     fig, ax = plt.subplots(figsize=(DOUBLE_COLUMN_IN, 5.3), layout="constrained")
-    annotated_heatmap(ax, matrix, [row["task"].replace("test_in_", "").replace("test_out_", "") for row in rows], labels, cmap="cividis", vmin=0, vmax=1, percent=True, decimals=0, annotation_size=4.8)
+    annotated_heatmap(ax, matrix, [row["task"].replace("test_in_", "").replace("test_out_", "") for row in rows], labels, cmap="cividis", vmin=0, vmax=1, percent=True, decimals=0, annotation_size=5.2)
     ax.set_xlabel("Model × condition"); ax.set_ylabel("Held-out task")
     ax.axhline(sum(row["split"] == "test_in" for row in rows) - 0.5, color="white", linewidth=1.4)
     panel_label(ax, "a", x=-0.12)

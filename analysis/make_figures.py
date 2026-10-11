@@ -158,11 +158,10 @@ def render_figure1() -> None:
         ax_b.plot(median, pos + 0.08, marker=style["marker"], color=style["color"], linestyle="none", markersize=4.2)
         if model in turns:
             ax_b.plot(number(turns[model], "assistant_turns_median"), pos - 0.09, marker="o", markerfacecolor="white", markeredgecolor=style["color"], linestyle="none", markersize=4.0)
-    ax_b.set_xlabel("Count / run")
+    ax_b.set_xlabel("Tool calls ● / turns ○\nmedian [IQR]")
     ax_b.set_title("Trajectory length", loc="left", pad=5)
     ax_b.tick_params(axis="y", labelleft=False)
     despine(ax_b)
-    ax_b.legend(handles=[Line2D([], [], marker="D", color=INK, linestyle="-", label="tool calls: median + IQR", markersize=3.8), Line2D([], [], marker="o", markerfacecolor="white", markeredgecolor=INK, linestyle="none", label="assistant turns: median", markersize=3.8)], loc="lower right", fontsize=5.8, handlelength=1.8)
     panel_label(ax_b, "b", x=-0.16)
 
     chosen_flags = ["final_empty", "max_steps_reached", "timeout"]
@@ -263,7 +262,7 @@ def render_figure4() -> None:
     fig, axes = plt.subplots(2, 3, figsize=(DOUBLE_COLUMN_IN, 4.75), layout="constrained")
     for index, (ax, model) in enumerate(zip(axes.flat, models)):
         matrix = np.array([[lookup.get((model, decile, action), 0.0) for decile in range(1, 11)] for action in actions])
-        annotated_heatmap(ax, matrix, actions, [str(x) for x in range(1, 11)], cmap="cividis", vmin=0, vmax=1, percent=True, annotation_size=4.5)
+        annotated_heatmap(ax, matrix, actions, [str(x) for x in range(1, 11)], cmap="cividis", vmin=0, vmax=1, percent=True, annotation_size=5.2)
         ax.set_title(model_label(model), loc="left", pad=4, color=model_style(model)["color"])
         ax.set_xlabel("Trajectory decile")
         panel_label(ax, chr(ord("a") + index), x=-0.17)
@@ -336,7 +335,6 @@ def render_figure6() -> None:
             value = number(rows[model], field)
             style = model_style(model)
             ax.plot(value, pos, marker=style["marker"], color=style["color"], linestyle="none", markersize=4.6)
-            direct_label(ax, value, pos - 0.18, f"n={int(number(rows[model], 'n'))}", ha="center", fontsize=5.6, color=MUTED)
         ax.set_yticks(np.arange(len(models)), [model_label(x) for x in models])
         ax.set_xlabel(xlabel)
         despine(ax)
@@ -359,7 +357,7 @@ def draw_token_stack(ax: mpl.axes.Axes, rows: dict[str, dict[str, str]], models:
         ax.barh(np.arange(len(models)), shares, left=left, height=0.35, color=colour, edgecolor="white", linewidth=0.35, label=label)
         for pos, (start, share) in enumerate(zip(left, shares)):
             if share >= 0.075:
-                ax.text(start + share / 2, pos, f"{100*share:.0f}%", ha="center", va="center", fontsize=5.7, color="white" if colour != "#A0CBE8" else INK)
+                ax.text(start + share / 2, pos, f"{100*share:.0f}%", ha="center", va="center", fontsize=6.7, color="white" if colour != "#A0CBE8" else INK)
         left += shares
     ax.set_yticks(np.arange(len(models)), [model_label(x) for x in models])
     ax.set_xlim(0, 1)
@@ -379,10 +377,12 @@ def render_figure7() -> None:
         total = sum(number(rows[model], item) for item in components)
         style = model_style(model)
         ax_b.plot(total, pos, marker=style["marker"], color=style["color"], linestyle="none", markersize=4.8)
-        direct_label(ax_b, total * 1.08, pos, f"{total:,.0f}", color=style["color"], fontsize=6.2)
+        direct_label(ax_b, total * 1.08, pos, f"{total:,.0f}", color=style["color"], fontsize=6.8)
     ax_b.set_xscale("log")
     ax_b.set_yticks(np.arange(len(models)), [model_label(x) for x in models])
     ax_b.set_xlabel("Median recorded tokens / run (log scale)")
+    ax_b.tick_params(axis="x", labelsize=8)
+    ax_b.xaxis.set_minor_formatter(mpl.ticker.NullFormatter())
     despine(ax_b)
     panel_label(ax_b, "b")
     save_figure(fig, FIG / "F7_token_composition")
@@ -446,7 +446,8 @@ def render_figure9() -> None:
         if estimable:
             interval_point(ax_a, pos + 0.09, number(row, "kappa"), number(row, "kappa_low"), number(row, "kappa_high"), color="#3B6EA5", marker="o")
         else:
-            direct_label(ax_a, -0.07, pos + 0.09, "κ n/e", ha="left", fontsize=5.8, color=MUTED)
+            # Non-estimable kappa is represented by the absent blue point.
+            pass
         ax_a.plot(number(row, "pabak"), pos - 0.09, marker="D", markerfacecolor="white", markeredgecolor="#D55E00", linestyle="none", markersize=4.0)
         agreement = int(number(row, "human_positive_judge_positive") + number(row, "human_negative_judge_negative"))
         direct_label(ax_a, 1.025, pos, f"{agreement}/24", fontsize=6.1)

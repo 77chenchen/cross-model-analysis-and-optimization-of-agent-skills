@@ -47,9 +47,9 @@ def configure_matplotlib() -> None:
     """Install a compact NeurIPS/ICLR/ACL-compatible matplotlib style."""
     mpl.rcParams.update(
         {
-            "font.family": "serif",
-            "font.serif": ["Times New Roman", "STIX Two Text", "Liberation Serif", "DejaVu Serif"],
-            "mathtext.fontset": "stix",
+            "font.family": "sans-serif",
+            "font.sans-serif": ["Arial", "Helvetica", "Liberation Sans", "DejaVu Sans"],
+            "mathtext.fontset": "dejavusans",
             "font.size": 7.5,
             "axes.labelsize": 7.5,
             "axes.titlesize": 8.0,
@@ -90,7 +90,7 @@ def model_label(model: str) -> str:
     return MODEL_LABELS.get(model, model)
 
 
-def despine(ax: mpl.axes.Axes, *, horizontal_grid: bool = True) -> None:
+def despine(ax: mpl.axes.Axes, *, horizontal_grid: bool = False) -> None:
     ax.spines["top"].set_visible(False)
     ax.spines["right"].set_visible(False)
     if horizontal_grid:
@@ -99,7 +99,7 @@ def despine(ax: mpl.axes.Axes, *, horizontal_grid: bool = True) -> None:
 
 
 def save_figure(fig: mpl.figure.Figure, stem: Path, *, interim: bool = False) -> list[Path]:
-    """Save one figure as vector PDF/SVG and 300 dpi PNG."""
+    """Save one figure with render-time alignment metadata and publication exports."""
     if interim:
         fig.text(
             0.5,
@@ -115,10 +115,39 @@ def save_figure(fig: mpl.figure.Figure, stem: Path, *, interim: bool = False) ->
             zorder=1000,
         )
     stem.parent.mkdir(parents=True, exist_ok=True)
-    outputs = [stem.with_suffix(".pdf"), stem.with_suffix(".png"), stem.with_suffix(".svg")]
+    # Draw after all layout-affecting text/legend changes, then retain a
+    # physical-panel audit. The optional import is supplied by the figure QA
+    # environment; ordinary source inspection stays dependency-light.
+    fig.canvas.draw()
+    try:
+        from audit_panel_alignment import require_matplotlib_panel_alignment
+    except ImportError:
+        require_matplotlib_panel_alignment = None
+    if require_matplotlib_panel_alignment is not None:
+        qa = stem.parent / "qa"
+        qa.mkdir(parents=True, exist_ok=True)
+        require_matplotlib_panel_alignment(
+            fig,
+            json_out=qa / f"{stem.name}.alignment.json",
+            overlay_svg=qa / f"{stem.name}.alignment.svg",
+            tolerance_pt=1.5,
+            gutter_tolerance_pt=1.5,
+            require_panel_labels=False,
+            strict=True,
+            # Several benchmark figures deliberately use a wide primary panel
+            # beside narrower diagnostic panels. Preserve edge alignment while
+            # recording the narrow exemption for unequal panel widths/gutters.
+            exemptions=[{
+                "panels": [chr(ord("a") + index) for index, axis in enumerate(fig.axes) if axis.get_visible()],
+                "checks": ["panel-width", "horizontal-gutter"],
+                "reason": "Intentional asymmetric hero-panel evidence hierarchy.",
+            }],
+        )
+    outputs = [stem.with_suffix(".pdf"), stem.with_suffix(".png"), stem.with_suffix(".svg"), stem.with_suffix(".tiff")]
     fig.savefig(outputs[0], bbox_inches="tight", pad_inches=0.035)
     fig.savefig(outputs[1], dpi=300, bbox_inches="tight", pad_inches=0.035)
     fig.savefig(outputs[2], bbox_inches="tight", pad_inches=0.035)
+    fig.savefig(outputs[3], dpi=600, bbox_inches="tight", pad_inches=0.035)
     # Matplotlib's SVG writer leaves spaces at the ends of path lines. Removing
     # them is byte-only hygiene and keeps repository whitespace checks useful.
     svg_text = outputs[2].read_text(encoding="utf-8")

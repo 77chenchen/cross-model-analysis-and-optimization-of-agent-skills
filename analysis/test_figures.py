@@ -10,6 +10,14 @@ from PIL import Image
 
 from analysis.make_figures import CSV_SHA256, DATA, FIG, FIGURE_PANEL_COUNTS, FIGURE_STEMS, sha256, verify_csv_hashes
 
+S7_FIGURE_STEMS = (
+    "S7_F1_main_results",
+    "S7_F2_paired_differences",
+    "S7_F3_task_heatmap",
+    "S7_F4_process_mechanisms",
+    "S7_F5_exploratory",
+)
+
 
 class FigureIntegrityTests(unittest.TestCase):
     def test_immutable_csv_hashes(self) -> None:
@@ -33,6 +41,20 @@ class FigureIntegrityTests(unittest.TestCase):
             for suffix in ("deuteranopia", "protanopia"):
                 self.assertTrue((FIG / "qa" / f"{stem}_{suffix}.png").is_file())
         self.assertTrue((FIG / "contact_sheet.png").is_file())
+
+    def test_rendered_qa_reports_are_clean(self) -> None:
+        """All final figures retain machine-readable text and collision QA."""
+        stems_and_roots = [
+            (stem, FIG, FIG / "qa") for stem in FIGURE_STEMS
+        ] + [
+            (stem, FIG / "s7", FIG / "s7" / "qa") for stem in S7_FIGURE_STEMS
+        ]
+        for stem, root, qa_root in stems_and_roots:
+            self.assertTrue((root / f"{stem}.pdf").is_file())
+            text_report = json.loads((qa_root / "text" / f"{stem}.json").read_text(encoding="utf-8"))
+            collision_report = json.loads((qa_root / "collision" / f"{stem}.json").read_text(encoding="utf-8"))
+            self.assertEqual(text_report["below_minimum_count"], 0, stem)
+            self.assertEqual(collision_report["summary"]["fail"], 0, stem)
 
     def test_every_main_figure_is_multipanel(self) -> None:
         manifest = json.loads((FIG / "panel_manifest.json").read_text(encoding="utf-8"))

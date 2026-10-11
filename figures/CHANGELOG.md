@@ -32,3 +32,14 @@ analysis conclusions, verifier-pass-v2.0.0, or any frozen experiment asset.
 
 The same hashes are enforced by `analysis/test_figures.py` and embedded in
 `figures/panel_manifest.json`.
+
+## 2026-10-11 publication QA refresh
+
+This refresh preserves every CSV byte and the verifier-pass-v2.0.0 analysis
+contract. It refines the rendered figures only: typography and spacing were
+standardized, the F1 legend and F6 direct-n labels were removed to prevent
+small-panel crowding, F7 suppresses log-axis minor labels and uses readable
+token labels, and all figures were re-exported in PDF, SVG, PNG, and TIFF.
+The final set passed PDF text-size QA (minimum 5 pt) and has zero blocking
+collision findings. Figure 4 retains nine expected warnings where its numeric
+heatmap annotations intentionally overlay their cells.

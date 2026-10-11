@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="503.03952pt" height="341.039081pt" viewBox="0 0 503.03952 341.039081" xmlns="http://www.w3.org/2000/svg" version="1.1">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="503.03952pt" height="341.039479pt" viewBox="0 0 503.03952 341.039479" xmlns="http://www.w3.org/2000/svg" version="1.1">
  <metadata>
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-10-10T15:12:06.077756</dc:date>
+    <dc:date>2026-10-11T10:28:15.635369</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -21,8 +21,8 @@
  </defs>
  <g id="figure_1">
   <g id="patch_1">
-   <path d="M 0 341.039081
-L 503.03952 341.039081
+   <path d="M 0 341.039479
+L 503.03952 341.039479
 L 503.03952 0
 L 0 0
 z
@@ -30,1204 +30,1204 @@ z
   </g>
   <g id="axes_1">
    <g id="patch_2">
-    <path d="M 33.624063 146.824843
-L 164.51952 146.824843
-L 164.51952 15.798646
-L 33.624063 15.798646
+    <path d="M 36.752188 146.411422
+L 164.431065 146.411422
+L 164.431065 16.175886
+L 36.752188 16.175886
 z
 " style="fill: #ffffff"/>
    </g>
-   <g clip-path="url(#p7baf10812d)">
+   <g clip-path="url(#pb7ee0cf77a)">
     <image xlink:href="data:image/png;base64,
-iVBORw0KGgoAAAANSUhEUgAAALUAAAC2CAYAAACfx8wHAAACqElEQVR4nO3dMWpUYRiG0TtmsJioBBGrgGAnVlZW2cHoAixchHtxESndgJDCSldgoQFFQRsFjRiicRMfODycs4CXy8/D197VcvfR5QIhV/73B8A0UZMjanJETY6oyRE1OaImR9TkiJocUZMjanJETY6oyRE1OaImR9TkiJocUZMjanJETY6oyRE1OaImR9TkiJocUZMjanJETY6oyRE1OaImR9TkiJocUZMjanJETY6oyRE1OaImR9TkiJocUZMjanJETc562TX7hyMzj+/tjey8+7Japhzdn3nu95/OR3a2R9dGdp5u34zs7F//MbLjUpMjanJETY6oyRE1OaImR9TkiJocUZMjanJETY6oyRE1OaImR9TkiJocUZMjanJETY6oyRE1OaImR9TkiJocUZMjanJETY6oyRE1OaImR9TkiJocUZMjanJETY6oyRE1OaImR9TkiJocUZMjanJETY6oyRE1Oetl1/z8ODJz+vXOyM7m6uUy5e2H85GdZ0/2RnZenPwe2bmxvTWys1xsRmZcanJETY6oyRE1OaImR9TkiJocUZMjanJETY6oyRE1OaImR9TkiJocUZMjanJETY6oyRE1OaImR9TkiJocUZMjanJETY6oyRE1OaImR9TkiJocUZMjanJETY6oyRE1OaImR9TkiJocUZMjanJETY6oyRE1Oas/nx/O/VF+wPdvByM7z48fjOzcvvl3mfLy9a+RneNXp8tOWW9mdi7ORmZcanJETY6oyRE1OaImR9TkiJocUZMjanJETY6oyRE1OaImR9TkiJocUZMjanJETY6oyRE1OaImR9TkiJocUZMjanJETY6oyRE1OaImR9TkiJocUZMjanJETY6oyRE1OaImR9TkiJocUZMjanJETY6oyRE1OaJmqfkHkQQmLvDrax8AAAAASUVORK5CYII=" id="image86f6674545" transform="scale(1 -1) translate(0 -131.04)" x="33.84" y="-15.599081" width="130.32" height="131.04"/>
+iVBORw0KGgoAAAANSUhEUgAAALEAAAC1CAYAAAAQuB7TAAACrUlEQVR4nO3dMWpVURhG0ftisEhURCSVINiJlZVVZvDMACwyiMzFQaTMBAQLKx2BhQYUBW0U1KDERHAK50DehrUG8HG4bG77r5YHTy8XCNu66gfAKBGTJ2LyREyeiMkTMXkiJk/E5ImYPBGTJ2LyREyeiMkTMXkiJk/E5ImYPBGTJ2LyREyeiMkTMXkiJk/E5ImYPBGTJ2LyREyeiMkTMXkiJk/E5ImYPBGTJ2LyREyeiMkTMXkiJk/E5ImYPBGTJ2LyREyeiMnbXjbN7r3hiYOH16Y85d2X1ZSd/Ufjn/n9pz9T3rLevzFl53D9ZsrO7s0fwxv+xOSJmDwRkydi8kRMnojJEzF5IiZPxOSJmDwRkydi8kRMnojJEzF5IiZPxOSJmDwRkydi8kRMnojJEzF5IiZPxOSJmDwRkydi8kRMnojJEzF5IiZPxOSJmDwRkydi8kRMnojJEzF5IiZPxOSJmDwRkydi8jbvQPnPj8MTp1/vT3nKzvXLKTtvP4wfFz96Nufo+snL31N2bq3vTtlZzneGJ/yJyRMxeSImT8TkiZg8EZMnYvJETJ6IyRMxeSImT8TkiZg8EZMnYvJETJ6IyRMxeSImT8TkiZg8EZMnYvJETJ6IyRMxeSImT8TkiZg8EZMnYvJETJ6IyRMxeSImT8TkiZg8EZMnYvJETJ6IyRMxeSImT8Tkrf5+fjLnCvck37/dHt54fvx4ylv27lxM2Xnx+mx44/jV6bJRtscPi/93/mt4wp+YPBGTJ2LyREyeiMkTMXkiJk/E5ImYPBGTJ2LyREyeiMkTMXkiJk/E5ImYPBGTJ2LyREyeiMkTMXkiJk/E5ImYPBGTJ2LyREyeiMkTMXkiJk/E5ImYPBGTJ2LyREyeiMkTMXkiJk/E5ImYPBGTJ2LyRMxS9w//vyYsjPLx4wAAAABJRU5ErkJggg==" id="image29d5e7c62b" transform="scale(1 -1) translate(0 -130.32)" x="36.72" y="-16.319479" width="127.44" height="130.32"/>
    </g>
    <g id="matplotlib.axis_1">
     <g id="xtick_1">
      <g id="line2d_1"/>
      <g id="text_1">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="40.168835" y="155.178358" transform="rotate(-0 40.168835 155.178358)">1</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="43.136131" y="155.007614" transform="rotate(-0 43.136131 155.007614)">1</text>
      </g>
     </g>
     <g id="xtick_2">
      <g id="line2d_2"/>
      <g id="text_2">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="53.258381" y="155.178358" transform="rotate(-0 53.258381 155.178358)">2</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="55.904019" y="155.007614" transform="rotate(-0 55.904019 155.007614)">2</text>
      </g>
     </g>
     <g id="xtick_3">
      <g id="line2d_3"/>
      <g id="text_3">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="66.347927" y="155.178358" transform="rotate(-0 66.347927 155.178358)">3</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="68.671907" y="155.007614" transform="rotate(-0 68.671907 155.007614)">3</text>
      </g>
     </g>
     <g id="xtick_4">
      <g id="line2d_4"/>
      <g id="text_4">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="79.437473" y="155.178358" transform="rotate(-0 79.437473 155.178358)">4</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="81.439795" y="155.007614" transform="rotate(-0 81.439795 155.007614)">4</text>
      </g>
     </g>
     <g id="xtick_5">
      <g id="line2d_5"/>
      <g id="text_5">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="92.527018" y="155.178358" transform="rotate(-0 92.527018 155.178358)">5</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="94.207682" y="155.007614" transform="rotate(-0 94.207682 155.007614)">5</text>
      </g>
     </g>
     <g id="xtick_6">
      <g id="line2d_6"/>
      <g id="text_6">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="105.616564" y="155.178358" transform="rotate(-0 105.616564 155.178358)">6</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="106.97557" y="155.007614" transform="rotate(-0 106.97557 155.007614)">6</text>
      </g>
     </g>
     <g id="xtick_7">
      <g id="line2d_7"/>
      <g id="text_7">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="118.70611" y="155.178358" transform="rotate(-0 118.70611 155.178358)">7</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="119.743458" y="155.007614" transform="rotate(-0 119.743458 155.007614)">7</text>
      </g>
     </g>
     <g id="xtick_8">
      <g id="line2d_8"/>
      <g id="text_8">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="131.795656" y="155.178358" transform="rotate(-0 131.795656 155.178358)">8</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="132.511345" y="155.007614" transform="rotate(-0 132.511345 155.007614)">8</text>
      </g>
     </g>
     <g id="xtick_9">
      <g id="line2d_9"/>
      <g id="text_9">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="144.885201" y="155.178358" transform="rotate(-0 144.885201 155.178358)">9</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="145.279233" y="155.007614" transform="rotate(-0 145.279233 155.007614)">9</text>
      </g>
     </g>
     <g id="xtick_10">
      <g id="line2d_10"/>
      <g id="text_10">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="157.974747" y="155.178358" transform="rotate(-0 157.974747 155.178358)">10</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="158.047121" y="155.007614" transform="rotate(-0 158.047121 155.007614)">10</text>
      </g>
     </g>
     <g id="text_11">
-     <text style="font-size: 7.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="99.071791" y="165.900429" transform="rotate(-0 99.071791 165.900429)">Trajectory decile</text>
+     <text style="font-size: 7.5px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="100.591626" y="165.940963" transform="rotate(-0 100.591626 165.940963)">Trajectory decile</text>
     </g>
    </g>
    <g id="matplotlib.axis_2">
     <g id="ytick_1">
      <g id="line2d_11"/>
      <g id="text_12">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: end; fill: #272727" x="30.124063" y="34.607233" transform="rotate(-0 30.124063 34.607233)">read</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #272727" x="33.252188" y="35.003424" transform="rotate(-0 33.252188 35.003424)">read</text>
      </g>
     </g>
     <g id="ytick_2">
      <g id="line2d_12"/>
      <g id="text_13">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: end; fill: #272727" x="30.124063" y="67.363782" transform="rotate(-0 30.124063 67.363782)">write</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #272727" x="33.252188" y="67.562308" transform="rotate(-0 33.252188 67.562308)">write</text>
      </g>
     </g>
     <g id="ytick_3">
      <g id="line2d_13"/>
      <g id="text_14">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: end; fill: #272727" x="30.124063" y="100.120331" transform="rotate(-0 30.124063 100.120331)">command</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #272727" x="33.252188" y="100.121192" transform="rotate(-0 33.252188 100.121192)">command</text>
      </g>
     </g>
     <g id="ytick_4">
      <g id="line2d_14"/>
      <g id="text_15">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: end; fill: #272727" x="30.124063" y="132.876881" transform="rotate(-0 30.124063 132.876881)">other</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #272727" x="33.252188" y="132.680076" transform="rotate(-0 33.252188 132.680076)">other</text>
      </g>
     </g>
    </g>
    <g id="text_16">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="40.168835" y="33.251383" transform="rotate(-0 40.168835 33.251383)">100%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #202020" x="43.136131" y="33.801031" transform="rotate(-0 43.136131 33.801031)">100%</text>
    </g>
    <g id="text_17">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="53.258381" y="33.251383" transform="rotate(-0 53.258381 33.251383)">100%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #202020" x="55.904019" y="33.801031" transform="rotate(-0 55.904019 33.801031)">100%</text>
    </g>
    <g id="text_18">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="66.347927" y="33.251383" transform="rotate(-0 66.347927 33.251383)">94%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #202020" x="68.671907" y="33.801031" transform="rotate(-0 68.671907 33.801031)">94%</text>
    </g>
    <g id="text_19">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="79.437473" y="33.251383" transform="rotate(-0 79.437473 33.251383)">53%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #202020" x="81.439795" y="33.801031" transform="rotate(-0 81.439795 33.801031)">53%</text>
    </g>
    <g id="text_20">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="92.527018" y="33.251383" transform="rotate(-0 92.527018 33.251383)">62%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #202020" x="94.207682" y="33.801031" transform="rotate(-0 94.207682 33.801031)">62%</text>
    </g>
    <g id="text_21">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="105.616564" y="33.251383" transform="rotate(-0 105.616564 33.251383)">33%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="106.97557" y="33.801031" transform="rotate(-0 106.97557 33.801031)">33%</text>
    </g>
    <g id="text_22">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="118.70611" y="33.251383" transform="rotate(-0 118.70611 33.251383)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="119.743458" y="33.801031" transform="rotate(-0 119.743458 33.801031)">0%</text>
    </g>
    <g id="text_23">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="131.795656" y="33.251383" transform="rotate(-0 131.795656 33.251383)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="132.511345" y="33.801031" transform="rotate(-0 132.511345 33.801031)">0%</text>
    </g>
    <g id="text_24">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="144.885201" y="33.251383" transform="rotate(-0 144.885201 33.251383)">3%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="145.279233" y="33.801031" transform="rotate(-0 145.279233 33.801031)">3%</text>
    </g>
    <g id="text_25">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="157.974747" y="33.251383" transform="rotate(-0 157.974747 33.251383)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="158.047121" y="33.801031" transform="rotate(-0 158.047121 33.801031)">0%</text>
    </g>
    <g id="text_26">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="40.168835" y="66.007932" transform="rotate(-0 40.168835 66.007932)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="43.136131" y="66.359915" transform="rotate(-0 43.136131 66.359915)">0%</text>
    </g>
    <g id="text_27">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="53.258381" y="66.007932" transform="rotate(-0 53.258381 66.007932)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="55.904019" y="66.359915" transform="rotate(-0 55.904019 66.359915)">0%</text>
    </g>
    <g id="text_28">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="66.347927" y="66.007932" transform="rotate(-0 66.347927 66.007932)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="68.671907" y="66.359915" transform="rotate(-0 68.671907 66.359915)">0%</text>
    </g>
    <g id="text_29">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="79.437473" y="66.007932" transform="rotate(-0 79.437473 66.007932)">18%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="81.439795" y="66.359915" transform="rotate(-0 81.439795 66.359915)">18%</text>
    </g>
    <g id="text_30">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="92.527018" y="66.007932" transform="rotate(-0 92.527018 66.007932)">21%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="94.207682" y="66.359915" transform="rotate(-0 94.207682 66.359915)">21%</text>
    </g>
    <g id="text_31">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="105.616564" y="66.007932" transform="rotate(-0 105.616564 66.007932)">25%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="106.97557" y="66.359915" transform="rotate(-0 106.97557 66.359915)">25%</text>
    </g>
    <g id="text_32">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="118.70611" y="66.007932" transform="rotate(-0 118.70611 66.007932)">73%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #202020" x="119.743458" y="66.359915" transform="rotate(-0 119.743458 66.359915)">73%</text>
    </g>
    <g id="text_33">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="131.795656" y="66.007932" transform="rotate(-0 131.795656 66.007932)">40%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="132.511345" y="66.359915" transform="rotate(-0 132.511345 66.359915)">40%</text>
    </g>
    <g id="text_34">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="144.885201" y="66.007932" transform="rotate(-0 144.885201 66.007932)">3%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="145.279233" y="66.359915" transform="rotate(-0 145.279233 66.359915)">3%</text>
    </g>
    <g id="text_35">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="157.974747" y="66.007932" transform="rotate(-0 157.974747 66.007932)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="158.047121" y="66.359915" transform="rotate(-0 158.047121 66.359915)">0%</text>
    </g>
    <g id="text_36">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="40.168835" y="98.764482" transform="rotate(-0 40.168835 98.764482)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="43.136131" y="98.918799" transform="rotate(-0 43.136131 98.918799)">0%</text>
    </g>
    <g id="text_37">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="53.258381" y="98.764482" transform="rotate(-0 53.258381 98.764482)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="55.904019" y="98.918799" transform="rotate(-0 55.904019 98.918799)">0%</text>
    </g>
    <g id="text_38">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="66.347927" y="98.764482" transform="rotate(-0 66.347927 98.764482)">6%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="68.671907" y="98.918799" transform="rotate(-0 68.671907 98.918799)">6%</text>
    </g>
    <g id="text_39">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="79.437473" y="98.764482" transform="rotate(-0 79.437473 98.764482)">29%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="81.439795" y="98.918799" transform="rotate(-0 81.439795 98.918799)">29%</text>
    </g>
    <g id="text_40">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="92.527018" y="98.764482" transform="rotate(-0 92.527018 98.764482)">17%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="94.207682" y="98.918799" transform="rotate(-0 94.207682 98.918799)">17%</text>
    </g>
    <g id="text_41">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="105.616564" y="98.764482" transform="rotate(-0 105.616564 98.764482)">42%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="106.97557" y="98.918799" transform="rotate(-0 106.97557 98.918799)">42%</text>
    </g>
    <g id="text_42">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="118.70611" y="98.764482" transform="rotate(-0 118.70611 98.764482)">27%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="119.743458" y="98.918799" transform="rotate(-0 119.743458 98.918799)">27%</text>
    </g>
    <g id="text_43">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="131.795656" y="98.764482" transform="rotate(-0 131.795656 98.764482)">60%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #202020" x="132.511345" y="98.918799" transform="rotate(-0 132.511345 98.918799)">60%</text>
    </g>
    <g id="text_44">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="144.885201" y="98.764482" transform="rotate(-0 144.885201 98.764482)">95%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #202020" x="145.279233" y="98.918799" transform="rotate(-0 145.279233 98.918799)">95%</text>
    </g>
    <g id="text_45">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="157.974747" y="98.764482" transform="rotate(-0 157.974747 98.764482)">100%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #202020" x="158.047121" y="98.918799" transform="rotate(-0 158.047121 98.918799)">100%</text>
    </g>
    <g id="text_46">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="40.168835" y="131.521031" transform="rotate(-0 40.168835 131.521031)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="43.136131" y="131.477684" transform="rotate(-0 43.136131 131.477684)">0%</text>
    </g>
    <g id="text_47">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="53.258381" y="131.521031" transform="rotate(-0 53.258381 131.521031)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="55.904019" y="131.477684" transform="rotate(-0 55.904019 131.477684)">0%</text>
    </g>
    <g id="text_48">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="66.347927" y="131.521031" transform="rotate(-0 66.347927 131.521031)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="68.671907" y="131.477684" transform="rotate(-0 68.671907 131.477684)">0%</text>
    </g>
    <g id="text_49">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="79.437473" y="131.521031" transform="rotate(-0 79.437473 131.521031)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="81.439795" y="131.477684" transform="rotate(-0 81.439795 131.477684)">0%</text>
    </g>
    <g id="text_50">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="92.527018" y="131.521031" transform="rotate(-0 92.527018 131.521031)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="94.207682" y="131.477684" transform="rotate(-0 94.207682 131.477684)">0%</text>
    </g>
    <g id="text_51">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="105.616564" y="131.521031" transform="rotate(-0 105.616564 131.521031)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="106.97557" y="131.477684" transform="rotate(-0 106.97557 131.477684)">0%</text>
    </g>
    <g id="text_52">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="118.70611" y="131.521031" transform="rotate(-0 118.70611 131.521031)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="119.743458" y="131.477684" transform="rotate(-0 119.743458 131.477684)">0%</text>
    </g>
    <g id="text_53">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="131.795656" y="131.521031" transform="rotate(-0 131.795656 131.521031)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="132.511345" y="131.477684" transform="rotate(-0 132.511345 131.477684)">0%</text>
    </g>
    <g id="text_54">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="144.885201" y="131.521031" transform="rotate(-0 144.885201 131.521031)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="145.279233" y="131.477684" transform="rotate(-0 145.279233 131.477684)">0%</text>
    </g>
    <g id="text_55">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="157.974747" y="131.521031" transform="rotate(-0 157.974747 131.521031)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="158.047121" y="131.477684" transform="rotate(-0 158.047121 131.477684)">0%</text>
    </g>
    <g id="text_56">
-    <text style="font-weight: 700; font-size: 9px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: start; fill: #272727" x="11.371835" y="8.615215" transform="rotate(-0 11.371835 8.615215)">(a)</text>
+    <text style="font-weight: 700; font-size: 9px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #272727" x="15.046778" y="9.072246" transform="rotate(-0 15.046778 9.072246)">(a)</text>
    </g>
    <g id="text_57">
-    <text style="font-size: 8px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: start; fill: #0072b2" x="33.624063" y="11.798646" transform="rotate(-0 33.624063 11.798646)">Qwen3.8 27B</text>
+    <text style="font-size: 8px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #0072b2" x="36.752188" y="12.175886" transform="rotate(-0 36.752188 12.175886)">Qwen3.8 27B</text>
    </g>
   </g>
   <g id="axes_2">
    <g id="patch_3">
-    <path d="M 201.624063 146.824843
-L 332.51952 146.824843
-L 332.51952 15.798646
-L 201.624063 15.798646
+    <path d="M 204.929098 146.411422
+L 332.607975 146.411422
+L 332.607975 16.175886
+L 204.929098 16.175886
 z
 " style="fill: #ffffff"/>
    </g>
-   <g clip-path="url(#p20f97fe503)">
+   <g clip-path="url(#p4ff8a1bebe)">
     <image xlink:href="data:image/png;base64,
-iVBORw0KGgoAAAANSUhEUgAAALYAAAC2CAYAAAB08HcEAAACp0lEQVR4nO3dMUuVcRiH4ffEicSirTkSVyFxcI12x2joq/SNGhvDoVHaXUIkKAKngnDRo32JJzrcXNcH+PGH9+ZZ39Wyd3K/QMyD//0A+BeETZKwSRI2ScImSdgkCZskYZMkbJKETZKwSRI2ScImSdgkCZskYZMkbJKETZKwSRI2ScImSdgkCZskYZMkbJKETZKwSRI2ScImSdgkCZskYZMkbJKETZKwSRI2ScImSdgkCZskYZMkbJKETZKwSRI2Setl26x3x6bev3kxsnP543pk59XRzsjO7s5mZOfp49uRndMvcxkd7M/cWhebJGGTJGyShE2SsEkSNknCJknYJAmbJGGTJGyShE2SsEkSNknCJknYJAmbJGGTJGyShE2SsEkSNknCJknYJAmbJGGTJGyShE2SsEkSNknCJknYJAmbJGGTJGyShE2SsEkSNknCJknYJAmbJGGTJGyShE2SsElaLXsn98sWOd5/PrZ1drUe2Xn38m5k5/efmZ2bzcwnO/32cGTn9tfFsm1cbJKETZKwSRI2ScImSdgkCZskYZMkbJKETZKwSRI2ScImSdgkCZskYZMkbJKETZKwSRI2ScImSdgkCZskYZMkbJKETZKwSRI2ScImSdgkCZskYZMkbJKETZKwSRI2ScImSdgkCZskYZMkbJKETZKwSRI2SavNz+OZP84P+Xx2NLb14dOjkZ3vVzcjOx+/rkd2lruZ9xw+W43svH39ZJlyfnE9suNikyRskoRNkrBJEjZJwiZJ2CQJmyRhkyRskoRNkrBJEjZJwiZJ2CQJmyRhkyRskoRNkrBJEjZJwiZJ2CQJmyRhkyRskoRNkrBJEjZJwiZJ2CQJmyRhkyRskoRNkrBJEjZJwiZJ2CQJmyRhkyRskoRNkrBJEjZL0V/Ctyqt1FwA1wAAAABJRU5ErkJggg==" id="image821d14dc1a" transform="scale(1 -1) translate(0 -131.04)" x="201.6" y="-15.599081" width="131.04" height="131.04"/>
+iVBORw0KGgoAAAANSUhEUgAAALEAAAC1CAYAAAAQuB7TAAACqUlEQVR4nO3dsUrWUQCH4fOFkWi0NUfiKiQOrtHuGA3dSnfU2BgOjuLeEhJBETgVhIt+Gl7D/0DfC89zAT8OnJezntXYO7kfEPbofx8AlhIxeSImT8TkiZg8EZMnYvJETJ6IyRMxeSImT8TkiZg8EZMnYvJETJ6IyRMxeSImT8TkiZg8EZMnYvJETJ6IyRMxeSImT8TkiZg8EZMnYvJETJ6IyRMxeSImT8TkiZg8EZMnYvJETJ6IyRMxeSImT8TkiZi8rbFJtnamzHx4+3LKzref14s3Xh9tTznLzvZ6ys6z3dvFG6cXc7I52J/zhnqJyRMxeSImT8TkiZg8EZMnYvJETJ6IyRMxeSImT8TkiZg8EZMnYvJETJ6IyRMxeSImT8TkiZg8EZMnYvJETJ6IyRMxeSImT8TkiZg8EZMnYvJETJ6IyRMxeSImT8TkiZg8EZMnYvJETJ6IyRMxeSImT8Tkrcbeyf3YEMf7L6bsnF/N+UD7/au7xRt//i7feHCznnNNp98fL964/X05NomXmDwRkydi8kRMnojJEzF5IiZPxOSJmDwRkydi8kRMnojJEzF5IiZPxOSJmDwRkydi8kRMnojJEzF5IiZPxOSJmDwRkydi8kRMnojJEzF5IiZPxOSJmDwRkydi8kRMnojJEzF5IiZPxOSJmDwRkydi8kRM3mr963hjPig/Oz+asvPx85MpOz+ubhZvfPo657P0cbf8LA8On6/GUu/ePB0zfLm8nrLjJSZPxOSJmDwRkydi8kRMnojJEzF5IiZPxOSJmDwRkydi8kRMnojJEzF5IiZPxOSJmDwRkydi8kRMnojJEzF5IiZPxOSJmDwRkydi8kRMnojJEzF5IiZPxOSJmDwRkydi8kRMnojJEzF5IiZPxOSJmDwRM+r+AfCuKqtEGIVbAAAAAElFTkSuQmCC" id="imaged6cc8b5f5e" transform="scale(1 -1) translate(0 -130.32)" x="205.2" y="-16.319479" width="127.44" height="130.32"/>
    </g>
    <g id="matplotlib.axis_3">
     <g id="xtick_11">
      <g id="line2d_15"/>
      <g id="text_58">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="208.168835" y="155.178358" transform="rotate(-0 208.168835 155.178358)">1</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="211.313042" y="155.007614" transform="rotate(-0 211.313042 155.007614)">1</text>
      </g>
     </g>
     <g id="xtick_12">
      <g id="line2d_16"/>
      <g id="text_59">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="221.258381" y="155.178358" transform="rotate(-0 221.258381 155.178358)">2</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="224.08093" y="155.007614" transform="rotate(-0 224.08093 155.007614)">2</text>
      </g>
     </g>
     <g id="xtick_13">
      <g id="line2d_17"/>
      <g id="text_60">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="234.347927" y="155.178358" transform="rotate(-0 234.347927 155.178358)">3</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="236.848817" y="155.007614" transform="rotate(-0 236.848817 155.007614)">3</text>
      </g>
     </g>
     <g id="xtick_14">
      <g id="line2d_18"/>
      <g id="text_61">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="247.437473" y="155.178358" transform="rotate(-0 247.437473 155.178358)">4</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="249.616705" y="155.007614" transform="rotate(-0 249.616705 155.007614)">4</text>
      </g>
     </g>
     <g id="xtick_15">
      <g id="line2d_19"/>
      <g id="text_62">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="260.527018" y="155.178358" transform="rotate(-0 260.527018 155.178358)">5</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="262.384593" y="155.007614" transform="rotate(-0 262.384593 155.007614)">5</text>
      </g>
     </g>
     <g id="xtick_16">
      <g id="line2d_20"/>
      <g id="text_63">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="273.616564" y="155.178358" transform="rotate(-0 273.616564 155.178358)">6</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="275.15248" y="155.007614" transform="rotate(-0 275.15248 155.007614)">6</text>
      </g>
     </g>
     <g id="xtick_17">
      <g id="line2d_21"/>
      <g id="text_64">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="286.70611" y="155.178358" transform="rotate(-0 286.70611 155.178358)">7</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="287.920368" y="155.007614" transform="rotate(-0 287.920368 155.007614)">7</text>
      </g>
     </g>
     <g id="xtick_18">
      <g id="line2d_22"/>
      <g id="text_65">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="299.795656" y="155.178358" transform="rotate(-0 299.795656 155.178358)">8</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="300.688256" y="155.007614" transform="rotate(-0 300.688256 155.007614)">8</text>
      </g>
     </g>
     <g id="xtick_19">
      <g id="line2d_23"/>
      <g id="text_66">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="312.885201" y="155.178358" transform="rotate(-0 312.885201 155.178358)">9</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="313.456144" y="155.007614" transform="rotate(-0 313.456144 155.007614)">9</text>
      </g>
     </g>
     <g id="xtick_20">
      <g id="line2d_24"/>
      <g id="text_67">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="325.974747" y="155.178358" transform="rotate(-0 325.974747 155.178358)">10</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="326.224031" y="155.007614" transform="rotate(-0 326.224031 155.007614)">10</text>
      </g>
     </g>
     <g id="text_68">
-     <text style="font-size: 7.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="267.071791" y="165.900429" transform="rotate(-0 267.071791 165.900429)">Trajectory decile</text>
+     <text style="font-size: 7.5px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="268.768537" y="165.940963" transform="rotate(-0 268.768537 165.940963)">Trajectory decile</text>
     </g>
    </g>
    <g id="matplotlib.axis_4">
     <g id="ytick_5">
      <g id="line2d_25"/>
      <g id="text_69">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: end; fill: #272727" x="198.124063" y="34.607233" transform="rotate(-0 198.124063 34.607233)">read</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #272727" x="201.429098" y="35.003424" transform="rotate(-0 201.429098 35.003424)">read</text>
      </g>
     </g>
     <g id="ytick_6">
      <g id="line2d_26"/>
      <g id="text_70">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: end; fill: #272727" x="198.124063" y="67.363782" transform="rotate(-0 198.124063 67.363782)">write</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #272727" x="201.429098" y="67.562308" transform="rotate(-0 201.429098 67.562308)">write</text>
      </g>
     </g>
     <g id="ytick_7">
      <g id="line2d_27"/>
      <g id="text_71">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: end; fill: #272727" x="198.124063" y="100.120331" transform="rotate(-0 198.124063 100.120331)">command</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #272727" x="201.429098" y="100.121192" transform="rotate(-0 201.429098 100.121192)">command</text>
      </g>
     </g>
     <g id="ytick_8">
      <g id="line2d_28"/>
      <g id="text_72">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: end; fill: #272727" x="198.124063" y="132.876881" transform="rotate(-0 198.124063 132.876881)">other</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #272727" x="201.429098" y="132.680076" transform="rotate(-0 201.429098 132.680076)">other</text>
      </g>
     </g>
    </g>
    <g id="text_73">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="208.168835" y="33.251383" transform="rotate(-0 208.168835 33.251383)">100%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #202020" x="211.313042" y="33.801031" transform="rotate(-0 211.313042 33.801031)">100%</text>
    </g>
    <g id="text_74">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="221.258381" y="33.251383" transform="rotate(-0 221.258381 33.251383)">100%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #202020" x="224.08093" y="33.801031" transform="rotate(-0 224.08093 33.801031)">100%</text>
    </g>
    <g id="text_75">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="234.347927" y="33.251383" transform="rotate(-0 234.347927 33.251383)">76%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #202020" x="236.848817" y="33.801031" transform="rotate(-0 236.848817 33.801031)">76%</text>
    </g>
    <g id="text_76">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="247.437473" y="33.251383" transform="rotate(-0 247.437473 33.251383)">42%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="249.616705" y="33.801031" transform="rotate(-0 249.616705 33.801031)">42%</text>
    </g>
    <g id="text_77">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="260.527018" y="33.251383" transform="rotate(-0 260.527018 33.251383)">29%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="262.384593" y="33.801031" transform="rotate(-0 262.384593 33.801031)">29%</text>
    </g>
    <g id="text_78">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="273.616564" y="33.251383" transform="rotate(-0 273.616564 33.251383)">9%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="275.15248" y="33.801031" transform="rotate(-0 275.15248 33.801031)">9%</text>
    </g>
    <g id="text_79">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="286.70611" y="33.251383" transform="rotate(-0 286.70611 33.251383)">7%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="287.920368" y="33.801031" transform="rotate(-0 287.920368 33.801031)">7%</text>
    </g>
    <g id="text_80">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="299.795656" y="33.251383" transform="rotate(-0 299.795656 33.251383)">19%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="300.688256" y="33.801031" transform="rotate(-0 300.688256 33.801031)">19%</text>
    </g>
    <g id="text_81">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="312.885201" y="33.251383" transform="rotate(-0 312.885201 33.251383)">55%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #202020" x="313.456144" y="33.801031" transform="rotate(-0 313.456144 33.801031)">55%</text>
    </g>
    <g id="text_82">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="325.974747" y="33.251383" transform="rotate(-0 325.974747 33.251383)">36%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="326.224031" y="33.801031" transform="rotate(-0 326.224031 33.801031)">36%</text>
    </g>
    <g id="text_83">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="208.168835" y="66.007932" transform="rotate(-0 208.168835 66.007932)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="211.313042" y="66.359915" transform="rotate(-0 211.313042 66.359915)">0%</text>
    </g>
    <g id="text_84">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="221.258381" y="66.007932" transform="rotate(-0 221.258381 66.007932)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="224.08093" y="66.359915" transform="rotate(-0 224.08093 66.359915)">0%</text>
    </g>
    <g id="text_85">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="234.347927" y="66.007932" transform="rotate(-0 234.347927 66.007932)">21%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="236.848817" y="66.359915" transform="rotate(-0 236.848817 66.359915)">21%</text>
    </g>
    <g id="text_86">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="247.437473" y="66.007932" transform="rotate(-0 247.437473 66.007932)">8%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="249.616705" y="66.359915" transform="rotate(-0 249.616705 66.359915)">8%</text>
    </g>
    <g id="text_87">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="260.527018" y="66.007932" transform="rotate(-0 260.527018 66.007932)">35%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="262.384593" y="66.359915" transform="rotate(-0 262.384593 66.359915)">35%</text>
    </g>
    <g id="text_88">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="273.616564" y="66.007932" transform="rotate(-0 273.616564 66.007932)">29%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="275.15248" y="66.359915" transform="rotate(-0 275.15248 66.359915)">29%</text>
    </g>
    <g id="text_89">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="286.70611" y="66.007932" transform="rotate(-0 286.70611 66.007932)">27%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="287.920368" y="66.359915" transform="rotate(-0 287.920368 66.359915)">27%</text>
    </g>
    <g id="text_90">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="299.795656" y="66.007932" transform="rotate(-0 299.795656 66.007932)">9%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="300.688256" y="66.359915" transform="rotate(-0 300.688256 66.359915)">9%</text>
    </g>
    <g id="text_91">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="312.885201" y="66.007932" transform="rotate(-0 312.885201 66.007932)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="313.456144" y="66.359915" transform="rotate(-0 313.456144 66.359915)">0%</text>
    </g>
    <g id="text_92">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="325.974747" y="66.007932" transform="rotate(-0 325.974747 66.007932)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="326.224031" y="66.359915" transform="rotate(-0 326.224031 66.359915)">0%</text>
    </g>
    <g id="text_93">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="208.168835" y="98.764482" transform="rotate(-0 208.168835 98.764482)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="211.313042" y="98.918799" transform="rotate(-0 211.313042 98.918799)">0%</text>
    </g>
    <g id="text_94">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="221.258381" y="98.764482" transform="rotate(-0 221.258381 98.764482)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="224.08093" y="98.918799" transform="rotate(-0 224.08093 98.918799)">0%</text>
    </g>
    <g id="text_95">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="234.347927" y="98.764482" transform="rotate(-0 234.347927 98.764482)">3%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="236.848817" y="98.918799" transform="rotate(-0 236.848817 98.918799)">3%</text>
    </g>
    <g id="text_96">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="247.437473" y="98.764482" transform="rotate(-0 247.437473 98.764482)">50%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #202020" x="249.616705" y="98.918799" transform="rotate(-0 249.616705 98.918799)">50%</text>
    </g>
    <g id="text_97">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="260.527018" y="98.764482" transform="rotate(-0 260.527018 98.764482)">35%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="262.384593" y="98.918799" transform="rotate(-0 262.384593 98.918799)">35%</text>
    </g>
    <g id="text_98">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="273.616564" y="98.764482" transform="rotate(-0 273.616564 98.764482)">63%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #202020" x="275.15248" y="98.918799" transform="rotate(-0 275.15248 98.918799)">63%</text>
    </g>
    <g id="text_99">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="286.70611" y="98.764482" transform="rotate(-0 286.70611 98.764482)">67%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #202020" x="287.920368" y="98.918799" transform="rotate(-0 287.920368 98.918799)">67%</text>
    </g>
    <g id="text_100">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="299.795656" y="98.764482" transform="rotate(-0 299.795656 98.764482)">72%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #202020" x="300.688256" y="98.918799" transform="rotate(-0 300.688256 98.918799)">72%</text>
    </g>
    <g id="text_101">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="312.885201" y="98.764482" transform="rotate(-0 312.885201 98.764482)">45%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="313.456144" y="98.918799" transform="rotate(-0 313.456144 98.918799)">45%</text>
    </g>
    <g id="text_102">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="325.974747" y="98.764482" transform="rotate(-0 325.974747 98.764482)">64%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #202020" x="326.224031" y="98.918799" transform="rotate(-0 326.224031 98.918799)">64%</text>
    </g>
    <g id="text_103">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="208.168835" y="131.521031" transform="rotate(-0 208.168835 131.521031)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="211.313042" y="131.477684" transform="rotate(-0 211.313042 131.477684)">0%</text>
    </g>
    <g id="text_104">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="221.258381" y="131.521031" transform="rotate(-0 221.258381 131.521031)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="224.08093" y="131.477684" transform="rotate(-0 224.08093 131.477684)">0%</text>
    </g>
    <g id="text_105">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="234.347927" y="131.521031" transform="rotate(-0 234.347927 131.521031)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="236.848817" y="131.477684" transform="rotate(-0 236.848817 131.477684)">0%</text>
    </g>
    <g id="text_106">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="247.437473" y="131.521031" transform="rotate(-0 247.437473 131.521031)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="249.616705" y="131.477684" transform="rotate(-0 249.616705 131.477684)">0%</text>
    </g>
    <g id="text_107">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="260.527018" y="131.521031" transform="rotate(-0 260.527018 131.521031)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="262.384593" y="131.477684" transform="rotate(-0 262.384593 131.477684)">0%</text>
    </g>
    <g id="text_108">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="273.616564" y="131.521031" transform="rotate(-0 273.616564 131.521031)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="275.15248" y="131.477684" transform="rotate(-0 275.15248 131.477684)">0%</text>
    </g>
    <g id="text_109">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="286.70611" y="131.521031" transform="rotate(-0 286.70611 131.521031)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="287.920368" y="131.477684" transform="rotate(-0 287.920368 131.477684)">0%</text>
    </g>
    <g id="text_110">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="299.795656" y="131.521031" transform="rotate(-0 299.795656 131.521031)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="300.688256" y="131.477684" transform="rotate(-0 300.688256 131.477684)">0%</text>
    </g>
    <g id="text_111">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="312.885201" y="131.521031" transform="rotate(-0 312.885201 131.521031)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="313.456144" y="131.477684" transform="rotate(-0 313.456144 131.477684)">0%</text>
    </g>
    <g id="text_112">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="325.974747" y="131.521031" transform="rotate(-0 325.974747 131.521031)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="326.224031" y="131.477684" transform="rotate(-0 326.224031 131.477684)">0%</text>
    </g>
    <g id="text_113">
-    <text style="font-weight: 700; font-size: 9px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: start; fill: #272727" x="179.371835" y="8.615215" transform="rotate(-0 179.371835 8.615215)">(b)</text>
+    <text style="font-weight: 700; font-size: 9px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #272727" x="183.223689" y="9.072246" transform="rotate(-0 183.223689 9.072246)">(b)</text>
    </g>
    <g id="text_114">
-    <text style="font-size: 8px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: start; fill: #8c6bb1" x="201.624063" y="11.798646" transform="rotate(-0 201.624063 11.798646)">Qwen3 Coder Next</text>
+    <text style="font-size: 8px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #8c6bb1" x="204.929098" y="12.175886" transform="rotate(-0 204.929098 12.175886)">Qwen3 Coder Next</text>
    </g>
   </g>
   <g id="axes_3">
    <g id="patch_4">
-    <path d="M 369.624062 146.824843
-L 500.51952 146.824843
-L 500.51952 15.798646
-L 369.624062 15.798646
+    <path d="M 372.840643 146.411422
+L 500.51952 146.411422
+L 500.51952 16.175886
+L 372.840643 16.175886
 z
 " style="fill: #ffffff"/>
    </g>
-   <g clip-path="url(#p1b11d5aeb6)">
+   <g clip-path="url(#p617574c319)">
     <image xlink:href="data:image/png;base64,
-iVBORw0KGgoAAAANSUhEUgAAALYAAAC2CAYAAAB08HcEAAACpklEQVR4nO3UP44NUBiH4XPlhplRy4hkBJVClP71OqKYDWjtwz5YgUSUKhWVTiI6lUKhkAjiGpv4hLx5ngX88uXkzdmsK/dPFsSc+tcHwN8gbJKETZKwSRI2ScImSdgkCZskYZMkbJKETZKwSRI2ScImSdgkCZskYZMkbJKETZKwSRI2ScImSdgkCZskYZMkbJKETZKwSRI2ScImSdgkCZskYZMkbJKETZKwSRI2ScImSdgkCZskYZMkbJKETZKwSdqu/9H+4cjMg2t7Izu73cjMunvr7MjO5y+bNeXt+68jOw/vnRnZuXh+5h4/NknCJknYJAmbJGGTJGyShE2SsEkSNknCJknYJAmbJGGTJGyShE2SsEkSNknCJknYJAmbJGGTJGyShE2SsEkSNknCJknYJAmbJGGTJGyShE2SsEkSNknCJknYJAmbJGGTJGyShE2SsEkSNknCJknYJAmbJGGTtJ1dOxiZuX20N7Jz9dLMPXeu/xzZef7q+8jOhXP7a8qj45kEnryYeaNn706P7PixSRI2ScImSdgkCZskYZMkbJKETZKwSRI2ScImSdgkCZskYZMkbJKETZKwSRI2ScImSdgkCZskYZMkbJKETZKwSRI2ScImSdgkCZskYZMkbJKETZKwSRI2ScImSdgkCZskYZMkbJKETZKwSRI2ScImSdgkbXafbp5Mje1+bEZ2Xr65MbLz+OnvkZ3XHz6O7KztwczOr2+r6ujw8siOH5skYZMkbJKETZKwSRI2ScImSdgkCZskYZMkbJKETZKwSRI2ScImSdgkCZskYZMkbJKETZKwSRI2ScImSdgkCZskYZMkbJKETZKwSRI2ScImSdgkCZskYZMkbJKETZKwSRI2ScImSdgkCZskYZMkbJKETZKwWUV/ALbPI2zF+VUFAAAAAElFTkSuQmCC" id="imagecd414916e1" transform="scale(1 -1) translate(0 -131.04)" x="369.36" y="-15.599081" width="131.04" height="131.04"/>
+iVBORw0KGgoAAAANSUhEUgAAALEAAAC1CAYAAAAQuB7TAAACr0lEQVR4nO3dsUqWYRyH4fcTKc1ZFMGopoZwtHJvUxw8gdbOo/OoIwiisakpJ7cg2poaGhqCqPDT6BjeB/SW6zqAH3++7+Zdn8X04OhygrCVqz4A5hIxeSImT8TkiZg8EZMnYvJETJ6IyRMxeSImT8TkiZg8EZMnYvJETJ6IyRMxeSImT8TkiZg8EZMnYvJETJ6IyRMxeSImT8TkiZg8EZMnYvJETJ6IyRMxeSImT8TkiZg8EZMnYvJETJ6IyRMxeSImT8TkiZi81ek6Wd8aMnP8aG3IznI5ZGZ69mRj9sb3H4sht5x9/jlk5/nh7dkbd7fH3OJLTJ6IyRMxeSImT8TkiZg8EZMnYvJETJ6IyRMxeSImT8TkiZg8EZMnYvJETJ6IyRMxeSImT8TkiZg8EZMnYvJETJ6IyRMxeSImT8TkiZg8EZMnYvJETJ6IyRMxeSImT8TkiZg8EZMnYvJETJ6IyRMxeSImb9wD5at3Zk883R3zsPjDe/Nv+e9g7++Qnbcffs/e2NlcH3LLi5Mxf/mrd/N/mzefbg25xZeYPBGTJ2LyREyeiMkTMXkiJk/E5ImYPBGTJ2LyREyeiMkTMXkiJk/E5ImYPBGTJ2LyREyeiMkTMXkiJk/E5ImYPBGTJ2LyREyeiMkTMXkiJk/E5ImYPBGTJ2LyREyeiMkTMXkiJk/E5ImYPBGTJ2LyREzeYvnt8eWIoeWfxeyN96f7I06ZXr6+GLLz8cvXa/N4+3T+a7ppdrfuD9nxJSZPxOSJmDwRkydi8kRMnojJEzF5IiZPxOSJmDwRkydi8kRMnojJEzF5IiZPxOSJmDwRkydi8kRMnojJEzF5IiZPxOSJmDwRkydi8kRMnojJEzF5IiZPxOSJmDwRkydi8kRMnojJEzF5IiZPxOSJmDwRM9X9A+lvI2pLxorfAAAAAElFTkSuQmCC" id="imagea21d689708" transform="scale(1 -1) translate(0 -130.32)" x="372.96" y="-16.319479" width="127.44" height="130.32"/>
    </g>
    <g id="matplotlib.axis_5">
     <g id="xtick_21">
      <g id="line2d_29"/>
      <g id="text_115">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="376.168835" y="155.178358" transform="rotate(-0 376.168835 155.178358)">1</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="379.224587" y="155.007614" transform="rotate(-0 379.224587 155.007614)">1</text>
      </g>
     </g>
     <g id="xtick_22">
      <g id="line2d_30"/>
      <g id="text_116">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="389.258381" y="155.178358" transform="rotate(-0 389.258381 155.178358)">2</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="391.992474" y="155.007614" transform="rotate(-0 391.992474 155.007614)">2</text>
      </g>
     </g>
     <g id="xtick_23">
      <g id="line2d_31"/>
      <g id="text_117">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="402.347927" y="155.178358" transform="rotate(-0 402.347927 155.178358)">3</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="404.760362" y="155.007614" transform="rotate(-0 404.760362 155.007614)">3</text>
      </g>
     </g>
     <g id="xtick_24">
      <g id="line2d_32"/>
      <g id="text_118">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="415.437473" y="155.178358" transform="rotate(-0 415.437473 155.178358)">4</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="417.52825" y="155.007614" transform="rotate(-0 417.52825 155.007614)">4</text>
      </g>
     </g>
     <g id="xtick_25">
      <g id="line2d_33"/>
      <g id="text_119">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="428.527018" y="155.178358" transform="rotate(-0 428.527018 155.178358)">5</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="430.296137" y="155.007614" transform="rotate(-0 430.296137 155.007614)">5</text>
      </g>
     </g>
     <g id="xtick_26">
      <g id="line2d_34"/>
      <g id="text_120">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="441.616564" y="155.178358" transform="rotate(-0 441.616564 155.178358)">6</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="443.064025" y="155.007614" transform="rotate(-0 443.064025 155.007614)">6</text>
      </g>
     </g>
     <g id="xtick_27">
      <g id="line2d_35"/>
      <g id="text_121">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="454.70611" y="155.178358" transform="rotate(-0 454.70611 155.178358)">7</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="455.831913" y="155.007614" transform="rotate(-0 455.831913 155.007614)">7</text>
      </g>
     </g>
     <g id="xtick_28">
      <g id="line2d_36"/>
      <g id="text_122">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="467.795656" y="155.178358" transform="rotate(-0 467.795656 155.178358)">8</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="468.599801" y="155.007614" transform="rotate(-0 468.599801 155.007614)">8</text>
      </g>
     </g>
     <g id="xtick_29">
      <g id="line2d_37"/>
      <g id="text_123">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="480.885201" y="155.178358" transform="rotate(-0 480.885201 155.178358)">9</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="481.367688" y="155.007614" transform="rotate(-0 481.367688 155.007614)">9</text>
      </g>
     </g>
     <g id="xtick_30">
      <g id="line2d_38"/>
      <g id="text_124">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="493.974747" y="155.178358" transform="rotate(-0 493.974747 155.178358)">10</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="494.135576" y="155.007614" transform="rotate(-0 494.135576 155.007614)">10</text>
      </g>
     </g>
     <g id="text_125">
-     <text style="font-size: 7.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="435.071791" y="165.900429" transform="rotate(-0 435.071791 165.900429)">Trajectory decile</text>
+     <text style="font-size: 7.5px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="436.680081" y="165.940963" transform="rotate(-0 436.680081 165.940963)">Trajectory decile</text>
     </g>
    </g>
    <g id="matplotlib.axis_6">
     <g id="ytick_9">
      <g id="line2d_39"/>
      <g id="text_126">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: end; fill: #272727" x="366.124062" y="34.607233" transform="rotate(-0 366.124062 34.607233)">read</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #272727" x="369.340643" y="35.003424" transform="rotate(-0 369.340643 35.003424)">read</text>
      </g>
     </g>
     <g id="ytick_10">
      <g id="line2d_40"/>
      <g id="text_127">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: end; fill: #272727" x="366.124062" y="67.363782" transform="rotate(-0 366.124062 67.363782)">write</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #272727" x="369.340643" y="67.562308" transform="rotate(-0 369.340643 67.562308)">write</text>
      </g>
     </g>
     <g id="ytick_11">
      <g id="line2d_41"/>
      <g id="text_128">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: end; fill: #272727" x="366.124062" y="100.120331" transform="rotate(-0 366.124062 100.120331)">command</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #272727" x="369.340643" y="100.121192" transform="rotate(-0 369.340643 100.121192)">command</text>
      </g>
     </g>
     <g id="ytick_12">
      <g id="line2d_42"/>
      <g id="text_129">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: end; fill: #272727" x="366.124062" y="132.876881" transform="rotate(-0 366.124062 132.876881)">other</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #272727" x="369.340643" y="132.680076" transform="rotate(-0 369.340643 132.680076)">other</text>
      </g>
     </g>
    </g>
    <g id="text_130">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="376.168835" y="33.251383" transform="rotate(-0 376.168835 33.251383)">100%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #202020" x="379.224587" y="33.801031" transform="rotate(-0 379.224587 33.801031)">100%</text>
    </g>
    <g id="text_131">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="389.258381" y="33.251383" transform="rotate(-0 389.258381 33.251383)">97%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #202020" x="391.992474" y="33.801031" transform="rotate(-0 391.992474 33.801031)">97%</text>
    </g>
    <g id="text_132">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="402.347927" y="33.251383" transform="rotate(-0 402.347927 33.251383)">73%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #202020" x="404.760362" y="33.801031" transform="rotate(-0 404.760362 33.801031)">73%</text>
    </g>
    <g id="text_133">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="415.437473" y="33.251383" transform="rotate(-0 415.437473 33.251383)">22%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="417.52825" y="33.801031" transform="rotate(-0 417.52825 33.801031)">22%</text>
    </g>
    <g id="text_134">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="428.527018" y="33.251383" transform="rotate(-0 428.527018 33.251383)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="430.296137" y="33.801031" transform="rotate(-0 430.296137 33.801031)">0%</text>
    </g>
    <g id="text_135">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="441.616564" y="33.251383" transform="rotate(-0 441.616564 33.251383)">3%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="443.064025" y="33.801031" transform="rotate(-0 443.064025 33.801031)">3%</text>
    </g>
    <g id="text_136">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="454.70611" y="33.251383" transform="rotate(-0 454.70611 33.251383)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="455.831913" y="33.801031" transform="rotate(-0 455.831913 33.801031)">0%</text>
    </g>
    <g id="text_137">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="467.795656" y="33.251383" transform="rotate(-0 467.795656 33.251383)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="468.599801" y="33.801031" transform="rotate(-0 468.599801 33.801031)">0%</text>
    </g>
    <g id="text_138">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="480.885201" y="33.251383" transform="rotate(-0 480.885201 33.251383)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="481.367688" y="33.801031" transform="rotate(-0 481.367688 33.801031)">0%</text>
    </g>
    <g id="text_139">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="493.974747" y="33.251383" transform="rotate(-0 493.974747 33.251383)">13%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="494.135576" y="33.801031" transform="rotate(-0 494.135576 33.801031)">13%</text>
    </g>
    <g id="text_140">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="376.168835" y="66.007932" transform="rotate(-0 376.168835 66.007932)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="379.224587" y="66.359915" transform="rotate(-0 379.224587 66.359915)">0%</text>
    </g>
    <g id="text_141">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="389.258381" y="66.007932" transform="rotate(-0 389.258381 66.007932)">3%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="391.992474" y="66.359915" transform="rotate(-0 391.992474 66.359915)">3%</text>
    </g>
    <g id="text_142">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="402.347927" y="66.007932" transform="rotate(-0 402.347927 66.007932)">22%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="404.760362" y="66.359915" transform="rotate(-0 404.760362 66.359915)">22%</text>
    </g>
    <g id="text_143">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="415.437473" y="66.007932" transform="rotate(-0 415.437473 66.007932)">48%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="417.52825" y="66.359915" transform="rotate(-0 417.52825 66.359915)">48%</text>
    </g>
    <g id="text_144">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="428.527018" y="66.007932" transform="rotate(-0 428.527018 66.007932)">71%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #202020" x="430.296137" y="66.359915" transform="rotate(-0 430.296137 66.359915)">71%</text>
    </g>
    <g id="text_145">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="441.616564" y="66.007932" transform="rotate(-0 441.616564 66.007932)">38%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="443.064025" y="66.359915" transform="rotate(-0 443.064025 66.359915)">38%</text>
    </g>
    <g id="text_146">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="454.70611" y="66.007932" transform="rotate(-0 454.70611 66.007932)">50%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #202020" x="455.831913" y="66.359915" transform="rotate(-0 455.831913 66.359915)">50%</text>
    </g>
    <g id="text_147">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="467.795656" y="66.007932" transform="rotate(-0 467.795656 66.007932)">72%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #202020" x="468.599801" y="66.359915" transform="rotate(-0 468.599801 66.359915)">72%</text>
    </g>
    <g id="text_148">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="480.885201" y="66.007932" transform="rotate(-0 480.885201 66.007932)">32%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="481.367688" y="66.359915" transform="rotate(-0 481.367688 66.359915)">32%</text>
    </g>
    <g id="text_149">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="493.974747" y="66.007932" transform="rotate(-0 493.974747 66.007932)">7%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="494.135576" y="66.359915" transform="rotate(-0 494.135576 66.359915)">7%</text>
    </g>
    <g id="text_150">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="376.168835" y="98.764482" transform="rotate(-0 376.168835 98.764482)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="379.224587" y="98.918799" transform="rotate(-0 379.224587 98.918799)">0%</text>
    </g>
    <g id="text_151">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="389.258381" y="98.764482" transform="rotate(-0 389.258381 98.764482)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="391.992474" y="98.918799" transform="rotate(-0 391.992474 98.918799)">0%</text>
    </g>
    <g id="text_152">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="402.347927" y="98.764482" transform="rotate(-0 402.347927 98.764482)">5%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="404.760362" y="98.918799" transform="rotate(-0 404.760362 98.918799)">5%</text>
    </g>
    <g id="text_153">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="415.437473" y="98.764482" transform="rotate(-0 415.437473 98.764482)">30%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="417.52825" y="98.918799" transform="rotate(-0 417.52825 98.918799)">30%</text>
    </g>
    <g id="text_154">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="428.527018" y="98.764482" transform="rotate(-0 428.527018 98.764482)">29%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="430.296137" y="98.918799" transform="rotate(-0 430.296137 98.918799)">29%</text>
    </g>
    <g id="text_155">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="441.616564" y="98.764482" transform="rotate(-0 441.616564 98.764482)">59%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #202020" x="443.064025" y="98.918799" transform="rotate(-0 443.064025 98.918799)">59%</text>
    </g>
    <g id="text_156">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="454.70611" y="98.764482" transform="rotate(-0 454.70611 98.764482)">50%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #202020" x="455.831913" y="98.918799" transform="rotate(-0 455.831913 98.918799)">50%</text>
    </g>
    <g id="text_157">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="467.795656" y="98.764482" transform="rotate(-0 467.795656 98.764482)">28%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="468.599801" y="98.918799" transform="rotate(-0 468.599801 98.918799)">28%</text>
    </g>
    <g id="text_158">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="480.885201" y="98.764482" transform="rotate(-0 480.885201 98.764482)">68%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #202020" x="481.367688" y="98.918799" transform="rotate(-0 481.367688 98.918799)">68%</text>
    </g>
    <g id="text_159">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="493.974747" y="98.764482" transform="rotate(-0 493.974747 98.764482)">80%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #202020" x="494.135576" y="98.918799" transform="rotate(-0 494.135576 98.918799)">80%</text>
    </g>
    <g id="text_160">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="376.168835" y="131.521031" transform="rotate(-0 376.168835 131.521031)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="379.224587" y="131.477684" transform="rotate(-0 379.224587 131.477684)">0%</text>
    </g>
    <g id="text_161">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="389.258381" y="131.521031" transform="rotate(-0 389.258381 131.521031)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="391.992474" y="131.477684" transform="rotate(-0 391.992474 131.477684)">0%</text>
    </g>
    <g id="text_162">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="402.347927" y="131.521031" transform="rotate(-0 402.347927 131.521031)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="404.760362" y="131.477684" transform="rotate(-0 404.760362 131.477684)">0%</text>
    </g>
    <g id="text_163">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="415.437473" y="131.521031" transform="rotate(-0 415.437473 131.521031)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="417.52825" y="131.477684" transform="rotate(-0 417.52825 131.477684)">0%</text>
    </g>
    <g id="text_164">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="428.527018" y="131.521031" transform="rotate(-0 428.527018 131.521031)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="430.296137" y="131.477684" transform="rotate(-0 430.296137 131.477684)">0%</text>
    </g>
    <g id="text_165">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="441.616564" y="131.521031" transform="rotate(-0 441.616564 131.521031)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="443.064025" y="131.477684" transform="rotate(-0 443.064025 131.477684)">0%</text>
    </g>
    <g id="text_166">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="454.70611" y="131.521031" transform="rotate(-0 454.70611 131.521031)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="455.831913" y="131.477684" transform="rotate(-0 455.831913 131.477684)">0%</text>
    </g>
    <g id="text_167">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="467.795656" y="131.521031" transform="rotate(-0 467.795656 131.521031)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="468.599801" y="131.477684" transform="rotate(-0 468.599801 131.477684)">0%</text>
    </g>
    <g id="text_168">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="480.885201" y="131.521031" transform="rotate(-0 480.885201 131.521031)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="481.367688" y="131.477684" transform="rotate(-0 481.367688 131.477684)">0%</text>
    </g>
    <g id="text_169">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="493.974747" y="131.521031" transform="rotate(-0 493.974747 131.521031)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="494.135576" y="131.477684" transform="rotate(-0 494.135576 131.477684)">0%</text>
    </g>
    <g id="text_170">
-    <text style="font-weight: 700; font-size: 9px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: start; fill: #272727" x="347.371835" y="8.615215" transform="rotate(-0 347.371835 8.615215)">(c)</text>
+    <text style="font-weight: 700; font-size: 9px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #272727" x="351.135234" y="9.072246" transform="rotate(-0 351.135234 9.072246)">(c)</text>
    </g>
    <g id="text_171">
-    <text style="font-size: 8px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: start; fill: #009e73" x="369.624062" y="11.798646" transform="rotate(-0 369.624062 11.798646)">Gemma4 26B</text>
+    <text style="font-size: 8px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #009e73" x="372.840643" y="12.175886" transform="rotate(-0 372.840643 12.175886)">Gemma4 26B</text>
    </g>
   </g>
   <g id="axes_4">
    <g id="patch_5">
-    <path d="M 33.624063 317.824843
-L 164.51952 317.824843
-L 164.51952 186.798646
-L 33.624063 186.798646
+    <path d="M 36.752188 317.411422
+L 164.431065 317.411422
+L 164.431065 187.175886
+L 36.752188 187.175886
 z
 " style="fill: #ffffff"/>
    </g>
-   <g clip-path="url(#p80c9aadf14)">
+   <g clip-path="url(#p54053cc681)">
     <image xlink:href="data:image/png;base64,
-iVBORw0KGgoAAAANSUhEUgAAALUAAAC2CAYAAACfx8wHAAACvElEQVR4nO3UzWlUYRiG4TMmJiijEv8QEQKCC/cubMIGXKUZ27AVC9CVi1kIghYQ/EvQMJgRreEF4ea6Cng45+PmXS2PX+wWCLnyvz8ApomaHFGTI2pyRE2OqMkRNTmiJkfU5IiaHFGTI2pyRE2OqMkRNTmiJkfU5IiaHFGTI2pyRE2OqMkRNTmiJkfU5IiaHFGTI2pyRE2OqMkRNTmiJkfU5IiaHFGTI2pyRE2OqMkRNTmiJkfU5IiaHFGTI2pyRE3O/nJ1PTL08vndkZ3jh9dHds7OtyM7R7cOlim73czO7ZszQ5e71cjO1x8jM8uHz+cjOy41OaImR9TkiJocUZMjanJETY6oyRE1OaImR9TkiJocUZMjanJETY6oyRE1OaImR9TkiJocUZMjanJETY6oyRE1OaImR9TkiJocUZMjanJETY6oyRE1OaImR9TkiJocUZMjanJETY6oyRE1OaImR9TkiJqc/eM790aGLraXIztvN2cjO08eHYzsbD7OfM9f1w5nbsi7ze+RnS/nq5GdX9uRmeX058z7uNTkiJocUZMjanJETY6oyRE1OaImR9TkiJocUZMjanJETY6oyRE1OaImR9TkiJocUZMjanJETY6oyRE1OaImR9TkiJocUZMjanJETY6oyRE1OaImR9TkiJocUZMjanJETY6oyRE1OaImR9TkiJocUZMjanJETc7q/ZuT3cTQq9c3JmaW0++XIzufTvdGdg73Rp7nn28Xq5Gdg5lfW+6vZ976wdHIzPLs6Xpkx6UmR9TkiJocUZMjanJETY6oyRE1OaImR9TkiJocUZMjanJETY6oyRE1OaImR9TkiJocUZMjanJETY6oyRE1OaImR9TkiJocUZMjanJETY6oyRE1OaImR9TkiJocUZMjanJETY6oyRE1OaImR9TkiJocUbPU/AE8ty820FL0mAAAAABJRU5ErkJggg==" id="image27ff5e51d6" transform="scale(1 -1) translate(0 -131.04)" x="33.84" y="-186.959081" width="130.32" height="131.04"/>
+iVBORw0KGgoAAAANSUhEUgAAALEAAAC1CAYAAAAQuB7TAAACwklEQVR4nO3dzWmUURiG4W9MTFBGJf4hIgQEF+5d2IQNuLIZ27AVC9CVi1kIghYw+JdBQzAj1nAOyA3XVcDDmeHm276r5fGL/QJhV/73A2CUiMkTMXkiJk/E5ImYPBGTJ2LyREyeiMkTMXkiJk/E5ImYPBGTJ2LyREyeiMkTMXkiJk/E5ImYPBGTJ2LyREyeiMkTMXkiJk/E5ImYPBGTJ2LyREyeiMkTMXkiJk/E5ImYPBGTJ2LyREyeiMkTMXkiJu9wubqeMvTy+d0pO6cPrw9vnO0uprzl5NbRlJ39hBPwt2/OuSN/uV9N2fn2c8rM8vHLbnjDl5g8EZMnYvJETJ6IyRMxeSImT8TkiZg8EZMnYvJETJ6IyRMxeSImT8TkiZg8EZMnYvJETJ6IyRMxeSImT8TkiZg8EZMnYvJETJ6IyRMxeSImT8TkiZg8EZMnYvJETJ6IyRMxeSImT8TkiZg8EZMnYvJETN7h6Z17U4bOLy6n7LzbnA1vPHk057D45tP4W/65djz+rXi/+TPlLV93cw6U/55zA37Z/hr/b3yJyRMxeSImT8TkiZg8EZMnYvJETJ6IyRMxeSImT8TkiZg8EZMnYvJETJ6IyRMxeSImT8TkiZg8EZMnYvJETJ6IyRMxeSImT8TkiZg8EZMnYvJETJ6IyRMxeSImT8TkiZg8EZMnYvJETJ6IyRMxeSImT8TkrT68fbWfMfT6zY0ZM8v2x/ih88/bgylvOT6Y8tcs38/Hj4IfzflJy/31nEPyD06mzCzPnq6HN3yJyRMxeSImT8TkiZg8EZMnYvJETJ6IyRMxeSImT8TkiZg8EZMnYvJETJ6IyRMxeSImT8TkiZg8EZMnYvJETJ6IyRMxeSImT8TkiZg8EZMnYvJETJ6IyRMxeSImT8TkiZg8EZMnYvJETJ6IyRMxeSImT8TkiZil7i897i802TfOIQAAAABJRU5ErkJggg==" id="image099867bc78" transform="scale(1 -1) translate(0 -130.32)" x="36.72" y="-186.959479" width="127.44" height="130.32"/>
    </g>
    <g id="matplotlib.axis_7">
     <g id="xtick_31">
      <g id="line2d_43"/>
      <g id="text_172">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="40.168835" y="326.178358" transform="rotate(-0 40.168835 326.178358)">1</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="43.136131" y="326.007614" transform="rotate(-0 43.136131 326.007614)">1</text>
      </g>
     </g>
     <g id="xtick_32">
      <g id="line2d_44"/>
      <g id="text_173">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="53.258381" y="326.178358" transform="rotate(-0 53.258381 326.178358)">2</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="55.904019" y="326.007614" transform="rotate(-0 55.904019 326.007614)">2</text>
      </g>
     </g>
     <g id="xtick_33">
      <g id="line2d_45"/>
      <g id="text_174">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="66.347927" y="326.178358" transform="rotate(-0 66.347927 326.178358)">3</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="68.671907" y="326.007614" transform="rotate(-0 68.671907 326.007614)">3</text>
      </g>
     </g>
     <g id="xtick_34">
      <g id="line2d_46"/>
      <g id="text_175">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="79.437473" y="326.178358" transform="rotate(-0 79.437473 326.178358)">4</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="81.439795" y="326.007614" transform="rotate(-0 81.439795 326.007614)">4</text>
      </g>
     </g>
     <g id="xtick_35">
      <g id="line2d_47"/>
      <g id="text_176">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="92.527018" y="326.178358" transform="rotate(-0 92.527018 326.178358)">5</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="94.207682" y="326.007614" transform="rotate(-0 94.207682 326.007614)">5</text>
      </g>
     </g>
     <g id="xtick_36">
      <g id="line2d_48"/>
      <g id="text_177">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="105.616564" y="326.178358" transform="rotate(-0 105.616564 326.178358)">6</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="106.97557" y="326.007614" transform="rotate(-0 106.97557 326.007614)">6</text>
      </g>
     </g>
     <g id="xtick_37">
      <g id="line2d_49"/>
      <g id="text_178">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="118.70611" y="326.178358" transform="rotate(-0 118.70611 326.178358)">7</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="119.743458" y="326.007614" transform="rotate(-0 119.743458 326.007614)">7</text>
      </g>
     </g>
     <g id="xtick_38">
      <g id="line2d_50"/>
      <g id="text_179">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="131.795656" y="326.178358" transform="rotate(-0 131.795656 326.178358)">8</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="132.511345" y="326.007614" transform="rotate(-0 132.511345 326.007614)">8</text>
      </g>
     </g>
     <g id="xtick_39">
      <g id="line2d_51"/>
      <g id="text_180">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="144.885201" y="326.178358" transform="rotate(-0 144.885201 326.178358)">9</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="145.279233" y="326.007614" transform="rotate(-0 145.279233 326.007614)">9</text>
      </g>
     </g>
     <g id="xtick_40">
      <g id="line2d_52"/>
      <g id="text_181">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="157.974747" y="326.178358" transform="rotate(-0 157.974747 326.178358)">10</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="158.047121" y="326.007614" transform="rotate(-0 158.047121 326.007614)">10</text>
      </g>
     </g>
     <g id="text_182">
-     <text style="font-size: 7.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="99.071791" y="336.900429" transform="rotate(-0 99.071791 336.900429)">Trajectory decile</text>
+     <text style="font-size: 7.5px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="100.591626" y="336.940963" transform="rotate(-0 100.591626 336.940963)">Trajectory decile</text>
     </g>
    </g>
    <g id="matplotlib.axis_8">
     <g id="ytick_13">
      <g id="line2d_53"/>
      <g id="text_183">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: end; fill: #272727" x="30.124063" y="205.607233" transform="rotate(-0 30.124063 205.607233)">read</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #272727" x="33.252188" y="206.003424" transform="rotate(-0 33.252188 206.003424)">read</text>
      </g>
     </g>
     <g id="ytick_14">
      <g id="line2d_54"/>
      <g id="text_184">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: end; fill: #272727" x="30.124063" y="238.363782" transform="rotate(-0 30.124063 238.363782)">write</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #272727" x="33.252188" y="238.562308" transform="rotate(-0 33.252188 238.562308)">write</text>
      </g>
     </g>
     <g id="ytick_15">
      <g id="line2d_55"/>
      <g id="text_185">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: end; fill: #272727" x="30.124063" y="271.120331" transform="rotate(-0 30.124063 271.120331)">command</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #272727" x="33.252188" y="271.121192" transform="rotate(-0 33.252188 271.121192)">command</text>
      </g>
     </g>
     <g id="ytick_16">
      <g id="line2d_56"/>
      <g id="text_186">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: end; fill: #272727" x="30.124063" y="303.876881" transform="rotate(-0 30.124063 303.876881)">other</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #272727" x="33.252188" y="303.680076" transform="rotate(-0 33.252188 303.680076)">other</text>
      </g>
     </g>
    </g>
    <g id="text_187">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="40.168835" y="204.251383" transform="rotate(-0 40.168835 204.251383)">84%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #202020" x="43.136131" y="204.801031" transform="rotate(-0 43.136131 204.801031)">84%</text>
    </g>
    <g id="text_188">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="53.258381" y="204.251383" transform="rotate(-0 53.258381 204.251383)">33%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="55.904019" y="204.801031" transform="rotate(-0 55.904019 204.801031)">33%</text>
    </g>
    <g id="text_189">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="66.347927" y="204.251383" transform="rotate(-0 66.347927 204.251383)">25%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="68.671907" y="204.801031" transform="rotate(-0 68.671907 204.801031)">25%</text>
    </g>
    <g id="text_190">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="79.437473" y="204.251383" transform="rotate(-0 79.437473 204.251383)">15%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="81.439795" y="204.801031" transform="rotate(-0 81.439795 204.801031)">15%</text>
    </g>
    <g id="text_191">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="92.527018" y="204.251383" transform="rotate(-0 92.527018 204.251383)">17%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="94.207682" y="204.801031" transform="rotate(-0 94.207682 204.801031)">17%</text>
    </g>
    <g id="text_192">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="105.616564" y="204.251383" transform="rotate(-0 105.616564 204.251383)">13%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="106.97557" y="204.801031" transform="rotate(-0 106.97557 204.801031)">13%</text>
    </g>
    <g id="text_193">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="118.70611" y="204.251383" transform="rotate(-0 118.70611 204.251383)">15%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="119.743458" y="204.801031" transform="rotate(-0 119.743458 204.801031)">15%</text>
    </g>
    <g id="text_194">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="131.795656" y="204.251383" transform="rotate(-0 131.795656 204.251383)">21%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="132.511345" y="204.801031" transform="rotate(-0 132.511345 204.801031)">21%</text>
    </g>
    <g id="text_195">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="144.885201" y="204.251383" transform="rotate(-0 144.885201 204.251383)">31%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="145.279233" y="204.801031" transform="rotate(-0 145.279233 204.801031)">31%</text>
    </g>
    <g id="text_196">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="157.974747" y="204.251383" transform="rotate(-0 157.974747 204.251383)">53%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #202020" x="158.047121" y="204.801031" transform="rotate(-0 158.047121 204.801031)">53%</text>
    </g>
    <g id="text_197">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="40.168835" y="237.007932" transform="rotate(-0 40.168835 237.007932)">14%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="43.136131" y="237.359915" transform="rotate(-0 43.136131 237.359915)">14%</text>
    </g>
    <g id="text_198">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="53.258381" y="237.007932" transform="rotate(-0 53.258381 237.007932)">32%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="55.904019" y="237.359915" transform="rotate(-0 55.904019 237.359915)">32%</text>
    </g>
    <g id="text_199">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="66.347927" y="237.007932" transform="rotate(-0 66.347927 237.007932)">25%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="68.671907" y="237.359915" transform="rotate(-0 68.671907 237.359915)">25%</text>
    </g>
    <g id="text_200">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="79.437473" y="237.007932" transform="rotate(-0 79.437473 237.007932)">42%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="81.439795" y="237.359915" transform="rotate(-0 81.439795 237.359915)">42%</text>
    </g>
    <g id="text_201">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="92.527018" y="237.007932" transform="rotate(-0 92.527018 237.007932)">32%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="94.207682" y="237.359915" transform="rotate(-0 94.207682 237.359915)">32%</text>
    </g>
    <g id="text_202">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="105.616564" y="237.007932" transform="rotate(-0 105.616564 237.007932)">36%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="106.97557" y="237.359915" transform="rotate(-0 106.97557 237.359915)">36%</text>
    </g>
    <g id="text_203">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="118.70611" y="237.007932" transform="rotate(-0 118.70611 237.007932)">27%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="119.743458" y="237.359915" transform="rotate(-0 119.743458 237.359915)">27%</text>
    </g>
    <g id="text_204">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="131.795656" y="237.007932" transform="rotate(-0 131.795656 237.007932)">21%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="132.511345" y="237.359915" transform="rotate(-0 132.511345 237.359915)">21%</text>
    </g>
    <g id="text_205">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="144.885201" y="237.007932" transform="rotate(-0 144.885201 237.007932)">18%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="145.279233" y="237.359915" transform="rotate(-0 145.279233 237.359915)">18%</text>
    </g>
    <g id="text_206">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="157.974747" y="237.007932" transform="rotate(-0 157.974747 237.007932)">13%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="158.047121" y="237.359915" transform="rotate(-0 158.047121 237.359915)">13%</text>
    </g>
    <g id="text_207">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="40.168835" y="269.764482" transform="rotate(-0 40.168835 269.764482)">3%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="43.136131" y="269.918799" transform="rotate(-0 43.136131 269.918799)">3%</text>
    </g>
    <g id="text_208">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="53.258381" y="269.764482" transform="rotate(-0 53.258381 269.764482)">35%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="55.904019" y="269.918799" transform="rotate(-0 55.904019 269.918799)">35%</text>
    </g>
    <g id="text_209">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="66.347927" y="269.764482" transform="rotate(-0 66.347927 269.764482)">49%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="68.671907" y="269.918799" transform="rotate(-0 68.671907 269.918799)">49%</text>
    </g>
    <g id="text_210">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="79.437473" y="269.764482" transform="rotate(-0 79.437473 269.764482)">43%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="81.439795" y="269.918799" transform="rotate(-0 81.439795 269.918799)">43%</text>
    </g>
    <g id="text_211">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="92.527018" y="269.764482" transform="rotate(-0 92.527018 269.764482)">51%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #202020" x="94.207682" y="269.918799" transform="rotate(-0 94.207682 269.918799)">51%</text>
    </g>
    <g id="text_212">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="105.616564" y="269.764482" transform="rotate(-0 105.616564 269.764482)">51%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #202020" x="106.97557" y="269.918799" transform="rotate(-0 106.97557 269.918799)">51%</text>
    </g>
    <g id="text_213">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="118.70611" y="269.764482" transform="rotate(-0 118.70611 269.764482)">58%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #202020" x="119.743458" y="269.918799" transform="rotate(-0 119.743458 269.918799)">58%</text>
    </g>
    <g id="text_214">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="131.795656" y="269.764482" transform="rotate(-0 131.795656 269.764482)">57%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #202020" x="132.511345" y="269.918799" transform="rotate(-0 132.511345 269.918799)">57%</text>
    </g>
    <g id="text_215">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="144.885201" y="269.764482" transform="rotate(-0 144.885201 269.764482)">51%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #202020" x="145.279233" y="269.918799" transform="rotate(-0 145.279233 269.918799)">51%</text>
    </g>
    <g id="text_216">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="157.974747" y="269.764482" transform="rotate(-0 157.974747 269.764482)">33%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="158.047121" y="269.918799" transform="rotate(-0 158.047121 269.918799)">33%</text>
    </g>
    <g id="text_217">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="40.168835" y="302.521031" transform="rotate(-0 40.168835 302.521031)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="43.136131" y="302.477684" transform="rotate(-0 43.136131 302.477684)">0%</text>
    </g>
    <g id="text_218">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="53.258381" y="302.521031" transform="rotate(-0 53.258381 302.521031)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="55.904019" y="302.477684" transform="rotate(-0 55.904019 302.477684)">0%</text>
    </g>
    <g id="text_219">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="66.347927" y="302.521031" transform="rotate(-0 66.347927 302.521031)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="68.671907" y="302.477684" transform="rotate(-0 68.671907 302.477684)">0%</text>
    </g>
    <g id="text_220">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="79.437473" y="302.521031" transform="rotate(-0 79.437473 302.521031)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="81.439795" y="302.477684" transform="rotate(-0 81.439795 302.477684)">0%</text>
    </g>
    <g id="text_221">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="92.527018" y="302.521031" transform="rotate(-0 92.527018 302.521031)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="94.207682" y="302.477684" transform="rotate(-0 94.207682 302.477684)">0%</text>
    </g>
    <g id="text_222">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="105.616564" y="302.521031" transform="rotate(-0 105.616564 302.521031)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="106.97557" y="302.477684" transform="rotate(-0 106.97557 302.477684)">0%</text>
    </g>
    <g id="text_223">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="118.70611" y="302.521031" transform="rotate(-0 118.70611 302.521031)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="119.743458" y="302.477684" transform="rotate(-0 119.743458 302.477684)">0%</text>
    </g>
    <g id="text_224">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="131.795656" y="302.521031" transform="rotate(-0 131.795656 302.521031)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="132.511345" y="302.477684" transform="rotate(-0 132.511345 302.477684)">0%</text>
    </g>
    <g id="text_225">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="144.885201" y="302.521031" transform="rotate(-0 144.885201 302.521031)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="145.279233" y="302.477684" transform="rotate(-0 145.279233 302.477684)">0%</text>
    </g>
    <g id="text_226">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="157.974747" y="302.521031" transform="rotate(-0 157.974747 302.521031)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="158.047121" y="302.477684" transform="rotate(-0 158.047121 302.477684)">0%</text>
    </g>
    <g id="text_227">
-    <text style="font-weight: 700; font-size: 9px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: start; fill: #272727" x="11.371835" y="179.615215" transform="rotate(-0 11.371835 179.615215)">(d)</text>
+    <text style="font-weight: 700; font-size: 9px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #272727" x="15.046778" y="180.072246" transform="rotate(-0 15.046778 180.072246)">(d)</text>
    </g>
    <g id="text_228">
-    <text style="font-size: 8px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: start; fill: #d55e00" x="33.624063" y="182.798646" transform="rotate(-0 33.624063 182.798646)">Qwen3.5 9B</text>
+    <text style="font-size: 8px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #d55e00" x="36.752188" y="183.175886" transform="rotate(-0 36.752188 183.175886)">Qwen3.5 9B</text>
    </g>
   </g>
   <g id="axes_5">
    <g id="patch_6">
-    <path d="M 201.624063 317.824843
-L 332.51952 317.824843
-L 332.51952 186.798646
-L 201.624063 186.798646
+    <path d="M 204.929098 317.411422
+L 332.607975 317.411422
+L 332.607975 187.175886
+L 204.929098 187.175886
 z
 " style="fill: #ffffff"/>
    </g>
-   <g clip-path="url(#pa260ad1bcd)">
+   <g clip-path="url(#pdd49753aec)">
     <image xlink:href="data:image/png;base64,
-iVBORw0KGgoAAAANSUhEUgAAALYAAAC2CAYAAAB08HcEAAACWElEQVR4nO3UsVFCURRF0YfQgqQwNkBgYEANtmERlmJgRjWMtGFgbuZoE8/hu12rgDM32HNX4+7xe0DMzbUPgN8gbJKETZKwSRI2ScImSdgkCZskYZMkbJKETZKwSRI2ScImSdgkCZskYZMkbJKETZKwSRI2ScImSdgkCZskYZMkbJKETZKwSRI2ScImSdgkCZskYZMkbJKETZKwSRI2ScImSdgkCZskYZMkbJKETZKwSRI2SZtrH/CfHPa7KTuX03ksyfq4HUvjY5MkbJKETZKwSRI2ScImSdgkCZskYZMkbJKETZKwSRI2ScImSdgkCZskYZMkbJKETZKwSRI2ScImSdgkCZskYZMkbJKETZKwSRI2ScImSdgkCZskYZMkbJKETZKwSRI2ScImSdgkCZskYZMkbJKETZKwSdqMhTnsd9O2LqfzlJ31cTtl5/X5c1H3lPnYJAmbJGGTJGyShE2SsEkSNknCJknYJAmbJGGTJGyShE2SsEkSNknCJknYJAmbJGGTJGyShE2SsEkSNknCJknYJAmbJGGTJGyShE2SsEkSNknCJknYJAmbJGGTJGyShE2SsEkSNknCJknYJAmbJGGTJGyShE3S6uv94XvG0Pq4nTEz3l5uxyz3Tx/TtvhbfGyShE2SsEkSNknCJknYJAmbJGGTJGyShE2SsEkSNknCJknYJAmbJGGTJGyShE2SsEkSNknCJknYJAmbJGGTJGyShE2SsEkSNknCJknYJAmbJGGTJGyShE2SsEkSNknCJknYJAmbJGGTJGyShE2SsEkSNqPoBx5KEa0dXMlRAAAAAElFTkSuQmCC" id="image8665a28ce5" transform="scale(1 -1) translate(0 -131.04)" x="201.6" y="-186.959081" width="131.04" height="131.04"/>
+iVBORw0KGgoAAAANSUhEUgAAALEAAAC1CAYAAAAQuB7TAAACTElEQVR4nO3dsU0DURAA0X+GFuzUiAYICBxQA224CJdCQEY1CNogICdDpghO8h/rvQJWG4w23WXcP58HhG0uvQD8l4jJEzF5IiZPxOSJmDwRkydi8kRMnojJEzF5IiZPxOSJmDwRkydi8kRMnojJEzF5IiZPxOSJmDwRkydi8kRMnojJEzF5IiZPxOSJmDwRkydi8kRMnojJEzF5IiZPxOSJmDwRkydi8kRMnojJEzF5Iibv9tILXLuHu/0qcz7f3scsbp52YyYuMXkiJk/E5ImYPBGTJ2LyREyeiMkTMXkiJk/E5ImYPBGTJ2LyREyeiMkTMXkiJk/E5ImYPBGTJ2LyREyeiMkTMXkiJk/E5ImYPBGTJ2LyREyeiMkTMXkiJk/E5ImYPBGTJ2LyREyeiMkTMXkiJk/E5ImYvKkelM/2zHuNR9yvp59pdrlWLjF5IiZPxOSJmDwRkydi8kRMnojJEzF5IiZPxOSJmDwRkydi8kRMnojJEzF5IiZPxOSJmDwRkydi8kRMnojJEzF5IiZPxOSJmDwRkydi8kRMnojJEzF5IiZPxOSJmDwRkydi8kRMnojJEzF5IiZPxOSJmLzl9+twnuV59sfLdpU5j8fvVebQ4BKTJ2LyREyeiMkTMXkiJk/E5ImYPBGTJ2LyREyeiMkTMXkiJk/E5ImYPBGTJ2LyREyeiMkTMXkiJk/E5ImYPBGTJ2LyREyeiMkTMXkiJk/E5ImYPBGTJ2LyREyeiMkTMXkiJk/E5ImYPBGTJ2LyREyeiMkTMaPuDwveEavc+pWnAAAAAElFTkSuQmCC" id="imageb8f69904d8" transform="scale(1 -1) translate(0 -130.32)" x="205.2" y="-186.959479" width="127.44" height="130.32"/>
    </g>
    <g id="matplotlib.axis_9">
     <g id="xtick_41">
      <g id="line2d_57"/>
      <g id="text_229">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="208.168835" y="326.178358" transform="rotate(-0 208.168835 326.178358)">1</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="211.313042" y="326.007614" transform="rotate(-0 211.313042 326.007614)">1</text>
      </g>
     </g>
     <g id="xtick_42">
      <g id="line2d_58"/>
      <g id="text_230">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="221.258381" y="326.178358" transform="rotate(-0 221.258381 326.178358)">2</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="224.08093" y="326.007614" transform="rotate(-0 224.08093 326.007614)">2</text>
      </g>
     </g>
     <g id="xtick_43">
      <g id="line2d_59"/>
      <g id="text_231">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="234.347927" y="326.178358" transform="rotate(-0 234.347927 326.178358)">3</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="236.848817" y="326.007614" transform="rotate(-0 236.848817 326.007614)">3</text>
      </g>
     </g>
     <g id="xtick_44">
      <g id="line2d_60"/>
      <g id="text_232">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="247.437473" y="326.178358" transform="rotate(-0 247.437473 326.178358)">4</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="249.616705" y="326.007614" transform="rotate(-0 249.616705 326.007614)">4</text>
      </g>
     </g>
     <g id="xtick_45">
      <g id="line2d_61"/>
      <g id="text_233">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="260.527018" y="326.178358" transform="rotate(-0 260.527018 326.178358)">5</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="262.384593" y="326.007614" transform="rotate(-0 262.384593 326.007614)">5</text>
      </g>
     </g>
     <g id="xtick_46">
      <g id="line2d_62"/>
      <g id="text_234">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="273.616564" y="326.178358" transform="rotate(-0 273.616564 326.178358)">6</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="275.15248" y="326.007614" transform="rotate(-0 275.15248 326.007614)">6</text>
      </g>
     </g>
     <g id="xtick_47">
      <g id="line2d_63"/>
      <g id="text_235">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="286.70611" y="326.178358" transform="rotate(-0 286.70611 326.178358)">7</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="287.920368" y="326.007614" transform="rotate(-0 287.920368 326.007614)">7</text>
      </g>
     </g>
     <g id="xtick_48">
      <g id="line2d_64"/>
      <g id="text_236">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="299.795656" y="326.178358" transform="rotate(-0 299.795656 326.178358)">8</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="300.688256" y="326.007614" transform="rotate(-0 300.688256 326.007614)">8</text>
      </g>
     </g>
     <g id="xtick_49">
      <g id="line2d_65"/>
      <g id="text_237">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="312.885201" y="326.178358" transform="rotate(-0 312.885201 326.178358)">9</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="313.456144" y="326.007614" transform="rotate(-0 313.456144 326.007614)">9</text>
      </g>
     </g>
     <g id="xtick_50">
      <g id="line2d_66"/>
      <g id="text_238">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="325.974747" y="326.178358" transform="rotate(-0 325.974747 326.178358)">10</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="326.224031" y="326.007614" transform="rotate(-0 326.224031 326.007614)">10</text>
      </g>
     </g>
     <g id="text_239">
-     <text style="font-size: 7.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="267.071791" y="336.900429" transform="rotate(-0 267.071791 336.900429)">Trajectory decile</text>
+     <text style="font-size: 7.5px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="268.768537" y="336.940963" transform="rotate(-0 268.768537 336.940963)">Trajectory decile</text>
     </g>
    </g>
    <g id="matplotlib.axis_10">
     <g id="ytick_17">
      <g id="line2d_67"/>
      <g id="text_240">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: end; fill: #272727" x="198.124063" y="205.607233" transform="rotate(-0 198.124063 205.607233)">read</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #272727" x="201.429098" y="206.003424" transform="rotate(-0 201.429098 206.003424)">read</text>
      </g>
     </g>
     <g id="ytick_18">
      <g id="line2d_68"/>
      <g id="text_241">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: end; fill: #272727" x="198.124063" y="238.363782" transform="rotate(-0 198.124063 238.363782)">write</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #272727" x="201.429098" y="238.562308" transform="rotate(-0 201.429098 238.562308)">write</text>
      </g>
     </g>
     <g id="ytick_19">
      <g id="line2d_69"/>
      <g id="text_242">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: end; fill: #272727" x="198.124063" y="271.120331" transform="rotate(-0 198.124063 271.120331)">command</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #272727" x="201.429098" y="271.121192" transform="rotate(-0 201.429098 271.121192)">command</text>
      </g>
     </g>
     <g id="ytick_20">
      <g id="line2d_70"/>
      <g id="text_243">
-      <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: end; fill: #272727" x="198.124063" y="303.876881" transform="rotate(-0 198.124063 303.876881)">other</text>
+      <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end; fill: #272727" x="201.429098" y="303.680076" transform="rotate(-0 201.429098 303.680076)">other</text>
      </g>
     </g>
    </g>
    <g id="text_244">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="208.168835" y="204.251383" transform="rotate(-0 208.168835 204.251383)">100%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #202020" x="211.313042" y="204.801031" transform="rotate(-0 211.313042 204.801031)">100%</text>
    </g>
    <g id="text_245">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="221.258381" y="204.251383" transform="rotate(-0 221.258381 204.251383)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="224.08093" y="204.801031" transform="rotate(-0 224.08093 204.801031)">0%</text>
    </g>
    <g id="text_246">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="234.347927" y="204.251383" transform="rotate(-0 234.347927 204.251383)">82%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #202020" x="236.848817" y="204.801031" transform="rotate(-0 236.848817 204.801031)">82%</text>
    </g>
    <g id="text_247">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="247.437473" y="204.251383" transform="rotate(-0 247.437473 204.251383)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="249.616705" y="204.801031" transform="rotate(-0 249.616705 204.801031)">0%</text>
    </g>
    <g id="text_248">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="260.527018" y="204.251383" transform="rotate(-0 260.527018 204.251383)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="262.384593" y="204.801031" transform="rotate(-0 262.384593 204.801031)">0%</text>
    </g>
    <g id="text_249">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="273.616564" y="204.251383" transform="rotate(-0 273.616564 204.251383)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="275.15248" y="204.801031" transform="rotate(-0 275.15248 204.801031)">0%</text>
    </g>
    <g id="text_250">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="286.70611" y="204.251383" transform="rotate(-0 286.70611 204.251383)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="287.920368" y="204.801031" transform="rotate(-0 287.920368 204.801031)">0%</text>
    </g>
    <g id="text_251">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="299.795656" y="204.251383" transform="rotate(-0 299.795656 204.251383)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="300.688256" y="204.801031" transform="rotate(-0 300.688256 204.801031)">0%</text>
    </g>
    <g id="text_252">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="312.885201" y="204.251383" transform="rotate(-0 312.885201 204.251383)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="313.456144" y="204.801031" transform="rotate(-0 313.456144 204.801031)">0%</text>
    </g>
    <g id="text_253">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="325.974747" y="204.251383" transform="rotate(-0 325.974747 204.251383)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="326.224031" y="204.801031" transform="rotate(-0 326.224031 204.801031)">0%</text>
    </g>
    <g id="text_254">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="208.168835" y="237.007932" transform="rotate(-0 208.168835 237.007932)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="211.313042" y="237.359915" transform="rotate(-0 211.313042 237.359915)">0%</text>
    </g>
    <g id="text_255">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="221.258381" y="237.007932" transform="rotate(-0 221.258381 237.007932)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="224.08093" y="237.359915" transform="rotate(-0 224.08093 237.359915)">0%</text>
    </g>
    <g id="text_256">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="234.347927" y="237.007932" transform="rotate(-0 234.347927 237.007932)">18%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="236.848817" y="237.359915" transform="rotate(-0 236.848817 237.359915)">18%</text>
    </g>
    <g id="text_257">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="247.437473" y="237.007932" transform="rotate(-0 247.437473 237.007932)">100%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #202020" x="249.616705" y="237.359915" transform="rotate(-0 249.616705 237.359915)">100%</text>
    </g>
    <g id="text_258">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="260.527018" y="237.007932" transform="rotate(-0 260.527018 237.007932)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="262.384593" y="237.359915" transform="rotate(-0 262.384593 237.359915)">0%</text>
    </g>
    <g id="text_259">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="273.616564" y="237.007932" transform="rotate(-0 273.616564 237.007932)">82%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #202020" x="275.15248" y="237.359915" transform="rotate(-0 275.15248 237.359915)">82%</text>
    </g>
    <g id="text_260">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="286.70611" y="237.007932" transform="rotate(-0 286.70611 237.007932)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="287.920368" y="237.359915" transform="rotate(-0 287.920368 237.359915)">0%</text>
    </g>
    <g id="text_261">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="299.795656" y="237.007932" transform="rotate(-0 299.795656 237.007932)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="300.688256" y="237.359915" transform="rotate(-0 300.688256 237.359915)">0%</text>
    </g>
    <g id="text_262">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="312.885201" y="237.007932" transform="rotate(-0 312.885201 237.007932)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="313.456144" y="237.359915" transform="rotate(-0 313.456144 237.359915)">0%</text>
    </g>
    <g id="text_263">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="325.974747" y="237.007932" transform="rotate(-0 325.974747 237.007932)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="326.224031" y="237.359915" transform="rotate(-0 326.224031 237.359915)">0%</text>
    </g>
    <g id="text_264">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="208.168835" y="269.764482" transform="rotate(-0 208.168835 269.764482)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="211.313042" y="269.918799" transform="rotate(-0 211.313042 269.918799)">0%</text>
    </g>
    <g id="text_265">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="221.258381" y="269.764482" transform="rotate(-0 221.258381 269.764482)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="224.08093" y="269.918799" transform="rotate(-0 224.08093 269.918799)">0%</text>
    </g>
    <g id="text_266">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="234.347927" y="269.764482" transform="rotate(-0 234.347927 269.764482)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="236.848817" y="269.918799" transform="rotate(-0 236.848817 269.918799)">0%</text>
    </g>
    <g id="text_267">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="247.437473" y="269.764482" transform="rotate(-0 247.437473 269.764482)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="249.616705" y="269.918799" transform="rotate(-0 249.616705 269.918799)">0%</text>
    </g>
    <g id="text_268">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="260.527018" y="269.764482" transform="rotate(-0 260.527018 269.764482)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="262.384593" y="269.918799" transform="rotate(-0 262.384593 269.918799)">0%</text>
    </g>
    <g id="text_269">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="273.616564" y="269.764482" transform="rotate(-0 273.616564 269.764482)">18%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="275.15248" y="269.918799" transform="rotate(-0 275.15248 269.918799)">18%</text>
    </g>
    <g id="text_270">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="286.70611" y="269.764482" transform="rotate(-0 286.70611 269.764482)">100%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #202020" x="287.920368" y="269.918799" transform="rotate(-0 287.920368 269.918799)">100%</text>
    </g>
    <g id="text_271">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #202020" x="299.795656" y="269.764482" transform="rotate(-0 299.795656 269.764482)">100%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #202020" x="300.688256" y="269.918799" transform="rotate(-0 300.688256 269.918799)">100%</text>
    </g>
    <g id="text_272">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="312.885201" y="269.764482" transform="rotate(-0 312.885201 269.764482)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="313.456144" y="269.918799" transform="rotate(-0 313.456144 269.918799)">0%</text>
    </g>
    <g id="text_273">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="325.974747" y="269.764482" transform="rotate(-0 325.974747 269.764482)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="326.224031" y="269.918799" transform="rotate(-0 326.224031 269.918799)">0%</text>
    </g>
    <g id="text_274">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="208.168835" y="302.521031" transform="rotate(-0 208.168835 302.521031)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="211.313042" y="302.477684" transform="rotate(-0 211.313042 302.477684)">0%</text>
    </g>
    <g id="text_275">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="221.258381" y="302.521031" transform="rotate(-0 221.258381 302.521031)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="224.08093" y="302.477684" transform="rotate(-0 224.08093 302.477684)">0%</text>
    </g>
    <g id="text_276">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="234.347927" y="302.521031" transform="rotate(-0 234.347927 302.521031)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="236.848817" y="302.477684" transform="rotate(-0 236.848817 302.477684)">0%</text>
    </g>
    <g id="text_277">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="247.437473" y="302.521031" transform="rotate(-0 247.437473 302.521031)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="249.616705" y="302.477684" transform="rotate(-0 249.616705 302.477684)">0%</text>
    </g>
    <g id="text_278">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="260.527018" y="302.521031" transform="rotate(-0 260.527018 302.521031)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="262.384593" y="302.477684" transform="rotate(-0 262.384593 302.477684)">0%</text>
    </g>
    <g id="text_279">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="273.616564" y="302.521031" transform="rotate(-0 273.616564 302.521031)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="275.15248" y="302.477684" transform="rotate(-0 275.15248 302.477684)">0%</text>
    </g>
    <g id="text_280">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="286.70611" y="302.521031" transform="rotate(-0 286.70611 302.521031)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="287.920368" y="302.477684" transform="rotate(-0 287.920368 302.477684)">0%</text>
    </g>
    <g id="text_281">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="299.795656" y="302.521031" transform="rotate(-0 299.795656 302.521031)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="300.688256" y="302.477684" transform="rotate(-0 300.688256 302.477684)">0%</text>
    </g>
    <g id="text_282">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="312.885201" y="302.521031" transform="rotate(-0 312.885201 302.521031)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="313.456144" y="302.477684" transform="rotate(-0 313.456144 302.477684)">0%</text>
    </g>
    <g id="text_283">
-    <text style="font-size: 4.5px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #ffffff" x="325.974747" y="302.521031" transform="rotate(-0 325.974747 302.521031)">0%</text>
+    <text style="font-size: 5.2px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #ffffff" x="326.224031" y="302.477684" transform="rotate(-0 326.224031 302.477684)">0%</text>
    </g>
    <g id="text_284">
-    <text style="font-weight: 700; font-size: 9px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: start; fill: #272727" x="179.371835" y="179.615215" transform="rotate(-0 179.371835 179.615215)">(e)</text>
+    <text style="font-weight: 700; font-size: 9px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #272727" x="183.223689" y="180.072246" transform="rotate(-0 183.223689 180.072246)">(e)</text>
    </g>
    <g id="text_285">
-    <text style="font-size: 8px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: start; fill: #cc79a7" x="201.624063" y="182.798646" transform="rotate(-0 201.624063 182.798646)">Llama3.1 8B</text>
+    <text style="font-size: 8px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #cc79a7" x="204.929098" y="183.175886" transform="rotate(-0 204.929098 183.175886)">Llama3.1 8B</text>
    </g>
   </g>
   <g id="axes_6">
    <g id="text_286">
-    <text style="font-weight: 700; font-size: 8px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: start; fill: #272727" x="376.168835" y="215.624409" transform="rotate(-0 376.168835 215.624409)">Cell value</text>
+    <text style="font-weight: 700; font-size: 8px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #272727" x="379.224587" y="215.827704" transform="rotate(-0 379.224587 215.827704)">Cell value</text>
    </g>
    <g id="text_287">
-    <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; fill: #6b6b6b" transform="translate(376.168835 225.23385)">Share of tool actions within</text>
-    <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; fill: #6b6b6b" transform="translate(376.168835 232.657815)">each model × trajectory decile.</text>
+    <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; fill: #6b6b6b" transform="translate(379.224587 225.139672)">Share of tool actions within</text>
+    <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; fill: #6b6b6b" transform="translate(379.224587 232.758324)">each model × trajectory decile.</text>
    </g>
    <g id="axes_7">
     <g id="patch_7">
-     <path d="M 376.168835 262.79384
-L 474.340429 262.79384
-L 474.340429 249.69122
-L 376.168835 249.69122
+     <path d="M 379.224587 262.712497
+L 474.983745 262.712497
+L 474.983745 249.688944
+L 379.224587 249.688944
 z
 " style="fill: #ffffff"/>
     </g>
-    <g clip-path="url(#p01ef88b52b)">
+    <g clip-path="url(#pa7c6a445f4)">
      <image xlink:href="data:image/png;base64,
-iVBORw0KGgoAAAANSUhEUgAAAIkAAAASCAYAAABvhf1JAAAA00lEQVR4nO2Siw3CMAxEz04Re7AP+y9DCWoSmgYh3QLvSdHZ5zT9XejxrIqitnJoq7dRbz8zaQvpHtItq26jL1m7hpRZm/Zayuh9nn33Zn31Zx8RyyzOuvtxXhPLrNdjz7F3OWvOV+965rxv/D7b4s13+Ocd36GfWZd+1e/+Q+s45+tf1Hn5HvV7+F3L4o/VZsfam5bYL/2ujJdK7ucPTAEYCAlYCAlYCAlYCAlYCAlYCAlYCAlYCAlYCAlYCAlYCAlYCAlYCAlYCAlYCAlYCAnI8QH/gTQ+5tKtbQAAAABJRU5ErkJggg==" id="image1642c31034" transform="scale(1 -1) translate(0 -12.96)" x="375.84" y="-249.599081" width="98.64" height="12.96"/>
+iVBORw0KGgoAAAANSUhEUgAAAIUAAAASCAYAAAB1uR3HAAAA0ElEQVR4nO2SgQ3DIAwE3yZtB+lA3X+XNlQQSABnhDsJ+W2TRFXP9P5kWZI8SbbpyK2efcnlSJtJL5eelvUovUvJspJJacjesrd5qfXUnIesm2xntmVu0/3W99zq8Vx/xzB3yep+zuPe2/vm71z1uJuX+fh78nzH+26s/flS882uz5Za835l3+sunbnv9qHflXpfZ782K7Ud+9a+/3EugAWkgABSQAApIIAUEEAKCCAFBJACAkgBAaSAAFJAACkggBQQQAoIIAUEkAICSAFa+QMTTDM+0wgvrAAAAABJRU5ErkJggg==" id="image6d2df0a771" transform="scale(1 -1) translate(0 -12.96)" x="379.44" y="-249.599479" width="95.76" height="12.96"/>
     </g>
     <g id="matplotlib.axis_11">
      <g id="xtick_51">
       <g id="line2d_71">
        <defs>
-        <path id="me948d7fe8d" d="M 0 0
+        <path id="me4c030937c" d="M 0 0
 L 0 2.5
 " style="stroke: #272727; stroke-width: 0.55"/>
        </defs>
        <g>
-        <use xlink:href="#me948d7fe8d" x="376.360577" y="262.79384" style="fill: #272727; stroke: #272727; stroke-width: 0.55"/>
+        <use xlink:href="#me4c030937c" x="379.411616" y="262.712497" style="fill: #272727; stroke: #272727; stroke-width: 0.55"/>
        </g>
       </g>
       <g id="text_288">
-       <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="376.360577" y="273.647355" transform="rotate(-0 376.360577 273.647355)">0%</text>
+       <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="379.411616" y="273.808689" transform="rotate(-0 379.411616 273.808689)">0%</text>
       </g>
      </g>
      <g id="xtick_52">
       <g id="line2d_72">
        <g>
-        <use xlink:href="#me948d7fe8d" x="474.148687" y="262.79384" style="fill: #272727; stroke: #272727; stroke-width: 0.55"/>
+        <use xlink:href="#me4c030937c" x="474.796715" y="262.712497" style="fill: #272727; stroke: #272727; stroke-width: 0.55"/>
        </g>
       </g>
       <g id="text_289">
-       <text style="font-size: 7px; font-family: 'Times New Roman', 'STIX Two Text', 'Liberation Serif', 'DejaVu Serif', serif; text-anchor: middle; fill: #272727" x="474.148687" y="273.647355" transform="rotate(-0 474.148687 273.647355)">100%</text>
+       <text style="font-size: 7px; font-family: 'Arial', 'Helvetica', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #272727" x="474.796715" y="273.808689" transform="rotate(-0 474.796715 273.808689)">100%</text>
       </g>
      </g>
     </g>
@@ -1236,23 +1236,23 @@ L 0 2.5
   </g>
  </g>
  <defs>
-  <clipPath id="p7baf10812d">
-   <rect x="33.624063" y="15.798646" width="130.895458" height="131.026197"/>
+  <clipPath id="pb7ee0cf77a">
+   <rect x="36.752188" y="16.175886" width="127.678877" height="130.235536"/>
   </clipPath>
-  <clipPath id="p20f97fe503">
-   <rect x="201.624063" y="15.798646" width="130.895457" height="131.026197"/>
+  <clipPath id="p4ff8a1bebe">
+   <rect x="204.929098" y="16.175886" width="127.678877" height="130.235536"/>
   </clipPath>
-  <clipPath id="p1b11d5aeb6">
-   <rect x="369.624062" y="15.798646" width="130.895458" height="131.026197"/>
+  <clipPath id="p617574c319">
+   <rect x="372.840643" y="16.175886" width="127.678877" height="130.235536"/>
   </clipPath>
-  <clipPath id="p80c9aadf14">
-   <rect x="33.624063" y="186.798646" width="130.895458" height="131.026197"/>
+  <clipPath id="p54053cc681">
+   <rect x="36.752188" y="187.175886" width="127.678877" height="130.235536"/>
   </clipPath>
-  <clipPath id="pa260ad1bcd">
-   <rect x="201.624063" y="186.798646" width="130.895457" height="131.026197"/>
+  <clipPath id="pdd49753aec">
+   <rect x="204.929098" y="187.175886" width="127.678877" height="130.235536"/>
   </clipPath>
-  <clipPath id="p01ef88b52b">
-   <rect x="376.168835" y="249.69122" width="98.171593" height="13.10262"/>
+  <clipPath id="pa7c6a445f4">
+   <rect x="379.224587" y="249.688944" width="95.759158" height="13.023554"/>
   </clipPath>
  </defs>
 </svg>
