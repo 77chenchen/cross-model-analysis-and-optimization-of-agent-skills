@@ -136,126 +136,128 @@ Authors are pending. Replace the placeholder before external citation.
 <a id="zh"></a>
 <p align="right"><a href="#english">English</a> &nbsp;|&nbsp; <strong>中文</strong></p>
 
-# SkillTraj：跨模型编码智能体的书面技能研究
+# SkillTraj：自然语言技能指令能否改变编码智能体的修复表现？
 
-本项目研究：写成文本的 skill 是否会改变不同模型编码智能体的修复成功率与过程行为。
+本项目考察一种很具体的问题：给代码智能体加入一段明确的自然语言操作规程后，它在不同模型上会不会更容易修好仓库中的缺陷；即使最终通过率不变，它的阅读、修改和验证路径又会怎样变化。
 
-## 摘要
+## 核心结论
 
-- 在受控的六模型 C0/C1 面板中，通过率差异小，且模型之间不一致（[S7_T1_model_condition_summary.csv](results/tables/s7/S7_T1_model_condition_summary.csv)、[S7_T2_core_paired_differences.csv](results/tables/s7/S7_T2_core_paired_differences.csv)）。
-- 对弱目标模型，过程行为与成功率脱钩：C1 使“最后一次编辑后的验证”下降 25.0 个百分点，但通过率仅上升 1.9 个百分点（[S7_T7_process_paired.csv](results/tables/s7/S7_T7_process_paired.csv)、[S7_T2_core_paired_differences.csv](results/tables/s7/S7_T2_core_paired_differences.csv)）。
-- 探索性的 v1 使该验证指标上升 45.0 个百分点，而通过率变化为 0.0 个百分点（[S7_T7_process_paired.csv](results/tables/s7/S7_T7_process_paired.csv)、[S7_T6_exploratory.csv](results/tables/s7/S7_T6_exploratory.csv)）。
-- 18 个任务只能分辨约 9–12 个百分点量级的效应；结论均为探索性，并基于合成修复任务（[report.md](report.md)，任务级输入见 [S7_T2_core_paired_differences.csv](results/tables/s7/S7_T2_core_paired_differences.csv)）。
+- 在六个受控模型配置中，C0（不提供技能指令）与 C1（提供固定技能指令）的通过率差异总体很小，且不同模型的方向并不一致（[S7_T1_model_condition_summary.csv](results/tables/s7/S7_T1_model_condition_summary.csv)、[S7_T2_core_paired_differences.csv](results/tables/s7/S7_T2_core_paired_differences.csv)）。
+- 对弱目标模型 qwen3.5:9b，C1 使“最终一次编辑后再验证”的任务级比例降低 25.0 个百分点，但通过率只增加 1.9 个百分点：过程变化并没有对应为确定的结果变化（[S7_T7_process_paired.csv](results/tables/s7/S7_T7_process_paired.csv)、[S7_T2_core_paired_differences.csv](results/tables/s7/S7_T2_core_paired_differences.csv)）。
+- 探索性 v1 指令使同一验证行为提高 45.0 个百分点，但相对 C1 的通过率变化为 0.0 个百分点（[S7_T7_process_paired.csv](results/tables/s7/S7_T7_process_paired.csv)、[S7_T6_exploratory.csv](results/tables/s7/S7_T6_exploratory.csv)）。
+- 本研究只有 18 个测试任务，对小于约 9–12 个百分点的差异没有足够分辨力；所有发现都应理解为基于合成修复任务的探索性证据（[论文](paper/main.pdf)，任务级比较见 [S7_T2_core_paired_differences.csv](results/tables/s7/S7_T2_core_paired_differences.csv)）。
 
-## 主图与完整产物
+## 主结果与论文
 
 ![Figure 1: controlled C0/C1 results, process depth, and outcome flags](figures/s7/S7_F1_main_results.png)
 
-矢量主图见 [Figure 1 PDF](figures/s7/S7_F1_main_results.pdf)。完整结果见 [技术报告](report.md)，论文见 [PDF](paper/main.pdf) 与 [LaTeX 源码](paper/main.tex)。
+矢量版主图见 [Figure 1 PDF](figures/s7/S7_F1_main_results.pdf)。完整论文见 [PDF](paper/main.pdf) 与 [LaTeX 源码](paper/main.tex)；[report.md](report.md) 仅作为论文入口页，避免两份正文随时间产生不一致。
 
 ## 目录
 
 ```text
-config/           锁定的协议、prompt、数据划分、runner 与调度配置。
-tasks/            冻结的合成修复任务、fixture、清单和 admission 记录。
-harness/          直接 agent runner、调度执行、admission 与诊断工具。
-analysis/         版本化结局口径、汇总、测试、表格和绘图代码。
-data/release/     去标识化的已发布轨迹派生数据与清单。
-results/tables/   机器可读结果表；正式 S7 表位于 results/tables/s7/。
-figures/          可复现图、绘图数据、QA 产物和图形清单。
-docs/             协议锁、诊断、勘误、结果说明与后续研究计划。
-paper/            单栏论文源码、参考文献、图与编译后的 PDF。
-skills/           实验条件中使用的冻结书面 skill 版本。
+config/           已锁定的实验协议、提示模板、数据划分、runner 与调度配置。
+tasks/            冻结的合成修复任务、初始缺陷版本、测试夹具、清单和准入记录。
+harness/          智能体运行、调度执行、任务准入和轨迹诊断工具。
+analysis/         结局口径、统计汇总、单元测试、表格和图形生成代码。
+data/release/     去标识化的轨迹派生数据及其完整性清单。
+results/tables/   机器可读的结果表；正式 S7 表位于 results/tables/s7/。
+figures/          可复现图、对应绘图数据、版式 QA 记录和图形清单。
+docs/             协议锁、诊断报告、勘误记录、结果说明与后续研究方案。
+paper/            论文源码、参考文献、论文专用图和已编译的 PDF。
+skills/           各实验条件使用的、在锁定后不再改动的技能指令版本。
 ```
 
-## 完整调研路径
+## 研究是如何推进的
 
-| 阶段 | 解决思路 | 得到的结果与证据 |
+这不是一条“先写 skill、再看分数”的直线路径。每一阶段先处理上一步暴露出的测量或运行问题，并将旧结果原样保留，避免根据后续发现改写证据。
+
+| 阶段 | 当时要解决的问题与做法 | 形成的结论与可核查产物 |
 |---|---|---|
-| 1. 任务池与划分锁定 | 先构建带外部合约 verifier 的合成修复任务，再把诊断、版本选择、in-skill 测试和迁移测试分开。 | 18 个正式任务全部通过 admission。见[划分锁](docs/s3_split_lock.md)、[任务清单](tasks/formal_manifest.json)和[admission 记录](tasks/s3_admission.json)。 |
-| 2. 采样与校准 | 先探测 transport 控制，保留 temperature-0 旧 pilot，再用直接 runner 校准模型×任务难度。 | 记录“实际能控制什么”，不把未被端点证实的控制当作事实；弱模型作为 floor 条件保留。见[采样探测](docs/s0_sampling_probe.md)、[校准协议](docs/s4_calibration_protocol.md)和[校准结果](docs/s4_calibration_results.md)。 |
-| 3. Runner 与结局诊断 | 用最小直接 runner 替代不透明 CLI 路径；把空最终输出、未编辑、工具错误、超时和 verifier 结果拆开记录。 | 锁定 r2 runner、非互斥标志与 verifier-pass 勘误。见[runner 设计](docs/b1_r2_runner.md)、[结局修订](docs/outcome_flags_revision.md)和[verifier-pass 勘误](docs/verifier_pass_erratum_20261010.md)。 |
-| 4. 开发集干预 | 不动冻结资产，只诊断弱模型轨迹；仅在开发集评估 v1 文本与固定第 32 次调用提醒。 | v1 pilot 是保留的负结果；L3b 是机制观察而非疗效结论。见[qwen 诊断](docs/s4_qwen35_diagnosis.md)、[v1 记录](docs/d4_intervention.md)、[L3b 结果](docs/l3b_results.md)和[指标对账](docs/l3b_metric_reconciliation.md)。 |
-| 5. 正式评测锁定 | 在任何 test 运行前锁定 prompt、调度、哈希、结局规则与任务配对分析，并交错安排条件。 | 完成 870 条 S7 调度运行。见[执行计划](docs/s7_execution_plan.md)、[执行锁](config/s7_execution_lock.yaml)、[调度链](docs/s7_schedule_chain_20261010.md)和[状态账本](STATUS.md)。 |
-| 6. 正式分析与勘误 | 主结局改用 <code>verifier.json.passed</code>；只有重试耗尽的 provider error 才从主分母排除；旧标签保留用于审计。 | 锁定表和图未显示一致的 C1 优势，且勘误证据仍可追溯。见[正式结果](docs/s7_formal_results_20261011.md)、[S7 表](results/tables/s7/)、[S7 图](figures/s7/)和[分析补丁](docs/s7_verifier_pass_analysis_patch_20261010.md)。 |
-| 7. 解释与下一研究 | 检验所观察行为能否区分成功；记录任务/provider 事件；写 dev-only 后续设计而不回改 S7。 | 行为—结果证据不足以识别成功机制。S8 仍是待批准草案。见[行为交叉表](docs/behavior_outcome_crosstab.md)、[失败分类](docs/weak_failure_taxonomy.md)和[S8 计划](docs/s8_plan.md)。 |
+| 1. 建任务池并锁定数据划分 | 先制作带独立合约 verifier 的小型仓库修复题；在观察任何正式测试轨迹前，把任务划为诊断集、版本选择集、同类保留集和跨技能保留集。 | 18 个正式任务全部通过正例、错误种子和捷径解的准入检查。见[划分锁](docs/s3_split_lock.md)、[正式任务清单](tasks/formal_manifest.json)与[准入记录](tasks/s3_admission.json)。 |
+| 2. 校准模型、任务与采样设置 | 先检查实际 API/CLI 能否接受温度和随机种子；将温度为 0 的早期试跑独立保留，再以直接 runner 测量模型在任务池上的难度分布。 | 不把“请求了某个参数”误写成“参数已受控”；qwen3.5:9b 被记录为下限条件而非干预优化对象。见[采样探测](docs/s0_sampling_probe.md)、[校准协议](docs/s4_calibration_protocol.md)与[校准结果](docs/s4_calibration_results.md)。 |
+| 3. 重建 runner 与结局口径 | 针对 CLI 路径中难以观察的响应字段，构建最小直接 runner；把最终消息为空、源文件未变、工具调用错误、超时和 verifier 判定拆成可同时成立的标志。 | 锁定 r2 runner，并将主结局改为 verifier 的 Boolean 字段而非旧的单一标签。见[runner 设计](docs/b1_r2_runner.md)、[结局字段修订](docs/outcome_flags_revision.md)与[verifier-pass 勘误](docs/verifier_pass_erratum_20261010.md)。 |
+| 4. 仅用开发集理解失败与测试干预 | 不改题目、verifier 或既有轨迹；只在允许设计干预的诊断/验证数据上检查失败模式，并比较 v1 文本和固定第 32 次调用提醒。 | v1 的早期结果是应保留的负结果；L3b 只证明某些触发后行为可被观测，不能支持效果结论。见[qwen 诊断](docs/s4_qwen35_diagnosis.md)、[v1 记录](docs/d4_intervention.md)、[L3b 结果](docs/l3b_results.md)和[指标对账](docs/l3b_metric_reconciliation.md)。 |
+| 5. 正式运行前冻结设计 | 在任何保留测试任务运行前，固定提示序列化、条件、调度、哈希、分母规则和按任务配对的分析方式；同一模型的条件按交错顺序运行。 | 锁定后的 S7 共完成 870 条调度运行。见[执行计划](docs/s7_execution_plan.md)、[执行锁](config/s7_execution_lock.yaml)、[调度监督器说明](docs/s7_schedule_chain_20261010.md)和[状态账本](STATUS.md)。 |
+| 6. 用 verifier 结果完成正式分析 | 正式结果统一读取 <code>verifier.json.passed</code>；只将重试耗尽的传输失败移出主分母，旧标签继续保留以便对账。 | C1 没有显示跨模型一致的通过率优势；全部表、图和勘误均保留可追溯来源。见[正式结果说明](docs/s7_formal_results_20261011.md)、[S7 结果表](results/tables/s7/)、[S7 图](figures/s7/)与[分析补丁](docs/s7_verifier_pass_analysis_patch_20261010.md)。 |
+| 7. 将解释与下一步分开 | 检查过程行为是否真正区分成功与失败，记录任务及 provider 事件，并只起草不回写 S7 的后续开发集研究。 | 已有行为—结果交叉表不足以把某个行为解释为成功机制；S8 仍只是待批准方案。见[行为—结果交叉表](docs/behavior_outcome_crosstab.md)、[机械失败分类](docs/weak_failure_taxonomy.md)与[S8 方案](docs/s8_plan.md)。 |
 
-## 复现
+## 复现：哪些可以公开复现，哪些不可以
 
-所有命令从仓库根目录运行。下列分析命令已于 2026-10-11 在隔离的干净克隆中用 Python 3.14.0 实际执行。模型运行入口仅做了 <code>--help</code> 语法检查；本次没有执行它，因为这会创建新的 provider 请求和实验队列。
+以下命令均从仓库根目录运行。2026-10-11 已在一个全新的隔离克隆中实际执行了分析与作图命令。模型执行入口只做过 <code>--help</code> 检查，未在本次文档工作中启动：启动它会向 provider 发请求并产生一个新的实验队列。
 
-### 环境
+### 建立环境
 
-实际使用 Python 3.14.0；预期最低版本为 Python 3.11。锁定的绘图依赖在 [analysis/requirements-figures.txt](analysis/requirements-figures.txt)。
+实际验证使用 Python 3.14.0；项目预期支持 Python 3.11 及以上版本。绘图依赖锁定于 [analysis/requirements-figures.txt](analysis/requirements-figures.txt)。
 
 <pre><code>python3 -m venv .venv
 . .venv/bin/activate
 python -m pip install --upgrade pip
 python -m pip install -r analysis/requirements-figures.txt</code></pre>
 
-通常需 1–3 分钟，取决于本地包缓存。
+安装通常耗时 1–3 分钟，取决于本地是否已有包缓存。
 
-### 复现已发布分析与图
+### 从发布内容重建表格与图形
 
 <pre><code>python -m analysis.make_tables
 python analysis/check_report_numbers.py
 python -m unittest analysis.test_figures
 python -m analysis.make_s7_figures</code></pre>
 
-预期得到：更新的 [results/tables/](results/tables/) Markdown/CSV，针对 [results/tables/s7/](results/tables/s7/) 的数值核对通过，6 个图形测试通过，以及 [figures/s7/](figures/s7/) 下的 5 张 S7 图和 contact sheet。隔离克隆中依赖安装完成后该序列少于 1 分钟。
+预期产物包括：更新后的 [results/tables/](results/tables/) Markdown/CSV、针对 [results/tables/s7/](results/tables/s7/) 的数值一致性检查、6 项图形测试，以及 [figures/s7/](figures/s7/) 中的 5 张 S7 图与 contact sheet。依赖安装完成后，隔离克隆中这组命令运行时间不足 1 分钟。
 
-公开发布包可以复现表和图，但不能从零重算正式 S7：需要的 <code>data/s7_runs/</code> 目录和原始 provider response 并未发布。如获授权并持有冻结的私有运行目录，可执行：
+公开发布包可以重建表格和图形，但**无法从零重新汇总正式 S7**：所需的 <code>data/s7_runs/</code> 与原始模型响应并未公开。获得授权且持有冻结私有运行目录的人员可执行：
 
 <pre><code>python -m analysis.formal_s7_results
 python -m analysis.make_s7_figures</code></pre>
 
-若 870/870 完成状态或分析补丁哈希不匹配，命令会拒绝运行。这是有意的发布限制，详见[数据发布策略](docs/data_release_policy.md)。
+若 870/870 完成状态或分析补丁哈希不匹配，程序会拒绝运行。这是有意设置的发布边界，详见[数据发布策略](docs/data_release_policy.md)。
 
-### 重新运行实验
+### 启动一个新的实验队列
 
-这会创建新运行产物，应使用新的队列/输出目录，不能覆盖或并入 S7。开源权重模型需要环境变量 <code>SOCLAAS_API_KEY</code>；GPT 使用本地已登录的 Codex CLI，不使用仓库内凭证。绝不可把凭证、原始 response 或 reasoning 写入 Git。
+下列命令会创建新的运行记录，必须指定新的队列/输出目录，且不能覆盖或并入 S7。开源模型需要在环境中配置 <code>SOCLAAS_API_KEY</code>；GPT 通过本地已登录的 Codex CLI 运行，仓库中不保存任何凭证。请勿将密钥、原始响应或 reasoning 字段提交到 Git。
 
 <pre><code>export SOCLAAS_API_KEY
 python harness/run_s7_schedule.py config/s7_schedules/qwen3_5_9b.tsv \
   --output-root data/new_cohort_runs --execute
 
-# 仅用于 GPT 参考锚点调度
+# 仅用于 GPT 参考锚点的调度
 python harness/run_s7_codex_schedule.py config/s7_schedules/gpt_5_6_sol.tsv \
   --output-root data/new_cohort_runs --execute</code></pre>
 
-这两个入口仅供审计，不是重现锁定 S7 队列的方式。没有本地 provider 访问、GPT 的 Codex 登录和明确的新队列授权时，干净公开克隆无法实际运行它们。直接 runner 说明见 [docs/b1_r2_runner.md](docs/b1_r2_runner.md)，原始冻结调度位于 [config/s7_schedules/](config/s7_schedules/)。
+这两个入口是运行审计接口，并不是“重新生成原 S7”的手段。公开克隆如果没有本地 provider 权限、GPT 的 Codex 登录状态和针对新队列的明确授权，就不能实际启动它们。直接 runner 的设计见 [docs/b1_r2_runner.md](docs/b1_r2_runner.md)，原始冻结调度见 [config/s7_schedules/](config/s7_schedules/)。
 
-## 数据发布
+## 数据发布与隐私边界
 
-[data/release/](data/release/) 包含已完成 pre-S7 r2 队列的去标识化 <code>metadata.jsonl</code>、<code>verifier.jsonl</code>、<code>events.jsonl</code>、<code>actions.jsonl</code> 和 [manifest.json](data/release/manifest.json)。其中绝对路径被替换为占位符，provider 连接/认证字段与 reasoning 字段已移除。
+[data/release/](data/release/) 发布的是已完成 pre-S7 r2 队列的去标识化派生记录：<code>metadata.jsonl</code>、<code>verifier.jsonl</code>、<code>events.jsonl</code>、<code>actions.jsonl</code> 及其 [manifest.json](data/release/manifest.json)。其中本机绝对路径被替换为占位符，provider 连接和认证字段、以及 reasoning 字段均被移除。
 
-原始 provider response 与 reasoning 不发布；正式 S7 运行目录也不发布，因为包含原始轨迹材料。替代发布方案见 [docs/data_release_policy.md](docs/data_release_policy.md)。已脱敏的历史密钥扫描记录见 [docs/secret_scan_20261010.json](docs/secret_scan_20261010.json)。
+原始 provider 响应、reasoning 内容和正式 S7 的运行目录不会发布，因为它们含有原始轨迹材料。可选的替代发布方式见 [docs/data_release_policy.md](docs/data_release_policy.md)；已脱敏的历史密钥扫描记录在 [docs/secret_scan_20261010.json](docs/secret_scan_20261010.json)。
 
-## 关键口径
+## 解读结果时必须遵守的口径
 
-- 主结局是每次运行 <code>verifier.json</code> 中的 Boolean <code>passed</code>，不是历史单标签。
-- 仅重试耗尽的传输失败（<code>provider_error_protocol</code>）从主分子和分母排除；敏感性分析将其视为失败。
-- 当存在 verifier 结果时，timeout 与 max-step 仍是分母内失败。
-- 重复用于估计任务内随机性；配对推断以任务为抽样单位。
-- GPT-5.6 Sol 是采样未受控的 Codex 参考锚点，不并入受控直接 runner 对比。
-- 正式协议是带时间戳、哈希锁定的计划与 lock manifest，而非第三方注册的 preregistration。
-- 旧结局标签只用于审计和勘误对照。
+- 唯一的主结局是每次运行 <code>verifier.json</code> 的 Boolean 字段 <code>passed</code>，而不是早期沿用的单一结局标签。
+- 只有“请求在规定次数内重试后仍未收到任何模型响应”的传输失败（<code>provider_error_protocol</code>）会从主分子和分母中排除；敏感性分析则将其计作失败。
+- 硬超时与触及最大步数的运行，只要存在 verifier 结果，就仍属于分母中的失败。
+- 重复次数用于估计同一任务内部的随机性；条件差异的配对推断以任务而非单次运行为抽样单位。
+- GPT-5.6 Sol 是通过 Codex 运行、采样设置未受控的参考锚点，不与直接 runner 的受控模型合并比较。
+- 正式协议在测试前以带时间戳的哈希锁定计划和 lock manifest 固化；这不是在第三方平台完成的预注册。
+- 旧结局标签只用于审计和勘误对照，不参与主结论。
 
-## 状态与已知问题
+## 当前状态与已知限制
 
-- **S7：** 已完成（870/870）；正式表和图分别位于 [results/tables/s7/](results/tables/s7/) 与 [figures/s7/](figures/s7/)。
-- **S8-lite：** 尚未开始；候选机制研究仍在等待所有者授权。当前仓库存在 [docs/s8_plan.md](docs/s8_plan.md)，没有单独的 <code>docs/s8_prereg.md</code>。
-- **A04：** 题面与 verifier 存在已记录冲突；有关开发集分析均报告含/不含该任务的视图。见 [A04 known defect](docs/a04_known_task_defect.md)。
-- **b09_phone：** 存在两次聚集的历史硬超时，作为敏感性问题保留，而非已证明的 verifier 缺陷。见 [b09 known issue](docs/s7_b09_phone_known_issue_20261010.md)。
-- **GPT 覆盖偏差：** 104 条 usage-limit 失败后来被新活动队列覆盖；潜在偏差和保留清单见 [审计文件](data/s7_gpt_overwrite_audit_20261011.json) 与 [偏差说明](docs/s7_postcompletion_gpt_rerun_deviation_20261011.md)。
+- **S7：** 已完成（870/870）；正式结果表位于 [results/tables/s7/](results/tables/s7/)，正式图位于 [figures/s7/](figures/s7/)。
+- **S8-lite：** 尚未启动；候选机制研究仍在等待项目所有者授权。目前仓库中保存的是 [docs/s8_plan.md](docs/s8_plan.md)，尚未单独建立 <code>docs/s8_prereg.md</code>。
+- **A04：** 任务说明与 verifier 存在已记录的冲突；涉及该任务的开发集分析均同时报告“包含 A04”和“排除 A04”的结果。详见 [A04 已知缺陷](docs/a04_known_task_defect.md)。
+- **b09_phone：** 该题曾出现两次时间上相邻的硬超时；它被保留为敏感性分析问题，尚不能据此认定 verifier 有缺陷。详见 [b09 已知问题](docs/s7_b09_phone_known_issue_20261010.md)。
+- **GPT 覆盖偏差：** 104 条因 usage limit 失败的记录后来被新的活动队列覆盖。覆盖可能带来选择偏差；保留的清单和说明见 [审计文件](data/s7_gpt_overwrite_audit_20261011.json) 与 [偏差说明](docs/s7_postcompletion_gpt_rerun_deviation_20261011.md)。
 
 ## 许可证
 
-代码采用 MIT；已发布的数据、图表和文档采用 CC BY 4.0。见 [LICENSE](LICENSE)。
+代码采用 MIT 许可证；已发布的数据、图表和文档采用 CC BY 4.0。详见 [LICENSE](LICENSE)。
 
 ## 引用
 
-作者信息待补充；在对外引用前请替换下列占位符。
+作者信息尚待补充；对外引用前请将下列占位条目替换为正式条目。
 
 <pre><code>@misc{skilltraj2026,
   title  = {SkillTraj: Written Skills for Cross-Model Coding Agents},

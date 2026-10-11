@@ -1,0 +1,5 @@
+queue,legacy_pass,verifier_pass,denominator
+Calibration queue,102,110,175
+Second queue (original),8,18,28
+Second queue (replacement included),12,24,36
+Development baseline/reminder,25,48,72

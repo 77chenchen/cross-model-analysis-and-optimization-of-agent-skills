@@ -43,3 +43,13 @@ figures/**/*.tiff
 *.pem
 *.key
 secrets/
+
+# Reproducible LaTeX intermediates; source, figures, bibliography, and paper PDF are versioned.
+paper/*.aux
+paper/*.bbl
+paper/*.blg
+paper/*.fdb_latexmk
+paper/*.fls
+paper/*.log
+paper/*.out
+paper/*.xdv
