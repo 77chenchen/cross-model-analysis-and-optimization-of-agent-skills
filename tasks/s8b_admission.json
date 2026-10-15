@@ -18,7 +18,7 @@
       "shortcut_passes": false,
       "reference": {
         "timed_out": false,
-        "elapsed_ms": 26.502,
+        "elapsed_ms": 24.919,
         "returncode": 0,
         "json_valid": true,
         "passed": true,
@@ -38,7 +38,7 @@
       },
       "starter": {
         "timed_out": false,
-        "elapsed_ms": 28.576,
+        "elapsed_ms": 23.479,
         "returncode": 1,
         "json_valid": true,
         "passed": false,
@@ -58,7 +58,7 @@
       },
       "shortcut": {
         "timed_out": false,
-        "elapsed_ms": 35.434,
+        "elapsed_ms": 23.674,
         "returncode": 1,
         "json_valid": true,
         "passed": false,
@@ -93,7 +93,7 @@
       "shortcut_passes": false,
       "reference": {
         "timed_out": false,
-        "elapsed_ms": 28.182,
+        "elapsed_ms": 23.524,
         "returncode": 0,
         "json_valid": true,
         "passed": true,
@@ -113,7 +113,7 @@
       },
       "starter": {
         "timed_out": false,
-        "elapsed_ms": 26.927,
+        "elapsed_ms": 23.76,
         "returncode": 1,
         "json_valid": true,
         "passed": false,
@@ -133,7 +133,7 @@
       },
       "shortcut": {
         "timed_out": false,
-        "elapsed_ms": 28.361,
+        "elapsed_ms": 23.637,
         "returncode": 1,
         "json_valid": true,
         "passed": false,
@@ -168,7 +168,7 @@
       "shortcut_passes": false,
       "reference": {
         "timed_out": false,
-        "elapsed_ms": 28.287,
+        "elapsed_ms": 23.531,
         "returncode": 0,
         "json_valid": true,
         "passed": true,
@@ -188,7 +188,7 @@
       },
       "starter": {
         "timed_out": false,
-        "elapsed_ms": 27.981,
+        "elapsed_ms": 23.351,
         "returncode": 1,
         "json_valid": true,
         "passed": false,
@@ -208,7 +208,7 @@
       },
       "shortcut": {
         "timed_out": false,
-        "elapsed_ms": 27.506,
+        "elapsed_ms": 23.436,
         "returncode": 1,
         "json_valid": true,
         "passed": false,
@@ -243,7 +243,7 @@
       "shortcut_passes": false,
       "reference": {
         "timed_out": false,
-        "elapsed_ms": 27.476,
+        "elapsed_ms": 23.409,
         "returncode": 0,
         "json_valid": true,
         "passed": true,
@@ -263,7 +263,7 @@
       },
       "starter": {
         "timed_out": false,
-        "elapsed_ms": 30.741,
+        "elapsed_ms": 23.663,
         "returncode": 1,
         "json_valid": true,
         "passed": false,
@@ -283,7 +283,7 @@
       },
       "shortcut": {
         "timed_out": false,
-        "elapsed_ms": 35.861,
+        "elapsed_ms": 23.545,
         "returncode": 1,
         "json_valid": true,
         "passed": false,
@@ -318,7 +318,7 @@
       "shortcut_passes": false,
       "reference": {
         "timed_out": false,
-        "elapsed_ms": 27.653,
+        "elapsed_ms": 23.698,
         "returncode": 0,
         "json_valid": true,
         "passed": true,
@@ -338,7 +338,7 @@
       },
       "starter": {
         "timed_out": false,
-        "elapsed_ms": 27.044,
+        "elapsed_ms": 24.021,
         "returncode": 1,
         "json_valid": true,
         "passed": false,
@@ -358,7 +358,7 @@
       },
       "shortcut": {
         "timed_out": false,
-        "elapsed_ms": 26.83,
+        "elapsed_ms": 23.906,
         "returncode": 1,
         "json_valid": true,
         "passed": false,
@@ -393,7 +393,7 @@
       "shortcut_passes": false,
       "reference": {
         "timed_out": false,
-        "elapsed_ms": 27.452,
+        "elapsed_ms": 24.267,
         "returncode": 0,
         "json_valid": true,
         "passed": true,
@@ -413,7 +413,7 @@
       },
       "starter": {
         "timed_out": false,
-        "elapsed_ms": 26.48,
+        "elapsed_ms": 23.847,
         "returncode": 1,
         "json_valid": true,
         "passed": false,
@@ -433,7 +433,7 @@
       },
       "shortcut": {
         "timed_out": false,
-        "elapsed_ms": 26.651,
+        "elapsed_ms": 23.495,
         "returncode": 1,
         "json_valid": true,
         "passed": false,
@@ -468,7 +468,7 @@
       "shortcut_passes": false,
       "reference": {
         "timed_out": false,
-        "elapsed_ms": 26.521,
+        "elapsed_ms": 23.836,
         "returncode": 0,
         "json_valid": true,
         "passed": true,
@@ -488,7 +488,7 @@
       },
       "starter": {
         "timed_out": false,
-        "elapsed_ms": 27.3,
+        "elapsed_ms": 23.695,
         "returncode": 1,
         "json_valid": true,
         "passed": false,
@@ -508,7 +508,7 @@
       },
       "shortcut": {
         "timed_out": false,
-        "elapsed_ms": 27.313,
+        "elapsed_ms": 23.511,
         "returncode": 1,
         "json_valid": true,
         "passed": false,
@@ -543,7 +543,7 @@
       "shortcut_passes": false,
       "reference": {
         "timed_out": false,
-        "elapsed_ms": 26.976,
+        "elapsed_ms": 25.575,
         "returncode": 0,
         "json_valid": true,
         "passed": true,
@@ -563,7 +563,7 @@
       },
       "starter": {
         "timed_out": false,
-        "elapsed_ms": 27.572,
+        "elapsed_ms": 25.224,
         "returncode": 1,
         "json_valid": true,
         "passed": false,
@@ -583,7 +583,7 @@
       },
       "shortcut": {
         "timed_out": false,
-        "elapsed_ms": 28.019,
+        "elapsed_ms": 24.393,
         "returncode": 1,
         "json_valid": true,
         "passed": false,
@@ -618,7 +618,7 @@
       "shortcut_passes": false,
       "reference": {
         "timed_out": false,
-        "elapsed_ms": 26.82,
+        "elapsed_ms": 24.452,
         "returncode": 0,
         "json_valid": true,
         "passed": true,
@@ -638,7 +638,7 @@
       },
       "starter": {
         "timed_out": false,
-        "elapsed_ms": 26.667,
+        "elapsed_ms": 23.799,
         "returncode": 1,
         "json_valid": true,
         "passed": false,
@@ -658,7 +658,7 @@
       },
       "shortcut": {
         "timed_out": false,
-        "elapsed_ms": 26.903,
+        "elapsed_ms": 24.811,
         "returncode": 1,
         "json_valid": true,
         "passed": false,
@@ -693,7 +693,7 @@
       "shortcut_passes": false,
       "reference": {
         "timed_out": false,
-        "elapsed_ms": 28.989,
+        "elapsed_ms": 27.279,
         "returncode": 0,
         "json_valid": true,
         "passed": true,
@@ -713,7 +713,7 @@
       },
       "starter": {
         "timed_out": false,
-        "elapsed_ms": 25.852,
+        "elapsed_ms": 24.579,
         "returncode": 1,
         "json_valid": true,
         "passed": false,
@@ -733,7 +733,7 @@
       },
       "shortcut": {
         "timed_out": false,
-        "elapsed_ms": 26.01,
+        "elapsed_ms": 24.412,
         "returncode": 1,
         "json_valid": true,
         "passed": false,
@@ -768,7 +768,7 @@
       "shortcut_passes": false,
       "reference": {
         "timed_out": false,
-        "elapsed_ms": 26.121,
+        "elapsed_ms": 24.711,
         "returncode": 0,
         "json_valid": true,
         "passed": true,
@@ -788,7 +788,7 @@
       },
       "starter": {
         "timed_out": false,
-        "elapsed_ms": 26.326,
+        "elapsed_ms": 24.12,
         "returncode": 1,
         "json_valid": true,
         "passed": false,
@@ -808,7 +808,7 @@
       },
       "shortcut": {
         "timed_out": false,
-        "elapsed_ms": 25.854,
+        "elapsed_ms": 25.056,
         "returncode": 1,
         "json_valid": true,
         "passed": false,
@@ -843,7 +843,7 @@
       "shortcut_passes": false,
       "reference": {
         "timed_out": false,
-        "elapsed_ms": 25.974,
+        "elapsed_ms": 25.325,
         "returncode": 0,
         "json_valid": true,
         "passed": true,
@@ -863,7 +863,7 @@
       },
       "starter": {
         "timed_out": false,
-        "elapsed_ms": 25.651,
+        "elapsed_ms": 24.477,
         "returncode": 1,
         "json_valid": true,
         "passed": false,
@@ -883,7 +883,7 @@
       },
       "shortcut": {
         "timed_out": false,
-        "elapsed_ms": 25.9,
+        "elapsed_ms": 25.406,
         "returncode": 1,
         "json_valid": true,
         "passed": false,
@@ -918,7 +918,7 @@
       "shortcut_passes": false,
       "reference": {
         "timed_out": false,
-        "elapsed_ms": 26.555,
+        "elapsed_ms": 28.447,
         "returncode": 0,
         "json_valid": true,
         "passed": true,
@@ -938,7 +938,7 @@
       },
       "starter": {
         "timed_out": false,
-        "elapsed_ms": 26.207,
+        "elapsed_ms": 27.981,
         "returncode": 1,
         "json_valid": true,
         "passed": false,
@@ -958,7 +958,7 @@
       },
       "shortcut": {
         "timed_out": false,
-        "elapsed_ms": 25.686,
+        "elapsed_ms": 25.869,
         "returncode": 1,
         "json_valid": true,
         "passed": false,
@@ -993,7 +993,7 @@
       "shortcut_passes": false,
       "reference": {
         "timed_out": false,
-        "elapsed_ms": 25.883,
+        "elapsed_ms": 24.434,
         "returncode": 0,
         "json_valid": true,
         "passed": true,
@@ -1013,7 +1013,7 @@
       },
       "starter": {
         "timed_out": false,
-        "elapsed_ms": 25.747,
+        "elapsed_ms": 24.012,
         "returncode": 1,
         "json_valid": true,
         "passed": false,
@@ -1033,7 +1033,7 @@
       },
       "shortcut": {
         "timed_out": false,
-        "elapsed_ms": 26.236,
+        "elapsed_ms": 23.935,
         "returncode": 1,
         "json_valid": true,
         "passed": false,
@@ -1068,7 +1068,7 @@
       "shortcut_passes": false,
       "reference": {
         "timed_out": false,
-        "elapsed_ms": 28.278,
+        "elapsed_ms": 27.218,
         "returncode": 0,
         "json_valid": true,
         "passed": true,
@@ -1093,7 +1093,7 @@
       },
       "starter": {
         "timed_out": false,
-        "elapsed_ms": 26.412,
+        "elapsed_ms": 24.078,
         "returncode": 1,
         "json_valid": true,
         "passed": false,
@@ -1113,7 +1113,7 @@
       },
       "shortcut": {
         "timed_out": false,
-        "elapsed_ms": 25.903,
+        "elapsed_ms": 24.175,
         "returncode": 1,
         "json_valid": true,
         "passed": false,
@@ -1148,7 +1148,7 @@
       "shortcut_passes": false,
       "reference": {
         "timed_out": false,
-        "elapsed_ms": 26.065,
+        "elapsed_ms": 24.408,
         "returncode": 0,
         "json_valid": true,
         "passed": true,
@@ -1168,7 +1168,7 @@
       },
       "starter": {
         "timed_out": false,
-        "elapsed_ms": 26.42,
+        "elapsed_ms": 25.378,
         "returncode": 1,
         "json_valid": true,
         "passed": false,
@@ -1188,7 +1188,7 @@
       },
       "shortcut": {
         "timed_out": false,
-        "elapsed_ms": 26.778,
+        "elapsed_ms": 24.797,
         "returncode": 1,
         "json_valid": true,
         "passed": false,
@@ -1223,7 +1223,7 @@
       "shortcut_passes": false,
       "reference": {
         "timed_out": false,
-        "elapsed_ms": 25.81,
+        "elapsed_ms": 24.661,
         "returncode": 0,
         "json_valid": true,
         "passed": true,
@@ -1243,7 +1243,7 @@
       },
       "starter": {
         "timed_out": false,
-        "elapsed_ms": 26.029,
+        "elapsed_ms": 23.926,
         "returncode": 1,
         "json_valid": true,
         "passed": false,
@@ -1263,7 +1263,7 @@
       },
       "shortcut": {
         "timed_out": false,
-        "elapsed_ms": 26.273,
+        "elapsed_ms": 23.589,
         "returncode": 1,
         "json_valid": true,
         "passed": false,
@@ -1298,7 +1298,7 @@
       "shortcut_passes": false,
       "reference": {
         "timed_out": false,
-        "elapsed_ms": 26.651,
+        "elapsed_ms": 24.324,
         "returncode": 0,
         "json_valid": true,
         "passed": true,
@@ -1318,7 +1318,7 @@
       },
       "starter": {
         "timed_out": false,
-        "elapsed_ms": 25.859,
+        "elapsed_ms": 24.2,
         "returncode": 1,
         "json_valid": true,
         "passed": false,
@@ -1338,7 +1338,7 @@
       },
       "shortcut": {
         "timed_out": false,
-        "elapsed_ms": 27.329,
+        "elapsed_ms": 23.935,
         "returncode": 1,
         "json_valid": true,
         "passed": false,
@@ -1373,7 +1373,7 @@
       "shortcut_passes": false,
       "reference": {
         "timed_out": false,
-        "elapsed_ms": 26.203,
+        "elapsed_ms": 24.223,
         "returncode": 0,
         "json_valid": true,
         "passed": true,
@@ -1396,7 +1396,7 @@
       },
       "starter": {
         "timed_out": false,
-        "elapsed_ms": 25.709,
+        "elapsed_ms": 23.891,
         "returncode": 1,
         "json_valid": true,
         "passed": false,
@@ -1419,7 +1419,7 @@
       },
       "shortcut": {
         "timed_out": false,
-        "elapsed_ms": 25.857,
+        "elapsed_ms": 23.849,
         "returncode": 1,
         "json_valid": true,
         "passed": false,
@@ -1454,7 +1454,7 @@
       "shortcut_passes": false,
       "reference": {
         "timed_out": false,
-        "elapsed_ms": 26.606,
+        "elapsed_ms": 23.987,
         "returncode": 0,
         "json_valid": true,
         "passed": true,
@@ -1479,7 +1479,7 @@
       },
       "starter": {
         "timed_out": false,
-        "elapsed_ms": 26.295,
+        "elapsed_ms": 23.877,
         "returncode": 1,
         "json_valid": true,
         "passed": false,
@@ -1500,7 +1500,7 @@
       },
       "shortcut": {
         "timed_out": false,
-        "elapsed_ms": 26.067,
+        "elapsed_ms": 24.361,
         "returncode": 1,
         "json_valid": true,
         "passed": false,
@@ -1535,7 +1535,7 @@
       "shortcut_passes": false,
       "reference": {
         "timed_out": false,
-        "elapsed_ms": 28.677,
+        "elapsed_ms": 27.42,
         "returncode": 0,
         "json_valid": true,
         "passed": true,
@@ -1555,7 +1555,7 @@
       },
       "starter": {
         "timed_out": false,
-        "elapsed_ms": 26.015,
+        "elapsed_ms": 24.373,
         "returncode": 1,
         "json_valid": true,
         "passed": false,
@@ -1575,7 +1575,7 @@
       },
       "shortcut": {
         "timed_out": false,
-        "elapsed_ms": 26.012,
+        "elapsed_ms": 23.808,
         "returncode": 1,
         "json_valid": true,
         "passed": false,
@@ -1610,7 +1610,7 @@
       "shortcut_passes": false,
       "reference": {
         "timed_out": false,
-        "elapsed_ms": 26.003,
+        "elapsed_ms": 24.026,
         "returncode": 0,
         "json_valid": true,
         "passed": true,
@@ -1635,7 +1635,7 @@
       },
       "starter": {
         "timed_out": false,
-        "elapsed_ms": 26.257,
+        "elapsed_ms": 23.814,
         "returncode": 1,
         "json_valid": true,
         "passed": false,
@@ -1655,7 +1655,7 @@
       },
       "shortcut": {
         "timed_out": false,
-        "elapsed_ms": 26.165,
+        "elapsed_ms": 23.772,
         "returncode": 1,
         "json_valid": true,
         "passed": false,
@@ -1690,7 +1690,7 @@
       "shortcut_passes": false,
       "reference": {
         "timed_out": false,
-        "elapsed_ms": 25.886,
+        "elapsed_ms": 23.892,
         "returncode": 0,
         "json_valid": true,
         "passed": true,
@@ -1710,7 +1710,7 @@
       },
       "starter": {
         "timed_out": false,
-        "elapsed_ms": 26.004,
+        "elapsed_ms": 24.044,
         "returncode": 1,
         "json_valid": true,
         "passed": false,
@@ -1730,7 +1730,7 @@
       },
       "shortcut": {
         "timed_out": false,
-        "elapsed_ms": 25.755,
+        "elapsed_ms": 24.363,
         "returncode": 1,
         "json_valid": true,
         "passed": false,
@@ -1765,7 +1765,7 @@
       "shortcut_passes": false,
       "reference": {
         "timed_out": false,
-        "elapsed_ms": 26.856,
+        "elapsed_ms": 24.718,
         "returncode": 0,
         "json_valid": true,
         "passed": true,
@@ -1785,7 +1785,7 @@
       },
       "starter": {
         "timed_out": false,
-        "elapsed_ms": 26.138,
+        "elapsed_ms": 24.205,
         "returncode": 1,
         "json_valid": true,
         "passed": false,
@@ -1805,7 +1805,7 @@
       },
       "shortcut": {
         "timed_out": false,
-        "elapsed_ms": 25.354,
+        "elapsed_ms": 24.967,
         "returncode": 1,
         "json_valid": true,
         "passed": false,

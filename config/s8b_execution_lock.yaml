@@ -1,0 +1,26 @@
+{
+  "protocol": "s8b-dev-only-v1",
+  "locked_at": "2026-10-15T00:00:00+08:00",
+  "model": "qwen3.5:9b",
+  "task_count": 24,
+  "conditions": ["C1", "externalized", "imitation", "generic_control"],
+  "repetitions": 2,
+  "total_runs": 192,
+  "schedule_seed": 20261015,
+  "worker_concurrency": 1,
+  "sha256": {
+    "harness/s8b_protocol.py": "44cf18ead6e4113e4183f0ce5a0d19b8c587a0f30639d383e2eb4924d3fcfe98",
+    "harness/make_s8b_schedule.py": "ef91d0820317309da89e9f7da57482226c7d043c6e992488bed1fe96b9a1b616",
+    "harness/run_s8b.py": "a5b98282239106eac7781d98c14f5fe09015f9e05f4cff8a7e341f6914b54bf5",
+    "harness/run_s8b_schedule.py": "ce53165f9791039bb9fefaa7c270b3af58bba072cae5854dcea59851ddeae9db",
+    "harness/update_s8b_status.py": "106e5596e3efc8392111322ef24067123ca70437deb42c48899afad1b0c4706f",
+    "harness/test_s8b_protocol.py": "fa1dffe9ae24caa1d7ab04800d8f1898503fcddefc9f949369f2fde9ce1b0811",
+    "analysis/analyze_s8b.py": "533d40e959476ef4067a7bdacc7569ebec6fa9147511546e5aed7034ee915c5c",
+    "config/s8b_protocol.yaml": "864f739986d124264d3d9c5d88472afac6c7422841c3ba6738e7c624568caf90",
+    "config/s8b_schedule.tsv": "6a3db77c8025773dffed7f0e0c966af2491542cae85a6e0dc2bd68683979b8b5",
+    "config/s8b_prompt_manifest.json": "f51acf015c282a1bf252350696296f159738d8bd46ad081f195872690e0f6ead",
+    "tasks/s8b_admission.json": "fe09f93c1f15dc42955fab2bde03ff21d8b097b9b1358b68f387a3d388fb432e",
+    "verifiers/s8b_contract_verifier.py": "651de9a2b5932e7b124a599d0c1178ca7010ff66977e3e144cd69b661c5348f2",
+    "docs/s8b_analysis_plan_20261015.md": "b7180cc2fdfbddd7ecc7a87af9104fc30dc9a20b12ff9bc1391f5fcc40ee0ab3"
+  }
+}

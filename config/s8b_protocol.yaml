@@ -1,0 +1,31 @@
+protocol: s8b-dev-only-v1
+status: locked_for_execution
+date: 2026-10-15
+model: qwen3.5:9b
+matrix:
+  fresh_tasks: 24
+  conditions: [C1, externalized, imitation, generic_control]
+  repetitions_per_task_condition: 2
+  total_runs: 192
+sampling:
+  temperature_requested: 0.5
+  request_seed: deterministic_from_run_id
+execution:
+  runner: r2-direct-chat-completions
+  max_steps: 40
+  context_limit: 65536
+  hard_timeout_seconds: 1200
+  verifier_timeout_seconds: 1200
+  worker_concurrency: 1
+analysis:
+  primary_outcome: verifier.json.passed
+  inferential_unit: task
+  provider_error_protocol: retry_exhausted_transport_excluded_primary_and_failure_in_sensitivity
+  paired_bootstrap_draws: 10000
+  paired_bootstrap_seed: 20261016
+constraints:
+  - only_tasks_under_tasks/s8b_are_addressable
+  - all_24_tasks_passed_admission_before_lock
+  - abandoned_s8a_artifacts_are_not_an_analysis_cohort
+  - s7_assets_and_results_remain_immutable
+  - no_condition_or_schedule_change_after_first_provider_request
