@@ -1,0 +1,49 @@
+{
+  "task_id": "a02_config_lines",
+  "reference_solution": "def transform(value):\n    if not isinstance(value,str): return {}\n    out={}\n    for line in value.splitlines():\n        line=line.strip()\n        if not line or line.startswith('#') or ':' not in line: continue\n        k,v=line.split(':',1); k,v=k.strip(),v.strip()\n        if k and v: out[k]=v\n    return out\n",
+  "task_requirements": [
+    "Input is a string; otherwise return {}.",
+    "Split on actual line breaks, trim each line, and ignore blank lines and lines beginning with # after trimming.",
+    "Split remaining lines at the first colon, trim both fields, and skip malformed lines and empty keys or values.",
+    "The last valid value wins for repeated keys; a blank later value does not erase an earlier valid value."
+  ],
+  "cases": [
+    {
+      "name": "multiple_lines",
+      "input": "host: api\nport: 443",
+      "expected": {
+        "host": "api",
+        "port": "443"
+      }
+    },
+    {
+      "name": "comments_blank_trim",
+      "input": " # x\n\n host : api \n #y",
+      "expected": {
+        "host": "api"
+      }
+    },
+    {
+      "name": "embedded_colon_and_override",
+      "input": "url: https://a:b\nmode: old\nmode: \nmode:new",
+      "expected": {
+        "url": "https://a:b",
+        "mode": "new"
+      }
+    },
+    {
+      "name": "malformed",
+      "input": "ok: yes\n:bad\nblank:  \nmissing",
+      "expected": {
+        "ok": "yes"
+      }
+    },
+    {
+      "name": "type",
+      "input": [
+        "host: api"
+      ],
+      "expected": {}
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "task_id": "a03_version_parts",
+  "reference_solution": "def transform(value):\n    if not isinstance(value,str): return None\n    s=value.strip()\n    if s.startswith('v'): s=s[1:]\n    p=s.split('.')\n    if not 1<=len(p)<=3 or any(not x or not x.isascii() or not x.isdigit() for x in p): return None\n    n=[int(x) for x in p]\n    return tuple((n+[0,0])[:3])\n",
+  "task_requirements": [
+    "Input is a string containing one to three dot-separated ASCII non-negative integers; otherwise return None.",
+    "Trim surrounding whitespace and accept one optional lowercase v prefix.",
+    "Reject empty components, signs, suffixes, non-ASCII digits, and more than three components.",
+    "Return a three-integer tuple and pad missing components with zero; leading zeroes are allowed."
+  ],
+  "cases": [
+    {
+      "name": "complete",
+      "input": "2.10.3",
+      "expected": [
+        2,
+        10,
+        3
+      ]
+    },
+    {
+      "name": "prefix_padding",
+      "input": " v01.4 ",
+      "expected": [
+        1,
+        4,
+        0
+      ]
+    },
+    {
+      "name": "single",
+      "input": "0",
+      "expected": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "empty_piece",
+      "input": "v1..3",
+      "expected": null
+    },
+    {
+      "name": "too_many",
+      "input": "1.2.3.4",
+      "expected": null
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "task_id": "b07_inventory_delta",
+  "reference_solution": "def transform(value):\n    if not isinstance(value,dict) or not isinstance(value.get('stock'),dict) or not isinstance(value.get('deltas'),list): return None\n    out=dict(value['stock'])\n    for k,n in out.items():\n        if not isinstance(k,str) or not k or isinstance(n,bool) or not isinstance(n,int) or n<0: return None\n    for p in value['deltas']:\n        if not isinstance(p,(list,tuple)) or len(p)!=2: continue\n        k,d=p\n        if not isinstance(k,str) or not k or isinstance(d,bool) or not isinstance(d,int): continue\n        n=out.get(k,0)+d\n        if n<0: return None\n        out[k]=n\n    return out\n",
+  "task_requirements": [
+    "Input is a dictionary with stock (mapping non-empty string item names to non-negative integers) and deltas (list); invalid top-level input or stock returns None.",
+    "Booleans are not integers.",
+    "Apply valid two-item list or tuple pairs [item, integer_delta] sequentially; ignore malformed pairs, invalid names, and non-integer deltas.",
+    "New items start at zero. If any applied delta makes stock negative, return None for the whole operation; else return a new mapping preserving initial order and appending new items in first-use order."
+  ],
+  "cases": [
+    {
+      "name": "update_create",
+      "input": {
+        "stock": {
+          "pen": 5
+        },
+        "deltas": [
+          [
+            "pen",
+            -2
+          ],
+          [
+            "book",
+            3
+          ]
+        ]
+      },
+      "expected": {
+        "pen": 3,
+        "book": 3
+      }
+    },
+    {
+      "name": "sequential",
+      "input": {
+        "stock": {
+          "x": 2
+        },
+        "deltas": [
+          [
+            "x",
+            -1
+          ],
+          [
+            "x",
+            4
+          ],
+          [
+            "y",
+            1
+          ],
+          [
+            "y",
+            2
+          ]
+        ]
+      },
+      "expected": {
+        "x": 5,
+        "y": 3
+      }
+    },
+    {
+      "name": "negative_reject",
+      "input": {
+        "stock": {
+          "x": 2
+        },
+        "deltas": [
+          [
+            "x",
+            1
+          ],
+          [
+            "x",
+            -4
+          ]
+        ]
+      },
+      "expected": null
+    },
+    {
+      "name": "ignore_bad",
+      "input": {
+        "stock": {},
+        "deltas": [
+          null,
+          [
+            "",
+            2
+          ],
+          [
+            "a",
+            true
+          ],
+          [
+            "b",
+            0
+          ]
+        ]
+      },
+      "expected": {
+        "b": 0
+      }
+    },
+    {
+      "name": "invalid_stock",
+      "input": {
+        "stock": {
+          "x": -1
+        },
+        "deltas": []
+      },
+      "expected": null
+    }
+  ],
+  "ordered_mapping_output": true
+}

@@ -1,0 +1,38 @@
+{
+  "task_id": "a04_duration_units",
+  "reference_solution": "import re\ndef transform(value):\n    if not isinstance(value,str): return None\n    s=value.strip()\n    if not s: return 0\n    f={'s':1,'m':60,'h':3600,'d':86400}; total=0\n    for t in s.split():\n        m=re.fullmatch(r'([0-9]+)([smhd])',t)\n        if not m: return None\n        total+=int(m.group(1))*f[m.group(2)]\n    return total\n",
+  "task_requirements": [
+    "Input is a string; otherwise return None.",
+    "Empty or whitespace-only input means zero seconds.",
+    "Each whitespace-separated token must contain ASCII digits followed by exactly one lowercase unit s, m, h, or d.",
+    "Use factors 1, 60, 3600, and 86400 and sum repeated units.",
+    "If any token is malformed, signed, negative, or uses another unit, return None for the whole input."
+  ],
+  "cases": [
+    {
+      "name": "mixed",
+      "input": "1h 2m 3s",
+      "expected": 3723
+    },
+    {
+      "name": "repeated",
+      "input": "5s 2s 0m",
+      "expected": 7
+    },
+    {
+      "name": "empty",
+      "input": "  ",
+      "expected": 0
+    },
+    {
+      "name": "malformed",
+      "input": "1h 2min",
+      "expected": null
+    },
+    {
+      "name": "negative_type",
+      "input": -4,
+      "expected": null
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "task_id": "b06_event_filter",
+  "reference_solution": "from datetime import date\ndef transform(value):\n    if not isinstance(value,dict) or not isinstance(value.get('events'),list) or not isinstance(value.get('allowed_types'),list): return []\n    try:\n        a,b=value['start_date'],value['end_date']; lo,hi=date.fromisoformat(a),date.fromisoformat(b)\n        if lo.isoformat()!=a or hi.isoformat()!=b or lo>hi: return []\n    except (ValueError,TypeError,KeyError): return []\n    allowed={x for x in value['allowed_types'] if isinstance(x,str)}; out=[]\n    for e in value['events']:\n        if not isinstance(e,dict) or not isinstance(e.get('type'),str) or e.get('type') not in allowed or not isinstance(e.get('date'),str): continue\n        try: d=date.fromisoformat(e['date'])\n        except ValueError: continue\n        if d.isoformat()==e['date'] and lo<=d<=hi: out.append(e)\n    return out\n",
+  "task_requirements": [
+    "Input is a dictionary with events (list), allowed_types (list), start_date, and end_date; malformed top-level input returns [].",
+    "Boundaries must be valid Gregorian dates exactly in YYYY-MM-DD form and start_date must be no later than end_date; otherwise return [].",
+    "Keep dictionary events with an exact allowed type and valid YYYY-MM-DD date inside the inclusive range.",
+    "Ignore malformed events and preserve original order and values."
+  ],
+  "cases": [
+    {
+      "name": "inclusive_order",
+      "input": {
+        "events": [
+          {
+            "type": "x",
+            "date": "2024-01-03"
+          },
+          {
+            "type": "x",
+            "date": "2024-01-01"
+          },
+          {
+            "type": "y",
+            "date": "2024-01-02"
+          }
+        ],
+        "allowed_types": [
+          "x"
+        ],
+        "start_date": "2024-01-01",
+        "end_date": "2024-01-03"
+      },
+      "expected": [
+        {
+          "type": "x",
+          "date": "2024-01-03"
+        },
+        {
+          "type": "x",
+          "date": "2024-01-01"
+        }
+      ]
+    },
+    {
+      "name": "excluded",
+      "input": {
+        "events": [
+          {
+            "type": "x",
+            "date": "2023-12-31"
+          },
+          {
+            "type": "X",
+            "date": "2024-01-01"
+          }
+        ],
+        "allowed_types": [
+          "x"
+        ],
+        "start_date": "2024-01-01",
+        "end_date": "2024-01-01"
+      },
+      "expected": []
+    },
+    {
+      "name": "bad_event",
+      "input": {
+        "events": [
+          null,
+          {
+            "type": "x",
+            "date": "2024-02-30"
+          },
+          {
+            "type": "x",
+            "date": "2024-02-29"
+          }
+        ],
+        "allowed_types": [
+          "x"
+        ],
+        "start_date": "2024-02-29",
+        "end_date": "2024-02-29"
+      },
+      "expected": [
+        {
+          "type": "x",
+          "date": "2024-02-29"
+        }
+      ]
+    },
+    {
+      "name": "bad_range",
+      "input": {
+        "events": [],
+        "allowed_types": [
+          "x"
+        ],
+        "start_date": "2024-02-01",
+        "end_date": "2024-01-01"
+      },
+      "expected": []
+    },
+    {
+      "name": "type",
+      "input": [],
+      "expected": []
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "task_id": "b02_json_cleanup",
+  "reference_solution": "def transform(value):\n    if isinstance(value,str): return value.strip()\n    if isinstance(value,list): return [transform(x) for x in value]\n    if isinstance(value,dict): return {transform(k):transform(v) for k,v in value.items() if v is not None}\n    return value\n",
+  "task_requirements": [
+    "Input may be a JSON-like null, boolean, number, string, list, or dictionary; preserve non-string scalar values.",
+    "Trim whitespace from every string value and dictionary key.",
+    "Recursively clean lists while preserving order and retaining null list elements.",
+    "Recursively clean dictionaries and remove entries whose original value is null; do not mutate input."
+  ],
+  "cases": [
+    {
+      "name": "nested",
+      "input": {
+        " name ": " Ada ",
+        "items": [
+          " x ",
+          {
+            " city ": " Oslo "
+          }
+        ]
+      },
+      "expected": {
+        "name": "Ada",
+        "items": [
+          "x",
+          {
+            "city": "Oslo"
+          }
+        ]
+      }
+    },
+    {
+      "name": "null_rules",
+      "input": {
+        "gone": null,
+        "items": [
+          null,
+          " ok "
+        ]
+      },
+      "expected": {
+        "items": [
+          null,
+          "ok"
+        ]
+      }
+    },
+    {
+      "name": "empty",
+      "input": {
+        "a": {},
+        "b": []
+      },
+      "expected": {
+        "a": {},
+        "b": []
+      }
+    },
+    {
+      "name": "scalar",
+      "input": " hello ",
+      "expected": "hello"
+    },
+    {
+      "name": "combined",
+      "input": [
+        {
+          "x": null,
+          "y": [
+            " z ",
+            null
+          ]
+        },
+        " q "
+      ],
+      "expected": [
+        {
+          "y": [
+            "z",
+            null
+          ]
+        },
+        "q"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "task_id": "a10_query_pairs",
+  "reference_solution": "import re\nfrom urllib.parse import unquote_to_bytes\ndef transform(value):\n    if not isinstance(value,str): return {}\n    if value.startswith('?'): value=value[1:]\n    out={}\n    for p in value.split('&'):\n        if '=' not in p: continue\n        k,v=p.split('=',1)\n        if re.search(r'%(?![0-9a-fA-F]{2})',k+v): continue\n        try:\n            k=unquote_to_bytes(k.replace('+',' ')).decode('utf-8')\n            v=unquote_to_bytes(v.replace('+',' ')).decode('utf-8')\n        except UnicodeDecodeError: continue\n        if k: out.setdefault(k,[]).append(v)\n    return out\n",
+  "task_requirements": [
+    "Input is a string; other input returns {}.",
+    "Ignore one optional leading question mark, split pairs on ampersand, and split each pair at its first equals sign.",
+    "Decode percent escapes as UTF-8 and plus as space; ignore pairs with no equals sign, empty decoded keys, malformed percent escapes, or invalid UTF-8.",
+    "Keep empty values and store values in encounter order as lists, including a one-item list for a single occurrence."
+  ],
+  "cases": [
+    {
+      "name": "plus",
+      "input": "?q=red+blue&lang=en",
+      "expected": {
+        "q": [
+          "red blue"
+        ],
+        "lang": [
+          "en"
+        ]
+      }
+    },
+    {
+      "name": "repeats",
+      "input": "tag=a&tag=b&tag=a",
+      "expected": {
+        "tag": [
+          "a",
+          "b",
+          "a"
+        ]
+      }
+    },
+    {
+      "name": "encoded",
+      "input": "a%26b=x%3Dy",
+      "expected": {
+        "a&b": [
+          "x=y"
+        ]
+      }
+    },
+    {
+      "name": "invalid_and_empty",
+      "input": "bad&=x&ok=&p=%Q1",
+      "expected": {
+        "ok": [
+          ""
+        ]
+      }
+    },
+    {
+      "name": "utf8",
+      "input": "%FF=x",
+      "expected": {}
+    }
+  ]
+}

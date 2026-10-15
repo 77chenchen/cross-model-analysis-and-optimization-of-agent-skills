@@ -1,0 +1,107 @@
+{
+  "task_id": "b01_record_dedup",
+  "reference_solution": "def transform(value):\n    if not isinstance(value,dict) or not isinstance(value.get('records'),list) or not isinstance(value.get('key'),str) or not value['key']: return []\n    order=[]; last={}\n    for r in value['records']:\n        if not isinstance(r,dict) or value['key'] not in r: continue\n        k=r[value['key']]\n        try: hash(k)\n        except TypeError: continue\n        if k is None: continue\n        if k not in last: order.append(k)\n        last[k]=dict(r)\n    return [last[k] for k in order]\n",
+  "task_requirements": [
+    "Input is a dictionary containing records (a list) and key (a non-empty string); invalid input returns [].",
+    "Ignore non-dictionary records, records missing the key field, and records whose key value is None or unhashable.",
+    "Keep the first occurrence position for each identifier but use a shallow copy of its last valid record.",
+    "Return a new list and do not modify the input list or its records."
+  ],
+  "cases": [
+    {
+      "name": "unique",
+      "input": {
+        "key": "id",
+        "records": [
+          {
+            "id": 1,
+            "v": "a"
+          },
+          {
+            "id": 2,
+            "v": "b"
+          }
+        ]
+      },
+      "expected": [
+        {
+          "id": 1,
+          "v": "a"
+        },
+        {
+          "id": 2,
+          "v": "b"
+        }
+      ]
+    },
+    {
+      "name": "last_first_order",
+      "input": {
+        "key": "id",
+        "records": [
+          {
+            "id": "x",
+            "v": 1
+          },
+          {
+            "id": "y",
+            "v": 2
+          },
+          {
+            "id": "x",
+            "v": 3
+          }
+        ]
+      },
+      "expected": [
+        {
+          "id": "x",
+          "v": 3
+        },
+        {
+          "id": "y",
+          "v": 2
+        }
+      ]
+    },
+    {
+      "name": "bad_records",
+      "input": {
+        "key": "id",
+        "records": [
+          null,
+          {
+            "v": 1
+          },
+          {
+            "id": null
+          },
+          {
+            "id": []
+          },
+          {
+            "id": "ok"
+          }
+        ]
+      },
+      "expected": [
+        {
+          "id": "ok"
+        }
+      ]
+    },
+    {
+      "name": "empty",
+      "input": {
+        "key": "id",
+        "records": []
+      },
+      "expected": []
+    },
+    {
+      "name": "invalid",
+      "input": [],
+      "expected": []
+    }
+  ]
+}

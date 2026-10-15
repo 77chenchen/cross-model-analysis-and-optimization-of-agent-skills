@@ -1,0 +1,45 @@
+{
+  "task_id": "a01_label_fields",
+  "reference_solution": "def transform(value):\n    if not isinstance(value,str): return {}\n    out={}\n    for part in value.split(';'):\n        if '=' not in part: continue\n        k,v=part.split('=',1); k,v=k.strip(),v.strip()\n        if k and v: out[k]=v\n    return out\n",
+  "task_requirements": [
+    "Input is a string; otherwise return {}.",
+    "Split on semicolons, then split each entry only at its first equals sign.",
+    "Trim key and value; skip malformed entries and entries with empty trimmed key or value.",
+    "For duplicate keys, the last valid value wins."
+  ],
+  "cases": [
+    {
+      "name": "normal",
+      "input": "a=1; b = 2",
+      "expected": {
+        "a": "1",
+        "b": "2"
+      }
+    },
+    {
+      "name": "malformed",
+      "input": "ok=yes;nope;=x;x= ; = ",
+      "expected": {
+        "ok": "yes"
+      }
+    },
+    {
+      "name": "first_split_last_valid",
+      "input": "url=https://x=y;k=old;k=;k=new",
+      "expected": {
+        "url": "https://x=y",
+        "k": "new"
+      }
+    },
+    {
+      "name": "empty",
+      "input": ";;",
+      "expected": {}
+    },
+    {
+      "name": "type",
+      "input": null,
+      "expected": {}
+    }
+  ]
+}

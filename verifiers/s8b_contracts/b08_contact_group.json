@@ -1,0 +1,93 @@
+{
+  "task_id": "b08_contact_group",
+  "reference_solution": "import re\ndef transform(value):\n    if not isinstance(value,list): return {}\n    groups={}; valid=re.compile(r'[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?')\n    for c in value:\n        if not isinstance(c,dict): continue\n        n,e=c.get('name'),c.get('email')\n        if not isinstance(n,str) or not n.strip() or not isinstance(e,str): continue\n        e=e.strip()\n        if e.count('@')!=1: continue\n        local,domain=e.split('@'); labels=domain.split('.')\n        if not local or len(labels)<2 or any(not valid.fullmatch(x) for x in labels): continue\n        groups.setdefault(domain.lower(),[]).append(n.strip())\n    return groups\n",
+  "task_requirements": [
+    "Input is a list of contact dictionaries; other input returns {}.",
+    "A usable contact has a non-empty string name and an email with exactly one @, a non-empty local part, and a dotted domain of non-empty ASCII alphanumeric/hyphen labels that do not start or end with a hyphen.",
+    "Trim name and email, lowercase the domain for the output key, and preserve contact order within each domain.",
+    "Skip invalid contacts and return domain keys mapped to lists of trimmed names; groups retain first-seen order."
+  ],
+  "cases": [
+    {
+      "name": "domains",
+      "input": [
+        {
+          "name": " Ada ",
+          "email": "a@Example.COM"
+        },
+        {
+          "name": "Bo",
+          "email": "b@example.com"
+        },
+        {
+          "name": "Cy",
+          "email": "c@other.test"
+        }
+      ],
+      "expected": {
+        "example.com": [
+          "Ada",
+          "Bo"
+        ],
+        "other.test": [
+          "Cy"
+        ]
+      }
+    },
+    {
+      "name": "bad_contacts",
+      "input": [
+        {
+          "name": "A",
+          "email": "bad"
+        },
+        {
+          "name": "B",
+          "email": "x@-bad.test"
+        },
+        {
+          "name": "C",
+          "email": "x@ok.test"
+        }
+      ],
+      "expected": {
+        "ok.test": [
+          "C"
+        ]
+      }
+    },
+    {
+      "name": "local_domain",
+      "input": [
+        {
+          "name": "A",
+          "email": "@x.test"
+        },
+        {
+          "name": "B",
+          "email": "x@localhost"
+        },
+        {
+          "name": "C",
+          "email": "x@y.z"
+        }
+      ],
+      "expected": {
+        "y.z": [
+          "C"
+        ]
+      }
+    },
+    {
+      "name": "empty",
+      "input": [],
+      "expected": {}
+    },
+    {
+      "name": "type",
+      "input": {},
+      "expected": {}
+    }
+  ],
+  "ordered_mapping_output": true
+}

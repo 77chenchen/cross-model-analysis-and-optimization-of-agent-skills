@@ -1,0 +1,72 @@
+{
+  "task_id": "b05_schema_rename",
+  "reference_solution": "def transform(value):\n    defaults={'name':'','email':'','phone':''}\n    if not isinstance(value,dict): return defaults\n    aliases={'name':'full_name','email':'email_address','phone':'phone_number'}\n    return {new:(value[new] if new in value else value.get(old,'' )).strip() if isinstance(value[new] if new in value else value.get(old,''),str) else '' for new,old in aliases.items()}\n",
+  "task_requirements": [
+    "Input is a dictionary; otherwise return defaults with name, email, and phone set to empty strings.",
+    "Output always has exactly the keys name, email, and phone.",
+    "Prefer each new key over its legacy alias: full_name, email_address, and phone_number.",
+    "Trim selected string values; use the empty-string default for missing or non-string selected values; ignore unknown keys and do not mutate input."
+  ],
+  "cases": [
+    {
+      "name": "legacy",
+      "input": {
+        "full_name": " Ada ",
+        "email_address": " a@b.test ",
+        "phone_number": " 123 "
+      },
+      "expected": {
+        "name": "Ada",
+        "email": "a@b.test",
+        "phone": "123"
+      }
+    },
+    {
+      "name": "new_wins",
+      "input": {
+        "name": "New",
+        "full_name": "Old",
+        "email": "e",
+        "phone": "p"
+      },
+      "expected": {
+        "name": "New",
+        "email": "e",
+        "phone": "p"
+      }
+    },
+    {
+      "name": "defaults",
+      "input": {
+        "extra": 7
+      },
+      "expected": {
+        "name": "",
+        "email": "",
+        "phone": ""
+      }
+    },
+    {
+      "name": "bad_type",
+      "input": {
+        "name": null,
+        "full_name": "ignored",
+        "email": 5
+      },
+      "expected": {
+        "name": "",
+        "email": "",
+        "phone": ""
+      }
+    },
+    {
+      "name": "input_type",
+      "input": [],
+      "expected": {
+        "name": "",
+        "email": "",
+        "phone": ""
+      }
+    }
+  ]
+}

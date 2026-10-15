@@ -1,0 +1,37 @@
+{
+  "task_id": "a07_path_segments",
+  "reference_solution": "def transform(value):\n    if not isinstance(value,str) or value.startswith('/'): return None\n    p=value.split('/')\n    if '..' in p: return None\n    return '/'.join(x for x in p if x not in ('','.'))\n",
+  "task_requirements": [
+    "Input is a string; otherwise return None.",
+    "Reject paths beginning with slash and any path containing a segment exactly equal to two dots.",
+    "Split on slash, remove empty and single-dot segments, and preserve remaining segment text and order.",
+    "Join remaining segments with slash; empty and dot-only relative paths become the empty string."
+  ],
+  "cases": [
+    {
+      "name": "collapse",
+      "input": "./src//lib/./a.py",
+      "expected": "src/lib/a.py"
+    },
+    {
+      "name": "empty",
+      "input": "./",
+      "expected": ""
+    },
+    {
+      "name": "traversal",
+      "input": "src/../secret",
+      "expected": null
+    },
+    {
+      "name": "safe_substring",
+      "input": "src/..cache/a",
+      "expected": "src/..cache/a"
+    },
+    {
+      "name": "absolute",
+      "input": "/etc/x",
+      "expected": null
+    }
+  ]
+}

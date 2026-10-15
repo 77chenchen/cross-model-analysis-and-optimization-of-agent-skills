@@ -1,0 +1,13 @@
+protocol: s8b-dev-only-draft
+status: ready_for_protocol_locking
+matrix:
+  fresh_tasks: 24
+  conditions: [C1, externalized, imitation, generic_control]
+  repetitions_per_task_condition: 2
+  total_runs: 192
+model: qwen3.5:9b
+constraints:
+  - no_prior_dev_or_test_task_may_enter_the_pool
+  - no_provider_request_before_task_admission_and_execution_lock
+  - abandoned_s8a_artifacts_are_not_an_analysis_cohort
+  - s7_assets_and_results_remain_immutable

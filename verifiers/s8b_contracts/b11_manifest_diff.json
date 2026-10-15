@@ -1,0 +1,130 @@
+{
+  "task_id": "b11_manifest_diff",
+  "reference_solution": "def transform(value):\n    empty={'added':[],'removed':[],'changed':[]}\n    if not isinstance(value,dict) or not isinstance(value.get('before'),list) or not isinstance(value.get('after'),list): return empty\n    def index(rows):\n        out={}\n        for r in rows:\n            if not isinstance(r,dict): continue\n            p,s,h=r.get('path'),r.get('size'),r.get('sha256')\n            if not isinstance(p,str) or not p or isinstance(s,bool) or not isinstance(s,int) or s<0 or not isinstance(h,str) or not h: continue\n            out[p]=(s,h)\n        return out\n    a,b=index(value['before']),index(value['after'])\n    return {'added':sorted(b.keys()-a.keys()),'removed':sorted(a.keys()-b.keys()),'changed':sorted(p for p in a.keys()&b.keys() if a[p]!=b[p])}\n",
+  "task_requirements": [
+    "Input is a dictionary with before and after lists; invalid top-level input returns empty added, removed, and changed lists.",
+    "A valid entry has a non-empty string path, non-negative integer size that is not boolean, and non-empty string sha256; ignore invalid entries.",
+    "For duplicate paths, the last valid entry wins.",
+    "Added means only after, removed means only before, and changed means present in both with size or sha256 different; return lexicographically sorted lists."
+  ],
+  "cases": [
+    {
+      "name": "all_kinds",
+      "input": {
+        "before": [
+          {
+            "path": "z",
+            "size": 1,
+            "sha256": "a"
+          },
+          {
+            "path": "b",
+            "size": 2,
+            "sha256": "b"
+          }
+        ],
+        "after": [
+          {
+            "path": "c",
+            "size": 3,
+            "sha256": "c"
+          },
+          {
+            "path": "z",
+            "size": 1,
+            "sha256": "a"
+          },
+          {
+            "path": "b",
+            "size": 2,
+            "sha256": "c"
+          }
+        ]
+      },
+      "expected": {
+        "added": [
+          "c"
+        ],
+        "removed": [],
+        "changed": [
+          "b"
+        ]
+      }
+    },
+    {
+      "name": "removed",
+      "input": {
+        "before": [
+          {
+            "path": "x",
+            "size": 1,
+            "sha256": "h"
+          }
+        ],
+        "after": []
+      },
+      "expected": {
+        "added": [],
+        "removed": [
+          "x"
+        ],
+        "changed": []
+      }
+    },
+    {
+      "name": "invalid_duplicate",
+      "input": {
+        "before": [
+          {
+            "path": "p",
+            "size": 1,
+            "sha256": "a"
+          }
+        ],
+        "after": [
+          {
+            "path": "p",
+            "size": 2,
+            "sha256": "b"
+          },
+          {
+            "path": "p",
+            "size": 1,
+            "sha256": "a"
+          },
+          {
+            "path": "bad",
+            "size": -1,
+            "sha256": "x"
+          }
+        ]
+      },
+      "expected": {
+        "added": [],
+        "removed": [],
+        "changed": []
+      }
+    },
+    {
+      "name": "empty",
+      "input": {
+        "before": [],
+        "after": []
+      },
+      "expected": {
+        "added": [],
+        "removed": [],
+        "changed": []
+      }
+    },
+    {
+      "name": "type",
+      "input": [],
+      "expected": {
+        "added": [],
+        "removed": [],
+        "changed": []
+      }
+    }
+  ]
+}

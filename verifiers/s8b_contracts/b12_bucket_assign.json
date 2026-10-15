@@ -1,0 +1,119 @@
+{
+  "task_id": "b12_bucket_assign",
+  "reference_solution": "import math\ndef transform(value):\n    if not isinstance(value,dict) or not isinstance(value.get('values'),list) or not isinstance(value.get('buckets'),list): return []\n    buckets=[]\n    for b in value['buckets']:\n        if not isinstance(b,dict): continue\n        n,lo,hi=b.get('name'),b.get('min'),b.get('max')\n        if not isinstance(n,str) or not n or isinstance(lo,bool) or not isinstance(lo,(int,float)) or isinstance(hi,bool) or not isinstance(hi,(int,float)): continue\n        if not math.isfinite(lo) or not math.isfinite(hi) or lo>hi: continue\n        buckets.append((n,lo,hi))\n    out=[]\n    for x in value['values']:\n        if isinstance(x,bool) or not isinstance(x,(int,float)) or not math.isfinite(x): out.append(None); continue\n        out.append(next((n for n,lo,hi in buckets if lo<=x<=hi),None))\n    return out\n",
+  "task_requirements": [
+    "Input is a dictionary with values and buckets lists; invalid top-level input returns [].",
+    "A bucket must have a non-empty string name and finite numeric min/max bounds that are not booleans, with min <= max; ignore invalid buckets.",
+    "For each finite numeric value other than a boolean, choose the first bucket whose inclusive interval contains it; return None for invalid or unmatched values.",
+    "Preserve input order and output length; overlapping intervals use the first supplied valid bucket."
+  ],
+  "cases": [
+    {
+      "name": "normal",
+      "input": {
+        "values": [
+          1,
+          5,
+          9
+        ],
+        "buckets": [
+          {
+            "name": "low",
+            "min": 0,
+            "max": 3
+          },
+          {
+            "name": "mid",
+            "min": 4,
+            "max": 6
+          },
+          {
+            "name": "high",
+            "min": 7,
+            "max": 10
+          }
+        ]
+      },
+      "expected": [
+        "low",
+        "mid",
+        "high"
+      ]
+    },
+    {
+      "name": "inclusive_overlap",
+      "input": {
+        "values": [
+          0,
+          5,
+          10
+        ],
+        "buckets": [
+          {
+            "name": "first",
+            "min": 0,
+            "max": 5
+          },
+          {
+            "name": "second",
+            "min": 5,
+            "max": 10
+          }
+        ]
+      },
+      "expected": [
+        "first",
+        "first",
+        "second"
+      ]
+    },
+    {
+      "name": "invalid_unmatched",
+      "input": {
+        "values": [
+          -1,
+          1.5,
+          "2",
+          true
+        ],
+        "buckets": [
+          {
+            "name": "bad",
+            "min": 4,
+            "max": 2
+          },
+          {
+            "name": "valid",
+            "min": 0,
+            "max": 2
+          }
+        ]
+      },
+      "expected": [
+        null,
+        "valid",
+        null,
+        null
+      ]
+    },
+    {
+      "name": "empty",
+      "input": {
+        "values": [],
+        "buckets": [
+          {
+            "name": "x",
+            "min": 0,
+            "max": 1
+          }
+        ]
+      },
+      "expected": []
+    },
+    {
+      "name": "type",
+      "input": null,
+      "expected": []
+    }
+  ]
+}

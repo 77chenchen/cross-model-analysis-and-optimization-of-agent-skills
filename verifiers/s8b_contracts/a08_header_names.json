@@ -1,0 +1,37 @@
+{
+  "task_id": "a08_header_names",
+  "reference_solution": "import re\ndef transform(value):\n    if not isinstance(value,str): return ''\n    return re.sub(r'[^a-z0-9]+','_',value.lower()).strip('_')\n",
+  "task_requirements": [
+    "Input is a string; other inputs return the empty string.",
+    "Lowercase the text and treat only ASCII letters and digits as word characters.",
+    "Replace each maximal run of punctuation, whitespace, or non-ASCII characters with one underscore.",
+    "Remove leading and trailing underscores; punctuation-only input becomes the empty string."
+  ],
+  "cases": [
+    {
+      "name": "space",
+      "input": " Display Name ",
+      "expected": "display_name"
+    },
+    {
+      "name": "punctuation",
+      "input": "HTTP/Status.Code",
+      "expected": "http_status_code"
+    },
+    {
+      "name": "runs",
+      "input": "a---b___c",
+      "expected": "a_b_c"
+    },
+    {
+      "name": "unicode",
+      "input": "Ångström ID",
+      "expected": "ngstr_m_id"
+    },
+    {
+      "name": "empty",
+      "input": " !!! ",
+      "expected": ""
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "task_id": "b10_log_summary",
+  "reference_solution": "def transform(value):\n    levels=['DEBUG','INFO','WARNING','ERROR','CRITICAL']; out={x:0 for x in levels}\n    if not isinstance(value,list): return out\n    for e in value:\n        if isinstance(e,str):\n            p=e.strip().split(); level=p[0] if p else ''\n        elif isinstance(e,dict) and isinstance(e.get('level'),str): level=e['level'].strip()\n        else: continue\n        level=level.upper()\n        if level in out: out[level]+=1\n    return out\n",
+  "task_requirements": [
+    "Input is a list; other input returns all five recognized levels with zero counts.",
+    "An entry is either a string whose first whitespace-delimited token is its level, or a dictionary with a string level field.",
+    "Recognize DEBUG, INFO, WARNING, ERROR, and CRITICAL case-insensitively after trimming; ignore unknown or malformed entries.",
+    "Return all five keys, including zero counts, in fixed order DEBUG, INFO, WARNING, ERROR, CRITICAL."
+  ],
+  "cases": [
+    {
+      "name": "mixed",
+      "input": [
+        "info hi",
+        {
+          "level": "ERROR"
+        },
+        "DEBUG started"
+      ],
+      "expected": {
+        "DEBUG": 1,
+        "INFO": 1,
+        "WARNING": 0,
+        "ERROR": 1,
+        "CRITICAL": 0
+      }
+    },
+    {
+      "name": "case",
+      "input": [
+        " warning disk",
+        {
+          "level": " critical "
+        },
+        "INFO"
+      ],
+      "expected": {
+        "DEBUG": 0,
+        "INFO": 1,
+        "WARNING": 1,
+        "ERROR": 0,
+        "CRITICAL": 1
+      }
+    },
+    {
+      "name": "unknown",
+      "input": [
+        "TRACE x",
+        "",
+        {},
+        {
+          "level": 2
+        },
+        null
+      ],
+      "expected": {
+        "DEBUG": 0,
+        "INFO": 0,
+        "WARNING": 0,
+        "ERROR": 0,
+        "CRITICAL": 0
+      }
+    },
+    {
+      "name": "empty",
+      "input": [],
+      "expected": {
+        "DEBUG": 0,
+        "INFO": 0,
+        "WARNING": 0,
+        "ERROR": 0,
+        "CRITICAL": 0
+      }
+    },
+    {
+      "name": "type",
+      "input": null,
+      "expected": {
+        "DEBUG": 0,
+        "INFO": 0,
+        "WARNING": 0,
+        "ERROR": 0,
+        "CRITICAL": 0
+      }
+    }
+  ],
+  "ordered_mapping_output": true
+}

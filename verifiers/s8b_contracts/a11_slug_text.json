@@ -1,0 +1,37 @@
+{
+  "task_id": "a11_slug_text",
+  "reference_solution": "def transform(value):\n    if not isinstance(value,str): return ''\n    out=[]; pending=False\n    for c in value.lower():\n        if c.isalnum():\n            if pending and out: out.append('-')\n            out.append(c); pending=False\n        else: pending=True\n    return ''.join(out)\n",
+  "task_requirements": [
+    "Input is a string; other inputs return the empty string.",
+    "Lowercase the text and retain Unicode alphanumeric characters.",
+    "Replace each maximal run of non-alphanumeric characters with one hyphen and remove boundary hyphens.",
+    "If no alphanumeric characters remain, return the empty string."
+  ],
+  "cases": [
+    {
+      "name": "punctuation",
+      "input": " Hello, World! ",
+      "expected": "hello-world"
+    },
+    {
+      "name": "collapse",
+      "input": "a___---b",
+      "expected": "a-b"
+    },
+    {
+      "name": "unicode",
+      "input": "Crème brûlée",
+      "expected": "crème-brûlée"
+    },
+    {
+      "name": "none",
+      "input": "--- !!!",
+      "expected": ""
+    },
+    {
+      "name": "type",
+      "input": 42,
+      "expected": ""
+    }
+  ]
+}

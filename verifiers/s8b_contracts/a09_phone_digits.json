@@ -1,0 +1,37 @@
+{
+  "task_id": "a09_phone_digits",
+  "reference_solution": "def transform(value):\n    if not isinstance(value,str): return None\n    if any(c not in '0123456789 - .()+' for c in value): return None\n    d=''.join(c for c in value if c.isdigit())\n    if len(d)==11 and d[0]=='1': d=d[1:]\n    return d if len(d)==10 else None\n",
+  "task_requirements": [
+    "Input is a string; otherwise return None.",
+    "Only digits and formatting characters space, hyphen, period, parentheses, and plus are allowed; any other character invalidates the input.",
+    "After removing formatting, accept ten digits or eleven digits beginning with country digit 1 and remove that leading 1.",
+    "Return the ten-digit local number as a string; all other lengths return None."
+  ],
+  "cases": [
+    {
+      "name": "formatted",
+      "input": "(415) 555-0132",
+      "expected": "4155550132"
+    },
+    {
+      "name": "country",
+      "input": "+1 415.555.0132",
+      "expected": "4155550132"
+    },
+    {
+      "name": "short",
+      "input": "415555013",
+      "expected": null
+    },
+    {
+      "name": "bad_country",
+      "input": "24155550132",
+      "expected": null
+    },
+    {
+      "name": "extension",
+      "input": "4155550132 ext 4",
+      "expected": null
+    }
+  ]
+}

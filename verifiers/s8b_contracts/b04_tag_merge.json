@@ -1,0 +1,79 @@
+{
+  "task_id": "b04_tag_merge",
+  "reference_solution": "def transform(value):\n    if not isinstance(value,list): return []\n    out=[]; seen=set()\n    for group in value:\n        if not isinstance(group,list): continue\n        for tag in group:\n            if not isinstance(tag,str): continue\n            t=tag.strip().lower()\n            if t and t not in seen: seen.add(t); out.append(t)\n    return out\n",
+  "task_requirements": [
+    "Input is a list of tag-list values; ignore non-list groups and non-string tags.",
+    "Visit groups and tags in input order, trim each tag, and lowercase it.",
+    "Drop blank normalized tags and preserve the first occurrence of each normalized tag.",
+    "Return a new flat list without modifying the input lists."
+  ],
+  "cases": [
+    {
+      "name": "order",
+      "input": [
+        [
+          "Red",
+          " blue"
+        ],
+        [
+          "GREEN"
+        ]
+      ],
+      "expected": [
+        "red",
+        "blue",
+        "green"
+      ]
+    },
+    {
+      "name": "duplicates",
+      "input": [
+        [
+          "A",
+          " a ",
+          "B"
+        ],
+        [
+          "b",
+          "C"
+        ]
+      ],
+      "expected": [
+        "a",
+        "b",
+        "c"
+      ]
+    },
+    {
+      "name": "malformed",
+      "input": [
+        [
+          " ",
+          null,
+          "x"
+        ],
+        "skip",
+        [
+          "y"
+        ]
+      ],
+      "expected": [
+        "x",
+        "y"
+      ]
+    },
+    {
+      "name": "empty",
+      "input": [
+        [],
+        []
+      ],
+      "expected": []
+    },
+    {
+      "name": "type",
+      "input": null,
+      "expected": []
+    }
+  ]
+}

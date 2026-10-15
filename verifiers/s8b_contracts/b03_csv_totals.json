@@ -1,0 +1,100 @@
+{
+  "task_id": "b03_csv_totals",
+  "reference_solution": "from decimal import Decimal,InvalidOperation\ndef transform(value):\n    if not isinstance(value,list): return {}\n    totals={}\n    for r in value:\n        if not isinstance(r,(list,tuple)) or len(r)<2: continue\n        k,x=r[0],r[1]\n        if not isinstance(k,str) or not k.strip() or isinstance(x,bool): continue\n        try: n=Decimal(str(x).strip())\n        except (InvalidOperation,ValueError): continue\n        if not n.is_finite(): continue\n        k=k.strip(); totals[k]=totals.get(k,Decimal(0))+n\n    return {k:float(v) for k,v in totals.items()}\n",
+  "task_requirements": [
+    "Input is a list; each accepted row is a list or tuple of at least two cells: category and amount.",
+    "Category must be a non-empty trimmed string; amount may be finite int, float, or decimal string, but not boolean.",
+    "Ignore malformed rows, invalid categories, and invalid or non-finite amounts.",
+    "Sum by trimmed category and return float totals; dictionary keys retain first-seen category order."
+  ],
+  "cases": [
+    {
+      "name": "sum",
+      "input": [
+        [
+          "food",
+          "2.5"
+        ],
+        [
+          "travel",
+          3
+        ],
+        [
+          "food",
+          "1.25"
+        ]
+      ],
+      "expected": {
+        "food": 3.75,
+        "travel": 3.0
+      }
+    },
+    {
+      "name": "trim",
+      "input": [
+        [
+          " supplies ",
+          "0.1"
+        ],
+        [
+          "supplies",
+          0.2
+        ]
+      ],
+      "expected": {
+        "supplies": 0.3
+      }
+    },
+    {
+      "name": "malformed",
+      "input": [
+        [
+          "ok",
+          2
+        ],
+        [
+          "bad",
+          "x"
+        ],
+        [
+          "missing"
+        ],
+        [
+          null,
+          4
+        ],
+        [
+          "",
+          8
+        ]
+      ],
+      "expected": {
+        "ok": 2.0
+      }
+    },
+    {
+      "name": "empty",
+      "input": [],
+      "expected": {}
+    },
+    {
+      "name": "nonfinite",
+      "input": [
+        [
+          "a",
+          true
+        ],
+        [
+          "b",
+          "NaN"
+        ],
+        [
+          "c",
+          "Infinity"
+        ]
+      ],
+      "expected": {}
+    }
+  ],
+  "ordered_mapping_output": true
+}

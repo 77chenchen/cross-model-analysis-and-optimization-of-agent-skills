@@ -1,0 +1,57 @@
+{
+  "task_id": "a12_range_clamp",
+  "reference_solution": "def transform(value):\n    if not isinstance(value,dict): return None\n    x,lo,hi=value.get('value'),value.get('min'),value.get('max')\n    if isinstance(lo,bool) or not isinstance(lo,int) or isinstance(hi,bool) or not isinstance(hi,int) or lo>hi: return None\n    if isinstance(x,bool): return None\n    if isinstance(x,int): n=x\n    elif isinstance(x,str):\n        s=x.strip()\n        if not s or not s.isascii() or not (s.isdigit() or (s[0] in '+-' and s[1:].isdigit())): return None\n        n=int(s)\n    else: return None\n    return min(hi,max(lo,n))\n",
+  "task_requirements": [
+    "Input is a dictionary with value, min, and max; malformed input returns None.",
+    "value is an integer or a base-10 integer string with optional whitespace and sign; booleans, floats, and other values are invalid.",
+    "min and max are integers but not booleans, and min must not exceed max.",
+    "Return the parsed value clamped to the inclusive bounds."
+  ],
+  "cases": [
+    {
+      "name": "inside",
+      "input": {
+        "value": "7",
+        "min": 0,
+        "max": 10
+      },
+      "expected": 7
+    },
+    {
+      "name": "below",
+      "input": {
+        "value": -8,
+        "min": -3,
+        "max": 5
+      },
+      "expected": -3
+    },
+    {
+      "name": "above",
+      "input": {
+        "value": "+11",
+        "min": 0,
+        "max": 10
+      },
+      "expected": 10
+    },
+    {
+      "name": "equal_bounds",
+      "input": {
+        "value": "4",
+        "min": 4,
+        "max": 4
+      },
+      "expected": 4
+    },
+    {
+      "name": "boolean",
+      "input": {
+        "value": true,
+        "min": 0,
+        "max": 10
+      },
+      "expected": null
+    }
+  ]
+}

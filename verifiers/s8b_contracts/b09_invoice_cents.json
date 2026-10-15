@@ -1,0 +1,56 @@
+{
+  "task_id": "b09_invoice_cents",
+  "reference_solution": "from decimal import Decimal,InvalidOperation,ROUND_HALF_UP\ndef transform(value):\n    if not isinstance(value,list): return 0\n    total=0\n    for raw in value:\n        if isinstance(raw,bool) or not isinstance(raw,(str,int)): continue\n        s=str(raw).strip()\n        try: n=Decimal(s)\n        except InvalidOperation: continue\n        if not n.is_finite() or n<0 or 'e' in s.lower() or not s or s.startswith('-') or any(c not in '0123456789+.' for c in s) or s.count('.')>1 or s.count('+')>1 or ('+' in s and not s.startswith('+')): continue\n        try: total+=int((n*100).quantize(Decimal('1'),rounding=ROUND_HALF_UP))\n        except InvalidOperation: continue\n    return total\n",
+  "task_requirements": [
+    "Input is a list of amounts; other input returns 0.",
+    "Accept strings or integers that represent non-negative decimal amounts; skip booleans, floats, invalid strings, and negative values.",
+    "Parse exactly and round each accepted amount half-up to the nearest cent before summing; return integer cents.",
+    "Allow leading plus and surrounding whitespace; reject currency symbols and exponent notation."
+  ],
+  "cases": [
+    {
+      "name": "sum",
+      "input": [
+        "1.20",
+        "2",
+        3
+      ],
+      "expected": 620
+    },
+    {
+      "name": "half_up",
+      "input": [
+        "0.005",
+        "1.234",
+        "2.675"
+      ],
+      "expected": 392
+    },
+    {
+      "name": "skip",
+      "input": [
+        "-1.00",
+        "$2.00",
+        true,
+        1.2,
+        "bad",
+        "0.10"
+      ],
+      "expected": 10
+    },
+    {
+      "name": "plus_zero",
+      "input": [
+        " +0.50 ",
+        "0",
+        "0.004"
+      ],
+      "expected": 50
+    },
+    {
+      "name": "type",
+      "input": "2.00",
+      "expected": 0
+    }
+  ]
+}
