@@ -17,14 +17,6 @@ Research question: when a coding agent receives a written skill, does it repair 
 
 [![Eight-model verifier pass rates with model logos](figures/s7/verifier_pass_rates_by_model.png)](figures/s7/verifier_pass_rates_by_model.pdf)
 
-**Formal S7 core result.** Bars show C0/C1 verifier pass rates with 95% Wilson intervals across all eight model configurations. Rows are ordered by C0 pass rate; GPT-5.6 Sol remains a sampling-uncontrolled reference anchor. The underlying results are in `results/tables/s7/`.
-
-| Completed configuration | C0 verifier pass | C1 verifier pass | Task-paired C1−C0 |
-|---|---:|---:|---:|
-| Ornith1.5 35B | 45/52 (86.5%) | 44/52 (84.6%) | −1.9 pp [−16.7, 9.3] |
-| GLM-5.3-Flash | 40/54 (74.1%) | 48/54 (88.9%) | +14.8 pp [+3.7, +29.6] |
-
-The publication figure in [paper/main.pdf](paper/main.pdf) includes both new configurations. Three Ornith records for one task used an alternate task-tree hash; all three passed the external verifier and are counted as correct in the primary result. The complete [task-hash audit](docs/ornith_task_hash_audit_20261015.md) preserves the provenance record.
 
 ## Paper
 
@@ -126,12 +118,6 @@ v1 相对 C1：v1 明确要求编辑后验证，模型对该指令的显式引�
 
 完整报告见 [PDF](paper/main.pdf) 与 [LaTeX 源码](paper/main.tex)。主图已更新为八模型版本：[PNG](paper/figures/main_results.png) / [矢量 PDF](paper/figures/main_results.pdf)。
 
-| 新完成的模型配置 | C0 verifier 通过率 | C1 verifier 通过率 | 任务配对 C1−C0 |
-|---|---:|---:|---:|
-| Ornith1.5 35B | 45/52（86.5%） | 44/52（84.6%） | −1.9 个百分点 [−16.7, 9.3] |
-| GLM-5.3-Flash | 40/54（74.1%） | 48/54（88.9%） | +14.8 个百分点 [+3.7, +29.6] |
-
-论文主图已经加入 Ornith 与 GLM。Ornith 有 3 条记录使用了另一份任务树哈希；这 3 条的外部 verifier 均判定通过，因此在主结果中按正确记录计入。[任务哈希审计](docs/ornith_task_hash_audit_20261015.md)继续保留其来源信息。
 
 ## 目录
 
