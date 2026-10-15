@@ -30,7 +30,7 @@ def emit(name: str, rows: list[dict], columns: list[str]) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--formal-s7", action="store_true", help="require the locked 870/870 formal-analysis gate")
+    parser.add_argument("--formal-s7", action="store_true", help="require the locked 1086/1086 formal-analysis gate")
     args = parser.parse_args()
     if args.formal_s7:
         enforce_formal_s7_gate(ROOT / "STATUS.md", ROOT / "analysis/analysis_patch_manifest.json")
@@ -58,6 +58,8 @@ def main() -> None:
         ("qwen3.8:27b", "cross-model", "r2", "0.5 requested", "sent if supported", "40", "65536", "1200"),
         ("qwen3-coder-next", "specialized", "r2", "0.5 requested", "sent if supported", "40", "65536", "1200"),
         ("llama3.1:8b", "lower bound", "r2", "0.5 requested", "sent if supported", "40", "65536", "1200"),
+        ("ornith1.5:35b", "cross-model", "r2", "0.5 requested", "sent if supported", "40", "65536", "1200"),
+        ("glm-5.3-flash", "cross-model", "r2", "0.5 requested", "sent if supported", "40", "65536", "1200"),
         ("gpt-5.6-sol", "reference anchor", "Codex", "uncontrolled", "uncontrolled", "not aligned", "not verified", "1200"),
     ]
     t2 = [dict(zip(["model","role","runner","temperature","seed","max_steps","context_limit","hard_timeout_s"], row)) for row in models]
@@ -75,8 +77,8 @@ def main() -> None:
         {"model_group":"qwen3.5:9b","condition":"C1","tasks":18,"repetitions":5,"planned_runs":90,"status":"core"},
         {"model_group":"qwen3.5:9b","condition":"v1","tasks":12,"repetitions":5,"planned_runs":60,"status":"exploratory test_in only"},
         {"model_group":"qwen3.5:9b","condition":"L3b","tasks":18,"repetitions":5,"planned_runs":90,"status":"exploratory"},
-        {"model_group":"five other models","condition":"C0","tasks":18,"repetitions":3,"planned_runs":270,"status":"core"},
-        {"model_group":"five other models","condition":"C1","tasks":18,"repetitions":3,"planned_runs":270,"status":"core"},
+        {"model_group":"seven other models","condition":"C0","tasks":18,"repetitions":3,"planned_runs":378,"status":"core"},
+        {"model_group":"seven other models","condition":"C1","tasks":18,"repetitions":3,"planned_runs":378,"status":"core"},
     ]
     emit("T4_s7_plan", t4, list(t4[0]))
 

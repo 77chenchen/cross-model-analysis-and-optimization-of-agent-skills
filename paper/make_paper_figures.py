@@ -19,8 +19,8 @@ GRAY = "#777777"
 BLUE = "#3B6EA5"
 
 mpl.rcParams.update({
-    "font.family": "serif",
-    "font.serif": ["Times New Roman", "STIX Two Text", "Liberation Serif", "DejaVu Serif"],
+    "font.family": "sans-serif",
+    "font.sans-serif": ["Arial", "Helvetica", "Liberation Sans", "DejaVu Sans"],
     "mathtext.fontset": "stix",
     "font.size": 8,
     "axes.labelsize": 8,
@@ -30,6 +30,7 @@ mpl.rcParams.update({
     "legend.fontsize": 7,
     "pdf.fonttype": 42,
     "ps.fonttype": 42,
+    "svg.fonttype": "none",
     "axes.linewidth": 0.6,
     "axes.edgecolor": INK,
     "xtick.direction": "out",
@@ -45,7 +46,34 @@ def read(name: str) -> list[dict[str, str]]:
 
 
 def save(fig: plt.Figure, name: str) -> None:
-    fig.savefig(FIG / name, format="pdf", bbox_inches="tight", pad_inches=0.04)
+    fig.canvas.draw()
+    if len([axis for axis in fig.axes if axis.get_visible()]) >= 2:
+        try:
+            from audit_panel_alignment import require_matplotlib_panel_alignment
+        except ImportError:
+            require_matplotlib_panel_alignment = None
+        if require_matplotlib_panel_alignment is not None:
+            qa = FIG / "qa"
+            qa.mkdir(parents=True, exist_ok=True)
+            require_matplotlib_panel_alignment(
+                fig,
+                json_out=qa / f"{Path(name).stem}.alignment.json",
+                overlay_svg=qa / f"{Path(name).stem}.alignment.svg",
+                tolerance_pt=1.5,
+                gutter_tolerance_pt=1.5,
+                require_panel_labels=False,
+                strict=True,
+                exemptions=[{
+                    "panels": ["a", "b", "c"],
+                    "checks": ["panel-width", "horizontal-gutter"],
+                    "reason": "Intentional asymmetric outcome, depth, and flag panels.",
+                }],
+            )
+    output = FIG / name
+    fig.savefig(output, format="pdf", bbox_inches="tight", pad_inches=0.04)
+    fig.savefig(output.with_suffix(".svg"), format="svg", bbox_inches="tight", pad_inches=0.04)
+    fig.savefig(output.with_suffix(".png"), format="png", dpi=300, bbox_inches="tight", pad_inches=0.04)
+    fig.savefig(output.with_suffix(".tiff"), format="tiff", dpi=600, bbox_inches="tight", pad_inches=0.04)
     plt.close(fig)
 
 
@@ -57,7 +85,8 @@ def main_results() -> None:
         r for r in core if r["model"] == m and r["condition"] == "C0")["verifier_pass_rate"]))
     by = {(r["model"], r["condition"]): r for r in core}
     proc = {(r["model"], r["condition"], r["metric"]): r for r in process}
-    fig = plt.figure(figsize=(5.5, 3.35), layout="constrained")
+    # Eight rows remain legible at the manuscript's 5.5-inch text width.
+    fig = plt.figure(figsize=(5.5, 4.05), layout="constrained")
     grid = fig.add_gridspec(1, 3, width_ratios=(2.55, 1.15, 1.35), wspace=0.16)
     a, b, c = [fig.add_subplot(grid[0, i]) for i in range(3)]
     y = np.arange(len(models))
@@ -93,7 +122,8 @@ def main_results() -> None:
             b.plot([q1, q3], [i+off, i+off], color=INK, linewidth=.9)
             b.plot(med, i+off, marker=marker, markersize=3.5, markeredgecolor=INK,
                    markerfacecolor=INK if filled else "white", linestyle="none")
-    b.set_xlim(0, 18); b.set_xticks([0, 5, 10, 15]); b.set_yticks(y, [])
+    b.set_xlim(0, 24); b.set_xticks([0, 5, 10, 15, 20]); b.set_yticks(y, [])
+    b.set_ylim(len(models) - .5, -.5)
     b.set_xlabel("Median [IQR]", fontsize=7.2); b.tick_params(axis="both", labelsize=7, direction="out")
     b.spines["top"].set_visible(False); b.spines["right"].set_visible(False)
 
@@ -106,7 +136,7 @@ def main_results() -> None:
     mat = np.asarray(mat)
     c.imshow(mat, cmap="cividis", vmin=0, vmax=1, aspect="auto")
     c.set_title("(c) Run flags", loc="left", fontsize=9, fontweight="bold")
-    c.set_xticks(range(3), ["empty", "no edit", "timeout"], rotation=35, ha="right")
+    c.set_xticks(range(3), ["final\nempty", "no\nedit", "timeout"], rotation=0, ha="center")
     c.set_yticks(y, [m.replace(":", "\u2009:") for m in models])
     c.tick_params(axis="both", labelsize=7, direction="out")
     for i in range(len(models)):

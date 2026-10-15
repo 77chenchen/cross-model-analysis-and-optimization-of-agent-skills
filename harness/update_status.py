@@ -36,11 +36,11 @@ else:
 if s7 == 0:
     s7_state = "locked; not started"
     current = "Current task: S7 execution lock is complete; no scheduled test run has started."
-    estimate = "Estimated remaining: 870 locked S7 runs; resume only in the checked-in per-model schedule order."
-elif s7 < 870:
+    estimate = "Estimated remaining: 1086 locked S7 runs; resume only in the checked-in per-model schedule order."
+elif s7 < 1086:
     s7_state = "running in locked schedule order"
     current = "Current task: S7 is running from immutable schedules; completed run IDs are resumable only with complete artifacts."
-    estimate = f"Estimated remaining: {870-s7} locked S7 runs."
+    estimate = f"Estimated remaining: {1086-s7} locked S7 runs."
 else:
     if (ROOT / "results/s7/analysis_manifest.json").exists():
         s7_state = "complete; formal analysis complete"
@@ -69,7 +69,7 @@ lines = [
     f"| B5 provider-error replacements | 8 | {replacements} | {max(0,8-replacements)} | protocol committed; sequential concurrency=1 |",
     f"| B5 r2 blind LLM judge | 24 | {judge} | {max(0,24-judge)} | newly anonymized packets only |",
     f"| L3b dev-validate | 72 | {l3b} | {max(0,72-l3b)} | {l3b_state} |",
-    f"| S7 locked formal benchmark | 870 | {s7} | {max(0,870-s7)} | {s7_state} |",
+    f"| S7 locked formal benchmark | 1086 | {s7} | {max(0,1086-s7)} | {s7_state} |",
     f"| S8 dev-only mechanism study | 192 | {s8} | {max(0,192-s8)} | {s8_state} |",
     "", current, estimate, "",
 ]

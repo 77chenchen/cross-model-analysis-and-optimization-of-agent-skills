@@ -90,8 +90,8 @@ def completed_s7(status_path: Path) -> tuple[int, int]:
 
 def enforce_formal_s7_gate(status_path: Path, manifest_path: Path) -> dict:
     planned, completed = completed_s7(status_path)
-    if (planned, completed) != (870, 870):
-        raise RuntimeError(f"formal S7 analysis blocked: STATUS.md is {completed}/{planned}, expected 870/870")
+    if (planned, completed) != (1086, 1086):
+        raise RuntimeError(f"formal S7 analysis blocked: STATUS.md is {completed}/{planned}, expected 1086/1086")
     manifest = load(manifest_path)
     expected = manifest.get("verifier_pass_module_sha256")
     actual = sha256(Path(__file__))

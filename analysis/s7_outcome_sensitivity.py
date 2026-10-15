@@ -19,8 +19,8 @@ RUNS = ROOT / "data" / "s7_runs"
 OUT = ROOT / "results" / "tables" / "report"
 DOC_TAXONOMY = ROOT / "docs" / "weak_failure_taxonomy.md"
 DOC_SENSITIVITY = ROOT / "docs" / "verifier_error_sensitivity.md"
-MODELS = ["qwen3.5:9b", "gemma4:26b", "qwen3.8:27b", "qwen3-coder-next", "llama3.1:8b", "gpt-5.6-sol"]
-FOCUS = MODELS[:4]
+MODELS = ["qwen3.5:9b", "gemma4:26b", "qwen3.8:27b", "qwen3-coder-next", "ornith1.5:35b", "glm-5.3-flash", "llama3.1:8b", "gpt-5.6-sol"]
+FOCUS = MODELS[:6]
 SEED = 20261011
 DRAWS = 10_000
 

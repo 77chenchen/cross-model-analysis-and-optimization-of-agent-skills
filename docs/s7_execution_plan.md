@@ -34,6 +34,8 @@ three repetitions in each core condition.
 | `qwen3.8:27b` | medium model | r2 direct SoC path | same |
 | `qwen3-coder-next` | specialized model | r2 direct SoC path | same |
 | `llama3.1:8b` | lower-bound model | r2 direct SoC path | same |
+| `ornith1.5:35b` | cross-model model | r2 direct SoC path | same |
+| `glm-5.3-flash` | cross-model model | r2 direct provider path | same; execution requires endpoint availability |
 | `gpt-5.6-sol` | reference anchor | Codex path unless direct API credentials are confirmed | reference anchor; sampling is not controlled by r2 |
 
 For r2, a seed is sent only if the endpoint supports it. Metadata preserves
@@ -64,10 +66,10 @@ The approved, fixed total is:
 | component | `test_in` | `test_out` | total |
 |---|---:|---:|
 | qwen3.5:9b: C0, C1, v1, L3b | 240 | 90 | 330 |
-| five other models: C0 and C1 | 360 | 180 | 540 |
-| **all conditions** | **600** | **270** | **870** |
+| seven other models: C0 and C1 | 504 | 252 | 756 |
+| **all conditions** | **744** | **342** | **1086** |
 
-Of the 870 runs, the C0/C1 core is **720** (180 qwen3.5:9b plus 540 for the
+Of the 1086 runs, the C0/C1 core is **936** (180 qwen3.5:9b plus 756 for the
 other models); the weak-model exploratory portion is **150** (60 v1 plus 90
 L3b). No token or currency estimate is part of this protocol.
 
@@ -123,6 +125,8 @@ following fixed integer seeds:
 | `qwen3-coder-next` | 303509 |
 | `llama3.1:8b` | 318109 |
 | `gpt-5.6-sol` | 560009 |
+| `ornith1.5:35b` | 1535009 |
+| `glm-5.3-flash` | 530009 |
 
 The schedule generator constructs every assigned task × condition × repetition
 cell, assigns a deterministic unique `run_id`, and performs a seeded
@@ -130,7 +134,7 @@ stratified permutation. Its balancing checks require every condition, task,
 and repetition to be distributed through the schedule rather than appearing
 as a condition block. A completed `run_id` is skipped on resumption only when
 its locked metadata and artifact-completeness check pass; every other entry is
-continued in the original order. The generator, six TSV schedule files, their
+continued in the original order. The generator, eight TSV schedule files, their
 SHA-256 digests, and the balancing-check report become execution-lock
 artifacts. The schedules are not generated in this documentation stage.
 
@@ -190,7 +194,7 @@ patch identifier and hashes; `verifier_timeout_s=1200` and its outcome-flag
 definition; all v0/v1 skills and the L3b protocol; task/verifier/fixture
 manifests; the C0/C1 serialized prompt templates and SHA-256 hashes; the
 skill-activation parser version and hash; schedule-generator and analysis-code
-hashes; six schedules, seeds, and schedule hashes; and all controls above.
+hashes; eight schedules, seeds, and schedule hashes; and all controls above.
 The existing pilot-only runner is not sufficient: the formal runner must be
 implemented and reviewed before this lock, rather than silently reusing a
 pilot entry point.

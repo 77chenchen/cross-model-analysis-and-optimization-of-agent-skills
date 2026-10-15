@@ -7,15 +7,24 @@ Research question: when a coding agent receives a written skill, does it repair 
 
 ## Key findings
 
-- Across the six controlled model configurations, C1 (the fixed skill) has a higher pass-rate point estimate than C0 for the weak target, whereas the stronger-model comparisons show no clear improvement ([S7_T1_model_condition_summary.csv](results/tables/s7/S7_T1_model_condition_summary.csv); [S7_T2_core_paired_differences.csv](results/tables/s7/S7_T2_core_paired_differences.csv)).
+- Across eight model configurations, the C1 effect is model dependent. The clearest positive result is GLM-5.3-Flash: verifier pass rises from 40/54 (74.1%) under C0 to 48/54 (88.9%) under C1, a task-paired gain of 14.8 percentage points with a 95% bootstrap interval of [3.7, 29.6] points ([S7_T1_model_condition_summary.csv](results/tables/s7/S7_T1_model_condition_summary.csv); [S7_T2_core_paired_differences.csv](results/tables/s7/S7_T2_core_paired_differences.csv)).
 - For the weak target, qwen3.5:9b, C1 reduces the task-level rate of validation after the final edit by 25.0 percentage points while increasing verifier pass by 1.9 percentage points ([S7_T7_process_paired.csv](results/tables/s7/S7_T7_process_paired.csv); [S7_T2_core_paired_differences.csv](results/tables/s7/S7_T2_core_paired_differences.csv)).
+- Ornith1.5:35b passed 45/52 usable C0 runs (86.5%) and 44/52 usable C1 runs (84.6%); its task-paired C1−C0 estimate was −1.9 percentage points with a 95% paired-bootstrap interval of [−16.7, 9.3] points ([Ornith completed summary](results/tables/s7/S7_T8_ornith_completed_summary.md)).
+- For GLM-5.3-Flash, C1 also raises task-paired post-edit validation by 22.2 percentage points and increases the median trajectory from five to six tool calls. It is the clearest case in this panel where the fixed skill changes the prescribed process and improves verified repair.
 - The central question is therefore not only whether a skill improves pass rate, but whether it changes the path through reading, writing, validating, and terminating. For qwen3.5:9b, C1 produces 25.0 percentage points less post-edit validation, slightly longer trajectories, and more rewrites and repeated actions; verifier pass moves from 48.3% to 50.6%. Relative to C1, v1 is explicitly referenced in 80% of runs and raises post-edit validation by 45.0 percentage points, yet does not change verifier pass ([S7_T4_process_metrics.csv](results/tables/s7/S7_T4_process_metrics.csv); [S7_T5_activation.csv](results/tables/s7/S7_T5_activation.csv); [S7_T6_exploratory.csv](results/tables/s7/S7_T6_exploratory.csv); [S7_T7_process_paired.csv](results/tables/s7/S7_T7_process_paired.csv)).
 
 ## Results at a glance
 
-[![Formal S7 verifier pass rates by model and condition](figures/s7/verifier_pass_rates_by_model.png)](figures/s7/verifier_pass_rates_by_model.png)
+[![Eight-model verifier pass rates with model logos](figures/s7/verifier_pass_rates_by_model.png)](figures/s7/verifier_pass_rates_by_model.pdf)
 
-**Formal S7 core result.** Bars show the C0/C1 verifier pass rate on all held-out tasks; whiskers are 95% Wilson intervals. This is the project-maintainer supplied display image; the underlying results remain in `results/tables/s7/`. GPT-5.6 Sol remains a sampling-uncontrolled reference anchor.
+**Formal S7 core result.** Bars show C0/C1 verifier pass rates with 95% Wilson intervals across all eight model configurations. Rows are ordered by C0 pass rate; GPT-5.6 Sol remains a sampling-uncontrolled reference anchor. The underlying results are in `results/tables/s7/`.
+
+| Completed configuration | C0 verifier pass | C1 verifier pass | Task-paired C1−C0 |
+|---|---:|---:|---:|
+| Ornith1.5 35B | 45/52 (86.5%) | 44/52 (84.6%) | −1.9 pp [−16.7, 9.3] |
+| GLM-5.3-Flash | 40/54 (74.1%) | 48/54 (88.9%) | +14.8 pp [+3.7, +29.6] |
+
+The publication figure in [paper/main.pdf](paper/main.pdf) includes both new configurations. Three Ornith records for one task used an alternate task-tree hash; all three passed the external verifier and are counted as correct in the primary result. The complete [task-hash audit](docs/ornith_task_hash_audit_20261015.md) preserves the provenance record.
 
 ## Paper
 
@@ -45,9 +54,9 @@ skills/           Frozen written-skill variants used by the experimental conditi
 | 2. Sampling and calibration | Probe transport controls, preserve temperature-0 pilots as legacy evidence, then calibrate model–task difficulty under the direct runner. | Controls and their limitations were recorded rather than assumed; the weak model was retained as a floor condition. See [sampling probe](docs/s0_sampling_probe.md), [calibration protocol](docs/s4_calibration_protocol.md), and [calibration results](docs/s4_calibration_results.md). |
 | 3. Runner and outcome diagnosis | Replace the opaque CLI path for open-weight models with a minimal direct runner; distinguish empty finals, no edits, tool errors, timeouts, and verifier outcomes. | The r2 runner, non-exclusive outcome flags, and verifier-pass correction were locked. See [runner design](docs/b1_r2_runner.md), [outcome revision](docs/outcome_flags_revision.md), and [verifier-pass erratum](docs/verifier_pass_erratum_20261010.md). |
 | 4. Development interventions | Diagnose weak-model trajectories without touching frozen assets; evaluate v1 wording and a fixed call-32 reminder only on development data. | The recorded pilot is a negative result; L3b is a mechanism observation, not an efficacy claim. See [qwen diagnosis](docs/s4_qwen35_diagnosis.md), [v1 pilot record](docs/d4_intervention.md), [L3b results](docs/l3b_results.md), and [metric reconciliation](docs/l3b_metric_reconciliation.md). |
-| 5. Locked formal evaluation | Lock prompts, schedules, hashes, outcome rules, and task-paired analysis before any test execution; interleave conditions rather than run them in condition blocks. | 870 scheduled S7 runs completed. See [execution plan](docs/s7_execution_plan.md), [execution lock](config/s7_execution_lock.yaml), [schedule chain](docs/s7_schedule_chain_20261010.md), and [batch ledger](STATUS.md). |
-| 6. Formal analysis and corrections | Use <code>verifier.json.passed</code> as the primary outcome; exclude only retry-exhausted provider errors from the primary denominator; retain legacy labels for audit. | The locked tables and figures show no consistent C1 advantage; corrections remain visible. See [formal result note](docs/s7_formal_results_20261011.md), [S7 tables](results/tables/s7/), [figures](figures/s7/), and [analysis patch](docs/s7_verifier_pass_analysis_patch_20261010.md). |
-| 7. Interpretation and next study | Test whether observed behaviors distinguish success, document task and provider incidents, and formulate a dev-only successor without changing S7. | Behavior–outcome evidence does not identify a success mechanism. S8 is a draft awaiting authorization. See [behavior cross-tabulation](docs/behavior_outcome_crosstab.md), [failure taxonomy](docs/weak_failure_taxonomy.md), and [S8 plan](docs/s8_plan.md). |
+| 5. Locked formal evaluation | Lock prompts, schedules, hashes, outcome rules, and task-paired analysis before any test execution; interleave conditions rather than run them in condition blocks. | The eight-model schedule completed all 1,086 runs. See [execution plan](docs/s7_execution_plan.md), [execution lock](config/s7_execution_lock.yaml), [schedule chain](docs/s7_schedule_chain_20261010.md), and [batch ledger](STATUS.md). |
+| 6. Formal analysis and corrections | Use <code>verifier.json.passed</code> as the primary outcome; exclude only retry-exhausted provider errors from the primary denominator; retain legacy labels for audit. | GLM adds a positive C1 contrast of +14.8 pp [3.7, 29.6], whereas high-baseline Ornith has −1.9 pp [−16.7, 9.3]. See the [formal tables](results/tables/s7/), [figures](figures/s7/), and [analysis patch](docs/s7_verifier_pass_analysis_patch_20261010.md). |
+| 7. Fresh-task mechanism study | Use 24 newly authored and independently admitted development tasks to compare v0, an externalized process, trajectory imitation, and a length-matched generic control without changing S7. | S8-b is locked as 24 tasks × 4 conditions × 2 repetitions = 192 runs and is running sequentially. See the [S8-b status](S8B_STATUS.md), [execution lock](config/s8b_execution_lock.yaml), and [analysis plan](docs/s8b_analysis_plan_20261015.md). |
 
 ## Reproduction
 
@@ -106,14 +115,23 @@ Source code is licensed under MIT. Released data, figures, tables, and documenta
 
 ## 核心结论
 
-- 在六个受控模型配置中，C1 相对 C0 的通过率点在小模型上有上升，对于强模型来说没有提升（[S7_T1_model_condition_summary.csv](results/tables/s7/S7_T1_model_condition_summary.csv)、[S7_T2_core_paired_differences.csv](results/tables/s7/S7_T2_core_paired_differences.csv)）。
+- 八个模型配置表明，C1 的作用取决于模型。最清楚的正向结果来自 GLM-5.3-Flash：C0 通过 40/54（74.1%），C1 通过 48/54（88.9%）；按任务配对的提升为 14.8 个百分点，95% bootstrap 区间为 [3.7, 29.6]（[S7_T1_model_condition_summary.csv](results/tables/s7/S7_T1_model_condition_summary.csv)、[S7_T2_core_paired_differences.csv](results/tables/s7/S7_T2_core_paired_differences.csv)）。
 - 对弱目标模型 qwen3.5:9b，C1 使“最终一次编辑后再验证”的任务级比例降低 25.0 个百分点，通过率增加 1.9 个百分点（[S7_T7_process_paired.csv](results/tables/s7/S7_T7_process_paired.csv)、[S7_T2_core_paired_differences.csv](results/tables/s7/S7_T2_core_paired_differences.csv)）。
+- Ornith1.5:35b 在 C0 下通过 45/52 条可用运行（86.5%），在 C1 下通过 44/52 条（84.6%）；按任务配对的 C1−C0 为 −1.9 个百分点，95% 配对 bootstrap 区间为 [−16.7, 9.3]（[Ornith 完成结果](results/tables/s7/S7_T8_ornith_completed_summary.md)）。
+- 对 GLM-5.3-Flash，C1 还使按任务配对的“最终编辑后验证”增加 22.2 个百分点，并使中位工具调用数从 5 增加到 6。它是当前面板中最清楚的“skill 同时改变执行过程并提高修复通过率”的案例。
 - 本研究的核心不只在于“skill 有没有提高通过率”，还在于检验：**即使最终通过率没有明显变化，skill 是否会改变智能体读取代码、写入文件、执行验证以及结束任务的路径。** 对 qwen3.5:9b，C1 与 v1 都观察到了这类轨迹层变化，C1 相对 C0：编辑后的验证行为减少了 25.0 个百分点，同时平均轨迹略长，并出现更多重写和重复动作；通过率从 48.3% 到 50.6%。
 v1 相对 C1：v1 明确要求编辑后验证，模型对该指令的显式引用达到 80%，编辑后验证行为增加 45.0 个百分点；但通过率没有变化。（[S7_T4_process_metrics.csv](results/tables/s7/S7_T4_process_metrics.csv)、[S7_T7_process_paired.csv](results/tables/s7/S7_T7_process_paired.csv)）。
 
 ## 主结果与论文
 
-完整报告见 [PDF](paper/main.pdf) 与 [LaTeX 源码](paper/main.tex)
+完整报告见 [PDF](paper/main.pdf) 与 [LaTeX 源码](paper/main.tex)。主图已更新为八模型版本：[PNG](paper/figures/main_results.png) / [矢量 PDF](paper/figures/main_results.pdf)。
+
+| 新完成的模型配置 | C0 verifier 通过率 | C1 verifier 通过率 | 任务配对 C1−C0 |
+|---|---:|---:|---:|
+| Ornith1.5 35B | 45/52（86.5%） | 44/52（84.6%） | −1.9 个百分点 [−16.7, 9.3] |
+| GLM-5.3-Flash | 40/54（74.1%） | 48/54（88.9%） | +14.8 个百分点 [+3.7, +29.6] |
+
+论文主图已经加入 Ornith 与 GLM。Ornith 有 3 条记录使用了另一份任务树哈希；这 3 条的外部 verifier 均判定通过，因此在主结果中按正确记录计入。[任务哈希审计](docs/ornith_task_hash_audit_20261015.md)继续保留其来源信息。
 
 ## 目录
 
@@ -140,9 +158,9 @@ skills/           各实验条件使用的、在锁定后不再改动的skill
 | 2. 校准模型、任务与采样设置 | 先检查实际 API/CLI 能否接受温度和随机种子；将温度为 0 的早期试跑独立保留，再以直接 runner 测量模型在任务池上的难度分布。 | 不把“请求了某个参数”误写成“参数已受控”；qwen3.5:9b 被记录为下限条件而非干预优化对象。见[采样探测](docs/s0_sampling_probe.md)、[校准协议](docs/s4_calibration_protocol.md)与[校准结果](docs/s4_calibration_results.md)。 |
 | 3. 重建 runner 与结局口径 | 针对 CLI 路径中难以观察的响应字段，构建最小直接 runner；把最终消息为空、源文件未变、工具调用错误、超时和 verifier 判定拆成可同时成立的标志。 | 锁定 r2 runner，并将主结局改为 verifier 的 Boolean 字段而非旧的单一标签。见[runner 设计](docs/b1_r2_runner.md)、[结局字段修订](docs/outcome_flags_revision.md)与[verifier-pass 勘误](docs/verifier_pass_erratum_20261010.md)。 |
 | 4. 仅用开发集理解失败与测试干预 | 不改题目、verifier 或既有轨迹；只在允许设计干预的诊断/验证数据上检查失败模式，并比较 v1 文本和固定第 32 次调用提醒。 | v1 的早期结果是应保留的负结果；L3b 只证明某些触发后行为可被观测，不能支持效果结论。见[qwen 诊断](docs/s4_qwen35_diagnosis.md)、[v1 记录](docs/d4_intervention.md)、[L3b 结果](docs/l3b_results.md)和[指标对账](docs/l3b_metric_reconciliation.md)。 |
-| 5. 正式运行前冻结设计 | 在任何保留测试任务运行前，固定提示序列化、条件、调度、哈希、分母规则和按任务配对的分析方式；同一模型的条件按交错顺序运行。 | 锁定后的 S7 共完成 870 条调度运行。见[执行计划](docs/s7_execution_plan.md)、[执行锁](config/s7_execution_lock.yaml)、[调度监督器说明](docs/s7_schedule_chain_20261010.md)和[状态账本](STATUS.md)。 |
-| 6. 用 verifier 结果完成正式分析 | 正式结果统一读取 <code>verifier.json.passed</code>；只将重试耗尽的传输失败移出主分母，旧标签继续保留以便对账。 | C1 没有显示跨模型一致的通过率优势；全部表、图和勘误均保留可追溯来源。见[正式结果说明](docs/s7_formal_results_20261011.md)、[S7 结果表](results/tables/s7/)、[S7 图](figures/s7/)与[分析补丁](docs/s7_verifier_pass_analysis_patch_20261010.md)。 |
-| 7. 将解释与下一步分开 | 检查过程行为是否真正区分成功与失败，记录任务及 provider 事件，并只起草不回写 S7 的后续开发集研究。 | 已有行为—结果交叉表不足以把某个行为解释为成功机制；S8 仍只是待批准方案。见[行为—结果交叉表](docs/behavior_outcome_crosstab.md)、[机械失败分类](docs/weak_failure_taxonomy.md)与[S8 方案](docs/s8_plan.md)。 |
+| 5. 正式运行前冻结设计 | 在任何保留测试任务运行前，固定提示序列化、条件、调度、哈希、分母规则和按任务配对的分析方式；同一模型的条件按交错顺序运行。 | 八模型正式调度的 1,086 条运行已经全部完成。见[执行计划](docs/s7_execution_plan.md)、[执行锁](config/s7_execution_lock.yaml)、[调度监督器说明](docs/s7_schedule_chain_20261010.md)和[状态账本](STATUS.md)。 |
+| 6. 用 verifier 结果完成正式分析 | 正式结果统一读取 <code>verifier.json.passed</code>；只将重试耗尽的传输失败移出主分母，旧标签继续保留以便对账。 | GLM 的 C1 配对提升为 +14.8 个百分点 [3.7, 29.6]；高基线 Ornith 为 −1.9 个百分点 [−16.7, 9.3]。见[正式结果表](results/tables/s7/)、[S7 图](figures/s7/)与[分析补丁](docs/s7_verifier_pass_analysis_patch_20261010.md)。 |
+| 7. 使用全新任务检验机制 | 另外制作 24 个通过独立准入的开发任务，比较 v0、外显流程、轨迹模仿和等长通用提示，不回头修改 S7。 | S8-b 已锁定为 24 个任务 × 4 个条件 × 2 次重复，共 192 条，目前正按单 worker 顺序运行。见 [S8-b 监控](S8B_STATUS.md)、[执行锁](config/s8b_execution_lock.yaml)和[分析计划](docs/s8b_analysis_plan_20261015.md)。 |
 
 ## 复现：
 

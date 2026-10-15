@@ -30,6 +30,12 @@ models:
   - role: specialized
     provider: soclaas
     requested_model_id: qwen3-coder-next
+  - role: cross_model
+    provider: soclaas
+    requested_model_id: ornith1.5:35b
+  - role: cross_model
+    provider: soclaas
+    requested_model_id: glm-5.3-flash
 
 splits:
   pilot: excluded_from_formal_analysis

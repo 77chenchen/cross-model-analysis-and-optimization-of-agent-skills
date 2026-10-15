@@ -1,25 +1,25 @@
 # S8-b status monitor
 
-Last updated: 2026-10-15T15:18:03+08:00
+Last updated: 2026-10-15T15:55:33+08:00
 
 ## Current state
 
-**locked; ready.**
+**running.**
 
 | Item | Planned | Completed | Remaining |
 |---|---:|---:|---:|
-| qwen3.5:9b S8-b runs | 192 | 0 | 192 |
+| qwen3.5:9b S8-b runs | 192 | 14 | 178 |
 
 | Condition | Completed | Verifier pass (monitoring only) |
 |---|---:|---:|
-| C1 | 0 | 0 |
-| externalized | 0 | 0 |
-| imitation | 0 | 0 |
-| generic_control | 0 | 0 |
+| C1 | 4 | 4 |
+| externalized | 6 | 3 |
+| imitation | 3 | 1 |
+| generic_control | 1 | 0 |
 
 Provider-error flags: 0. Timeout flags: 0.
 
-Next schedule row: `1 / s8b-qwen3-5-9b-b01_record_dedup-externalized-r1`.
+Next schedule row: `15 / s8b-qwen3-5-9b-b04_tag_merge-C1-r1`.
 
 Monitoring counts are operational only. Task-paired analysis begins after 192/192.
 

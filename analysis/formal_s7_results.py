@@ -33,6 +33,8 @@ MODELS = [
     "qwen3.8:27b",
     "qwen3-coder-next",
     "llama3.1:8b",
+    "ornith1.5:35b",
+    "glm-5.3-flash",
     "gpt-5.6-sol",
 ]
 CONDITIONS = ["C0", "C1", "v1", "l3b"]
@@ -471,9 +473,9 @@ def main() -> None:
         row, errors = read_run(metadata_path.parent, baselines)
         rows.append(row)
         event_errors.extend(errors)
-    if len(rows) != 870:
-        raise RuntimeError(f"expected 870 S7 records, found {len(rows)}")
-    if sum(row["verifier_available"] for row in rows) != 870:
+    if len(rows) != 1086:
+        raise RuntimeError(f"expected 1086 S7 records, found {len(rows)}")
+    if sum(row["verifier_available"] for row in rows) != 1086:
         raise RuntimeError("every S7 run must expose verifier.json.passed")
 
     grouped = grouped_summary(rows)

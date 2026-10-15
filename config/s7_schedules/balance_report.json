@@ -12,6 +12,19 @@
     "max_adjacent_same_condition": 1,
     "unique_run_ids": true
   },
+  "glm-5.3-flash": {
+    "by_condition": {
+      "C0": 54,
+      "C1": 54
+    },
+    "by_split": {
+      "test_in": 72,
+      "test_out": 36
+    },
+    "count": 108,
+    "max_adjacent_same_condition": 1,
+    "unique_run_ids": true
+  },
   "gpt-5.6-sol": {
     "by_condition": {
       "C0": 54,
@@ -26,6 +39,19 @@
     "unique_run_ids": true
   },
   "llama3.1:8b": {
+    "by_condition": {
+      "C0": 54,
+      "C1": 54
+    },
+    "by_split": {
+      "test_in": 72,
+      "test_out": 36
+    },
+    "count": 108,
+    "max_adjacent_same_condition": 1,
+    "unique_run_ids": true
+  },
+  "ornith1.5:35b": {
     "by_condition": {
       "C0": 54,
       "C1": 54

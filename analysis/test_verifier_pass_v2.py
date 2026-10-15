@@ -42,10 +42,10 @@ class VerifierPassV2Tests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             status = root / "STATUS.md"
-            status.write_text("| S7 locked formal benchmark | 870 | 400 | 470 | running |\n", encoding="utf-8")
+            status.write_text("| S7 locked formal benchmark | 1086 | 400 | 686 | running |\n", encoding="utf-8")
             manifest = root / "manifest.json"
             manifest.write_text(json.dumps({}), encoding="utf-8")
-            with self.assertRaisesRegex(RuntimeError, "400/870"):
+            with self.assertRaisesRegex(RuntimeError, "400/1086"):
                 enforce_formal_s7_gate(status, manifest)
 
 

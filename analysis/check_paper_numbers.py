@@ -17,6 +17,8 @@ MODELS = {
     r"\QwenStrong": "qwen3.8:27b",
     r"\Coder": "qwen3-coder-next",
     r"\Llama": "llama3.1:8b",
+    r"\Ornith": "ornith1.5:35b",
+    r"\GLM": "glm-5.3-flash",
     r"\GPT\tnote{a}": "gpt-5.6-sol",
 }
 
@@ -96,8 +98,7 @@ def main() -> int:
         f"{100 * float(v1_row['mean_difference']):.1f}",
         "50/105 (47.6\\%)",
         "39/75 (52.0\\%)",
-        "9.0--11.6",
-        "104",
+        "9.0 to 11.6",
     ]
     for token in required:
         if token not in tex:
@@ -110,8 +111,8 @@ def main() -> int:
         raise AssertionError(f"abstract word count {len(words)} is outside 150--200")
     if re.search(r"\bS[4-7]\b|\bL3b\b", tex):
         raise AssertionError("internal batch label remains in the manuscript")
-    if "[repository URL to be added]" not in tex:
-        raise AssertionError("repository URL placeholder missing")
+    if "https://github.com/77chenchen/skill-trajectory-benchmark" not in tex:
+        raise AssertionError("public repository URL missing")
     for fig in ("main_results.pdf", "decoupling.pdf", "behavior_outcome.pdf", "failure_flags.pdf", "legacy_vs_verifier.pdf", "kappa_pabak.png"):
         if not (PAPER / "figures" / fig).exists():
             raise AssertionError(f"missing figure asset: {fig}")

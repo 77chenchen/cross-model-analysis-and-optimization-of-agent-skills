@@ -17,6 +17,8 @@ MODEL_STYLES = {
     "gemma4:26b": {"color": "#009E73", "marker": "s", "fill": "full", "linestyle": "-"},
     "llama3.1:8b": {"color": "#CC79A7", "marker": "^", "fill": "full", "linestyle": "-"},
     "qwen3-coder-next": {"color": "#8C6BB1", "marker": "P", "fill": "full", "linestyle": "-"},
+    "ornith1.5:35b": {"color": "#C77C1A", "marker": "v", "fill": "full", "linestyle": "-"},
+    "glm-5.3-flash": {"color": "#2B8CBE", "marker": "X", "fill": "full", "linestyle": "-"},
 }
 
 CONDITION_COLORS = {
@@ -35,6 +37,8 @@ MODEL_LABELS = {
     "gemma4:26b": "Gemma4 26B",
     "llama3.1:8b": "Llama3.1 8B",
     "qwen3-coder-next": "Qwen3 Coder Next",
+    "ornith1.5:35b": "Ornith1.5 35B",
+    "glm-5.3-flash": "GLM-5.3 Flash",
 }
 
 INK = "#272727"

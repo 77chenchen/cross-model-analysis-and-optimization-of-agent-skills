@@ -17,6 +17,8 @@ SCHEDULE_SEEDS = {
     "qwen3-coder-next": 303509,
     "llama3.1:8b": 318109,
     "gpt-5.6-sol": 560009,
+    "ornith1.5:35b": 1535009,
+    "glm-5.3-flash": 530009,
 }
 OPEN_MODELS = set(SCHEDULE_SEEDS) - {"gpt-5.6-sol"}
 

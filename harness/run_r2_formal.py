@@ -19,11 +19,11 @@ from pathlib import Path
 try:
     from .outcomes import outcome_flags, python_compile_errors, verifier_summary
     from .record_run import digest, git_commit, source_unchanged
-    from .s7_protocol import ROOT, prompt_for, request_seed, sha256_text, skill_id_for, split_for
+    from .s7_protocol import OPEN_MODELS, ROOT, prompt_for, request_seed, sha256_text, skill_id_for, split_for
 except ImportError:
     from outcomes import outcome_flags, python_compile_errors, verifier_summary
     from record_run import digest, git_commit, source_unchanged
-    from s7_protocol import ROOT, prompt_for, request_seed, sha256_text, skill_id_for, split_for
+    from s7_protocol import OPEN_MODELS, ROOT, prompt_for, request_seed, sha256_text, skill_id_for, split_for
 
 
 VERIFIER_TIMEOUT_SECONDS = 1200
@@ -76,7 +76,7 @@ def main() -> None:
         raise SystemExit("refusing to execute without --execute")
     if args.model == "gpt-5.6-sol":
         raise SystemExit("GPT reference-anchor execution uses its separately locked Codex adapter")
-    if args.model not in {"qwen3.5:9b", "gemma4:26b", "qwen3.8:27b", "qwen3-coder-next", "llama3.1:8b"}:
+    if args.model not in OPEN_MODELS:
         raise SystemExit("model is not a locked direct S7 model")
     split = split_for(args.task_id)
     if args.condition == "v1" and (args.model != "qwen3.5:9b" or split != "test_in"):
