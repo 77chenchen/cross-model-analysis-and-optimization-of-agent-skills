@@ -1,0 +1,14 @@
+{
+  "version": "s8b-paper-analysis-v1.0.0",
+  "source": "results/tables/s8b/S8B_run_metrics.csv",
+  "source_sha256": "07850772ed7c998aea9ec7d7b205446a6e8a35c87a9b372084509519ca5e42c2",
+  "primary_denominator": "exclude provider_error_protocol; include timeout and max_steps_reached",
+  "sampling_unit": "task after averaging repetitions within task-condition cells",
+  "bootstrap_draws": 10000,
+  "products": {
+    "results/tables/s8b/S8B_T4_task_condition_metrics.csv": "17d130719692506bf81f91dc582749990f147609660394e930d915c5aff12838",
+    "results/tables/s8b/S8B_T5_process_paired_differences.csv": "a064a577e156f9da8f627bd2aabf6c62970ff8cf41f0fde13d8aa7975f47693f",
+    "results/tables/s8b/S8B_T5_process_paired_differences.md": "ca6f4b241f789d0e8acdd9c73886f492eaa5ef67451239138dce5d4eadfdf110",
+    "results/tables/s8b/S8B_T6_provider_error_accounting.csv": "df7addd7af8021735a1c6fe6d72ae9c1ae407829a222d8fbff3de9a4555752ff"
+  }
+}

@@ -2,6 +2,7 @@
 """Create manuscript figures from frozen analysis tables; never edits source CSVs."""
 from __future__ import annotations
 
+import argparse
 import csv
 from pathlib import Path
 
@@ -17,6 +18,18 @@ INK = "#292929"
 GRID = "#D8D8D8"
 GRAY = "#777777"
 BLUE = "#3B6EA5"
+S8_COLORS = {
+    "C1": "#3B6EA5",
+    "externalized": "#D55E00",
+    "imitation": "#2A9D8F",
+    "generic_control": "#8A8A8A",
+}
+S8_LABELS = {
+    "C1": "C1 (v0 skill)",
+    "externalized": "Externalized",
+    "imitation": "Imitation",
+    "generic_control": "Generic control",
+}
 
 mpl.rcParams.update({
     "font.family": "sans-serif",
@@ -268,9 +281,123 @@ def failure_flags() -> None:
     save(fig, "failure_flags.pdf")
 
 
+def s8b_mechanism() -> None:
+    """Fresh-task process variants: outcome contrasts and behavior changes."""
+    summary = {row["condition"]: row for row in read("S8B_T1_condition_summary.csv")}
+    outcome = read("S8B_T2_task_paired_differences.csv")
+    process = read("S8B_T5_process_paired_differences.csv")
+    treatments = ["C1", "externalized", "imitation"]
+
+    fig = plt.figure(figsize=(7.0, 2.75), layout="constrained")
+    grid = fig.add_gridspec(1, 3, width_ratios=(1.55, 1.25, 1.30), wspace=0.16)
+    axes = [fig.add_subplot(grid[0, index]) for index in range(3)]
+    a, b, c = axes
+
+    # (a) Locked primary contrasts: task is the bootstrap unit.
+    y = np.arange(len(treatments))[::-1]
+    for yi, treatment, row in zip(y, treatments, outcome):
+        estimate = 100 * float(row["mean_difference"])
+        low = 100 * float(row["bootstrap_low"])
+        high = 100 * float(row["bootstrap_high"])
+        a.errorbar(
+            estimate,
+            yi,
+            xerr=[[estimate - low], [high - estimate]],
+            fmt="o",
+            color=S8_COLORS[treatment],
+            ecolor=S8_COLORS[treatment],
+            linewidth=1.1,
+            capsize=2.5,
+            markersize=4.5,
+        )
+    a.axvline(0, color="#666666", linewidth=0.7, linestyle=(0, (3, 2)))
+    a.set_yticks(y, [S8_LABELS[item] for item in treatments])
+    a.set_xlim(-23, 25)
+    a.set_xticks([-20, -10, 0, 10, 20])
+    a.set_xlabel("Verifier-pass difference vs. generic (pp)")
+    a.set_title("(a) Task-paired outcomes", loc="left", fontsize=9, fontweight="bold")
+    a.grid(axis="x", color=GRID, linewidth=.45)
+    a.set_axisbelow(True)
+
+    # (b) Condition-level run proportions retain the locked primary denominator.
+    conditions = ["generic_control", "C1", "externalized", "imitation"]
+    yb = np.arange(len(conditions))[::-1]
+    for yi, condition in zip(yb, conditions):
+        row = summary[condition]
+        estimate = 100 * float(row["pass_rate"])
+        low = 100 * float(row["wilson_low"])
+        high = 100 * float(row["wilson_high"])
+        b.errorbar(
+            estimate,
+            yi,
+            xerr=[[estimate - low], [high - estimate]],
+            fmt="o",
+            color=S8_COLORS[condition],
+            ecolor=S8_COLORS[condition],
+            linewidth=1.0,
+            capsize=2.2,
+            markersize=4.2,
+        )
+    b.set_yticks(yb, [S8_LABELS[item] for item in conditions])
+    b.set_xlim(30, 80)
+    b.set_xticks([30, 40, 50, 60, 70, 80])
+    b.set_xlabel("Verifier pass (%, Wilson 95% CI)")
+    b.set_title("(b) Run-level rates", loc="left", fontsize=9, fontweight="bold")
+    b.grid(axis="x", color=GRID, linewidth=.45)
+    b.set_axisbelow(True)
+
+    # (c) Process contrasts use the same task-paired aggregation as panel (a).
+    process_lookup = {(row["contrast"].split("-")[0], row["metric"]): row for row in process}
+    metrics = ["validated_after_last_edit", "reread_after_edit"]
+    matrix = np.asarray([
+        [100 * float(process_lookup[(treatment, metric)]["mean_difference"]) for metric in metrics]
+        for treatment in treatments
+    ])
+    image = c.imshow(matrix, cmap="RdBu_r", vmin=-35, vmax=35, aspect="auto")
+    c.set_yticks(np.arange(len(treatments)), [S8_LABELS[item] for item in treatments])
+    c.set_xticks([0, 1], ["Validate after\nlast edit", "Reread after\nedit"])
+    for row_index in range(matrix.shape[0]):
+        for col_index in range(matrix.shape[1]):
+            value = matrix[row_index, col_index]
+            c.text(
+                col_index,
+                row_index,
+                f"{value:+.1f} pp",
+                ha="center",
+                va="center",
+                fontsize=7,
+                color="white" if abs(value) > 21 else "#1F1F1F",
+            )
+    c.set_title("(c) Task-paired process change", loc="left", fontsize=9, fontweight="bold")
+    c.tick_params(axis="x", pad=3)
+    c.set_xticks(np.arange(-.5, 2, 1), minor=True)
+    c.set_yticks(np.arange(-.5, len(treatments), 1), minor=True)
+    c.grid(which="minor", color="white", linewidth=.7)
+    c.tick_params(which="minor", bottom=False, left=False)
+    colorbar = fig.colorbar(image, ax=c, fraction=.055, pad=.04)
+    colorbar.set_label("Difference vs. generic (pp)")
+    colorbar.set_ticks([-30, -15, 0, 15, 30])
+
+    for axis in axes:
+        axis.spines["top"].set_visible(False)
+        axis.spines["right"].set_visible(False)
+        axis.tick_params(direction="out")
+    save(fig, "s8b_mechanism.pdf")
+
+
 if __name__ == "__main__":
-    main_results()
-    decoupling()
-    legacy_accounting()
-    behavior_grid()
-    failure_flags()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--figure",
+        choices=("all", "s8b"),
+        default="all",
+        help="render every manuscript figure or only the fresh-task S8-b figure",
+    )
+    args = parser.parse_args()
+    if args.figure == "all":
+        main_results()
+        decoupling()
+        legacy_accounting()
+        behavior_grid()
+        failure_flags()
+    s8b_mechanism()

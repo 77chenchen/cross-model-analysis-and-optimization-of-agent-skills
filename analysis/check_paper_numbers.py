@@ -5,11 +5,13 @@ from __future__ import annotations
 import csv
 import re
 import sys
+from decimal import Decimal, ROUND_HALF_UP
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 PAPER = ROOT / "paper"
 TABS = ROOT / "results" / "tables" / "s7"
+S8_TABS = ROOT / "results" / "tables" / "s8b"
 
 MODELS = {
     r"\QwenWeak": "qwen3.5:9b",
@@ -41,6 +43,10 @@ def section(text: str, label: str) -> str:
 
 def pct(x: float) -> str:
     return f"{100 * x:.1f}"
+
+
+def one_decimal_half_up(x: float) -> str:
+    return str(Decimal(str(x)).quantize(Decimal("0.1"), rounding=ROUND_HALF_UP))
 
 
 def main() -> int:
@@ -105,6 +111,43 @@ def main() -> int:
             raise AssertionError(f"required reported value missing: {token}")
         checked += 1
 
+    s8_summary = csv_rows(S8_TABS / "S8B_T1_condition_summary.csv")
+    for row in s8_summary:
+        passed = int(row["verifier_pass"])
+        usable = int(row["primary_n"])
+        rate = 100 * float(row["pass_rate"])
+        token = f"{passed}/{usable} ({rate:.1f}\\%)"
+        if token not in tex:
+            raise AssertionError(f"S8-b condition summary missing or changed: {row['condition']}: {token}")
+        checked += 3
+
+    s8_outcomes = csv_rows(S8_TABS / "S8B_T2_task_paired_differences.csv")
+    for row in s8_outcomes:
+        estimate = 100 * float(row["mean_difference"])
+        low = 100 * float(row["bootstrap_low"])
+        high = 100 * float(row["bootstrap_high"])
+        token = f"\\({estimate:+.2f}\\)\\pp{{}} \\([{low:+.2f},{high:+.2f}]\\)"
+        if token not in tex:
+            raise AssertionError(f"S8-b outcome contrast missing or changed: {row['contrast']}: {token}")
+        checked += 3
+
+    s8_process = csv_rows(S8_TABS / "S8B_T5_process_paired_differences.csv")
+    selected_process = {
+        ("externalized-generic_control", "reread_after_edit"): ("31.3", "14.6", "47.9"),
+        ("externalized-generic_control", "validated_after_last_edit"): ("10.4", "-4.2", "25.0"),
+        ("imitation-generic_control", "reread_after_edit"): ("18.8", "0.0", "35.4"),
+        ("imitation-generic_control", "validated_after_last_edit"): ("-2.1", "-18.8", "14.6"),
+    }
+    for key, values in selected_process.items():
+        source = next(row for row in s8_process if (row["contrast"], row["metric"]) == key)
+        actual = tuple(one_decimal_half_up(100 * float(source[field])) for field in ("mean_difference", "bootstrap_low", "bootstrap_high"))
+        if actual != values:
+            raise AssertionError(f"S8-b process source changed for {key}: {actual} != {values}")
+        for value in values:
+            if value not in tex:
+                raise AssertionError(f"S8-b process value absent from manuscript: {key}: {value}")
+            checked += 1
+
     abstract = re.search(r"\\begin\{abstract\}(.*?)\\end\{abstract\}", tex, re.S).group(1)
     words = re.findall(r"[A-Za-z0-9]+(?:[-'][A-Za-z0-9]+)*", re.sub(r"\\[A-Za-z]+\{?([^{}]*)\}?", r" \1 ", abstract))
     if not 150 <= len(words) <= 200:
@@ -113,7 +156,7 @@ def main() -> int:
         raise AssertionError("internal batch label remains in the manuscript")
     if "https://github.com/77chenchen/skill-trajectory-benchmark" not in tex:
         raise AssertionError("public repository URL missing")
-    for fig in ("main_results.pdf", "decoupling.pdf", "behavior_outcome.pdf", "failure_flags.pdf", "legacy_vs_verifier.pdf", "kappa_pabak.png"):
+    for fig in ("main_results.pdf", "decoupling.pdf", "behavior_outcome.pdf", "failure_flags.pdf", "legacy_vs_verifier.pdf", "kappa_pabak.png", "s8b_mechanism.pdf"):
         if not (PAPER / "figures" / fig).exists():
             raise AssertionError(f"missing figure asset: {fig}")
     print(f"PASS: {checked} numeric checks; abstract={len(words)} words; all required figure assets present.")

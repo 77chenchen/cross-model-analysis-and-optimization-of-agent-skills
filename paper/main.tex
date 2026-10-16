@@ -1,5 +1,5 @@
-\documentclass[10pt]{article}
-\usepackage[letterpaper,textwidth=5.5in,top=0.85in,bottom=0.9in]{geometry}
+\documentclass[10pt,twocolumn]{article}
+\usepackage[letterpaper,left=0.72in,right=0.72in,top=0.72in,bottom=0.78in,columnsep=0.25in]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage{newtxtext,newtxmath}
 \usepackage{microtype}
@@ -13,17 +13,34 @@
 \usepackage{enumitem}
 \usepackage{xurl}
 \usepackage{float}
-\usepackage[section]{placeins}
+\usepackage{dblfloatfix}
+\usepackage{placeins}
+\usepackage{balance}
 \usepackage[colorlinks=true,allcolors=blue!45!black]{hyperref}
 \usepackage{cleveref}
 \graphicspath{{figures/}}
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0pt}
 \setlength{\emergencystretch}{1.5em}
-\captionsetup{font=small,labelfont=bf}
+\captionsetup{font=footnotesize,labelfont=bf}
+\renewenvironment{abstract}
+  {\begin{minipage}{0.92\textwidth}\small\textbf{Abstract.}\ }
+  {\end{minipage}}
 \makeatletter
 \setlength{\@fptop}{0pt}
+\setlength{\@fpsep}{10pt}
+\setlength{\@fpbot}{0pt plus 1fil}
 \makeatother
+\renewcommand{\topfraction}{0.95}
+\renewcommand{\bottomfraction}{0.90}
+\renewcommand{\textfraction}{0.06}
+\renewcommand{\floatpagefraction}{0.78}
+\renewcommand{\dbltopfraction}{0.95}
+\renewcommand{\dblfloatpagefraction}{0.78}
+\setlength{\textfloatsep}{11pt plus 2pt minus 2pt}
+\setlength{\floatsep}{10pt plus 2pt minus 2pt}
+\setlength{\dbltextfloatsep}{12pt plus 2pt minus 2pt}
+\setlength{\dblfloatsep}{10pt plus 2pt minus 2pt}
 
 \newcommand{\pp}{\,\text{pp}}
 \newcommand{\QwenWeak}{\texttt{qwen3.5:\allowbreak 9b}}
@@ -36,16 +53,19 @@
 \newcommand{\GPT}{\texttt{gpt-5.6-sol}}
 \newcommand{\SkillTraj}{\textsc{SkillTraj}}
 
-\title{Cross-Model Analysis and Optimization of Agent Skills}
-\author{Wang Qichen}
-\date{}
-
 \begin{document}
-\maketitle
-
+\twocolumn[
+\begin{center}
+{\LARGE\bfseries Cross-Model Analysis and Optimization of Agent Skills\par}
+\vspace{0.55em}
+{\large Wang Qichen\par}
+\vspace{0.8em}
 \begin{abstract}
-Written skills tell coding agents how to inspect code, edit files, and check their work. We study whether following these procedures leads to better repairs. We introduce a fixed repository-repair task pool and execution harness that records tool use and checks the resulting code with external verifiers. Across 18 held-out tasks, eight model configurations, and 1,086 scheduled runs, we compare no skill (C0) with a fixed skill (C1). We also evaluate a rewritten skill (v1) on one weak target model. The effect of the fixed skill is model dependent. For \GLM{}, C1 raised verifier pass from 74.1\% to 88.9\%, a task-paired difference of \(+14.8\)\pp{} with a 95\% bootstrap interval of \([+3.7,+29.6]\)\pp{}, while increasing post-edit validation by 22.2\pp{}. In contrast, \Ornith{} passed 86.5\% under C0 and 84.6\% under C1, and the floor model passed no run under either condition. For \QwenWeak{}, C1 changed post-edit validation by \(-25.0\)\pp{} but verifier pass by only \(+1.9\)\pp{}; v1 increased validation by 45.0\pp{} without changing pass. Written skills can therefore improve repair for some capable but procedurally limited models, yet behavioral compliance alone is not evidence of better code.
+Written skills tell coding agents how to inspect, edit, and validate repositories, but following a procedure need not produce a correct repair. We introduce a fixed task pool and execution harness that records complete tool trajectories alongside external verifier outcomes. On 18 held-out tasks, eight model configurations, and 1,086 scheduled runs, we compare no skill (C0) with a fixed skill (C1). C1 raised \GLM{} verifier pass from 74.1\% to 88.9\%, a task-paired gain of \(+14.8\)\pp{} with a 95\% bootstrap interval of \(\lbrack +3.7,+29.6\rbrack\)\pp{}, but produced small or inconsistent changes for the other models. For \QwenWeak{}, C1 changed post-edit validation by \(-25.0\)\pp{} while verifier pass changed by only \(+1.9\)\pp{}; a rewritten skill raised validation by 45.0\pp{} without changing pass. We then tested three procedural prompts against a length-matched generic control on 24 newly admitted development tasks (192 runs). Their task-paired pass differences were \(+6.3\), 0.0, and \(+4.2\)\pp{}, with every interval spanning zero, although the externalized procedure increased post-edit rereading by 31.3\pp{}. Across both studies, written instructions can change an agent's workflow without improving its code; outcome gains appear only when the instruction addresses a model's remaining repair bottleneck.
 \end{abstract}
+\vspace{1.1em}
+\end{center}
+]
 
 \section{Introduction}
 Written skills give coding agents a procedure to follow when reading a repository, editing files, and checking their work. A skill succeeds at directing behavior when the agent follows those instructions. It succeeds at improving repair only when the resulting code meets the task requirements. These are separate questions. An agent may run more checks because it is working carefully, because an edit introduced a new error, or because repeated attempts have failed.
@@ -86,10 +106,15 @@ The task was the sampling unit; repetitions estimated within-task variability. C
 
 Using observed within-task Bernoulli variance, approximate minimum detectable differences at two-sided \(\alpha=0.05\) and 80\% power ranged from 9.0 to 11.6\pp{} across the controlled three-repeat models. These estimates describe the sensitivity of this task pool under the stated assumptions; they are neither observed effects nor proof that smaller effects are absent.
 
+\subsection{Fresh-task mechanism study}
+We separately evaluated whether more explicit procedural prompts could change process behavior on 24 newly authored development tasks that passed the same admission requirements. This study used only \QwenWeak{} and compared four interleaved conditions: the v0 skill reference (C1), an externalized read--edit--validate--reread procedure, an abstract imitation of that sequence, and a 51-word generic control. Each task--condition cell had two repetitions, for 192 scheduled runs. The task pool, prompts, schedule, denominators, and analysis were locked before the first provider request. This development-only study does not revise the held-out comparison.
+
+Each procedural condition was compared with the generic control after averaging repetitions within task--condition cells. Contrasts use a fixed-seed, 10,000-draw paired bootstrap over 24 tasks. The pre-specified efficacy rule required a positive pass-rate contrast with an interval excluding zero, observable activation, and no provider-error or timeout artifact. Mechanical process measures included validation after the last edit and rereading after an edit.
+
 \subsection{Evaluation pipeline}
 Tasks and verifiers were frozen before runs were interleaved. The harness recorded the execution trajectory, verified the final workspace, and paired outcomes by task for analysis (\cref{fig:pipeline}).
 
-\begin{figure}[!htbp]
+\begin{figure*}[t]
 \centering
 \begin{tikzpicture}[
   node distance=0.2cm,
@@ -110,15 +135,15 @@ Tasks and verifiers were frozen before runs were interleaved. The harness record
 \end{tikzpicture}
 \caption{Evaluation pipeline. The task pool contains 18 held-out tasks; the analyzed schedule contains 1,086 runs across eight model configurations and core/exploratory conditions. The inferential unit for C0/C1 comparisons is the task.}
 \label{fig:pipeline}
-\end{figure}
+\end{figure*}
 
 \section{Results}
 \subsection{Cross-model verifier pass}
 All 1,086 analyzed run directories contained metadata and a Boolean verifier result. The clearest positive result was \GLM{}: C0 passed 40/54 runs (74.1\%) and C1 passed 48/54 (88.9\%), yielding a task-paired difference of \(+14.8\)\pp{} with a 95\% bootstrap interval of \([+3.7,+29.6]\)\pp{} (\cref{tab:core,fig:main}). Its direction was positive on both held-out splits. The remaining controlled estimates were smaller or inconsistent. \Gemma{} increased by \(+5.6\)\pp{}; \QwenWeak{}, \QwenStrong{}, and \Coder{} each increased by \(+1.9\)\pp{}. \Ornith{} passed 45/52 usable C0 runs (86.5\%) and 44/52 C1 runs (84.6\%), a paired difference of \(-1.9\)\pp{} \([-16.7,9.3]\). Three Ornith records for \texttt{test\_out\_c02\_sessions} carried an alternate task-tree hash; each achieved \texttt{verifier.passed=true} and is counted as correct in the primary result. \Llama{} passed no held-out run, making its zero contrast a floor rather than evidence of equivalence. The GPT reference anchor had identical marginal pass counts under C0 and C1. Thus C1 produced a substantial gain for one model, little change for several models, and no rescue at the floor.
 
-\begin{table}[t]
+\begin{table*}[t]
 \centering
-\small
+\scriptsize
 \begin{threeparttable}
 \caption{Verifier pass for the locked core conditions. The sampling unit for the contrast is the task; intervals are 95\% paired-bootstrap intervals over 18 tasks.}
 \label{tab:core}
@@ -144,9 +169,9 @@ Model & C0 & C1 & Difference (\pp) \\
 \item[] \(\dagger\) The lower paired-bootstrap bound is exactly 0.0. Provider errors are excluded from primary denominators; the qwen denominators are 89 of 90 and the Ornith denominators are 52 of 54 scheduled runs per condition. All three alternate-hash Ornith records passed the frozen external verifier and are included as correct.
 \end{tablenotes}
 \end{threeparttable}
-\end{table}
+\end{table*}
 
-\begin{table}[t]
+\begin{table*}[t]
 \centering
 \small
 \begin{threeparttable}
@@ -168,12 +193,12 @@ Model & All runs & Final empty & Pass if empty & Pass if non-empty \\
 \item These are descriptive behavior rates; all scheduled records, including protocol provider-error records, are retained in these conditional denominators.
 \end{tablenotes}
 \end{threeparttable}
-\end{table}
+\end{table*}
 
 
 
 \subsection{Mechanical failure counts}
-\begin{table}[t]
+\begin{table*}[t]
 \centering
 \small
 \begin{threeparttable}
@@ -196,31 +221,43 @@ Three stronger models, held-out & 97 & 3 & 5 & 0 & 0 & 5 \\
 \item A run may contribute to more than one flag. The stronger group combines \Gemma{}, \QwenStrong{}, and \Coder{}; \Ornith{} and \GLM{} are shown separately because they were added after that pooled cohort was specified. Named failed verifier checks are summarized separately in the released mechanical taxonomy.
 \end{tablenotes}
 \end{threeparttable}
-\end{table}
+\end{table*}
 The weak-target, original stronger-model, Ornith, and GLM failure cohorts contain 98, 97, 15, and 20 verifier-failing usable runs, respectively. A run can appear in several flag columns; these counts describe failure contexts, not mutually exclusive causes.
 
-\begin{figure}[t]
+\begin{figure*}[t]
 \centering
 \includegraphics[width=\textwidth]{main_results.pdf}
 \caption{Held-out task-pool results for eight model configurations. In panel (a), gray circles denote C0 and blue diamonds C1; pass rates use runs and Wilson 95\% intervals, while paired contrasts use tasks (18 task pairs per controlled model). Panel (b) shows medians and IQRs (filled circles: tool calls; open diamonds: assistant turns); panel (c) shows run-flag rates. Row-end \(n\) is the number of scheduled runs per condition (18 tasks by repetitions). Ornith is shown as recorded, with all verifier-passing records counted as correct; GPT is a sampling-uncontrolled reference anchor.}
 \label{fig:main}
-\end{figure}
+\end{figure*}
 
 \subsection{Process behavior and verified outcome}
 For \QwenWeak{}, the task-paired rate of post-edit commands matching the strict validation rule was 25.0\pp{} lower under C1 than C0 (18 tasks; 95\% paired-bootstrap interval \([-38.9,-9.4]\)\pp{}). The baseline skill therefore reduced this checking behavior. In the exploratory \texttt{test\_in} comparison, v1 increased it by 45.0\pp{} over C1 (12 tasks; \([26.7,63.3]\)\pp{}). The pass-rate differences were much smaller: \(+1.9\)\pp{} for C1--C0 (\([-6.9,10.6]\)\pp{}) and \(0.0\)\pp{} for v1--C1 (\([-11.7,13.3]\)\pp{}). The rewritten skill led to more checking without a higher observed pass rate (\cref{fig:decoupling}).
 
 \GLM{} showed a different coupling between process and outcome. C1 increased task-paired post-edit validation by 22.2\pp{} \([9.3,35.2]\) and increased the median trajectory from five to six tool calls. Over the same tasks, verifier pass increased by 14.8\pp{}. This is the only evaluated configuration in which the fixed skill produced a clearly positive overall pass-rate contrast together with a process change in the prescribed direction.
 
-\begin{figure}[t]
+\begin{figure*}[b]
 \centering
-\includegraphics[width=\textwidth]{decoupling.pdf}
+\includegraphics[width=0.62\textwidth]{decoupling.pdf}
 \caption{Task-paired qwen contrasts for validation behavior and verifier pass. Intervals are 95\% paired-bootstrap intervals; the resampling unit is the task (\(n=18\) for C1--C0 and \(n=12\) for v1--C1). v1 is exploratory and limited to \texttt{test\_in}.}
 \label{fig:decoupling}
-\end{figure}
+\end{figure*}
+
+\subsection{Fresh-task process variants}
+On the 24 fresh development tasks, the generic control passed 26/47 (55.3\%) usable runs. C1 passed 27/44 (61.4\%), the externalized procedure 25/47 (53.2\%), and imitation 26/45 (57.8\%). After pairing by task, their pass-rate differences from the generic control were \(+6.25\)\pp{} \([-8.33,+20.83]\), \(+0.00\)\pp{} \([-18.75,+18.75]\), and \(+4.17\)\pp{} \([-10.42,+20.83]\), respectively. Every interval included zero, so none met the pre-specified efficacy rule (\cref{fig:fresh}).
+
+The process measures changed more clearly than the verified outcome. Relative to the generic control, the externalized condition increased task-paired post-edit rereading by 31.3\pp{} \([14.6,47.9]\) and validation after the last edit by 10.4\pp{} \([-4.2,25.0]\), while its pass difference was exactly 0.0\pp{}. Imitation increased rereading by 18.8\pp{} \([0.0,35.4]\) but changed validation by \(-2.1\)\pp{} \([-18.8,14.6]\). The locked activation parser also marked 46/47 generic-control runs as activated, so activation did not distinguish prompt conditions in this cohort. These results provide a fresh-task replication of process--outcome separation, not a new held-out efficacy claim.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{s8b_mechanism.pdf}
+\caption{Fresh-task mechanism study on \QwenWeak{}. Panel (a) shows task-paired verifier-pass differences relative to the length-matched generic control with 95\% paired-bootstrap intervals (24 tasks; two repetitions per task--condition cell). Panel (b) shows run-level pass proportions with Wilson 95\% intervals; primary denominators exclude retry-exhausted provider errors. Panel (c) shows task-paired changes in validation and rereading relative to the generic control. The study contains 192 scheduled runs and is development-only.}
+\label{fig:fresh}
+\end{figure*}
 
 \subsection{Strong-versus-weak process summaries}
 The strong comparison group contains \Gemma{}, \QwenStrong{}, and \Coder{}; the weak target is \QwenWeak{}. \Cref{tab:process} reports medians and IQRs across runs and run-level occurrence rates for binary behaviors. Under r2, each parsed tool result counts as one tool call, so step and call summaries coincide. The weak target's validation-intent occurrence fell from 64.0\% in C0 to 38.2\% in C1, whereas the strong cohort remained near 70\% in both conditions.
-\begin{table}[t]
+\begin{table*}[t]
 \centering
 \scriptsize
 \begin{threeparttable}
@@ -243,12 +280,12 @@ Weak & C1 & 89/90 & 7 [5,19] & 8 [6,20] & 0 [0,100]\% (38.2\%) & 100 [0,100]\% (
 \item Values are median [IQR] across runs; parenthetical values are run-level rates. Intent is a command matching the frozen validation-intent rule; success is any successful command after the last edit. Under r2, one parsed tool result is one call, so steps and calls coincide. Strong includes three models; weak includes \QwenWeak{}. Weak usable runs exclude one retry-exhausted provider error per condition.
 \end{tablenotes}
 \end{threeparttable}
-\end{table}
+\end{table*}
 
 \subsection{Development behavior--outcome cross-tab}
 The four-cell cross-tab uses only the development diagnosis subset, with mechanically defined behaviors and verifier outcomes. Reading before editing occurred in every cell. In both model cohorts, post-edit validation and rereading were at least as common among failures as among passes, while avoiding repeated full-file writes changed little across outcomes (\cref{tab:crosstab,fig:behavior}). This does not imply that validation harms repair: difficult runs may require more checking, and the cells are observational. It does show that these individual checklist behaviors did not distinguish successful from failed runs in this sample. The weak pass and weak fail cells contain only 10 and 8 runs.
 
-\begin{table}[t]
+\begin{table*}[t]
 \centering
 \small
 \begin{threeparttable}
@@ -270,26 +307,27 @@ Reread after edit & 12/47 (25.5\%) & 3/6 (50.0\%) & 2/10 (20.0\%) & 4/8 (50.0\%)
 \item Strong comprises three fixed models; weak is \QwenWeak{}. One retry-exhausted run is excluded. No interval is reported for these descriptive cells.
 \end{tablenotes}
 \end{threeparttable}
-\end{table}
+\end{table*}
 
-\begin{figure}[t]
+\begin{figure*}[t]
 \centering
 \includegraphics[width=\textwidth]{behavior_outcome.pdf}
 \caption{Development diagnosis behavior--outcome cross-tab. Cell sample sizes are 47, 6, 10, and 8 runs (strong-pass, strong-fail, weak-pass, weak-fail); labels show count and percentage. No inferential interval is shown.}
 \label{fig:behavior}
-\end{figure}
+\end{figure*}
 
 \subsection{Mechanical failure classification}
 Among 98 verifier-failing weak-target runs from development diagnosis and held-out C0/C1, 57 ended with an empty final message, 13 reached the step limit, two timed out, and two produced a compile error. Among 97 held-out failures from the three stronger configurations, five reached the step limit and five ended with an empty final message. These overlapping flags identify where failures occurred in the execution record; they do not by themselves identify the error in the proposed code. Named verifier-check failures and verifier-exception categories are documented in the released mechanical taxonomy. The earlier judge packets cover none of these 98 weak-target failures, so \cref{fig:failures} uses mechanical indicators only.
 
-\begin{figure}[!htbp]
+Human--judge agreement was assessed on 24 packets; agreement statistics and their limits are reported in the appendix. Judge labels are used as conclusion evidence only for file corruption, tool misuse, and missed constraints; validation and looping claims rely on mechanical indicators.
+
+\begin{figure*}[t]
 \centering
 \includegraphics[width=\textwidth]{failure_flags.pdf}
 \caption{Mechanical terminal flags among verifier-failing runs. Bars show the percentage of runs in each cohort carrying a flag; flags are non-exclusive and counts are printed beside each bar. Denominators are 98 weak-target failures and 97 failures from three stronger models; no interval is shown.}
 \label{fig:failures}
-\end{figure}
-
-Human--judge agreement was assessed on 24 packets; agreement statistics and their limits are reported in the appendix. Judge labels are used as conclusion evidence only for file corruption, tool misuse, and missed constraints; validation and looping claims rely on mechanical indicators.
+\end{figure*}
+\clearpage
 
 \section{Discussion}
 
@@ -298,6 +336,8 @@ The results show that the usefulness of a written skill depends on the model's o
 Changes in agent behavior did not reliably translate into better repairs. For \QwenWeak{}, C1 reduced post-edit validation by 25.0\pp{} while increasing verifier pass by only \(1.9\)\pp{}. The rewritten skill reversed the behavioral effect, increasing validation by 45.0\pp{} relative to C1, but produced no change in verifier pass. The development trajectories showed the same separation. Reading before editing was universal, while validation and rereading occurred at least as often in failed runs as in successful runs. Completing more prescribed steps therefore did not distinguish correct repairs from incorrect ones.
 
 This separation matters because process compliance and task competence measure different properties. A model may follow a validation instruction yet test the wrong behavior, misinterpret a failure, or preserve an incorrect implementation. Conversely, a capable model may solve a task without explicitly displaying every requested step. The GLM result shows the positive case: the skill increased focused post-edit validation and repair success on the same task pool. The qwen v1 result shows the counterexample: a larger behavioral change did not improve correctness. A written skill helps only when its procedural guidance changes a decision that currently limits the repair.
+
+The fresh-task mechanism study sharpens this interpretation. An externalized procedure increased post-edit rereading by 31.3\pp{}, yet its paired pass difference from a length-matched generic prompt was exactly 0.0\pp{}. Imitation also increased rereading without a pass interval excluding zero. These prompts changed observable checking behavior, but they did not establish a verified repair gain. The near-universal activation assigned to the generic control further shows that broad action detectors cannot substitute for condition-specific evidence of instruction use.
 
 Skill evaluation should therefore measure three components together: whether the skill was delivered and followed, how it changed the execution trajectory, and whether the resulting artifact passed an independent verifier. Comparing only final pass rates hides whether the skill affected behavior, whereas comparing only trajectories can mistake procedural compliance for improved capability. Future skill design should target model-specific failure modes and should be evaluated within the capability range where the model can execute the procedure but has not already internalized it.
 
@@ -311,26 +351,28 @@ This study establishes a model-dependent operating range for written agent skill
 
 The experiments also show that changing an agent's workflow is not automatically equivalent to improving its repairs. The rewritten skill substantially increased post-edit validation for \QwenWeak{}, yet its verifier pass rate remained unchanged. In contrast, GLM combined a smaller behavioral shift with a clear pass-rate gain. A successful skill must therefore do more than produce a better-looking trajectory: it must change the decisions that determine whether the final artifact is correct. Written skills should be designed for a specific model and failure regime, then evaluated using both complete execution trajectories and independent outcome verification.
 
+The fresh-task study reaches the same measurement conclusion under a new task pool and a length-matched control. Explicitly externalizing the read--edit--validate--reread sequence increased rereading by 31.3\pp{} but changed task-paired verifier pass by 0.0\pp{}. This isolates the central distinction: a prompt can successfully redirect the workflow without improving the repair.
+
 The conclusion from these experiments is direct: following the requested procedure is not enough to establish that a skill improves repair. A skill can change the steps an agent takes while leaving its success rate unchanged. Skill evaluation must therefore report what the agent did and whether the resulting code passed independent checks. A procedure should be credited with improving repair when the repairs improve, rather than when its checklist is completed more often.
 
 
 
+\clearpage
 \section*{Code and Data Availability}
-Analysis code and released study data are provided at \url{https://github.com/77chenchen/skill-trajectory-benchmark}. Code is licensed under the MIT License and released data under CC BY 4.0. Raw provider responses containing reasoning are excluded from the public package.
+Analysis code, released study data, locked configurations, and the scripts used to reproduce the tables and figures are available at \url{https://github.com/77chenchen/skill-trajectory-benchmark}. Source code is licensed under the MIT License; released data and documentation are licensed under CC BY 4.0. Raw provider responses containing private reasoning traces are not included in the public package.
 
-\FloatBarrier
 \bibliographystyle{plainnat}
 \bibliography{references}
 
-\clearpage
 \appendix
 \section{Split-Level Paired Results}
 \begin{table}[H]
 \centering
-\small
+\scriptsize
 \begin{threeparttable}
 \caption{Task-paired C1--C0 verifier-pass differences by held-out split. Intervals are 95\% paired-bootstrap intervals over tasks.}
 \label{tab:splits}
+\setlength{\tabcolsep}{2pt}
 \begin{tabular}{@{}lrr@{}}
 \toprule
 Model & \texttt{test\_in}, 12 tasks & \texttt{test\_out}, 6 tasks \\
@@ -355,11 +397,11 @@ Model & \texttt{test\_in}, 12 tasks & \texttt{test\_out}, 6 tasks \\
 \section{Human--Judge Agreement}
 Across 24 blinded packets, macro Cohen's \(\kappa\) over five estimable labels was 0.588 (bootstrap 95\% interval 0.434--0.771); macro PABAK across all eight labels was 0.677 (0.552--0.781), and exact label-set agreement was 25.0\%. Interpretation is limited by the single researcher annotator, incomplete blinding, and small sample.
 
-\begin{figure}[H]
+\begin{figure*}[t]
 \centering
 \includegraphics[width=\textwidth]{kappa_pabak.png}
 \caption{Raw human--judge agreement across 24 blinded packets. Each row shows the number of packets on which both raters assigned the same binary label (green) or different labels (gray). The annotation packet is the sampling unit. Raw agreement is shown for readability and can be high when a label is rare; chance-adjusted Cohen's \(\kappa\) and PABAK are reported in the accompanying appendix text.}
 \label{fig:kappa}
-\end{figure}
+\end{figure*}
 
 \end{document}

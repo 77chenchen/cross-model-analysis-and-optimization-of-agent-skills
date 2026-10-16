@@ -12,11 +12,18 @@ Research question: when a coding agent receives a written skill, does it repair 
 - Ornith1.5:35b passed 45/52 usable C0 runs (86.5%) and 44/52 usable C1 runs (84.6%); its task-paired C1−C0 estimate was −1.9 percentage points with a 95% paired-bootstrap interval of [−16.7, 9.3] points ([Ornith completed summary](results/tables/s7/S7_T8_ornith_completed_summary.md)).
 - For GLM-5.3-Flash, C1 also raises task-paired post-edit validation by 22.2 percentage points and increases the median trajectory from five to six tool calls. It is the clearest case in this panel where the fixed skill changes the prescribed process and improves verified repair.
 - The central question is therefore not only whether a skill improves pass rate, but whether it changes the path through reading, writing, validating, and terminating. For qwen3.5:9b, C1 produces 25.0 percentage points less post-edit validation, slightly longer trajectories, and more rewrites and repeated actions; verifier pass moves from 48.3% to 50.6%. Relative to C1, v1 is explicitly referenced in 80% of runs and raises post-edit validation by 45.0 percentage points, yet does not change verifier pass ([S7_T4_process_metrics.csv](results/tables/s7/S7_T4_process_metrics.csv); [S7_T5_activation.csv](results/tables/s7/S7_T5_activation.csv); [S7_T6_exploratory.csv](results/tables/s7/S7_T6_exploratory.csv); [S7_T7_process_paired.csv](results/tables/s7/S7_T7_process_paired.csv)).
+- A separate fresh-task mechanism study completed 192 qwen3.5:9b runs on 24 newly admitted development tasks. Relative to a length-matched generic prompt, C1, an externalized procedure, and trajectory imitation changed task-paired verifier pass by +6.25, 0.00, and +4.17 percentage points; all 95% paired-bootstrap intervals included zero. The externalized procedure nevertheless increased post-edit rereading by 31.3 points, directly reproducing the separation between workflow change and verified repair ([S8-b results](docs/s8b_results.md); [paired outcome table](results/tables/s8b/S8B_T2_task_paired_differences.csv)).
 
 ## Results at a glance
 
 [![Eight-model verifier pass rates with model logos](figures/s7/verifier_pass_rates_by_model.png)](figures/s7/verifier_pass_rates_by_model.pdf)
 
+
+### Fresh-task mechanism result
+
+[![Fresh-task process variants](paper/figures/s8b_mechanism.png)](paper/figures/s8b_mechanism.pdf)
+
+The left panel reports task-paired pass-rate differences from the length-matched generic control; the middle panel reports condition-level verifier pass; the right panel reports task-paired changes in validation and rereading. These 192 runs are development-only and do not replace the held-out eight-model result.
 
 ## Paper
 
@@ -33,7 +40,7 @@ data/release/     De-identified released trajectory-derived records and their ma
 results/tables/   Machine-readable tables, including formal S7 tables in results/tables/s7/.
 figures/          Reproducible figures, plotting data, QA artefacts, and figure manifests.
 docs/             Protocol locks, diagnostics, errata, result notes, and future-study plans.
-paper/            Single-column manuscript source, bibliography, figures, and compiled PDF.
+paper/            Two-column manuscript source, bibliography, figures, and compiled PDF.
 skills/           Frozen written-skill variants used by the experimental conditions.
 ```
 
@@ -48,7 +55,7 @@ skills/           Frozen written-skill variants used by the experimental conditi
 | 4. Development interventions | Diagnose weak-model trajectories without touching frozen assets; evaluate v1 wording and a fixed call-32 reminder only on development data. | The recorded pilot is a negative result; L3b is a mechanism observation, not an efficacy claim. See [qwen diagnosis](docs/s4_qwen35_diagnosis.md), [v1 pilot record](docs/d4_intervention.md), [L3b results](docs/l3b_results.md), and [metric reconciliation](docs/l3b_metric_reconciliation.md). |
 | 5. Locked formal evaluation | Lock prompts, schedules, hashes, outcome rules, and task-paired analysis before any test execution; interleave conditions rather than run them in condition blocks. | The eight-model schedule completed all 1,086 runs. See [execution plan](docs/s7_execution_plan.md), [execution lock](config/s7_execution_lock.yaml), [schedule chain](docs/s7_schedule_chain_20261010.md), and [batch ledger](STATUS.md). |
 | 6. Formal analysis and corrections | Use <code>verifier.json.passed</code> as the primary outcome; exclude only retry-exhausted provider errors from the primary denominator; retain legacy labels for audit. | GLM adds a positive C1 contrast of +14.8 pp [3.7, 29.6], whereas high-baseline Ornith has −1.9 pp [−16.7, 9.3]. See the [formal tables](results/tables/s7/), [figures](figures/s7/), and [analysis patch](docs/s7_verifier_pass_analysis_patch_20261010.md). |
-| 7. Fresh-task mechanism study | Use 24 newly authored and independently admitted development tasks to compare v0, an externalized process, trajectory imitation, and a length-matched generic control without changing S7. | S8-b is locked as 24 tasks × 4 conditions × 2 repetitions = 192 runs and is running sequentially. See the [S8-b status](S8B_STATUS.md), [execution lock](config/s8b_execution_lock.yaml), and [analysis plan](docs/s8b_analysis_plan_20261015.md). |
+| 7. Fresh-task mechanism study | Use 24 newly authored and independently admitted development tasks to compare v0, an externalized process, trajectory imitation, and a length-matched generic control without changing the held-out study. | All 192 runs completed. Externalization increased rereading by 31.3 pp, while its paired pass difference was 0.0 pp; none of the three pass contrasts excluded zero. See the [results](docs/s8b_results.md), [status ledger](S8B_STATUS.md), [execution lock](config/s8b_execution_lock.yaml), and [analysis plan](docs/s8b_analysis_plan_20261015.md). |
 
 ## Reproduction
 
@@ -69,9 +76,11 @@ Expected time: typically 1–3 minutes, depending on package-cache availability.
 <pre><code>python -m analysis.make_tables
 python analysis/check_report_numbers.py
 python -m unittest analysis.test_figures
-python -m analysis.make_s7_figures</code></pre>
+python -m analysis.make_s7_figures
+python analysis/s8b_paper_analysis.py
+python paper/make_paper_figures.py --figure s8b</code></pre>
 
-Expected outputs are refreshed Markdown/CSV tables under [results/tables/](results/tables/), a successful cross-check against [results/tables/s7/](results/tables/s7/), six figure tests, and five S7 figures plus a contact sheet under [figures/s7/](figures/s7/). In the isolated-clone check, this sequence took under one minute after dependency installation.
+Expected outputs are refreshed Markdown/CSV tables under [results/tables/](results/tables/), a successful cross-check against [results/tables/s7/](results/tables/s7/), six figure tests, five held-out figures plus a contact sheet under [figures/s7/](figures/s7/), and the fresh-task mechanism figure at [paper/figures/s8b_mechanism.pdf](paper/figures/s8b_mechanism.pdf). In the isolated-clone check, the original held-out sequence took under one minute after dependency installation.
 
 
 ### Re-run the experimental schedule
@@ -113,11 +122,18 @@ Source code is licensed under MIT. Released data, figures, tables, and documenta
 - 对 GLM-5.3-Flash，C1 还使按任务配对的“最终编辑后验证”增加 22.2 个百分点，并使中位工具调用数从 5 增加到 6。它是当前面板中最清楚的“skill 同时改变执行过程并提高修复通过率”的案例。
 - 本研究的核心不只在于“skill 有没有提高通过率”，还在于检验：**即使最终通过率没有明显变化，skill 是否会改变智能体读取代码、写入文件、执行验证以及结束任务的路径。** 对 qwen3.5:9b，C1 与 v1 都观察到了这类轨迹层变化，C1 相对 C0：编辑后的验证行为减少了 25.0 个百分点，同时平均轨迹略长，并出现更多重写和重复动作；通过率从 48.3% 到 50.6%。
 v1 相对 C1：v1 明确要求编辑后验证，模型对该指令的显式引用达到 80%，编辑后验证行为增加 45.0 个百分点；但通过率没有变化。（[S7_T4_process_metrics.csv](results/tables/s7/S7_T4_process_metrics.csv)、[S7_T7_process_paired.csv](results/tables/s7/S7_T7_process_paired.csv)）。
+- 独立的新任务机制实验在 24 个新准入的开发任务上完成了 192 条 qwen3.5:9b 运行。与等长通用提示相比，C1、外显流程和轨迹模仿的任务配对通过率差分别为 +6.25、0.00 和 +4.17 个百分点，三个 95% 配对 bootstrap 区间都跨过 0；但外显流程使编辑后重读增加 31.3 个百分点。这直接说明：提示可以改变执行流程，却不一定提高最终修复通过率。见 [S8-b 结果](docs/s8b_results.md)和[配对结果表](results/tables/s8b/S8B_T2_task_paired_differences.csv)。
 
 ## 主结果与论文
 
 完整报告见 [PDF](paper/main.pdf) 与 [LaTeX 源码](paper/main.tex)。主图已更新为八模型版本：[PNG](paper/figures/main_results.png) / [矢量 PDF](paper/figures/main_results.pdf)。
 
+
+### 新任务机制结果
+
+[![新任务流程条件结果](paper/figures/s8b_mechanism.png)](paper/figures/s8b_mechanism.pdf)
+
+左图是各流程条件相对等长通用提示的任务配对通过率差；中图是各条件的 verifier 通过率；右图是验证与重读行为的任务配对变化。这 192 条运行只用于开发阶段机制分析，不替代八模型保留测试结果。
 
 ## 目录
 
@@ -146,7 +162,7 @@ skills/           各实验条件使用的、在锁定后不再改动的skill
 | 4. 仅用开发集理解失败与测试干预 | 不改题目、verifier 或既有轨迹；只在允许设计干预的诊断/验证数据上检查失败模式，并比较 v1 文本和固定第 32 次调用提醒。 | v1 的早期结果是应保留的负结果；L3b 只证明某些触发后行为可被观测，不能支持效果结论。见[qwen 诊断](docs/s4_qwen35_diagnosis.md)、[v1 记录](docs/d4_intervention.md)、[L3b 结果](docs/l3b_results.md)和[指标对账](docs/l3b_metric_reconciliation.md)。 |
 | 5. 正式运行前冻结设计 | 在任何保留测试任务运行前，固定提示序列化、条件、调度、哈希、分母规则和按任务配对的分析方式；同一模型的条件按交错顺序运行。 | 八模型正式调度的 1,086 条运行已经全部完成。见[执行计划](docs/s7_execution_plan.md)、[执行锁](config/s7_execution_lock.yaml)、[调度监督器说明](docs/s7_schedule_chain_20261010.md)和[状态账本](STATUS.md)。 |
 | 6. 用 verifier 结果完成正式分析 | 正式结果统一读取 <code>verifier.json.passed</code>；只将重试耗尽的传输失败移出主分母，旧标签继续保留以便对账。 | GLM 的 C1 配对提升为 +14.8 个百分点 [3.7, 29.6]；高基线 Ornith 为 −1.9 个百分点 [−16.7, 9.3]。见[正式结果表](results/tables/s7/)、[S7 图](figures/s7/)与[分析补丁](docs/s7_verifier_pass_analysis_patch_20261010.md)。 |
-| 7. 使用全新任务检验机制 | 另外制作 24 个通过独立准入的开发任务，比较 v0、外显流程、轨迹模仿和等长通用提示，不回头修改 S7。 | S8-b 已锁定为 24 个任务 × 4 个条件 × 2 次重复，共 192 条，目前正按单 worker 顺序运行。见 [S8-b 监控](S8B_STATUS.md)、[执行锁](config/s8b_execution_lock.yaml)和[分析计划](docs/s8b_analysis_plan_20261015.md)。 |
+| 7. 使用全新任务检验机制 | 另外制作 24 个通过独立准入的开发任务，比较 v0、外显流程、轨迹模仿和等长通用提示，不回头修改保留测试。 | 192 条运行已全部完成。外显流程使重读增加 31.3 个百分点，但任务配对通过率差为 0.0 个百分点；三个通过率对比的区间都跨过 0。见 [S8-b 结果](docs/s8b_results.md)、[状态账本](S8B_STATUS.md)、[执行锁](config/s8b_execution_lock.yaml)和[分析计划](docs/s8b_analysis_plan_20261015.md)。 |
 
 ## 复现：
 
@@ -167,9 +183,11 @@ python -m pip install -r analysis/requirements-figures.txt</code></pre>
 <pre><code>python -m analysis.make_tables
 python analysis/check_report_numbers.py
 python -m unittest analysis.test_figures
-python -m analysis.make_s7_figures</code></pre>
+python -m analysis.make_s7_figures
+python analysis/s8b_paper_analysis.py
+python paper/make_paper_figures.py --figure s8b</code></pre>
 
-预期产物包括：更新后的 [results/tables/](results/tables/) Markdown/CSV、针对 [results/tables/s7/](results/tables/s7/) 的数值一致性检查、6 项图形测试，以及 [figures/s7/](figures/s7/) 中的 5 张 S7 图与 contact sheet。依赖安装完成后，隔离克隆中这组命令运行时间不足 1 分钟。
+预期产物包括：更新后的 [results/tables/](results/tables/) Markdown/CSV、针对 [results/tables/s7/](results/tables/s7/) 的数值一致性检查、6 项图形测试、[figures/s7/](figures/s7/) 中的 5 张保留测试图与 contact sheet，以及 [paper/figures/s8b_mechanism.pdf](paper/figures/s8b_mechanism.pdf) 中的新任务机制图。原保留测试命令在依赖安装后的隔离克隆中运行时间不足 1 分钟。
 
 
 
