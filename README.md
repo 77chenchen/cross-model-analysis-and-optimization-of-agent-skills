@@ -23,7 +23,7 @@ Research question: when a coding agent receives a written skill, does it repair 
 
 [![Fresh-task process variants](paper/figures/s8b_mechanism.png)](paper/figures/s8b_mechanism.pdf)
 
-The left panel reports task-paired pass-rate differences from the length-matched generic control; the middle panel reports condition-level verifier pass; the right panel reports task-paired changes in validation and rereading. These 192 runs are development-only and do not replace the held-out eight-model result.
+The left panel reports task-paired pass-rate differences from the length-matched generic control; the middle panel reports condition-level verifier pass; the right panel reports task-paired changes in validation and rereading.
 
 ## Paper
 
@@ -133,7 +133,7 @@ v1 相对 C1：v1 明确要求编辑后验证，模型对该指令的显式引�
 
 [![新任务流程条件结果](paper/figures/s8b_mechanism.png)](paper/figures/s8b_mechanism.pdf)
 
-左图是各流程条件相对等长通用提示的任务配对通过率差；中图是各条件的 verifier 通过率；右图是验证与重读行为的任务配对变化。这 192 条运行只用于开发阶段机制分析，不替代八模型保留测试结果。
+左图是各流程条件相对等长通用提示的任务配对通过率差；中图是各条件的 verifier 通过率；右图是验证与重读行为的任务配对变化。
 
 ## 目录
 
