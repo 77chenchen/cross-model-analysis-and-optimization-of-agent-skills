@@ -76,7 +76,7 @@ With the runner fixed, we read qwen3.5:9b trajectories to separate failures that
 
 The formal comparison used C0, which omitted the skill block, and C1, which added the frozen v0 skill. Everything else—the task text, tools, verifier, runner, suffix, and scheduling rules—was held fixed. qwen3.5:9b ran five times per task and condition; the other seven model configurations ran three times. `v1` and `L3b` were retained as weak-model exploratory conditions.
 
-Tasks, conditions, and repetitions were mixed in deterministic schedules rather than run in separate blocks. This spreads each condition across the execution window and keeps the task, rather than the repeated run, as the statistical unit. The final schedule contained 1,086 runs: 936 in the C0/C1 comparison and 150 in the two exploratory conditions. All scheduled runs completed. Exact settings and progress are available in the [execution plan](docs/s7_execution_plan.md), [execution lock](config/s7_execution_lock.yaml), [schedule record](docs/s7_schedule_chain_20261010.md), and [run ledger](STATUS.md).
+Tasks, conditions, and repetitions were mixed in deterministic schedules rather than run in separate blocks. This spreads each condition across the execution window and keeps the task, rather than the repeated run, as the statistical unit. The final schedule contained 1,086 runs: 936 in the C0/C1 comparison and 150 in the two exploratory conditions. All scheduled runs completed. Exact settings are available in the [execution plan](docs/s7_execution_plan.md), [execution lock](config/s7_execution_lock.yaml), and [schedule record](docs/s7_schedule_chain_20261010.md).
 
 ### 6. Read correctness and behavior as two different outcomes
 
@@ -92,7 +92,7 @@ The final study added 24 newly written and independently admitted tasks. It comp
 
 Against the generic prompt, the task-paired pass-rate differences were +6.25 points for C1, 0.00 for the externalized procedure, and +4.17 for imitation. All three 95% paired-bootstrap intervals included zero. The externalized procedure did, however, raise post-edit rereading by 31.3 points [+14.6, +47.9]. This follow-up reaches the same practical distinction as the eight-model study: changing how an agent works is measurable, but it is not the same as improving the code it leaves behind.
 
-See the [analysis plan](docs/s8b_analysis_plan_20261015.md), [execution lock](config/s8b_execution_lock.yaml), [run ledger](S8B_STATUS.md), [result note](docs/s8b_results.md), [condition summary](results/tables/s8b/S8B_T1_condition_summary.csv), [paired outcomes](results/tables/s8b/S8B_T2_task_paired_differences.csv), [process contrasts](results/tables/s8b/S8B_T5_process_paired_differences.csv), and [figure](paper/figures/s8b_mechanism.pdf).
+See the [analysis plan](docs/s8b_analysis_plan_20261015.md), [execution lock](config/s8b_execution_lock.yaml), [result note](docs/s8b_results.md), [condition summary](results/tables/s8b/S8B_T1_condition_summary.csv), [paired outcomes](results/tables/s8b/S8B_T2_task_paired_differences.csv), [process contrasts](results/tables/s8b/S8B_T5_process_paired_differences.csv), and [figure](paper/figures/s8b_mechanism.pdf).
 
 ## Reproduction
 
@@ -111,7 +111,7 @@ Expected time: typically 1–3 minutes, depending on package-cache availability.
 ### Reproduce released analysis and figures
 
 <pre><code>python -m analysis.make_tables
-python analysis/check_report_numbers.py
+python analysis/check_paper_numbers.py
 python -m unittest analysis.test_figures
 python -m analysis.make_s7_figures
 python analysis/s8b_paper_analysis.py
@@ -217,7 +217,7 @@ temperature=0 的早期 pilot 作为独立队列保留。随后检查各调用�
 
 核心对比为 C0 与 C1：C0 不包含 skill 文本，C1 加入冻结的 v0 skill；题面、工具、verifier、runner、结尾指令与调度规则保持一致。qwen3.5:9b 在每个“任务 × 条件”单元重复 5 次，其余七个模型重复 3 次；`v1` 与 `L3b` 作为弱模型探索条件保留。
 
-任务、条件与重复采用固定种子交错调度，不按条件分块执行，以降低运行时段与 provider 状态变化的混杂。统计分析以任务为抽样单位，而非将重复运行视为独立样本。完整矩阵包含 1,086 条运行，其中 936 条属于 C0/C1 核心对比，150 条属于两个探索条件；全部调度均已完成。完整设置见[执行方案](docs/s7_execution_plan.md)、[执行锁](config/s7_execution_lock.yaml)、[调度记录](docs/s7_schedule_chain_20261010.md)和[运行账本](STATUS.md)。
+任务、条件与重复采用固定种子交错调度，不按条件分块执行，以降低运行时段与 provider 状态变化的混杂。统计分析以任务为抽样单位，而非将重复运行视为独立样本。完整矩阵包含 1,086 条运行，其中 936 条属于 C0/C1 核心对比，150 条属于两个探索条件；全部调度均已完成。完整设置见[执行方案](docs/s7_execution_plan.md)、[执行锁](config/s7_execution_lock.yaml)和[调度记录](docs/s7_schedule_chain_20261010.md)。
 
 ### 6. 任务成功与过程行为的分离评估
 
@@ -233,7 +233,7 @@ C1−C0 差异呈明显的模型异质性。GLM-5.3-Flash 的通过数由 C0 的
 
 相较于长度匹配的通用提示，C1、外显流程和轨迹模仿的任务配对通过率差异分别为 +6.25、0.00 和 +4.17 个百分点，三个 95% 配对 bootstrap 区间均包含 0。外显流程使编辑后重读增加 31.3 个百分点 [+14.6, +47.9]。结果进一步表明，流程行为的可测变化不构成任务成功改善的充分证据。
 
-完整材料见[分析方案](docs/s8b_analysis_plan_20261015.md)、[执行锁](config/s8b_execution_lock.yaml)、[运行账本](S8B_STATUS.md)、[结果说明](docs/s8b_results.md)、[条件汇总](results/tables/s8b/S8B_T1_condition_summary.csv)、[任务配对结果](results/tables/s8b/S8B_T2_task_paired_differences.csv)、[过程指标配对差](results/tables/s8b/S8B_T5_process_paired_differences.csv)和[结果图](paper/figures/s8b_mechanism.pdf)。
+完整材料见[分析方案](docs/s8b_analysis_plan_20261015.md)、[执行锁](config/s8b_execution_lock.yaml)、[结果说明](docs/s8b_results.md)、[条件汇总](results/tables/s8b/S8B_T1_condition_summary.csv)、[任务配对结果](results/tables/s8b/S8B_T2_task_paired_differences.csv)、[过程指标配对差](results/tables/s8b/S8B_T5_process_paired_differences.csv)和[结果图](paper/figures/s8b_mechanism.pdf)。
 
 ## 复现：
 
@@ -252,7 +252,7 @@ python -m pip install -r analysis/requirements-figures.txt</code></pre>
 ### 从发布内容重建表格与图形
 
 <pre><code>python -m analysis.make_tables
-python analysis/check_report_numbers.py
+python analysis/check_paper_numbers.py
 python -m unittest analysis.test_figures
 python -m analysis.make_s7_figures
 python analysis/s8b_paper_analysis.py
