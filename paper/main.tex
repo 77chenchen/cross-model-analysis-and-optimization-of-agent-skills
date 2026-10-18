@@ -343,7 +343,7 @@ Skill evaluation should therefore measure three components together: whether the
 
 A useful skill evaluation must answer both questions. Tool logs reveal whether an agent followed the instruction; an external verifier determines whether its repair worked. Reporting only behavior can reward an agent for completing steps that do not fix the bug. Reporting only pass rate hides whether the skill changed the process at all. Our evaluation records both, so a change in checking behavior can be distinguished from a change in repair success.
 
-Success is read directly from \path{verifier.json.passed}, with empty messages, step limits, and timeouts recorded separately. Earlier labels undercounted passing runs with empty final messages; the full correction history is documented in the \href{https://github.com/77chenchen/skill-trajectory-benchmark/blob/main/docs/verifier_pass_erratum_20261010.md}{repository audit}. The nine transport failures that exhausted their retries are excluded from the main denominator and counted as failures in the sensitivity analysis.
+Success is read directly from \path{verifier.json.passed}, with empty messages, step limits, and timeouts recorded separately. Earlier labels undercounted passing runs with empty final messages; the full correction history is documented in the \href{https://github.com/77chenchen/cross-model-analysis-and-optimization-of-agent-skills/blob/main/docs/verifier_pass_erratum_20261010.md}{repository audit}. The nine transport failures that exhausted their retries are excluded from the main denominator and counted as failures in the sensitivity analysis.
 
 \section{Conclusion}
 
@@ -359,7 +359,7 @@ The conclusion from these experiments is direct: following the requested procedu
 
 \clearpage
 \section*{Code and Data Availability}
-Analysis code, released study data, locked configurations, and the scripts used to reproduce the tables and figures are available at \url{https://github.com/77chenchen/skill-trajectory-benchmark}. Source code is licensed under the MIT License; released data and documentation are licensed under CC BY 4.0. Raw provider responses containing private reasoning traces are not included in the public package.
+Analysis code, released study data, locked configurations, and the scripts used to reproduce the tables and figures are available at \url{https://github.com/77chenchen/cross-model-analysis-and-optimization-of-agent-skills}. Source code is licensed under the MIT License; released data and documentation are licensed under CC BY 4.0. Raw provider responses containing private reasoning traces are not included in the public package.
 
 \bibliographystyle{plainnat}
 \bibliography{references}

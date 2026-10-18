@@ -46,51 +46,75 @@ skills/           Frozen written-skill variants used by the experimental conditi
 
 ## Research progression
 
-The study developed in seven steps. The order is important: task validity and outcome accounting were settled before the formal skill comparison, and the later mechanism study used a new task set.
-
 ### 1. Start with verifiable repository repairs
 
-We chose small repository-repair tasks because they expose the agent's full sequence of file reads, edits, and test commands. Each task has a frozen buggy repository, a written specification, fixtures, and an external contract verifier. This lets the verifier judge the code independently of the model's final explanation.
+We used repository-repair tasks to capture complete trajectories of file reading, code editing, and test execution while retaining reproducible external evaluation. Each task contains a frozen buggy repository, a natural-language task specification, test fixtures, and a contract verifier. Scoring depends only on whether the modified code satisfies the task contract, not on the model's final natural-language response.
 
-The formal pool has 18 tasks. Twelve `test_in` tasks belong to the A/B skill families, while six `test_out` tasks use transfer family C. Before any model was evaluated, every task had to accept the intended repair, reject the original buggy seed, and reject known shortcut solutions. The pool and its checks are recorded in the [split lock](docs/s3_split_lock.md), [task manifest](tasks/formal_manifest.json), and [admission record](tasks/s3_admission.json).
+The formal task pool contains 18 tasks: 12 `test_in` tasks from Skill A/B and six `test_out` tasks from transfer category C. Before model evaluation, every task had to pass three admission checks: the expected fix passed, the buggy seed failed, and known shortcut solutions failed. The task split and admission results are recorded in the [split lock](docs/s3_split_lock.md), [task manifest](tasks/formal_manifest.json), and [admission record](tasks/s3_admission.json).
 
 ### 2. Check whether the model–task pairs leave room for an effect
 
-The first pilots used temperature 0 and were kept separate. We then checked the sampling fields available on each execution path and ran a multi-model calibration. This was necessary because a task that every model passes, or no model can solve, says little about whether a written skill helps.
+Early pilot runs at temperature 0 were retained as a separate queue. We then tested which sampling parameters each model endpoint supported and ran calibration tasks across multiple models. Calibration identified model-task combinations near floor or ceiling effects, where the available range is too limited to estimate the effect of a skill reliably.
 
-The calibration placed qwen3.5:9b in the weak-target role and llama3.1:8b at the lower boundary of the panel; stronger general and coding models filled out the comparison range. See the [sampling probe](docs/s0_sampling_probe.md), [calibration protocol](docs/s4_calibration_protocol.md), and [calibration results](docs/s4_calibration_results.md).
+The calibration designated qwen3.5:9b as the weak target model and llama3.1:8b as the lower capability boundary. Stronger general-purpose and code models completed the comparison panel. See the [sampling probe](docs/s0_sampling_probe.md), [calibration protocol](docs/s4_calibration_protocol.md), and [calibration results](docs/s4_calibration_results.md).
 
 ### 3. Fix the runner and the definition of success
 
-The early CLI runs exposed an accounting problem. A run could end with no visible final message and still leave a correct repair, while timeouts, missing edits, tool errors, and verifier failures could overlap. A single terminal label could not represent these cases reliably.
+Early CLI runs showed that an empty final response and verifier success were not mutually exclusive. Timeouts, missing edits, tool errors, and verifier failures could also occur together, so a single terminal label could not describe an execution outcome adequately.
 
-For directly accessible models, we therefore used the locked r2 loop with a fixed tool set, a 40-step limit, process-group timeout, transport-only retries, and a step-by-step event log. GPT remained a Codex reference anchor. Success is read directly from `verifier.json.passed`; only retry-exhausted transport errors leave the primary denominator, while timeouts and step-limit runs remain failures. The implementation and correction history are in the [runner design](docs/b1_r2_runner.md), [outcome-flag specification](docs/outcome_flags_revision.md), [verifier-pass erratum](docs/verifier_pass_erratum_20261010.md), and [analysis patch](docs/s7_verifier_pass_analysis_patch_20261010.md).
+For directly accessible models, we used the locked r2 agent loop with a fixed tool set, a 40-step limit, process-group timeouts for command execution, and request-level retries only when a transport error returned no response. The runner recorded model responses, reasoning fields, tool calls, and tool results at every step. GPT was executed through Codex and reported separately as a sampling-uncontrolled reference anchor.
+
+The primary outcome is read directly from `verifier.json.passed`. Retry-exhausted provider errors are excluded from the primary denominator; timeouts and `max_steps_reached` remain in the denominator and count as failures. The implementation and correction history are in the [runner design](docs/b1_r2_runner.md), [outcome-flag specification](docs/outcome_flags_revision.md), [verifier-pass erratum](docs/verifier_pass_erratum_20261010.md), and [analysis patch](docs/s7_verifier_pass_analysis_patch_20261010.md).
 
 ### 4. Use weak-model failures to decide what to test
 
-With the runner fixed, we read qwen3.5:9b trajectories to separate failures that instructions might address—such as a missed constraint or no validation after editing—from file corruption, interface errors, and early termination. This led to two development conditions. `v1` stated the inspect–edit–validate procedure more explicitly. `L3b` added a single fixed reminder after call 32 to test a simple late-trajectory guardrail.
+We diagnosed qwen3.5:9b trajectories individually, separating failures that written instructions might address, such as missed constraints and absent post-edit validation, from file corruption, interface errors, and premature termination.
 
-`v1` raised post-edit validation by 45.0 percentage points relative to C1, but verifier pass did not change. `L3b` changed some behavior after the reminder fired, although the relevant strata were too small and differed at baseline. The supporting records are the [trajectory diagnosis](docs/s4_qwen35_diagnosis.md), [`v1` record](docs/d4_intervention.md), [`L3b` results](docs/l3b_results.md), and [metric reconciliation](docs/l3b_metric_reconciliation.md).
+This diagnosis produced two development conditions:
+
+- `v1` explicitly specified an inspect-edit-validate workflow.
+- `L3b` injected one fixed reminder after the 32nd tool call to test a late-stage runtime guardrail.
+
+Relative to C1, `v1` increased post-edit validation by 45.0 percentage points but left verifier pass unchanged. `L3b` was followed by some behavioral changes, although the relevant strata were small and differences were also present in the baseline stratum. The supporting records are the [trajectory diagnosis](docs/s4_qwen35_diagnosis.md), [`v1` record](docs/d4_intervention.md), [`L3b` results](docs/l3b_results.md), and [metric reconciliation](docs/l3b_metric_reconciliation.md).
 
 ### 5. Run the locked eight-model comparison
 
-The formal comparison used C0, which omitted the skill block, and C1, which added the frozen v0 skill. Everything else—the task text, tools, verifier, runner, suffix, and scheduling rules—was held fixed. qwen3.5:9b ran five times per task and condition; the other seven model configurations ran three times. `v1` and `L3b` were retained as weak-model exploratory conditions.
+The core comparison used two conditions:
 
-Tasks, conditions, and repetitions were mixed in deterministic schedules rather than run in separate blocks. This spreads each condition across the execution window and keeps the task, rather than the repeated run, as the statistical unit. The final schedule contained 1,086 runs: 936 in the C0/C1 comparison and 150 in the two exploratory conditions. All scheduled runs completed. Exact settings are available in the [execution plan](docs/s7_execution_plan.md), [execution lock](config/s7_execution_lock.yaml), and [schedule record](docs/s7_schedule_chain_20261010.md).
+- C0 omitted the skill text.
+- C1 included the frozen v0 skill.
+
+Apart from the skill block, the task specification, tool definitions, verifier, runner, prompt suffix, and scheduling rules were held constant. qwen3.5:9b ran five times in each task-condition cell; the other seven models ran three times. `v1` and `L3b` were retained as exploratory conditions for the weak target model.
+
+Tasks, conditions, and repetitions were interleaved using fixed-seed schedules rather than executed in condition-specific blocks. This reduced confounding from execution time and changes in provider state. Statistical analysis treated the task, not the repeated run, as the sampling unit. The full evaluation matrix contained 1,086 runs: 936 in the C0/C1 core comparison and 150 in the two exploratory conditions. Exact settings are available in the [execution plan](docs/s7_execution_plan.md), [execution lock](config/s7_execution_lock.yaml), and [schedule record](docs/s7_schedule_chain_20261010.md).
 
 ### 6. Read correctness and behavior as two different outcomes
 
-For each model, repeated runs were averaged within task and condition before calculating the task-paired C1−C0 difference. We analyzed verifier pass separately from post-edit validation, rereading, rewrites, repeated action loops, tool steps, and terminal flags.
+Repeated runs were first summarized within each task-condition cell. We then calculated task-paired C1−C0 differences for each model. Verifier pass rate was the task outcome; post-edit validation, post-edit rereading, whole-file rewrites, debugging loops, tool steps, and terminal flags were reported as separate process metrics.
 
-The results were not uniform across models. GLM-5.3-Flash moved from 40/54 usable passes under C0 to 48/54 under C1, a paired gain of 14.8 percentage points [3.7, 29.6]; its post-edit validation also rose by 22.2 points. qwen3.5:9b gained 1.9 pass-rate points while its post-edit validation fell by 25.0 points. Ornith1.5:35b changed by −1.9 points [−16.7, 9.3], and llama3.1:8b stayed at the floor. Thus, the same skill can help, do little, or fail to register depending on the underlying model, and a change in workflow does not by itself establish a better repair.
+The C1−C0 difference varied across models:
+
+- GLM-5.3-Flash increased from 40/54 passes under C0 to 48/54 under C1. The task-paired difference was +14.8 percentage points, with a 95% paired-bootstrap interval of [3.7, 29.6]; post-edit validation also increased by 22.2 percentage points.
+- qwen3.5:9b gained 1.9 percentage points in verifier pass while post-edit validation decreased by 25.0 percentage points.
+- Ornith1.5:35b had a difference of −1.9 percentage points, with a 95% paired-bootstrap interval of [−16.7, 9.3].
+- llama3.1:8b remained at the capability floor under both conditions.
+
+These results show that the observed effect of a skill depends on the underlying model and that process-level behavioral change cannot substitute for direct evaluation of functional correctness.
 
 The main evidence is in the [condition summary](results/tables/s7/S7_T1_model_condition_summary.csv), [paired pass-rate table](results/tables/s7/S7_T2_core_paired_differences.csv), [process summary](results/tables/s7/S7_T4_process_metrics.csv), [paired process table](results/tables/s7/S7_T7_process_paired.csv), [figures](figures/s7/), and [paper](paper/main.pdf).
 
 ### 7. Repeat the mechanism comparison with new tasks and better controls
 
-The final study added 24 newly written and independently admitted tasks. It compared four prompts on qwen3.5:9b: C1, an externalized step-by-step procedure, trajectory imitation, and a generic prompt matched for length. Two repetitions per task and condition produced 192 scheduled runs. The generic prompt controls for adding text alone; the other two conditions compare explicit rules with an example-like behavioral pattern.
+The mechanism experiment added 24 independently admitted tasks and compared four prompt conditions on qwen3.5:9b:
 
-Against the generic prompt, the task-paired pass-rate differences were +6.25 points for C1, 0.00 for the externalized procedure, and +4.17 for imitation. All three 95% paired-bootstrap intervals included zero. The externalized procedure did, however, raise post-edit rereading by 31.3 points [+14.6, +47.9]. This follow-up reaches the same practical distinction as the eight-model study: changing how an agent works is measurable, but it is not the same as improving the code it leaves behind.
+1. C1;
+2. an externalized step-by-step procedure;
+3. trajectory imitation; and
+4. a length-matched generic prompt.
+
+Each task-condition cell was repeated twice, producing 192 scheduled runs. The length-matched generic prompt controlled for prompt length and nonspecific additional text. The externalized procedure and trajectory-imitation conditions tested explicit rule specification and behavioral demonstration, respectively.
+
+Relative to the length-matched generic prompt, the task-paired pass-rate differences were +6.25 percentage points for C1, 0.00 for the externalized procedure, and +4.17 for trajectory imitation. All three 95% paired-bootstrap intervals included zero. The externalized procedure increased post-edit rereading by 31.3 percentage points, with a 95% interval of [+14.6, +47.9]. These results further show that prompt interventions can produce measurable process-level behavioral changes without demonstrating improved functional repair performance.
 
 See the [analysis plan](docs/s8b_analysis_plan_20261015.md), [execution lock](config/s8b_execution_lock.yaml), [result note](docs/s8b_results.md), [condition summary](results/tables/s8b/S8B_T1_condition_summary.csv), [paired outcomes](results/tables/s8b/S8B_T2_task_paired_differences.csv), [process contrasts](results/tables/s8b/S8B_T5_process_paired_differences.csv), and [figure](paper/figures/s8b_mechanism.pdf).
 

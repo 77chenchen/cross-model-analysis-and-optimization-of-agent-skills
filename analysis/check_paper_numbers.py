@@ -154,7 +154,7 @@ def main() -> int:
         raise AssertionError(f"abstract word count {len(words)} is outside 150--200")
     if re.search(r"\bS[4-7]\b|\bL3b\b", tex):
         raise AssertionError("internal batch label remains in the manuscript")
-    if "https://github.com/77chenchen/skill-trajectory-benchmark" not in tex:
+    if "https://github.com/77chenchen/cross-model-analysis-and-optimization-of-agent-skills" not in tex:
         raise AssertionError("public repository URL missing")
     for fig in ("main_results.pdf", "decoupling.pdf", "behavior_outcome.pdf", "failure_flags.pdf", "legacy_vs_verifier.pdf", "kappa_pabak.png", "s8b_mechanism.pdf"):
         if not (PAPER / "figures" / fig).exists():
