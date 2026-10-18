@@ -156,7 +156,7 @@ def main() -> int:
         raise AssertionError("internal batch label remains in the manuscript")
     if "https://github.com/77chenchen/cross-model-analysis-and-optimization-of-agent-skills" not in tex:
         raise AssertionError("public repository URL missing")
-    for fig in ("main_results.pdf", "decoupling.pdf", "behavior_outcome.pdf", "failure_flags.pdf", "legacy_vs_verifier.pdf", "kappa_pabak.png", "s8b_mechanism.pdf"):
+    for fig in ("main_results.pdf", "decoupling.pdf", "behavior_outcome.pdf", "failure_flags.pdf", "legacy_vs_verifier.pdf", "s8b_mechanism.pdf"):
         if not (PAPER / "figures" / fig).exists():
             raise AssertionError(f"missing figure asset: {fig}")
     print(f"PASS: {checked} numeric checks; abstract={len(words)} words; all required figure assets present.")

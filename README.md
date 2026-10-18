@@ -208,90 +208,84 @@ results/tables/   机器可读的结果表；正式 S7 表位于 results/tables/
 figures/          可复现图、对应绘图数据、版式 QA 记录和图形清单。
 docs/             协议锁、诊断报告、勘误记录、结果说明与后续研究方案。
 paper/            论文源码、参考文献、论文专用图和已编译的 PDF。
-skills/           各实验条件使用的、在锁定后不再改动的skill
+skills/           各实验条件使用且在锁定后不再改动的 skill 版本。
 ```
 
 ## 研究设计与实施
 
-### 1. 可验证 Repository-Repair Tasks 的构建
+### 1. 构建可验证的仓库修复任务
 
-实验采用 repository-repair tasks，以同时获得完整的 file reading、code editing 与 trajectories，并支持 external verifier 的可重复验收。每个任务均包含冻结的 buggy repository、natural-language task specification、test fixtures 和 contract verifier。评分仅依据修改后的代码是否满足 task contract，不使用模型的 final natural-language response。
+实验采用小型仓库修复任务，以完整记录文件读取、代码编辑和测试执行轨迹，并通过外部 verifier 重复验收。每个任务均包含冻结的缺陷仓库、自然语言题面、测试夹具和合约 verifier。评分仅取决于修改后的代码是否满足任务合约，不使用模型最终回复中的自然语言内容。
 
-正式 task pool 包含 18 个任务，其中 12 个 `test_in` 任务属于 Skill A/B，6 个 `test_out` 任务属于 transfer category C。模型评估前，每个任务均须通过三项 admission checks：expected fix 通过、buggy seed 失败、known shortcut solution 失败。任务划分与检查结果见[数据划分锁](docs/s3_split_lock.md)、[任务清单](tasks/formal_manifest.json)和[准入记录](tasks/s3_admission.json)。
+正式任务池包含 18 个任务，其中 12 个 `test_in` 任务属于 Skill A/B，6 个 `test_out` 任务属于迁移类型 C。模型评估前，每个任务均须通过三项准入检查：预期修复能够通过、原始缺陷版本必须失败、已知捷径解必须失败。任务划分与检查结果见[数据划分锁](docs/s3_split_lock.md)、[任务清单](tasks/formal_manifest.json)和[准入记录](tasks/s3_admission.json)。
 
-### 2. Model–Task Difficulty Calibration
+### 2. 校准模型与任务的难度匹配
 
-temperature=0 的早期 pilot runs 作为独立队列保留。随后检查不同 model endpoint 对 sampling parameters 的支持情况，并使用多种模型运行 calibration tasks。Calibration 的目的是识别接近 floor effect 或 ceiling effect 的 model–task combinations，避免使用缺乏可辨识变化空间的任务估计 skill 的作用。
+温度为 0 的早期试运行作为独立队列保留。随后检查不同模型端点对采样参数的支持情况，并使用多种模型运行校准任务。校准用于识别接近地板效应或天花板效应的模型—任务组合，避免用缺乏可辨识变化空间的任务估计 skill 的作用。
 
-根据 calibration 结果，qwen3.5:9b 被设定为 weak target model，llama3.1:8b 用于表征更低的 capability floor，同时纳入更强的 general-purpose models 与 code models 构成比较 panel。详细过程见[采样探测](docs/s0_sampling_probe.md)、[校准协议](docs/s4_calibration_protocol.md)和[校准结果](docs/s4_calibration_results.md)。
+根据校准结果，qwen3.5:9b 被设定为弱目标模型，llama3.1:8b 用于表征更低的能力边界，同时纳入更强的通用模型和代码模型构成比较面板。详细过程见[采样探测](docs/s0_sampling_probe.md)、[校准协议](docs/s4_calibration_protocol.md)和[校准结果](docs/s4_calibration_results.md)。
 
-### 3. Auditable Execution Harness 与 Primary Outcome
+### 3. 建立可审计的执行框架与主要结局
 
-早期 CLI runs 表明，final response 为空与 verifier pass 并非互斥事件；timeout、no edit、tool error 和 verifier failure 也可能同时发生。因此，单一 terminal label 无法完整表示一次运行的 outcome。
+早期 CLI 实验表明，最终回复为空与 verifier 通过并非互斥事件；超时、未编辑、工具错误和 verifier 失败也可能同时发生。因此，单一终止标签不足以完整描述一次运行的结局。
 
-对于可直接调用的模型，实验采用锁定的 r2 agent loop：固定 tool set 和 40-step limit，command execution 使用 process-group timeout；仅对未收到任何 response 的 transport errors 实施 request-level retry，并逐步记录 model response、reasoning field、tool calls 与 tool results。GPT 通过 Codex 运行，并作为 sampling-uncontrolled reference anchor 单独报告。
+对于可直接调用的模型，实验采用锁定的 r2 agent loop：工具集合固定，最多执行 40 次工具调用，命令通过进程组超时机制终止；仅当传输错误导致请求未收到任何响应时才进行请求级重试。runner 逐步记录模型响应、reasoning 字段、工具调用和工具返回结果。GPT 通过 Codex 运行，并作为采样设置未完全受控的参考锚点单独报告。
 
-Primary outcome 直接读取 `verifier.json.passed`。Retry-exhausted provider errors 排除在 primary denominator 之外；timeout 和 `max_steps_reached` 均计入分母并视为失败。具体实现与修订记录见[runner 设计](docs/b1_r2_runner.md)、[结局标志说明](docs/outcome_flags_revision.md)、[verifier-pass 勘误](docs/verifier_pass_erratum_20261010.md)和[分析补丁](docs/s7_verifier_pass_analysis_patch_20261010.md)。
+主要结局直接读取 `verifier.json.passed`。重试耗尽的 provider error 排除在主要分析分母之外；超时和 `max_steps_reached` 均保留在分母中并计为失败。具体实现与修订记录见[runner 设计](docs/b1_r2_runner.md)、[结局标志说明](docs/outcome_flags_revision.md)、[verifier-pass 勘误](docs/verifier_pass_erratum_20261010.md)和[分析补丁](docs/s7_verifier_pass_analysis_patch_20261010.md)。
 
-### 4. 基于 Weak-Model Trajectories 的 Intervention Design
+### 4. 根据弱模型轨迹设计干预条件
 
-对 qwen3.5:9b 开展逐 trajectory diagnosis，将 missed constraint、缺少 post-edit validation 等可能受 written skill 影响的失败，与 file corruption、interface error 和 premature termination 区分。
+对 qwen3.5:9b 的运行轨迹逐条诊断，将漏掉约束、编辑后未验证等可能受书面 skill 影响的失败，与文件损坏、接口错误和提前终止区分开来。
 
-基于该 diagnosis 设置两个 development conditions：
+该诊断产生了两个开发阶段条件：
 
-- `v1`：显式规定 inspect–edit–validate workflow；
-- `L3b`：在第 32 次 tool call 后注入一次固定 reminder，用于检验 late-stage runtime guardrail。
+- `v1`：明确规定检查、修改和验证流程；
+- `L3b`：在第 32 次工具调用后注入一次固定提醒，用于检验运行后段的护栏。
 
-相较于 C1，`v1` 使 post-edit validation 增加 45.0 percentage points，但 verifier pass rate 保持不变。`L3b` 触发后观察到部分 behavioral changes，但相应 stratified sample 较小，且 baseline stratum 中同样存在差异。相关材料见[轨迹诊断](docs/s4_qwen35_diagnosis.md)、[`v1` 记录](docs/d4_intervention.md)、[`L3b` 结果](docs/l3b_results.md)和[指标对账](docs/l3b_metric_reconciliation.md)。
+相较于 C1，`v1` 使编辑后验证率增加 45.0 个百分点，但 verifier 通过率没有变化。`L3b` 触发后出现了部分行为变化，但相应分层样本较小，而且基线层中也存在差异。相关材料见[轨迹诊断](docs/s4_qwen35_diagnosis.md)、[`v1` 记录](docs/d4_intervention.md)、[`L3b` 结果](docs/l3b_results.md)和[指标对账](docs/l3b_metric_reconciliation.md)。
 
-### 5. 八模型 Locked Controlled Evaluation
+### 5. 开展锁定的八模型对照实验
 
-核心对比为 C0 与 C1：
+核心对比包括两个条件：
 
-- C0：不包含 skill text；
-- C1：加入冻结的 v0 skill。
+- C0：不提供 skill 文本；
+- C1：提供冻结的 v0 skill。
 
-除 skill block 外，task specification、tool definitions、verifier、runner、prompt suffix 和 scheduling rules 均保持一致。qwen3.5:9b 在每个 task–condition cell 中重复 5 次，其余七个模型重复 3 次；`v1` 与 `L3b` 作为 weak-model exploratory conditions 保留。
+除 skill 文本块外，任务题面、工具定义、verifier、runner、提示词后缀和调度规则均保持一致。qwen3.5:9b 在每个“任务 × 条件”单元中重复 5 次，其余七个模型重复 3 次；`v1` 与 `L3b` 作为弱模型的探索性条件保留。
 
-Tasks、conditions 与 repetitions 采用 fixed-seed interleaved scheduling，不按 condition 分块运行，以降低 execution time window 与 provider state 变化造成的 confounding。Statistical analysis 以 task 为 sampling unit，不将 repeated runs 视为相互独立的样本。
+任务、条件和重复次数采用固定种子的交错调度，不按条件分块运行，以降低运行时段和 provider 状态变化造成的混杂。统计分析以任务为抽样单位，不把同一任务的重复运行视为相互独立的样本。
 
-完整 evaluation matrix 包含 1,086 条 runs，其中 936 条属于 C0/C1 core comparison，150 条属于两个 exploratory conditions；完整设置见[执行方案](docs/s7_execution_plan.md)、[执行锁](config/s7_execution_lock.yaml)和[调度记录](docs/s7_schedule_chain_20261010.md)。
+完整实验矩阵包含 1,086 次运行，其中 936 次属于 C0/C1 核心对比，150 次属于两个探索性条件。完整设置见[执行方案](docs/s7_execution_plan.md)、[执行锁](config/s7_execution_lock.yaml)和[调度记录](docs/s7_schedule_chain_20261010.md)。
 
-### 6. Task Success 与 Process Behavior 的分离评估
+### 6. 分别评估任务成功与过程行为
 
-Repeated runs 首先在每个 task–condition cell 内汇总，随后计算各模型 task-paired 的 C1−C0 difference。Verifier pass rate 作为 task outcome；post-edit validation、post-edit rereading、whole-file rewrite、debugging loop、tool steps 和 terminal flags 作为独立 process metrics 报告。
+重复运行首先在每个“任务 × 条件”单元内汇总，随后计算各模型按任务配对的 C1−C0 差值。verifier 通过率作为任务结局；编辑后验证、编辑后重读、整文件重写、调试循环、工具调用步数和终止标志作为独立的过程指标报告。
 
-C1−C0 difference 呈现明显的 model heterogeneity：
+C1−C0 差值在模型之间存在明显差异：
 
-- GLM-5.3-Flash 的通过数由 C0 的 40/54 增至 C1 的 48/54，task-paired difference 为 +14.8 percentage points，95% paired-bootstrap interval 为 [3.7, 29.6]；post-edit validation 同时增加 22.2 percentage points。
-- qwen3.5:9b 的 verifier pass rate 增加 1.9 percentage points，而 post-edit validation 减少 25.0 percentage points。
-- Ornith1.5:35b 的 difference 为 −1.9 percentage points，95% paired-bootstrap interval 为 [−16.7, 9.3]。
-- llama3.1:8b 在 C0 与 C1 下均处于 capability floor。
+- GLM-5.3-Flash 的通过数由 C0 的 40/54 增至 C1 的 48/54，按任务配对的差值为 +14.8 个百分点，95% 配对 bootstrap 区间为 [3.7, 29.6]；编辑后验证率同时增加 22.2 个百分点。
+- qwen3.5:9b 的 verifier 通过率增加 1.9 个百分点，而编辑后验证率减少 25.0 个百分点。
+- Ornith1.5:35b 的差值为 −1.9 个百分点，95% 配对 bootstrap 区间为 [−16.7, 9.3]。
+- llama3.1:8b 在 C0 与 C1 下均处于能力地板。
 
-这些结果表明，skill 的 observed effect 具有明显的 model dependence，process-level behavioral changes 不能替代对 functional correctness 的直接评价。
+这些结果说明，skill 的观测作用随基础模型而变化；过程行为发生变化，并不等同于代码的功能正确性得到改善。
 
 主要数据见[模型与条件汇总](results/tables/s7/S7_T1_model_condition_summary.csv)、[任务配对通过率差](results/tables/s7/S7_T2_core_paired_differences.csv)、[过程指标](results/tables/s7/S7_T4_process_metrics.csv)、[过程指标配对差](results/tables/s7/S7_T7_process_paired.csv)、[正式图表](figures/s7/)和[论文](paper/main.pdf)。
 
-### 7. Fresh-Task Mechanism Comparison
+### 7. 在新任务集上比较不同流程表达方式
 
-Mechanism experiment 新增 24 个 independently admitted tasks，并在 qwen3.5:9b 上比较四种 prompt conditions：
+机制实验新增 24 个独立通过准入检查的任务，并在 qwen3.5:9b 上比较四种提示条件：
 
 1. C1；
-2. externalized step-by-step procedure；
-3. trajectory imitation；
-4. length-matched generic prompt。
+2. `externalized procedure`（外显化流程）；
+3. `trajectory imitation`（轨迹模仿）；
+4. `length-matched generic prompt`（长度匹配的通用提示）。
 
-每个 task–condition cell 重复 2 次，共形成 192 条 scheduled runs。Length-matched generic prompt 用于控制 prompt length 与 nonspecific text addition；externalized procedure 与 trajectory imitation 分别用于检验 explicit rule specification 和 behavioral demonstration。
+每个“任务 × 条件”单元重复 2 次，共形成 192 次运行。长度匹配的通用提示用于控制提示长度及非特异性文本增量；外显化流程和轨迹模仿分别检验明确陈述规则与展示行为范例的作用。
 
-相较于 length-matched generic prompt：
+以长度匹配的通用提示为对照，C1、外显化流程和轨迹模仿的任务配对通过率差值分别为 +6.25、0.00 和 +4.17 个百分点，三个 95% 配对 bootstrap 区间均包含 0。外显化流程使编辑后重读率增加 31.3 个百分点，95% 区间为 [+14.6, +47.9]。
 
-- C1 的 task-paired pass-rate difference 为 +6.25 percentage points；
-- externalized procedure 的 difference 为 0.00 percentage points；
-- trajectory imitation 的 difference 为 +4.17 percentage points。
-
-三个 95% paired-bootstrap intervals 均包含 0。Externalized procedure 使 post-edit rereading 增加 31.3 percentage points，95% interval 为 [+14.6, +47.9]。
-
-结果进一步表明，prompt intervention 可以产生可测量的 process-level behavioral changes，但这种变化本身不能证明 functional repair performance 得到改善。
+流程提示能够改变可观测的执行行为，但本实验没有观察到相应的功能修复改善。
 
 完整材料见[分析方案](docs/s8b_analysis_plan_20261015.md)、[执行锁](config/s8b_execution_lock.yaml)、[结果说明](docs/s8b_results.md)、[条件汇总](results/tables/s8b/S8B_T1_condition_summary.csv)、[任务配对结果](results/tables/s8b/S8B_T2_task_paired_differences.csv)、[过程指标配对差](results/tables/s8b/S8B_T5_process_paired_differences.csv)和[结果图](paper/figures/s8b_mechanism.pdf)。
 
