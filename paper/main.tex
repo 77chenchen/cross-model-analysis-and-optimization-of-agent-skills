@@ -319,7 +319,7 @@ Reread after edit & 12/47 (25.5\%) & 3/6 (50.0\%) & 2/10 (20.0\%) & 4/8 (50.0\%)
 \subsection{Mechanical failure classification}
 Among 98 verifier-failing weak-target runs from development diagnosis and held-out C0/C1, 57 ended with an empty final message, 13 reached the step limit, two timed out, and two produced a compile error. Among 97 held-out failures from the three stronger configurations, five reached the step limit and five ended with an empty final message. These overlapping flags identify where failures occurred in the execution record; they do not by themselves identify the error in the proposed code. Named verifier-check failures and verifier-exception categories are documented in the released mechanical taxonomy. The earlier judge packets cover none of these 98 weak-target failures, so \cref{fig:failures} uses mechanical indicators only.
 
-Human--judge agreement was assessed on 24 packets; agreement statistics and their limits are reported in the appendix. Judge labels are used as conclusion evidence only for file corruption, tool misuse, and missed constraints; validation and looping claims rely on mechanical indicators.
+Judge labels are used as conclusion evidence only for file corruption, tool misuse, and missed constraints; validation and looping claims rely on mechanical indicators.
 
 \begin{figure*}[t]
 \centering
@@ -363,45 +363,5 @@ Analysis code, released study data, locked configurations, and the scripts used 
 
 \bibliographystyle{plainnat}
 \bibliography{references}
-
-\appendix
-\section{Split-Level Paired Results}
-\begin{table}[H]
-\centering
-\scriptsize
-\begin{threeparttable}
-\caption{Task-paired C1--C0 verifier-pass differences by held-out split. Intervals are 95\% paired-bootstrap intervals over tasks.}
-\label{tab:splits}
-\setlength{\tabcolsep}{2pt}
-\begin{tabular}{@{}lrr@{}}
-\toprule
-Model & \texttt{test\_in}, 12 tasks & \texttt{test\_out}, 6 tasks \\
-\midrule
-\QwenWeak & \(+5.0\;[-5.0,13.3]\) & \(-4.2\;[-23.3,14.2]\) \\
-\Gemma & \(+8.3^\dagger\;[0.0,22.2]\) & \(0.0^\dagger\;[0.0,0.0]\) \\
-\QwenStrong & \(-2.8\;[-8.3,0.0]\) & \(+11.1^\dagger\;[0.0,22.2]\) \\
-\Coder & \(-2.8\;[-11.1,5.6]\) & \(+11.1^\dagger\;[0.0,33.3]\) \\
-\Llama & \(0.0\;[0.0,0.0]\) (floor) & \(0.0\;[0.0,0.0]\) (floor) \\
-\Ornith & \(+5.6\;[-5.6,16.7]\) & \(-16.7\;[-50.0,0.0]\) \\
-\GLM & \(+11.1^\dagger\;[0.0,27.8]\) & \(+22.2^\dagger\;[0.0,55.6]\) \\
-\GPT\tnote{a} & \(0.0\;[-8.3,8.3]\) & \(0.0^\dagger\;[0.0,0.0]\) \\
-\bottomrule
-\end{tabular}
-\begin{tablenotes}[flushleft]\footnotesize
-\item[] \(\dagger\) The lower interval bound is exactly 0.0.
-\item[a] Uncontrolled reference anchor, not pooled with r2 comparisons.
-\end{tablenotes}
-\end{threeparttable}
-\end{table}
-
-\section{Human--Judge Agreement}
-Across 24 blinded packets, macro Cohen's \(\kappa\) over five estimable labels was 0.588 (bootstrap 95\% interval 0.434--0.771); macro PABAK across all eight labels was 0.677 (0.552--0.781), and exact label-set agreement was 25.0\%. Interpretation is limited by the single researcher annotator, incomplete blinding, and small sample.
-
-\begin{figure*}[t]
-\centering
-\includegraphics[width=\textwidth]{kappa_pabak.png}
-\caption{Raw human--judge agreement across 24 blinded packets. Each row shows the number of packets on which both raters assigned the same binary label (green) or different labels (gray). The annotation packet is the sampling unit. Raw agreement is shown for readability and can be high when a label is rare; chance-adjusted Cohen's \(\kappa\) and PABAK are reported in the accompanying appendix text.}
-\label{fig:kappa}
-\end{figure*}
 
 \end{document}
