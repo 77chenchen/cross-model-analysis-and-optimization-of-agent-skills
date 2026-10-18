@@ -1,5 +1,5 @@
-\documentclass[10pt,twocolumn]{article}
-\usepackage[letterpaper,left=0.72in,right=0.72in,top=0.72in,bottom=0.78in,columnsep=0.25in]{geometry}
+\documentclass[10pt]{article}
+\usepackage[letterpaper,textwidth=5.5in,top=0.85in,bottom=0.9in]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage{newtxtext,newtxmath}
 \usepackage{microtype}
@@ -13,34 +13,17 @@
 \usepackage{enumitem}
 \usepackage{xurl}
 \usepackage{float}
-\usepackage{dblfloatfix}
-\usepackage{placeins}
-\usepackage{balance}
+\usepackage[section]{placeins}
 \usepackage[colorlinks=true,allcolors=blue!45!black]{hyperref}
 \usepackage{cleveref}
 \graphicspath{{figures/}}
 \setlength{\parindent}{1em}
 \setlength{\parskip}{0pt}
 \setlength{\emergencystretch}{1.5em}
-\captionsetup{font=footnotesize,labelfont=bf}
-\renewenvironment{abstract}
-  {\begin{minipage}{0.92\textwidth}\small\textbf{Abstract.}\ }
-  {\end{minipage}}
+\captionsetup{font=small,labelfont=bf}
 \makeatletter
 \setlength{\@fptop}{0pt}
-\setlength{\@fpsep}{10pt}
-\setlength{\@fpbot}{0pt plus 1fil}
 \makeatother
-\renewcommand{\topfraction}{0.95}
-\renewcommand{\bottomfraction}{0.90}
-\renewcommand{\textfraction}{0.06}
-\renewcommand{\floatpagefraction}{0.78}
-\renewcommand{\dbltopfraction}{0.95}
-\renewcommand{\dblfloatpagefraction}{0.78}
-\setlength{\textfloatsep}{11pt plus 2pt minus 2pt}
-\setlength{\floatsep}{10pt plus 2pt minus 2pt}
-\setlength{\dbltextfloatsep}{12pt plus 2pt minus 2pt}
-\setlength{\dblfloatsep}{10pt plus 2pt minus 2pt}
 
 \newcommand{\pp}{\,\text{pp}}
 \newcommand{\QwenWeak}{\texttt{qwen3.5:\allowbreak 9b}}
@@ -53,20 +36,16 @@
 \newcommand{\GPT}{\texttt{gpt-5.6-sol}}
 \newcommand{\SkillTraj}{\textsc{SkillTraj}}
 
+\title{Cross-Model Analysis and Optimization of Agent Skills}
+\author{Wang Qichen}
+\date{}
+
 \begin{document}
-\raggedbottom
-\twocolumn[
-\begin{center}
-{\LARGE\bfseries Cross-Model Analysis and Optimization of Agent Skills\par}
-\vspace{0.55em}
-{\large Wang Qichen\par}
-\vspace{0.8em}
+\maketitle
+
 \begin{abstract}
 Written skills tell coding agents how to inspect, edit, and validate repositories, but following a procedure need not produce a correct repair. This study introduces a fixed task pool and execution harness that records complete tool trajectories alongside external verifier outcomes. The main evaluation compared no skill (C0) with a fixed skill (C1) across 18 held-out tasks, eight model configurations, and 1,086 scheduled runs. C1 raised \GLM{} verifier pass from 74.1\% to 88.9\%, a task-paired gain of \(+14.8\)\pp{} with a 95\% bootstrap interval of \(\lbrack +3.7,+29.6\rbrack\)\pp{}. Effects for the other models were small or inconsistent. For \QwenWeak{}, C1 changed post-edit validation by \(-25.0\)\pp{}, while verifier pass changed by only \(+1.9\)\pp{}. A rewritten skill raised validation by 45.0\pp{} without changing pass. A follow-up experiment tested three procedural prompts against a length-matched generic control on 24 newly admitted development tasks (192 runs). Their task-paired pass differences were \(+6.3\), 0.0, and \(+4.2\)\pp{}. Every interval spanned zero, although the externalized procedure increased post-edit rereading by 31.3\pp{}. Across both studies, written instructions changed agent workflows without necessarily improving code, and outcome gains appeared only when instructions addressed remaining model-specific repair bottlenecks.
 \end{abstract}
-\vspace{1.1em}
-\end{center}
-]
 
 \section{Introduction}
 Written skills give coding agents a procedure to follow when reading a repository, editing files, and checking their work. A skill succeeds at directing behavior when the agent follows those instructions. It succeeds at improving repair only when the resulting code meets the task requirements. These are separate questions. An agent may run more checks because it is working carefully, because an edit introduced a new error, or because repeated attempts have failed.
@@ -115,7 +94,7 @@ Each procedural condition was compared with the generic control after averaging 
 \subsection{Evaluation pipeline}
 Tasks and verifiers were frozen before runs were interleaved. The harness recorded the execution trajectory, verified the final workspace, and paired outcomes by task for analysis (\cref{fig:pipeline}).
 
-\begin{figure*}[t]
+\begin{figure}[t]
 \centering
 \begin{tikzpicture}[
   node distance=0.2cm,
@@ -136,13 +115,13 @@ Tasks and verifiers were frozen before runs were interleaved. The harness record
 \end{tikzpicture}
 \caption{Evaluation pipeline. The task pool contains 18 held-out tasks; the analyzed schedule contains 1,086 runs across eight model configurations and core/exploratory conditions. The inferential unit for C0/C1 comparisons is the task.}
 \label{fig:pipeline}
-\end{figure*}
+\end{figure}
 
 \section{Results}
 \subsection{Cross-model verifier pass}
 All 1,086 analyzed run directories contained metadata and a Boolean verifier result. The clearest positive result was \GLM{}: C0 passed 40/54 runs (74.1\%) and C1 passed 48/54 (88.9\%), yielding a task-paired difference of \(+14.8\)\pp{} with a 95\% bootstrap interval of \([+3.7,+29.6]\)\pp{} (\cref{tab:core,fig:main}). Its direction was positive on both held-out splits. The remaining controlled estimates were smaller or inconsistent. \Gemma{} increased by \(+5.6\)\pp{}; \QwenWeak{}, \QwenStrong{}, and \Coder{} each increased by \(+1.9\)\pp{}. \Ornith{} passed 45/52 usable C0 runs (86.5\%) and 44/52 C1 runs (84.6\%), a paired difference of \(-1.9\)\pp{} \([-16.7,9.3]\). Three Ornith records for \texttt{test\_out\_c02\_sessions} carried an alternate task-tree hash; each achieved \texttt{verifier.passed=true} and is counted as correct in the primary result. \Llama{} passed no held-out run, making its zero contrast a floor rather than evidence of equivalence. The GPT reference anchor had identical marginal pass counts under C0 and C1. Thus C1 produced a substantial gain for one model, little change for several models, and no rescue at the floor.
 
-\begin{table*}[t]
+\begin{table}[t]
 \centering
 \scriptsize
 \begin{threeparttable}
@@ -170,9 +149,9 @@ Model & C0 & C1 & Difference (\pp) \\
 \item[] \(\dagger\) The lower paired-bootstrap bound is exactly 0.0. Provider errors are excluded from primary denominators; the qwen denominators are 89 of 90 and the Ornith denominators are 52 of 54 scheduled runs per condition. All three alternate-hash Ornith records passed the frozen external verifier and are included as correct.
 \end{tablenotes}
 \end{threeparttable}
-\end{table*}
+\end{table}
 
-\begin{table*}[t]
+\begin{table}[t]
 \centering
 \small
 \begin{threeparttable}
@@ -194,44 +173,44 @@ Model & All runs & Final empty & Pass if empty & Pass if non-empty \\
 \item These are descriptive behavior rates; all scheduled records, including protocol provider-error records, are retained in these conditional denominators.
 \end{tablenotes}
 \end{threeparttable}
-\end{table*}
+\end{table}
 
 
 
-\begin{figure*}[t]
+\begin{figure}[t]
 \centering
 \includegraphics[width=\textwidth]{main_results.pdf}
 \caption{Held-out task-pool results for eight model configurations. In panel (a), gray circles denote C0 and blue diamonds C1; pass rates use runs and Wilson 95\% intervals, while paired contrasts use tasks (18 task pairs per controlled model). Panel (b) shows medians and IQRs (filled circles: tool calls; open diamonds: assistant turns); panel (c) shows run-flag rates. Row-end \(n\) is the number of scheduled runs per condition (18 tasks by repetitions). Ornith is shown as recorded, with all verifier-passing records counted as correct; GPT is a sampling-uncontrolled reference anchor.}
 \label{fig:main}
-\end{figure*}
+\end{figure}
 
 \subsection{Process behavior and verified outcome}
 For \QwenWeak{}, the task-paired rate of post-edit commands matching the strict validation rule was 25.0\pp{} lower under C1 than C0 (18 tasks; 95\% paired-bootstrap interval \([-38.9,-9.4]\)\pp{}). The baseline skill therefore reduced this checking behavior. In the exploratory \texttt{test\_in} comparison, v1 increased it by 45.0\pp{} over C1 (12 tasks; \([26.7,63.3]\)\pp{}). The pass-rate differences were much smaller: \(+1.9\)\pp{} for C1--C0 (\([-6.9,10.6]\)\pp{}) and \(0.0\)\pp{} for v1--C1 (\([-11.7,13.3]\)\pp{}). The rewritten skill led to more checking without a higher observed pass rate (\cref{fig:decoupling}).
 
 \GLM{} showed a different coupling between process and outcome. C1 increased task-paired post-edit validation by 22.2\pp{} \([9.3,35.2]\) and increased the median trajectory from five to six tool calls. Over the same tasks, verifier pass increased by 14.8\pp{}. This is the only evaluated configuration in which the fixed skill produced a clearly positive overall pass-rate contrast together with a process change in the prescribed direction.
 
-\begin{figure*}[b]
+\begin{figure}[b]
 \centering
 \includegraphics[width=0.62\textwidth]{decoupling.pdf}
 \caption{Task-paired qwen contrasts for validation behavior and verifier pass. Intervals are 95\% paired-bootstrap intervals; the resampling unit is the task (\(n=18\) for C1--C0 and \(n=12\) for v1--C1). v1 is exploratory and limited to \texttt{test\_in}.}
 \label{fig:decoupling}
-\end{figure*}
+\end{figure}
 
 \subsection{Fresh-task process variants}
 On the 24 fresh development tasks, the generic control passed 26/47 (55.3\%) usable runs. C1 passed 27/44 (61.4\%), the externalized procedure 25/47 (53.2\%), and imitation 26/45 (57.8\%). After pairing by task, their pass-rate differences from the generic control were \(+6.25\)\pp{} \([-8.33,+20.83]\), \(+0.00\)\pp{} \([-18.75,+18.75]\), and \(+4.17\)\pp{} \([-10.42,+20.83]\), respectively. Every interval included zero, so none met the pre-specified efficacy rule (\cref{fig:fresh}).
 
 The process measures changed more clearly than the verified outcome. Relative to the generic control, the externalized condition increased task-paired post-edit rereading by 31.3\pp{} \([14.6,47.9]\) and validation after the last edit by 10.4\pp{} \([-4.2,25.0]\), while its pass difference was exactly 0.0\pp{}. Imitation increased rereading by 18.8\pp{} \([0.0,35.4]\) but changed validation by \(-2.1\)\pp{} \([-18.8,14.6]\). The locked activation parser also marked 46/47 generic-control runs as activated, so activation did not distinguish prompt conditions in this cohort. These results provide a fresh-task replication of process--outcome separation, not a new held-out efficacy claim.
 
-\begin{figure*}[t]
+\begin{figure}[t]
 \centering
 \includegraphics[width=\textwidth]{s8b_mechanism.pdf}
 \caption{Fresh-task mechanism study on \QwenWeak{}. Panel (a) shows task-paired verifier-pass differences relative to the length-matched generic control with 95\% paired-bootstrap intervals (24 tasks; two repetitions per task--condition cell). Panel (b) shows run-level pass proportions with Wilson 95\% intervals; primary denominators exclude retry-exhausted provider errors. Panel (c) shows task-paired changes in validation and rereading relative to the generic control. The study contains 192 scheduled runs and is development-only.}
 \label{fig:fresh}
-\end{figure*}
+\end{figure}
 
 \subsection{Strong-versus-weak process summaries}
 The strong comparison group contains \Gemma{}, \QwenStrong{}, and \Coder{}; the weak target is \QwenWeak{}. \Cref{tab:process} reports medians and IQRs across runs and run-level occurrence rates for binary behaviors. Under r2, each parsed tool result counts as one tool call, so step and call summaries coincide. The weak target's validation-intent occurrence fell from 64.0\% in C0 to 38.2\% in C1, whereas the strong cohort remained near 70\% in both conditions.
-\begin{table*}[t]
+\begin{table}[t]
 \centering
 \scriptsize
 \begin{threeparttable}
@@ -254,12 +233,12 @@ Weak & C1 & 89/90 & 7 [5,19] & 8 [6,20] & 0 [0,100]\% (38.2\%) & 100 [0,100]\% (
 \item Values are median [IQR] across runs; parenthetical values are run-level rates. Intent is a command matching the frozen validation-intent rule; success is any successful command after the last edit. Under r2, one parsed tool result is one call, so steps and calls coincide. Strong includes three models; weak includes \QwenWeak{}. Weak usable runs exclude one retry-exhausted provider error per condition.
 \end{tablenotes}
 \end{threeparttable}
-\end{table*}
+\end{table}
 
 \subsection{Development behavior--outcome cross-tab}
 The four-cell cross-tab uses only the development diagnosis subset, with mechanically defined behaviors and verifier outcomes. Reading before editing occurred in every cell. In both model cohorts, post-edit validation and rereading were at least as common among failures as among passes, while avoiding repeated full-file writes changed little across outcomes (\cref{tab:crosstab,fig:behavior}). This does not imply that validation harms repair: difficult runs may require more checking, and the cells are observational. It does show that these individual checklist behaviors did not distinguish successful from failed runs in this sample. The weak pass and weak fail cells contain only 10 and 8 runs.
 
-\begin{table*}[t]
+\begin{table}[t]
 \centering
 \small
 \begin{threeparttable}
@@ -281,14 +260,14 @@ Reread after edit & 12/47 (25.5\%) & 3/6 (50.0\%) & 2/10 (20.0\%) & 4/8 (50.0\%)
 \item Strong comprises three fixed models; weak is \QwenWeak{}. One retry-exhausted run is excluded. No interval is reported for these descriptive cells.
 \end{tablenotes}
 \end{threeparttable}
-\end{table*}
+\end{table}
 
-\begin{figure*}[t]
+\begin{figure}[t]
 \centering
 \includegraphics[width=\textwidth]{behavior_outcome.pdf}
 \caption{Development diagnosis behavior--outcome cross-tab. Cell sample sizes are 47, 6, 10, and 8 runs (strong-pass, strong-fail, weak-pass, weak-fail); labels show count and percentage. No inferential interval is shown.}
 \label{fig:behavior}
-\end{figure*}
+\end{figure}
 
 \FloatBarrier
 \subsection{Mechanical failure classification}
@@ -296,26 +275,25 @@ The weak-target, original stronger-model, Ornith, and GLM failure cohorts contai
 
 \begin{table}[!t]
 \centering
-\scriptsize
-\setlength{\tabcolsep}{2.2pt}
+\small
 \begin{threeparttable}
 \caption{Non-exclusive mechanical failure flags among verifier-failing runs.}
 \label{tab:failure}
-\begin{tabularx}{\columnwidth}{@{}>{\raggedright\arraybackslash}Xrrrrrr@{}}
+\begin{tabular}{@{}lrrrrrr@{}}
 \toprule
-Cohort & \(n\) & NE & Empty & TO & CE & SL \\
+Cohort & \(n\) & No edit & Empty & Timeout & Compile & Step limit \\
 \midrule
-Weak development & 8 & 0 & 3 & 0 & 0 & 0 \\
-Weak held-out C0 & 46 & 4 & 27 & 1 & 1 & 5 \\
-Weak held-out C1 & 44 & 2 & 27 & 1 & 1 & 8 \\
-Weak combined & 98 & 6 & 57 & 2 & 2 & 13 \\
-Three stronger models & 97 & 3 & 5 & 0 & 0 & 5 \\
-\Ornith{} held-out & 15 & 1 & 2 & 1 & 0 & 1 \\
-\GLM{} held-out & 20 & 0 & 0 & 0 & 0 & 0 \\
+Weak development diagnosis & 8 & 0 & 3 & 0 & 0 & 0 \\
+Weak target, held-out C0 & 46 & 4 & 27 & 1 & 1 & 5 \\
+Weak target, held-out C1 & 44 & 2 & 27 & 1 & 1 & 8 \\
+Weak target, combined & 98 & 6 & 57 & 2 & 2 & 13 \\
+Three stronger models, held-out & 97 & 3 & 5 & 0 & 0 & 5 \\
+\Ornith{}, held-out & 15 & 1 & 2 & 1 & 0 & 1 \\
+\GLM{}, held-out & 20 & 0 & 0 & 0 & 0 & 0 \\
 \bottomrule
-\end{tabularx}
+\end{tabular}
 \begin{tablenotes}[flushleft]\footnotesize
-\item NE = no edit; TO = timeout; CE = compile error; SL = step limit. Flags are non-exclusive. The stronger group combines \Gemma{}, \QwenStrong{}, and \Coder{}.
+\item A run may contribute to more than one flag. The stronger group combines \Gemma{}, \QwenStrong{}, and \Coder{}; \Ornith{} and \GLM{} are shown separately because they were added after that pooled cohort was specified. Named failed verifier checks are summarized separately in the released mechanical taxonomy.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -324,12 +302,12 @@ Among 98 verifier-failing weak-target runs from development diagnosis and held-o
 
 Judge labels are used as conclusion evidence only for file corruption, tool misuse, and missed constraints; validation and looping claims rely on mechanical indicators.
 
-\begin{figure*}[t]
+\begin{figure}[t]
 \centering
 \includegraphics[width=\textwidth]{failure_flags.pdf}
 \caption{Mechanical terminal flags among verifier-failing runs. Bars show the percentage of runs in each cohort carrying a flag; flags are non-exclusive and counts are printed beside each bar. Denominators are 98 weak-target failures and 97 failures from three stronger models; no interval is shown.}
 \label{fig:failures}
-\end{figure*}
+\end{figure}
 \FloatBarrier
 
 \section{Discussion}
