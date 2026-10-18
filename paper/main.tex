@@ -41,6 +41,7 @@
 \date{}
 
 \begin{document}
+\raggedbottom
 \maketitle
 
 \begin{abstract}
@@ -189,7 +190,7 @@ For \QwenWeak{}, the task-paired rate of post-edit commands matching the strict 
 
 \GLM{} showed a different coupling between process and outcome. C1 increased task-paired post-edit validation by 22.2\pp{} \([9.3,35.2]\) and increased the median trajectory from five to six tool calls. Over the same tasks, verifier pass increased by 14.8\pp{}. This is the only evaluated configuration in which the fixed skill produced a clearly positive overall pass-rate contrast together with a process change in the prescribed direction.
 
-\begin{figure}[b]
+\begin{figure}[H]
 \centering
 \includegraphics[width=0.62\textwidth]{decoupling.pdf}
 \caption{Task-paired qwen contrasts for validation behavior and verifier pass. Intervals are 95\% paired-bootstrap intervals; the resampling unit is the task (\(n=18\) for C1--C0 and \(n=12\) for v1--C1). v1 is exploratory and limited to \texttt{test\_in}.}
@@ -201,16 +202,16 @@ On the 24 fresh development tasks, the generic control passed 26/47 (55.3\%) usa
 
 The process measures changed more clearly than the verified outcome. Relative to the generic control, the externalized condition increased task-paired post-edit rereading by 31.3\pp{} \([14.6,47.9]\) and validation after the last edit by 10.4\pp{} \([-4.2,25.0]\), while its pass difference was exactly 0.0\pp{}. Imitation increased rereading by 18.8\pp{} \([0.0,35.4]\) but changed validation by \(-2.1\)\pp{} \([-18.8,14.6]\). The locked activation parser also marked 46/47 generic-control runs as activated, so activation did not distinguish prompt conditions in this cohort. These results provide a fresh-task replication of process--outcome separation, not a new held-out efficacy claim.
 
-\begin{figure}[t]
+\begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{s8b_mechanism.pdf}
+\includegraphics[width=0.88\textwidth]{s8b_mechanism.pdf}
 \caption{Fresh-task mechanism study on \QwenWeak{}. Panel (a) shows task-paired verifier-pass differences relative to the length-matched generic control with 95\% paired-bootstrap intervals (24 tasks; two repetitions per task--condition cell). Panel (b) shows run-level pass proportions with Wilson 95\% intervals; primary denominators exclude retry-exhausted provider errors. Panel (c) shows task-paired changes in validation and rereading relative to the generic control. The study contains 192 scheduled runs and is development-only.}
 \label{fig:fresh}
 \end{figure}
 
 \subsection{Strong-versus-weak process summaries}
 The strong comparison group contains \Gemma{}, \QwenStrong{}, and \Coder{}; the weak target is \QwenWeak{}. \Cref{tab:process} reports medians and IQRs across runs and run-level occurrence rates for binary behaviors. Under r2, each parsed tool result counts as one tool call, so step and call summaries coincide. The weak target's validation-intent occurrence fell from 64.0\% in C0 to 38.2\% in C1, whereas the strong cohort remained near 70\% in both conditions.
-\begin{table}[t]
+\begin{table}[H]
 \centering
 \scriptsize
 \begin{threeparttable}
@@ -238,9 +239,10 @@ Weak & C1 & 89/90 & 7 [5,19] & 8 [6,20] & 0 [0,100]\% (38.2\%) & 100 [0,100]\% (
 \subsection{Development behavior--outcome cross-tab}
 The four-cell cross-tab uses only the development diagnosis subset, with mechanically defined behaviors and verifier outcomes. Reading before editing occurred in every cell. In both model cohorts, post-edit validation and rereading were at least as common among failures as among passes, while avoiding repeated full-file writes changed little across outcomes (\cref{tab:crosstab,fig:behavior}). This does not imply that validation harms repair: difficult runs may require more checking, and the cells are observational. It does show that these individual checklist behaviors did not distinguish successful from failed runs in this sample. The weak pass and weak fail cells contain only 10 and 8 runs.
 
-\begin{table}[t]
+\begin{table}[H]
 \centering
-\small
+\footnotesize
+\setlength{\tabcolsep}{4pt}
 \begin{threeparttable}
 \caption{Mechanical behavior rates in the development diagnosis subset. Values are count/usable runs (percentage); cells are observational strata.}
 \label{tab:crosstab}
@@ -262,20 +264,20 @@ Reread after edit & 12/47 (25.5\%) & 3/6 (50.0\%) & 2/10 (20.0\%) & 4/8 (50.0\%)
 \end{threeparttable}
 \end{table}
 
-\begin{figure}[t]
+\begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{behavior_outcome.pdf}
+\includegraphics[width=0.82\textwidth]{behavior_outcome.pdf}
 \caption{Development diagnosis behavior--outcome cross-tab. Cell sample sizes are 47, 6, 10, and 8 runs (strong-pass, strong-fail, weak-pass, weak-fail); labels show count and percentage. No inferential interval is shown.}
 \label{fig:behavior}
 \end{figure}
 
-\FloatBarrier
 \subsection{Mechanical failure classification}
 The weak-target, original stronger-model, Ornith, and GLM failure cohorts contain 98, 97, 15, and 20 verifier-failing usable runs, respectively. A run can appear in several flag columns; these counts describe failure contexts, not mutually exclusive causes.
 
-\begin{table}[!t]
+\begin{table}[H]
 \centering
-\small
+\footnotesize
+\setlength{\tabcolsep}{4pt}
 \begin{threeparttable}
 \caption{Non-exclusive mechanical failure flags among verifier-failing runs.}
 \label{tab:failure}
@@ -302,13 +304,12 @@ Among 98 verifier-failing weak-target runs from development diagnosis and held-o
 
 Judge labels are used as conclusion evidence only for file corruption, tool misuse, and missed constraints; validation and looping claims rely on mechanical indicators.
 
-\begin{figure}[t]
+\begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{failure_flags.pdf}
+\includegraphics[width=0.82\textwidth]{failure_flags.pdf}
 \caption{Mechanical terminal flags among verifier-failing runs. Bars show the percentage of runs in each cohort carrying a flag; flags are non-exclusive and counts are printed beside each bar. Denominators are 98 weak-target failures and 97 failures from three stronger models; no interval is shown.}
 \label{fig:failures}
 \end{figure}
-\FloatBarrier
 
 \section{Discussion}
 
@@ -338,7 +339,6 @@ The conclusion from these experiments is direct: following the requested procedu
 
 
 
-\clearpage
 \section*{Code and Data Availability}
 Analysis code, released study data, locked configurations, and the scripts used to reproduce the tables and figures are available at \url{https://github.com/77chenchen/cross-model-analysis-and-optimization-of-agent-skills}. Source code is licensed under the MIT License; released data and documentation are licensed under CC BY 4.0. Raw provider responses containing private reasoning traces are not included in the public package.
 
