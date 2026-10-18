@@ -54,6 +54,7 @@
 \newcommand{\SkillTraj}{\textsc{SkillTraj}}
 
 \begin{document}
+\raggedbottom
 \twocolumn[
 \begin{center}
 {\LARGE\bfseries Cross-Model Analysis and Optimization of Agent Skills\par}
@@ -197,34 +198,6 @@ Model & All runs & Final empty & Pass if empty & Pass if non-empty \\
 
 
 
-\subsection{Mechanical failure counts}
-The weak-target, original stronger-model, Ornith, and GLM failure cohorts contain 98, 97, 15, and 20 verifier-failing usable runs, respectively. A run can appear in several flag columns; these counts describe failure contexts, not mutually exclusive causes.
-
-\begin{table*}[!b]
-\centering
-\small
-\begin{threeparttable}
-\caption{Non-exclusive mechanical failure flags among verifier-failing runs.}
-\label{tab:failure}
-\begin{tabular}{@{}lrrrrrr@{}}
-\toprule
-Cohort & \(n\) & No edit & Empty & Timeout & Compile & Step limit \\
-\midrule
-Weak development diagnosis & 8 & 0 & 3 & 0 & 0 & 0 \\
-Weak target, held-out C0 & 46 & 4 & 27 & 1 & 1 & 5 \\
-Weak target, held-out C1 & 44 & 2 & 27 & 1 & 1 & 8 \\
-Weak target, combined & 98 & 6 & 57 & 2 & 2 & 13 \\
-Three stronger models, held-out & 97 & 3 & 5 & 0 & 0 & 5 \\
-\Ornith, held-out & 15 & 1 & 2 & 1 & 0 & 1 \\
-\GLM, held-out & 20 & 0 & 0 & 0 & 0 & 0 \\
-\bottomrule
-\end{tabular}
-\begin{tablenotes}[flushleft]\footnotesize
-\item A run may contribute to more than one flag. The stronger group combines \Gemma{}, \QwenStrong{}, and \Coder{}; \Ornith{} and \GLM{} are shown separately because they were added after that pooled cohort was specified. Named failed verifier checks are summarized separately in the released mechanical taxonomy.
-\end{tablenotes}
-\end{threeparttable}
-\end{table*}
-
 \begin{figure*}[t]
 \centering
 \includegraphics[width=\textwidth]{main_results.pdf}
@@ -317,7 +290,36 @@ Reread after edit & 12/47 (25.5\%) & 3/6 (50.0\%) & 2/10 (20.0\%) & 4/8 (50.0\%)
 \label{fig:behavior}
 \end{figure*}
 
+\FloatBarrier
 \subsection{Mechanical failure classification}
+The weak-target, original stronger-model, Ornith, and GLM failure cohorts contain 98, 97, 15, and 20 verifier-failing usable runs, respectively. A run can appear in several flag columns; these counts describe failure contexts, not mutually exclusive causes.
+
+\begin{table}[!t]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{2.2pt}
+\begin{threeparttable}
+\caption{Non-exclusive mechanical failure flags among verifier-failing runs.}
+\label{tab:failure}
+\begin{tabularx}{\columnwidth}{@{}>{\raggedright\arraybackslash}Xrrrrrr@{}}
+\toprule
+Cohort & \(n\) & NE & Empty & TO & CE & SL \\
+\midrule
+Weak development & 8 & 0 & 3 & 0 & 0 & 0 \\
+Weak held-out C0 & 46 & 4 & 27 & 1 & 1 & 5 \\
+Weak held-out C1 & 44 & 2 & 27 & 1 & 1 & 8 \\
+Weak combined & 98 & 6 & 57 & 2 & 2 & 13 \\
+Three stronger models & 97 & 3 & 5 & 0 & 0 & 5 \\
+\Ornith{} held-out & 15 & 1 & 2 & 1 & 0 & 1 \\
+\GLM{} held-out & 20 & 0 & 0 & 0 & 0 & 0 \\
+\bottomrule
+\end{tabularx}
+\begin{tablenotes}[flushleft]\footnotesize
+\item NE = no edit; TO = timeout; CE = compile error; SL = step limit. Flags are non-exclusive. The stronger group combines \Gemma{}, \QwenStrong{}, and \Coder{}.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
 Among 98 verifier-failing weak-target runs from development diagnosis and held-out C0/C1, 57 ended with an empty final message, 13 reached the step limit, two timed out, and two produced a compile error. Among 97 held-out failures from the three stronger configurations, five reached the step limit and five ended with an empty final message. These overlapping flags identify where failures occurred in the execution record; they do not by themselves identify the error in the proposed code. Named verifier-check failures and verifier-exception categories are documented in the released mechanical taxonomy. The earlier judge packets cover none of these 98 weak-target failures, so \cref{fig:failures} uses mechanical indicators only.
 
 Judge labels are used as conclusion evidence only for file corruption, tool misuse, and missed constraints; validation and looping claims rely on mechanical indicators.
@@ -328,7 +330,7 @@ Judge labels are used as conclusion evidence only for file corruption, tool misu
 \caption{Mechanical terminal flags among verifier-failing runs. Bars show the percentage of runs in each cohort carrying a flag; flags are non-exclusive and counts are printed beside each bar. Denominators are 98 weak-target failures and 97 failures from three stronger models; no interval is shown.}
 \label{fig:failures}
 \end{figure*}
-\clearpage
+\FloatBarrier
 
 \section{Discussion}
 
